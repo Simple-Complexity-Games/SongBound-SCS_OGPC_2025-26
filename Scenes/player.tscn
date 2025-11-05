@@ -6,10 +6,10 @@
 script/source = "extends CharacterBody2D
 
 #Constants for Movement/Jump
-const ACCELERATION_SPEED = 16 #Used for acceleration while you walk
-const DECELERATON_SPEED = 12 #Used to slow you down while your walking
+const ACCELERATION_SPEED = 25 #Used for acceleration while you walk
+const DECELERATON_SPEED = 20 #Used to slow you down while your walking
 const ACCELERATION_JUMP = 50 #Used for changing direction in midair, same with line 7
-const SPEED = 300.0
+const SPEED = 200.0
 const JUMP_VELOCITY = -400.0
 const MAX_JUMPS = 2 #Max jumps, read the name
 const MAX_GLIDE_SPEED = 500
@@ -64,6 +64,8 @@ func _physics_process(delta: float) -> void:
 	elif Input.is_action_just_pressed(\"Jump\") and velocity.y < 0 and Total_Jumps < MAX_JUMPS:
 		velocity.y = JUMP_VELOCITY
 		Total_Jumps += 1
+	elif Input.is_action_just_released(\"Jump\") and velocity.y < 0:
+		velocity.y = velocity.y / 5
 	
 	
 	# All this is commented out for the time being. Till I know how to make it unlock later. 
