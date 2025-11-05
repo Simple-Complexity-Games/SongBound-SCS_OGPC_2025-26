@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=4 uid="uid://b16yit5m21504"]
+
+[ext_resource type="Texture2D" uid="uid://c6r4fv54mx5nv" path="res://icon.svg" id="1_ebmjs"]
+[ext_resource type="PackedScene" uid="uid://bdkged5clqdnl" path="res://Scenes/player.tscn" id="2_qxrlw"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qxrlw"]
+texture = ExtResource("1_ebmjs")
+0:0/size_in_atlas = Vector2i(8, 8)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 63, -63, 65, 64, -65, 63)
+
+[sub_resource type="TileSet" id="TileSet_wrm1d"]
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_qxrlw")
+
+[node name="Game" type="Node2D"]
+position = Vector2(-39, -5)
+
+[node name="MovementTesting" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAD3/wQAAQAAAAAAAAD//wQAAQAAAAAAAAAHAAQAAQAAAAAAAAAPAAQAAQAAAAAAAAD0/wEAAQAAAAAAAADv/wAAAQAAAAAAAADq////AQAAAAAAAADl//3/AQAAAAAAAAAeAAQAAQAAAAAAAAAwAAQAAQAAAAAAAADj//v/AQAAAAAAAADc//j/AQAAAAAAAAC8////AQAAAAAAAAC0////AQAAAAAAAACs////AQAAAAAAAAAFAPn/AQAAAAAAAADK/+P/AQAAAAAAAAA=")
+tile_set = SubResource("TileSet_wrm1d")
+
+[node name="Player" parent="." instance=ExtResource("2_qxrlw")]
+position = Vector2(-1, 8)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(3, 3)
+limit_top = -730
+limit_bottom = 730
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
