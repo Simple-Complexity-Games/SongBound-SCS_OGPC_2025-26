@@ -1,9 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bdkged5clqdnl"]
-
-[ext_resource type="Texture2D" uid="uid://c6r4fv54mx5nv" path="res://icon.svg" id="1_v0iea"]
-
-[sub_resource type="GDScript" id="GDScript_v0iea"]
-script/source = "extends CharacterBody2D
+extends CharacterBody2D
 
 #Constants for Movement/Jump
 const ACCELERATION_SPEED = 35
@@ -11,13 +6,14 @@ const PASSIVE_ACCEL_AIR = 2 #Used for acceleration while you walk
 const DECELERATON_SPEED = 20 #Used to slow you down while you're walking
 const DECELERATON_SPEED_AIR = 0.005
 const ACCELERATION_AIR = 30 #Used for changing direction in midair, same with line 7
-const ACCELERATION_FLYING = 40
+const ACCELERATION_FLYING = 20
 const GROUND_SPEED = 200.0
 const AIR_SPEED = 180
 const JUMP_VELOCITY = -400.0
 const MAX_JUMPS = 2 #Max jumps, read the name
-const MAX_GLIDE_SPEED = 300
-const MIN_GLIDE_SPEED = 18
+const MAX_GLIDE_SPEED = 380
+const MIN_GLIDE_SPEED = 40
+const MAX_FALL_SPEED = 415
 const GLIDE_ACCELERATION = 12
 
 #Variables for Movement/Jump
@@ -37,10 +33,10 @@ var coyote_seconds = 0.15
 
 func _physics_process(delta: float) -> void:
 	#Variables for _physics_process
-	var direction := Input.get_axis(\"Move_Left\", \"Move_Right\") #For left and right movement. 
+	var direction := Input.get_axis("Move_Left", "Move_Right") #For left and right movement. 
 	
 	# Add the gravity.
-	if not is_on_floor() and not Gliding:
+	if not is_on_floor() and not Gliding and velocity.y < MAX_FALL_SPEED:
 		velocity += get_gravity() * delta
 	
 	if is_on_floor():
@@ -61,22 +57,22 @@ func _physics_process(delta: float) -> void:
 		Jumping = false
 		
 	#Start of Jumping Code
-	if Input.is_action_just_pressed(\"Jump\") and (is_on_floor() or coyote_time) and not Gliding and Total_Jumps < MAX_JUMPS and not Flying:
+	if Input.is_action_just_pressed("Jump") and (is_on_floor() or coyote_time) and not Gliding and Total_Jumps < MAX_JUMPS and not Flying:
 		velocity.y = JUMP_VELOCITY
 		Jumping = true
 		Total_Jumps += 1
-	elif Input.is_action_just_pressed(\"Jump\") and Total_Jumps < MAX_JUMPS:
+	elif Input.is_action_just_pressed("Jump") and Total_Jumps < MAX_JUMPS:
 		velocity.y = JUMP_VELOCITY
 		Total_Jumps += 1
-	elif Input.is_action_just_released(\"Jump\") and velocity.y < 0:
+	elif Input.is_action_just_released("Jump") and velocity.y < 0:
 		velocity.y = velocity.y / 5
 	
 	
 	# All this is commented out for the time being. Till I know how to make it unlock later. 
 	#Gliding 
-	if Input.is_action_pressed(\"Gliding\") and not is_on_floor() and not Gliding: #Turns on Gliding
+	if Input.is_action_pressed("Gliding") and not is_on_floor() and not Gliding: #Turns on Gliding
 		Gliding = true
-	elif Input.is_action_just_released(\"Gliding\") and Gliding:
+	elif Input.is_action_just_released("Gliding") and Gliding:
 		Gliding = false
 	
 	
@@ -84,14 +80,14 @@ func _physics_process(delta: float) -> void:
 		velocity.y = move_toward(velocity.y, (((MIN_GLIDE_SPEED - MAX_GLIDE_SPEED)/AIR_SPEED) * (abs(velocity.x) - AIR_SPEED) + MIN_GLIDE_SPEED), GLIDE_ACCELERATION)
 	
 	#Start of Flying Code
-	#if not is_on_floor() and not Flying and Input.is_action_just_pressed(\"Flying\"): #Activting flight ability
+	#if not is_on_floor() and not Flying and Input.is_action_just_pressed("Flying"): #Activting flight ability
 		#Flying = true
-	#elif Flying and Input.is_action_just_pressed(\"Flying\"): #Deactiving Flight Ability
+	#elif Flying and Input.is_action_just_pressed("Flying"): #Deactiving Flight Ability
 		#Flying = false
 	
 	#if Flying:
 		#velocity.y = move_toward(velocity.y, (((MIN_GLIDE_SPEED - MAX_GLIDE_SPEED)/SPEED) * (abs(velocity.x) - SPEED) + MIN_GLIDE_SPEED), GLIDE_ACCELERATION)
-		#if Input.is_action_just_pressed(\"Jump\"):
+		#if Input.is_action_just_pressed("Jump"):
 			#velocity.y = JUMP_VELOCITY
 		
 		
@@ -119,28 +115,3 @@ func _physics_process(delta: float) -> void:
 
 func coyote_timer_done(): #For Coyote time 
 	coyote_time = false
-"
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_onrkg"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_v0iea")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_i3pqv"]
-size = Vector2(14, 24)
-
-[node name="Player" type="CharacterBody2D"]
-script = SubResource("GDScript_v0iea")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.109375, 0.1875)
-sprite_frames = SubResource("SpriteFrames_onrkg")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_i3pqv")
