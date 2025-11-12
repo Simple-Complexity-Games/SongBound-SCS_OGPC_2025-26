@@ -38,7 +38,8 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	#Apply gravity
-	if not on_ground and not gliding and velocity.y < MAX_FALL_SPEED: velocity += get_gravity()
+	if not on_ground and not gliding and velocity.y < MAX_FALL_SPEED: 
+		velocity += get_gravity() * delta
 	
 	
 	Update_Status_Vars()
@@ -81,7 +82,7 @@ func Handle_Jump():
 		velocity.y = JUMP_VELOCITY
 		total_jumps += 1
 	elif Input.is_action_just_released("Jump") and velocity.y < 0:
-		velocity.y = velocity.y / 5
+		velocity.y = velocity.y / 3
 		jumping = false
 
 func Handle_Glide(): 

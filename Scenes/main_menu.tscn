@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://be8ds4pmwr8rn"]
+[gd_scene load_steps=5 format=3 uid="uid://be8ds4pmwr8rn"]
 
 [ext_resource type="Script" uid="uid://dxiy5wk0xbjug" path="res://Scripts/main_menu.gd" id="1_48xlc"]
 [ext_resource type="Texture2D" uid="uid://d0fy2swtgvp0l" path="res://Assets/Art/Environment/Bard_Tavern_Concept_Art.JPG" id="2_1ehe0"]
+[ext_resource type="AudioStream" uid="uid://drso7th4ouiao" path="res://Assets/Sound/Music/Game Music Concept Orchestrated.wav" id="3_1ehe0"]
+[ext_resource type="AudioStream" uid="uid://bhe7lcpnuo6q4" path="res://Assets/Sound/SFX/typing_blip.wav" id="4_ce3w2"]
 
 [node name="Main_Menu" type="Control"]
 layout_mode = 3
@@ -31,3 +33,39 @@ offset_top = 80.0
 offset_bottom = -88.0
 texture = ExtResource("2_1ehe0")
 expand_mode = 2
+
+[node name="Music_Player" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_1ehe0")
+
+[node name="Hover_SFX_Player" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ce3w2")
+volume_db = -4.108
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.278
+anchor_top = 0.605
+anchor_right = 0.722
+anchor_bottom = 0.79
+offset_left = -0.256042
+offset_top = -8.04001
+offset_right = 0.25592
+offset_bottom = 0.0799866
+
+[node name="Start_Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Start"
+
+[node name="Options_Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Options"
+
+[node name="Quit_Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[connection signal="button_down" from="VBoxContainer/Start_Button" to="." method="_on_start_button_button_down"]
+[connection signal="mouse_entered" from="VBoxContainer/Start_Button" to="." method="_on_start_button_mouse_entered"]
+[connection signal="mouse_entered" from="VBoxContainer/Options_Button" to="." method="_on_options_button_mouse_entered"]
+[connection signal="mouse_entered" from="VBoxContainer/Quit_Button" to="." method="_on_quit_button_mouse_entered"]
