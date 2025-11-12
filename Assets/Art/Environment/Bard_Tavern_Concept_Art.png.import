@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6r4fv54mx5nv"
-path="res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"
+uid="uid://hqq2762lmut8"
+path="res://.godot/imported/Bard_Tavern_Concept_Art.png-f6892e9e2bc6a35627c17d0ff1504607.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://icon.svg"
-dest_files=["res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"]
+source_file="res://Assets/Art/Environment/Bard_Tavern_Concept_Art.png"
+dest_files=["res://.godot/imported/Bard_Tavern_Concept_Art.png-f6892e9e2bc6a35627c17d0ff1504607.ctex"]
 
 [params]
 
@@ -32,6 +32,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

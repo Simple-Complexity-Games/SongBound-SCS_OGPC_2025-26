@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://be8ds4pmwr8rn"]
 
 [ext_resource type="Script" uid="uid://dxiy5wk0xbjug" path="res://Scripts/main_menu.gd" id="1_48xlc"]
-[ext_resource type="Texture2D" uid="uid://d0fy2swtgvp0l" path="res://Art/Environment/Bard_Tavern_Concept_Art.JPG" id="2_1ehe0"]
+[ext_resource type="Texture2D" uid="uid://d0fy2swtgvp0l" path="res://Assets/Art/Environment/Bard_Tavern_Concept_Art.JPG" id="2_1ehe0"]
 
 [node name="Main_Menu" type="Control"]
 layout_mode = 3

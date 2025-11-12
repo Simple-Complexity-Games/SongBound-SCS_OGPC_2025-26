@@ -2,7 +2,7 @@ extends Camera2D
 
 @onready var player = %Player
 
-const FOLLOW_SPEED = 0.15
+const FOLLOW_SPEED = 0.3
 
 
 func _physics_process(delta):
