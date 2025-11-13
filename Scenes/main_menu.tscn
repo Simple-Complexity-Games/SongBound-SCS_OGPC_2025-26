@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://be8ds4pmwr8rn"]
+[gd_scene load_steps=6 format=3 uid="uid://be8ds4pmwr8rn"]
 
 [ext_resource type="Script" uid="uid://dxiy5wk0xbjug" path="res://Scripts/main_menu.gd" id="1_48xlc"]
 [ext_resource type="Texture2D" uid="uid://d0fy2swtgvp0l" path="res://Assets/Art/Environment/Bard_Tavern_Concept_Art.JPG" id="2_1ehe0"]
 [ext_resource type="AudioStream" uid="uid://drso7th4ouiao" path="res://Assets/Sound/Music/Game Music Concept Orchestrated.wav" id="3_1ehe0"]
 [ext_resource type="AudioStream" uid="uid://bhe7lcpnuo6q4" path="res://Assets/Sound/SFX/typing_blip.wav" id="4_ce3w2"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_ce3w2"]
 
 [node name="Main_Menu" type="Control"]
 layout_mode = 3
@@ -56,10 +58,12 @@ offset_bottom = 0.0799866
 [node name="Start_Button" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Start"
+icon = SubResource("ImageTexture_ce3w2")
 
 [node name="Options_Button" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Options"
+icon_alignment = 1
 
 [node name="Quit_Button" type="Button" parent="VBoxContainer"]
 layout_mode = 2
