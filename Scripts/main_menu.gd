@@ -32,7 +32,7 @@ func _process(delta) -> void:
 func _on_start_button_mouse_entered() -> void:
 	Hover_SFX_Player.playing = true
 func _on_start_button_button_down() -> void:
-	get_tree().change_scene_to_file("res://Scenes/game.tscn")
+	Start_Game()
 # Options button
 func _on_options_button_mouse_entered() -> void:
 	Hover_SFX_Player.playing = true
@@ -61,12 +61,15 @@ func _on_video_button_mouse_entered() -> void:
 func _on_video_button_button_down() -> void:
 	Load_Video_Menu()
 
-func _on_back_button_mouse_entered() -> void:
+func _on_done_button_mouse_entered() -> void:
 	Hover_SFX_Player.playing = true
-func _on_back_button_button_down() -> void:
+func _on_done_button_button_down() -> void:
 	Load_Main_Menu()
 
 
+
+func Start_Game():
+	get_tree().change_scene_to_file("res://Scenes/game.tscn")
 
 func Load_Main_Menu():
 	Options_Menu_Container.hide()
