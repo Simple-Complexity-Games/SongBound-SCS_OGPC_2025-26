@@ -15,6 +15,8 @@ extends Control
 @onready var video_Button = get_node("Options_Menu_Container/Video_Button")
 @onready var Back_Button = get_node("Options_Menu_Container/Back_Button")
 
+#Audio Menu
+@onready var Audio_Menu_Container = get_node("Audio_Menu_Container")
 
 func _ready() -> void:
 	Load_Main_Menu()
@@ -27,7 +29,7 @@ func _process(delta) -> void:
 		Load_Main_Menu()
 
 
-# -----Options Menu-----
+# -----Main Menu-----
 # Start button
 func _on_start_button_mouse_entered() -> void:
 	Hover_SFX_Player.playing = true
@@ -65,6 +67,15 @@ func _on_done_button_mouse_entered() -> void:
 	Hover_SFX_Player.playing = true
 func _on_done_button_button_down() -> void:
 	Load_Main_Menu()
+	
+	
+	
+	# -----Audio Menu-----
+	
+func _on_back_button_audio_mouse_entered() -> void:
+	Hover_SFX_Player.playing = true
+func _on_back_button_audio_button_down() -> void:
+	Load_Main_Menu()
 
 
 
@@ -73,6 +84,7 @@ func Start_Game():
 
 func Load_Main_Menu():
 	Options_Menu_Container.hide()
+	Audio_Menu_Container.hide()
 	Main_Menu_Container.show()
 
 func Load_Options_Menu():
@@ -83,7 +95,8 @@ func Load_Controls_Menu():
 	pass
 
 func Load_Audio_Menu():
-	pass
-
+	Options_Menu_Container.hide()
+	Audio_Menu_Container.show()
+	
 func Load_Video_Menu():
 	pass
