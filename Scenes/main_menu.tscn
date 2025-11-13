@@ -41,7 +41,8 @@ stream = ExtResource("3_1ehe0")
 stream = ExtResource("4_ce3w2")
 volume_db = -4.108
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="Main_Menu_Container" type="VBoxContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.278
@@ -53,19 +54,57 @@ offset_top = -8.04001
 offset_right = 0.25592
 offset_bottom = 0.0799866
 
-[node name="Start_Button" type="Button" parent="VBoxContainer"]
+[node name="Start_Button" type="Button" parent="Main_Menu_Container"]
 layout_mode = 2
 text = "Start"
 
-[node name="Options_Button" type="Button" parent="VBoxContainer"]
+[node name="Options_Button" type="Button" parent="Main_Menu_Container"]
 layout_mode = 2
 text = "Options"
 
-[node name="Quit_Button" type="Button" parent="VBoxContainer"]
+[node name="Quit_Button" type="Button" parent="Main_Menu_Container"]
 layout_mode = 2
 text = "Quit"
 
-[connection signal="button_down" from="VBoxContainer/Start_Button" to="." method="_on_start_button_button_down"]
-[connection signal="mouse_entered" from="VBoxContainer/Start_Button" to="." method="_on_start_button_mouse_entered"]
-[connection signal="mouse_entered" from="VBoxContainer/Options_Button" to="." method="_on_options_button_mouse_entered"]
-[connection signal="mouse_entered" from="VBoxContainer/Quit_Button" to="." method="_on_quit_button_mouse_entered"]
+[node name="Options_Menu_Container" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.278
+anchor_top = 0.605
+anchor_right = 0.722
+anchor_bottom = 0.79
+offset_left = -0.256042
+offset_top = -8.04001
+offset_right = 0.25592
+offset_bottom = 0.0799866
+
+[node name="Controls_Button" type="Button" parent="Options_Menu_Container"]
+layout_mode = 2
+text = "Controls"
+
+[node name="Audio_Button" type="Button" parent="Options_Menu_Container"]
+layout_mode = 2
+text = "Audio"
+
+[node name="Video_Button" type="Button" parent="Options_Menu_Container"]
+layout_mode = 2
+text = "Video"
+
+[node name="Back_Button" type="Button" parent="Options_Menu_Container"]
+layout_mode = 2
+text = "Back"
+
+[connection signal="button_down" from="Main_Menu_Container/Start_Button" to="." method="_on_start_button_button_down"]
+[connection signal="mouse_entered" from="Main_Menu_Container/Start_Button" to="." method="_on_start_button_mouse_entered"]
+[connection signal="button_down" from="Main_Menu_Container/Options_Button" to="." method="_on_options_button_button_down"]
+[connection signal="mouse_entered" from="Main_Menu_Container/Options_Button" to="." method="_on_options_button_mouse_entered"]
+[connection signal="button_down" from="Main_Menu_Container/Quit_Button" to="." method="_on_quit_button_button_down"]
+[connection signal="mouse_entered" from="Main_Menu_Container/Quit_Button" to="." method="_on_quit_button_mouse_entered"]
+[connection signal="button_down" from="Options_Menu_Container/Controls_Button" to="." method="_on_controls_button_button_down"]
+[connection signal="mouse_entered" from="Options_Menu_Container/Controls_Button" to="." method="_on_controls_button_mouse_entered"]
+[connection signal="button_down" from="Options_Menu_Container/Audio_Button" to="." method="_on_audio_button_button_down"]
+[connection signal="mouse_entered" from="Options_Menu_Container/Audio_Button" to="." method="_on_audio_button_mouse_entered"]
+[connection signal="button_down" from="Options_Menu_Container/Video_Button" to="." method="_on_video_button_button_down"]
+[connection signal="mouse_entered" from="Options_Menu_Container/Video_Button" to="." method="_on_video_button_mouse_entered"]
+[connection signal="button_down" from="Options_Menu_Container/Back_Button" to="." method="_on_back_button_button_down"]
+[connection signal="mouse_entered" from="Options_Menu_Container/Back_Button" to="." method="_on_back_button_mouse_entered"]
