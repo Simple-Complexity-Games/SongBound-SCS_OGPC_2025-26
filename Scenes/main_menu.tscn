@@ -71,6 +71,7 @@ layout_mode = 2
 text = "Quit"
 
 [node name="Options_Menu_Container" type="VBoxContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.278
@@ -80,7 +81,7 @@ anchor_bottom = 0.79
 offset_left = -0.256042
 offset_top = -8.04001
 offset_right = 0.25592
-offset_bottom = 0.0799866
+offset_bottom = 8.07999
 
 [node name="Controls_Button" type="Button" parent="Options_Menu_Container"]
 layout_mode = 2
@@ -98,6 +99,24 @@ text = "Video"
 layout_mode = 2
 text = "Back"
 
+[node name="Audio_Menu_Container" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 2
+offset_left = 320.0
+offset_top = 384.0
+offset_right = 832.0
+offset_bottom = 520.0
+
+[node name="HSlider" type="HSlider" parent="Audio_Menu_Container"]
+layout_mode = 2
+tooltip_text = "
+"
+rounded = true
+
+[node name="Back_Button_Audio" type="Button" parent="Audio_Menu_Container"]
+layout_mode = 2
+text = "Back"
+
 [connection signal="button_down" from="Main_Menu_Container/Start_Button" to="." method="_on_start_button_button_down"]
 [connection signal="mouse_entered" from="Main_Menu_Container/Start_Button" to="." method="_on_start_button_mouse_entered"]
 [connection signal="button_down" from="Main_Menu_Container/Options_Button" to="." method="_on_options_button_button_down"]
@@ -112,3 +131,5 @@ text = "Back"
 [connection signal="mouse_entered" from="Options_Menu_Container/Video_Button" to="." method="_on_video_button_mouse_entered"]
 [connection signal="button_down" from="Options_Menu_Container/Back_Button" to="." method="_on_back_button_button_down"]
 [connection signal="mouse_entered" from="Options_Menu_Container/Back_Button" to="." method="_on_back_button_mouse_entered"]
+[connection signal="button_down" from="Audio_Menu_Container/Back_Button_Audio" to="." method="_on_back_button_button_down"]
+[connection signal="mouse_entered" from="Audio_Menu_Container/Back_Button_Audio" to="." method="_on_back_button_mouse_entered"]
