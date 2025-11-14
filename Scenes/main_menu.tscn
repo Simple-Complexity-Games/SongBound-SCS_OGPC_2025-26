@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://be8ds4pmwr8rn"]
+[gd_scene load_steps=7 format=3 uid="uid://be8ds4pmwr8rn"]
 
 [ext_resource type="Script" uid="uid://dxiy5wk0xbjug" path="res://Scripts/main_menu.gd" id="1_48xlc"]
 [ext_resource type="Texture2D" uid="uid://d0fy2swtgvp0l" path="res://Assets/Art/Environment/Bard_Tavern_Concept_Art.JPG" id="2_1ehe0"]
 [ext_resource type="AudioStream" uid="uid://drso7th4ouiao" path="res://Assets/Sound/Music/Game Music Concept Orchestrated.wav" id="3_1ehe0"]
 [ext_resource type="AudioStream" uid="uid://bhe7lcpnuo6q4" path="res://Assets/Sound/SFX/typing_blip.wav" id="4_ce3w2"]
+[ext_resource type="Texture2D" uid="uid://bshpcebh3tqrt" path="res://Assets/Art/Button_Icons/Keyboard & Mouse/Dark/Q_Key_Dark.png" id="5_n45e2"]
 
 [sub_resource type="ImageTexture" id="ImageTexture_ce3w2"]
 
@@ -16,7 +17,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_48xlc")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Background_Color" type="ColorRect" parent="."]
 z_index = -1
 layout_mode = 1
 anchors_preset = 15
@@ -25,8 +26,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="Background_Image" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -35,6 +37,7 @@ offset_top = 80.0
 offset_bottom = -88.0
 texture = ExtResource("2_1ehe0")
 expand_mode = 2
+metadata/_edit_lock_ = true
 
 [node name="Music_Player" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_1ehe0")
@@ -44,6 +47,7 @@ stream = ExtResource("4_ce3w2")
 volume_db = -4.108
 
 [node name="Main_Menu_Container" type="VBoxContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.278
@@ -112,9 +116,72 @@ tooltip_text = "
 "
 rounded = true
 
-[node name="Back_Button_Audio" type="Button" parent="Audio_Menu_Container"]
+[node name="Audio_Done_Button" type="Button" parent="Audio_Menu_Container"]
 layout_mode = 2
 text = "Back"
+
+[node name="Controls_Menu_Container" type="Control" parent="."]
+layout_mode = 1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1112.0
+offset_bottom = -608.0
+
+[node name="Left_Bind_Button" type="Button" parent="Controls_Menu_Container"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 6.4
+anchor_top = 4.8
+anchor_right = 12.8
+anchor_bottom = 6.4
+offset_right = -128.0
+offset_bottom = -32.0
+scale = Vector2(2, 2)
+
+[node name="Left_Label" type="RichTextLabel" parent="Controls_Menu_Container/Left_Bind_Button"]
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -89.0
+offset_bottom = -5.0
+text = "Left:"
+
+[node name="HBoxContainer" type="Control" parent="Controls_Menu_Container/Left_Bind_Button"]
+layout_direction = 2
+layout_mode = 1
+anchor_left = 0.344
+anchor_right = 0.876
+anchor_bottom = 1.0
+offset_left = -0.0320015
+offset_right = 219.872
+offset_bottom = 68.0
+scale = Vector2(0.32, 0.32)
+metadata/_edit_group_ = true
+
+[node name="Left_Bind_1" type="TextureRect" parent="Controls_Menu_Container/Left_Bind_Button/HBoxContainer"]
+layout_mode = 2
+offset_right = 250.0
+offset_bottom = 100.0
+
+[node name="Left_Bind_2" type="TextureButton" parent="Controls_Menu_Container/Left_Bind_Button/HBoxContainer"]
+layout_mode = 2
+offset_left = 104.0
+offset_right = 263.0
+offset_bottom = 100.0
+texture_normal = ExtResource("5_n45e2")
+stretch_mode = 4
+
+[node name="Controls_Menu_Label" type="RichTextLabel" parent="Controls_Menu_Container"]
+layout_mode = 2
+offset_left = 320.0
+offset_top = 96.0
+offset_right = 490.0
+offset_bottom = 120.0
+scale = Vector2(3, 3)
+text = "Keybinds"
+horizontal_alignment = 1
 
 [connection signal="button_down" from="Main_Menu_Container/Start_Button" to="." method="_on_start_button_button_down"]
 [connection signal="mouse_entered" from="Main_Menu_Container/Start_Button" to="." method="_on_start_button_mouse_entered"]
@@ -130,3 +197,5 @@ text = "Back"
 [connection signal="mouse_entered" from="Options_Menu_Container/Video_Button" to="." method="_on_video_button_mouse_entered"]
 [connection signal="button_down" from="Options_Menu_Container/Done_Button" to="." method="_on_done_button_button_down"]
 [connection signal="mouse_entered" from="Options_Menu_Container/Done_Button" to="." method="_on_done_button_mouse_entered"]
+[connection signal="button_down" from="Audio_Menu_Container/Audio_Done_Button" to="." method="_on_audio_done_button_button_down"]
+[connection signal="mouse_entered" from="Audio_Menu_Container/Audio_Done_Button" to="." method="_on_audio_done_button_mouse_entered"]

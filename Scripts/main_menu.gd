@@ -4,19 +4,11 @@ extends Control
 @onready var Hover_SFX_Player = get_node("Hover_SFX_Player")
 # Main menu
 @onready var Main_Menu_Container = get_node("Main_Menu_Container")
-@onready var Start_Button = get_node("Main_Menu_Container/Start_Button")
-@onready var Options_Button = get_node("Main_Menu_Container/Options_Button")
-@onready var Quit_Button = get_node("Main_Menu_Container/Quit_Button")
-
-# Options menu
 @onready var Options_Menu_Container = get_node("Options_Menu_Container")
-@onready var Controls_Button = get_node("Options_Menu_Container/Controls_Button")
-@onready var Audio_Button = get_node("Options_Menu_Container/Audio_Button")
-@onready var video_Button = get_node("Options_Menu_Container/Video_Button")
-@onready var Back_Button = get_node("Options_Menu_Container/Back_Button")
-
-#Audio Menu
+@onready var Controls_Menu_Container = get_node("Controls_Menu_Container")
 @onready var Audio_Menu_Container = get_node("Audio_Menu_Container")
+
+
 
 func _ready() -> void:
 	Load_Main_Menu()
@@ -62,7 +54,7 @@ func _on_video_button_mouse_entered() -> void:
 	Hover_SFX_Player.playing = true
 func _on_video_button_button_down() -> void:
 	Load_Video_Menu()
-
+# Done button
 func _on_done_button_mouse_entered() -> void:
 	Hover_SFX_Player.playing = true
 func _on_done_button_button_down() -> void:
@@ -70,11 +62,11 @@ func _on_done_button_button_down() -> void:
 	
 	
 	
-	# -----Audio Menu-----
-	
-func _on_back_button_audio_mouse_entered() -> void:
+# -----Audio Menu-----
+# Done button
+func _on_audio_done_button_mouse_entered() -> void:
 	Hover_SFX_Player.playing = true
-func _on_back_button_audio_button_down() -> void:
+func _on_audio_done_button_button_down() -> void:
 	Load_Main_Menu()
 
 
@@ -84,18 +76,26 @@ func Start_Game():
 
 func Load_Main_Menu():
 	Options_Menu_Container.hide()
+	Controls_Menu_Container.hide()
 	Audio_Menu_Container.hide()
 	Main_Menu_Container.show()
 
 func Load_Options_Menu():
 	Main_Menu_Container.hide()
+	Controls_Menu_Container.hide()
+	Audio_Menu_Container.hide()
 	Options_Menu_Container.show()
 
 func Load_Controls_Menu():
-	pass
+	Main_Menu_Container.hide()
+	Options_Menu_Container.hide()
+	Audio_Menu_Container.hide()
+	Controls_Menu_Container.show()
 
 func Load_Audio_Menu():
+	Main_Menu_Container.hide()
 	Options_Menu_Container.hide()
+	Controls_Menu_Container.hide()
 	Audio_Menu_Container.show()
 	
 func Load_Video_Menu():
