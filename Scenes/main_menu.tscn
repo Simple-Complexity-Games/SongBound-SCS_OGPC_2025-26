@@ -33,6 +33,7 @@ color = Color(0, 0, 0, 1)
 metadata/_edit_lock_ = true
 
 [node name="Background_Image" type="TextureRect" parent="."]
+z_index = -1
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -110,11 +111,57 @@ text = "Done"
 visible = false
 layout_mode = 2
 offset_left = 320.0
-offset_top = 384.0
+offset_top = 370.0
 offset_right = 832.0
-offset_bottom = 520.0
+offset_bottom = 542.0
 
-[node name="HSlider" type="HSlider" parent="Audio_Menu_Container"]
+[node name="Master_Volume_Label" type="RichTextLabel" parent="Audio_Menu_Container"]
+layout_mode = 2
+text = "Master Volume"
+fit_content = true
+
+[node name="Master_Volume_Label_Box" type="ColorRect" parent="Audio_Menu_Container/Master_Volume_Label"]
+z_index = -1
+layout_mode = 0
+offset_right = 513.0
+offset_bottom = 113.0
+color = Color(0.101961, 0.101961, 0.101961, 0.745098)
+
+[node name="Master_Volume_Slider" type="HSlider" parent="Audio_Menu_Container"]
+layout_mode = 2
+tooltip_text = "
+"
+rounded = true
+
+[node name="SFX_Volume_Label" type="RichTextLabel" parent="Audio_Menu_Container"]
+layout_mode = 2
+text = "SFX Volume"
+fit_content = true
+
+[node name="SFX_Volume_Label_Box" type="ColorRect" parent="Audio_Menu_Container/SFX_Volume_Label"]
+z_index = -1
+offset_right = 513.0
+offset_bottom = 113.0
+color = Color(0.101961, 0.101961, 0.101961, 0.745098)
+
+[node name="SFX_Volume_Slider" type="HSlider" parent="Audio_Menu_Container"]
+layout_mode = 2
+tooltip_text = "
+"
+rounded = true
+
+[node name="Music_Volume_Label" type="RichTextLabel" parent="Audio_Menu_Container"]
+layout_mode = 2
+text = "Music Volume"
+fit_content = true
+
+[node name="Music_Volume_Label_Box" type="ColorRect" parent="Audio_Menu_Container/Music_Volume_Label"]
+z_index = -1
+offset_right = 513.0
+offset_bottom = 113.0
+color = Color(0.101961, 0.101961, 0.101961, 0.745098)
+
+[node name="Music_Volume_Slider" type="HSlider" parent="Audio_Menu_Container"]
 layout_mode = 2
 tooltip_text = "
 "
@@ -124,7 +171,36 @@ rounded = true
 layout_mode = 2
 text = "Back"
 
+[node name="Video_Menu_Container" type="VBoxContainer" parent="."]
+offset_left = 320.0
+offset_top = 370.0
+offset_right = 832.0
+offset_bottom = 542.0
+
+[node name="Brightness_Label" type="RichTextLabel" parent="Video_Menu_Container"]
+layout_mode = 2
+text = "Brightness"
+fit_content = true
+
+[node name="Brightness_Label_Box" type="ColorRect" parent="Video_Menu_Container/Brightness_Label"]
+z_index = -1
+layout_mode = 0
+offset_right = 513.0
+offset_bottom = 113.0
+color = Color(0.101961, 0.101961, 0.101961, 0.745098)
+
+[node name="Brightness_Slider" type="HSlider" parent="Video_Menu_Container"]
+layout_mode = 2
+tooltip_text = "
+"
+rounded = true
+
+[node name="Video_Done_Button" type="Button" parent="Video_Menu_Container"]
+layout_mode = 2
+text = "Back"
+
 [node name="Controls_Menu_Container" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -473,4 +549,6 @@ text = "Done"
 [connection signal="mouse_entered" from="Options_Menu_Container/Done_Button" to="." method="_on_done_button_mouse_entered"]
 [connection signal="button_down" from="Audio_Menu_Container/Audio_Done_Button" to="." method="_on_audio_done_button_button_down"]
 [connection signal="mouse_entered" from="Audio_Menu_Container/Audio_Done_Button" to="." method="_on_audio_done_button_mouse_entered"]
+[connection signal="button_down" from="Video_Menu_Container/Video_Done_Button" to="." method="_on_audio_done_button_button_down"]
+[connection signal="mouse_entered" from="Video_Menu_Container/Video_Done_Button" to="." method="_on_audio_done_button_mouse_entered"]
 [connection signal="button_down" from="Controls_Menu_Container/Controls_Done_Button" to="." method="_on_controls_done_button_button_down"]

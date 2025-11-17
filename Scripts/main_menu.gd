@@ -7,6 +7,7 @@ extends Control
 @onready var Options_Menu_Container = get_node("Options_Menu_Container")
 @onready var Controls_Menu_Container = get_node("Controls_Menu_Container")
 @onready var Audio_Menu_Container = get_node("Audio_Menu_Container")
+@onready var Video_Menu_Container = get_node("Video_Menu_Container")
 
 
 
@@ -71,6 +72,14 @@ func _on_audio_done_button_mouse_entered() -> void:
 	Hover_SFX_Player.playing = true
 func _on_audio_done_button_button_down() -> void:
 	Load_Options_Menu()
+	
+	# -----Audio Menu-----
+# Done button
+func _on_video_done_button_mouse_entered() -> void:
+	Hover_SFX_Player.playing = true
+func _on_video_done_button_button_down() -> void:
+	Load_Options_Menu()
+
 
 
 
@@ -81,25 +90,33 @@ func Load_Main_Menu():
 	Options_Menu_Container.hide()
 	Controls_Menu_Container.hide()
 	Audio_Menu_Container.hide()
+	Video_Menu_Container.hide()
 	Main_Menu_Container.show()
 
 func Load_Options_Menu():
 	Main_Menu_Container.hide()
 	Controls_Menu_Container.hide()
 	Audio_Menu_Container.hide()
+	Video_Menu_Container.hide()
 	Options_Menu_Container.show()
 
 func Load_Controls_Menu():
 	Main_Menu_Container.hide()
 	Options_Menu_Container.hide()
 	Audio_Menu_Container.hide()
+	Video_Menu_Container.hide()
 	Controls_Menu_Container.show()
 
 func Load_Audio_Menu():
 	Main_Menu_Container.hide()
 	Options_Menu_Container.hide()
 	Controls_Menu_Container.hide()
+	Video_Menu_Container.hide()
 	Audio_Menu_Container.show()
 	
 func Load_Video_Menu():
-	pass
+	Main_Menu_Container.hide()
+	Options_Menu_Container.hide()
+	Controls_Menu_Container.hide()
+	Audio_Menu_Container.hide()
+	Video_Menu_Container.show()
