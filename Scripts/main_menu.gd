@@ -60,14 +60,17 @@ func _on_done_button_mouse_entered() -> void:
 func _on_done_button_button_down() -> void:
 	Load_Main_Menu()
 	
-	
-	
+
+# -----Controls Menu-----
+func _on_controls_done_button_button_down():
+	Load_Options_Menu()
+
 # -----Audio Menu-----
 # Done button
 func _on_audio_done_button_mouse_entered() -> void:
 	Hover_SFX_Player.playing = true
 func _on_audio_done_button_button_down() -> void:
-	Load_Main_Menu()
+	Load_Options_Menu()
 
 
 

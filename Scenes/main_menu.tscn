@@ -131,6 +131,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_right = -1112.0
 offset_bottom = -608.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Controls_Menu_Label" type="RichTextLabel" parent="Controls_Menu_Container"]
 layout_mode = 2
@@ -162,6 +164,7 @@ offset_left = 4.0
 offset_top = 4.0
 offset_right = -89.0
 offset_bottom = -5.0
+mouse_filter = 1
 text = "Left:"
 
 [node name="Left_Container" type="HBoxContainer" parent="Controls_Menu_Container/Left_Bind_Button"]
@@ -212,6 +215,7 @@ offset_left = 4.0
 offset_top = 4.0
 offset_right = -68.0
 offset_bottom = -5.0
+mouse_filter = 1
 text = "Right:"
 
 [node name="Right_Container" type="HBoxContainer" parent="Controls_Menu_Container/Right_Bind_Button"]
@@ -262,6 +266,7 @@ offset_left = 4.0
 offset_top = 4.0
 offset_right = -68.0
 offset_bottom = -5.0
+mouse_filter = 1
 text = "Up:"
 
 [node name="Up_Container" type="HBoxContainer" parent="Controls_Menu_Container/Up_Bind_Button"]
@@ -312,6 +317,7 @@ offset_left = 4.0
 offset_top = 4.0
 offset_right = -68.0
 offset_bottom = -5.0
+mouse_filter = 1
 text = "Down:"
 
 [node name="Down_Container" type="HBoxContainer" parent="Controls_Menu_Container/Down_Bind_Button"]
@@ -362,6 +368,7 @@ offset_left = 4.0
 offset_top = 4.0
 offset_right = -68.0
 offset_bottom = -5.0
+mouse_filter = 1
 text = "Jump:"
 
 [node name="Jump_Container" type="HBoxContainer" parent="Controls_Menu_Container/Jump_Bind_Button"]
@@ -411,6 +418,7 @@ offset_left = 4.0
 offset_top = 4.0
 offset_right = -68.0
 offset_bottom = -5.0
+mouse_filter = 1
 text = "Glide:"
 
 [node name="Glide_Container" type="HBoxContainer" parent="Controls_Menu_Container/Glide_Bind_Button"]
@@ -441,6 +449,14 @@ texture = ExtResource("8_16hvj")
 expand_mode = 2
 stretch_mode = 6
 
+[node name="Controls_Done_Button" type="Button" parent="Controls_Menu_Container"]
+layout_mode = 0
+offset_left = 384.0
+offset_top = 480.0
+offset_right = 768.0
+offset_bottom = 520.0
+text = "Done"
+
 [connection signal="button_down" from="Main_Menu_Container/Start_Button" to="." method="_on_start_button_button_down"]
 [connection signal="mouse_entered" from="Main_Menu_Container/Start_Button" to="." method="_on_start_button_mouse_entered"]
 [connection signal="button_down" from="Main_Menu_Container/Options_Button" to="." method="_on_options_button_button_down"]
@@ -457,3 +473,4 @@ stretch_mode = 6
 [connection signal="mouse_entered" from="Options_Menu_Container/Done_Button" to="." method="_on_done_button_mouse_entered"]
 [connection signal="button_down" from="Audio_Menu_Container/Audio_Done_Button" to="." method="_on_audio_done_button_button_down"]
 [connection signal="mouse_entered" from="Audio_Menu_Container/Audio_Done_Button" to="." method="_on_audio_done_button_mouse_entered"]
+[connection signal="button_down" from="Controls_Menu_Container/Controls_Done_Button" to="." method="_on_controls_done_button_button_down"]
