@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://drso7th4ouiao" path="res://Assets/Sound/Music/Game Music Concept Orchestrated.wav" id="3_1ehe0"]
 [ext_resource type="AudioStream" uid="uid://bhe7lcpnuo6q4" path="res://Assets/Sound/SFX/typing_blip.wav" id="4_ce3w2"]
 [ext_resource type="Texture2D" uid="uid://b648n6gojbbj0" path="res://Assets/Art/Button_Icons/Keyboard & Mouse/Dark/Mouse_Right_Key_Dark.png" id="5_yhxw7"]
-[ext_resource type="Texture2D" uid="uid://djnh5sqn3qeiv" path="res://Assets/Art/Button_Icons/Keyboard & Mouse/Dark/Alt_Key_Dark.png" id="6_cp0ys"]
+[ext_resource type="Texture2D" uid="uid://ne3kngu8sygi" path="res://Assets/Art/Button_Icons/Keyboard & Mouse/Dark/Ctrl_Key_Dark.png" id="6_yhxw7"]
 [ext_resource type="Texture2D" uid="uid://bcihx3b0w78px" path="res://Assets/Art/Button_Icons/Keyboard & Mouse/Dark/Space_Key_Dark.png" id="7_trj04"]
 [ext_resource type="Texture2D" uid="uid://b66hsm718vu2t" path="res://Assets/Art/Button_Icons/Keyboard & Mouse/Dark/Enter_Tall_Key_Dark.png" id="8_16hvj"]
 
@@ -19,7 +19,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_48xlc")
-metadata/_edit_lock_ = true
 
 [node name="Background_Color" type="ColorRect" parent="."]
 z_index = -1
@@ -38,8 +37,8 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 80.0
-offset_bottom = -88.0
+offset_top = 136.0
+offset_bottom = -128.0
 texture = ExtResource("2_1ehe0")
 expand_mode = 2
 metadata/_edit_lock_ = true
@@ -55,26 +54,30 @@ volume_db = -4.108
 visible = false
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.278
-anchor_top = 0.605
-anchor_right = 0.722
-anchor_bottom = 0.79
-offset_left = -0.256042
-offset_top = -8.04001
-offset_right = 0.25592
-offset_bottom = 0.0799866
+anchor_left = 0.233
+anchor_top = 0.578
+anchor_right = 0.767
+anchor_bottom = 0.773
+offset_left = 0.639984
+offset_top = -0.23999
+offset_right = -0.640015
+offset_bottom = 0.159912
+metadata/_edit_group_ = true
 
 [node name="Start_Button" type="Button" parent="Main_Menu_Container"]
+custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
 text = "Start"
 icon = SubResource("ImageTexture_ce3w2")
 
 [node name="Options_Button" type="Button" parent="Main_Menu_Container"]
+custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
 text = "Options"
 icon_alignment = 1
 
 [node name="Quit_Button" type="Button" parent="Main_Menu_Container"]
+custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
 text = "Quit"
 
@@ -82,116 +85,183 @@ text = "Quit"
 visible = false
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.278
-anchor_top = 0.605
-anchor_right = 0.722
-anchor_bottom = 0.79
-offset_left = -0.256042
-offset_top = -8.04001
-offset_right = 0.25592
-offset_bottom = 8.07999
+anchor_left = 0.233
+anchor_top = 0.575
+anchor_right = 0.767
+anchor_bottom = 0.775
+offset_left = 0.639984
+offset_top = 2.99994
+offset_right = -0.640015
+offset_bottom = -5.00006
+metadata/_edit_group_ = true
 
 [node name="Controls_Button" type="Button" parent="Options_Menu_Container"]
+custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
 text = "Controls"
 
 [node name="Audio_Button" type="Button" parent="Options_Menu_Container"]
+custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
 text = "Audio"
 
 [node name="Video_Button" type="Button" parent="Options_Menu_Container"]
+custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
 text = "Video"
 
 [node name="Done_Button" type="Button" parent="Options_Menu_Container"]
+custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
 text = "Done"
 
 [node name="Audio_Menu_Container" type="VBoxContainer" parent="."]
+visible = false
 layout_mode = 2
-offset_left = 320.0
-offset_top = 370.0
-offset_right = 832.0
-offset_bottom = 542.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 448.0
+offset_top = 624.0
+offset_right = -448.0
+offset_bottom = -248.0
+metadata/_edit_group_ = true
 
 [node name="Master_Volume_Label" type="RichTextLabel" parent="Audio_Menu_Container"]
+custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 text = "Master Volume"
 fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Master_Volume_Label_Box" type="ColorRect" parent="Audio_Menu_Container/Master_Volume_Label"]
 z_index = -1
-layout_mode = 0
-offset_right = 513.0
-offset_bottom = 113.0
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 4.913
+offset_right = 1.0
+offset_bottom = 0.000999451
 color = Color(0.101961, 0.101961, 0.101961, 0.745098)
 
 [node name="Master_Volume_Slider" type="HSlider" parent="Audio_Menu_Container"]
 layout_mode = 2
 tooltip_text = "Master Volume
 "
+value = 80.0
 rounded = true
 
+[node name="Separator_1" type="ColorRect" parent="Audio_Menu_Container"]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+color = Color(1, 1, 1, 0)
+
 [node name="SFX_Volume_Label" type="RichTextLabel" parent="Audio_Menu_Container"]
+custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 text = "SFX Volume"
 fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="SFX_Volume_Label_Box" type="ColorRect" parent="Audio_Menu_Container/SFX_Volume_Label"]
 z_index = -1
-offset_right = 513.0
-offset_bottom = 113.0
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.002
+anchor_bottom = 4.913
+offset_right = -0.0240479
+offset_bottom = 0.000999451
 color = Color(0.101961, 0.101961, 0.101961, 0.745098)
 
 [node name="SFX_Volume_Slider" type="HSlider" parent="Audio_Menu_Container"]
 layout_mode = 2
 tooltip_text = "SFX Volume
 "
+value = 80.0
 rounded = true
 
+[node name="Separator_2" type="ColorRect" parent="Audio_Menu_Container"]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+color = Color(1, 1, 1, 0)
+
 [node name="Music_Volume_Label" type="RichTextLabel" parent="Audio_Menu_Container"]
+custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 text = "Music Volume"
 fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Music_Volume_Label_Box" type="ColorRect" parent="Audio_Menu_Container/Music_Volume_Label"]
 z_index = -1
-offset_right = 513.0
-offset_bottom = 113.0
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.002
+anchor_bottom = 4.913
+offset_right = -0.0240479
+offset_bottom = 0.000999451
 color = Color(0.101961, 0.101961, 0.101961, 0.745098)
 
 [node name="Music_Volume_Slider" type="HSlider" parent="Audio_Menu_Container"]
 layout_mode = 2
 tooltip_text = "Music Volume"
+value = 80.0
 rounded = true
 
+[node name="Separator_3" type="ColorRect" parent="Audio_Menu_Container"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+color = Color(1, 1, 1, 0)
+
 [node name="Audio_Done_Button" type="Button" parent="Audio_Menu_Container"]
+custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
 text = "Back"
 
 [node name="Video_Menu_Container" type="VBoxContainer" parent="."]
-visible = false
-offset_left = 320.0
-offset_top = 370.0
-offset_right = 832.0
-offset_bottom = 542.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 448.0
+offset_top = 624.0
+offset_right = -448.0
+offset_bottom = -116.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_group_ = true
 
 [node name="Brightness_Label" type="RichTextLabel" parent="Video_Menu_Container"]
+custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 text = "Brightness"
 fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Brightness_Label_Box" type="ColorRect" parent="Video_Menu_Container/Brightness_Label"]
 z_index = -1
-layout_mode = 0
-offset_right = 513.0
-offset_bottom = 113.0
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 4.913
+offset_right = 1.0
+offset_bottom = 0.000999451
 color = Color(0.101961, 0.101961, 0.101961, 0.745098)
 
 [node name="Brightness_Slider" type="HSlider" parent="Video_Menu_Container"]
 layout_mode = 2
 tooltip_text = "Brightness"
+value = 80.0
 rounded = true
+
+[node name="Separator_3" type="ColorRect" parent="Video_Menu_Container"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+color = Color(1, 1, 1, 0)
 
 [node name="Video_Done_Button" type="Button" parent="Video_Menu_Container"]
 layout_mode = 2
@@ -203,85 +273,104 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -1112.0
-offset_bottom = -608.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Controls_Menu_Label" type="RichTextLabel" parent="Controls_Menu_Container"]
 layout_mode = 2
-offset_left = 320.0
-offset_top = 96.0
-offset_right = 490.0
-offset_bottom = 120.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 512.0
+offset_top = 256.0
+offset_right = -1109.0
+offset_bottom = -792.0
 scale = Vector2(3, 3)
 text = "Keybinds"
 horizontal_alignment = 1
 
-[node name="Left_Bind_Button" type="Button" parent="Controls_Menu_Container"]
-self_modulate = Color(0.275747, 0.336159, 0.905667, 1)
-custom_minimum_size = Vector2(128, 32)
+[node name="Controls_Done_Button" type="Button" parent="Controls_Menu_Container"]
 layout_mode = 1
 anchors_preset = -1
-offset_left = 304.0
-offset_top = 192.0
-offset_right = 432.0
-offset_bottom = 224.0
-scale = Vector2(2, 2)
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 576.0
+offset_top = 880.0
+offset_right = -576.0
+offset_bottom = -136.0
+text = "Done"
+
+[node name="GridContainer" type="GridContainer" parent="Controls_Menu_Container"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 448.0
+offset_top = 384.0
+offset_right = -448.0
+offset_bottom = -232.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 48
+theme_override_constants/v_separation = 48
+columns = 2
 metadata/_edit_group_ = true
 
-[node name="Left_Label" type="RichTextLabel" parent="Controls_Menu_Container/Left_Bind_Button"]
+[node name="Left_Bind_Button" type="Button" parent="Controls_Menu_Container/GridContainer"]
+self_modulate = Color(0.275747, 0.336159, 0.905667, 1)
+custom_minimum_size = Vector2(128, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+metadata/_edit_group_ = true
+
+[node name="Left_Label" type="RichTextLabel" parent="Controls_Menu_Container/GridContainer/Left_Bind_Button"]
 layout_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 4.0
-offset_top = 4.0
-offset_right = -89.0
-offset_bottom = -5.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -176.0
+offset_bottom = -8.0
 mouse_filter = 1
 text = "Left:"
 
-[node name="Left_Container" type="HBoxContainer" parent="Controls_Menu_Container/Left_Bind_Button"]
+[node name="Left_Container" type="HBoxContainer" parent="Controls_Menu_Container/GridContainer/Left_Bind_Button"]
 layout_direction = 2
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.328
 anchor_right = 0.861
 anchor_bottom = 1.0
-offset_left = 0.0159988
-offset_right = 144.792
-offset_bottom = 69.0
+offset_left = 0.0319977
+offset_right = 401.584
+offset_bottom = 136.0
 scale = Vector2(0.32, 0.32)
 metadata/_edit_group_ = true
 
-[node name="Left_Bind_1" type="TextureRect" parent="Controls_Menu_Container/Left_Bind_Button/Left_Container"]
+[node name="Left_Bind_1" type="TextureRect" parent="Controls_Menu_Container/GridContainer/Left_Bind_Button/Left_Container"]
 layout_mode = 2
-size_flags_horizontal = 2
+size_flags_horizontal = 0
 size_flags_stretch_ratio = 3.0
-texture = ExtResource("5_yhxw7")
+texture = ExtResource("8_16hvj")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="Left_Bind_2" type="TextureRect" parent="Controls_Menu_Container/Left_Bind_Button/Left_Container"]
+[node name="Left_Bind_2" type="TextureRect" parent="Controls_Menu_Container/GridContainer/Left_Bind_Button/Left_Container"]
 layout_mode = 2
-size_flags_horizontal = 2
-texture = ExtResource("6_cp0ys")
+size_flags_horizontal = 0
+texture = ExtResource("6_yhxw7")
 expand_mode = 2
 stretch_mode = 6
 
-[node name="Right_Bind_Button" type="Button" parent="Controls_Menu_Container"]
+[node name="Right_Bind_Button" type="Button" parent="Controls_Menu_Container/GridContainer"]
 self_modulate = Color(0.275747, 0.336159, 0.905667, 1)
 custom_minimum_size = Vector2(128, 32)
-layout_mode = 1
-anchors_preset = -1
-offset_left = 592.0
-offset_top = 192.0
-offset_right = 720.0
-offset_bottom = 224.0
-scale = Vector2(2, 2)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 metadata/_edit_group_ = true
 
-[node name="Right_Label" type="RichTextLabel" parent="Controls_Menu_Container/Right_Bind_Button"]
+[node name="Right_Label" type="RichTextLabel" parent="Controls_Menu_Container/GridContainer/Right_Bind_Button"]
 layout_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -292,7 +381,7 @@ offset_bottom = -5.0
 mouse_filter = 1
 text = "Right:"
 
-[node name="Right_Container" type="HBoxContainer" parent="Controls_Menu_Container/Right_Bind_Button"]
+[node name="Right_Container" type="HBoxContainer" parent="Controls_Menu_Container/GridContainer/Right_Bind_Button"]
 layout_direction = 2
 layout_mode = 1
 anchors_preset = -1
@@ -305,7 +394,7 @@ offset_bottom = 69.0
 scale = Vector2(0.32, 0.32)
 metadata/_edit_group_ = true
 
-[node name="Right_Bind_1" type="TextureRect" parent="Controls_Menu_Container/Right_Bind_Button/Right_Container"]
+[node name="Right_Bind_1" type="TextureRect" parent="Controls_Menu_Container/GridContainer/Right_Bind_Button/Right_Container"]
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_stretch_ratio = 3.0
@@ -313,26 +402,22 @@ texture = ExtResource("5_yhxw7")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="Right_Bind_2" type="TextureRect" parent="Controls_Menu_Container/Right_Bind_Button/Right_Container"]
+[node name="Right_Bind_2" type="TextureRect" parent="Controls_Menu_Container/GridContainer/Right_Bind_Button/Right_Container"]
 layout_mode = 2
 size_flags_horizontal = 2
 texture = ExtResource("7_trj04")
 expand_mode = 2
 stretch_mode = 6
 
-[node name="Up_Bind_Button" type="Button" parent="Controls_Menu_Container"]
+[node name="Up_Bind_Button" type="Button" parent="Controls_Menu_Container/GridContainer"]
 self_modulate = Color(0.275747, 0.336159, 0.905667, 1)
 custom_minimum_size = Vector2(128, 32)
-layout_mode = 1
-anchors_preset = -1
-offset_left = 304.0
-offset_top = 288.0
-offset_right = 432.0
-offset_bottom = 320.0
-scale = Vector2(2, 2)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 metadata/_edit_group_ = true
 
-[node name="Up_Label" type="RichTextLabel" parent="Controls_Menu_Container/Up_Bind_Button"]
+[node name="Up_Label" type="RichTextLabel" parent="Controls_Menu_Container/GridContainer/Up_Bind_Button"]
 layout_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -343,7 +428,7 @@ offset_bottom = -5.0
 mouse_filter = 1
 text = "Up:"
 
-[node name="Up_Container" type="HBoxContainer" parent="Controls_Menu_Container/Up_Bind_Button"]
+[node name="Up_Container" type="HBoxContainer" parent="Controls_Menu_Container/GridContainer/Up_Bind_Button"]
 layout_direction = 2
 layout_mode = 1
 anchors_preset = -1
@@ -356,7 +441,7 @@ offset_bottom = 68.68
 scale = Vector2(0.32, 0.32)
 metadata/_edit_group_ = true
 
-[node name="Up_Bind_1" type="TextureRect" parent="Controls_Menu_Container/Up_Bind_Button/Up_Container"]
+[node name="Up_Bind_1" type="TextureRect" parent="Controls_Menu_Container/GridContainer/Up_Bind_Button/Up_Container"]
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_stretch_ratio = 3.0
@@ -364,26 +449,22 @@ texture = ExtResource("5_yhxw7")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="Up_Bind_2" type="TextureRect" parent="Controls_Menu_Container/Up_Bind_Button/Up_Container"]
+[node name="Up_Bind_2" type="TextureRect" parent="Controls_Menu_Container/GridContainer/Up_Bind_Button/Up_Container"]
 layout_mode = 2
 size_flags_horizontal = 2
 texture = ExtResource("7_trj04")
 expand_mode = 2
 stretch_mode = 6
 
-[node name="Down_Bind_Button" type="Button" parent="Controls_Menu_Container"]
+[node name="Down_Bind_Button" type="Button" parent="Controls_Menu_Container/GridContainer"]
 self_modulate = Color(0.275747, 0.336159, 0.905667, 1)
 custom_minimum_size = Vector2(128, 32)
-layout_mode = 1
-anchors_preset = -1
-offset_left = 592.0
-offset_top = 288.0
-offset_right = 720.0
-offset_bottom = 320.0
-scale = Vector2(2, 2)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 metadata/_edit_group_ = true
 
-[node name="Down_Label" type="RichTextLabel" parent="Controls_Menu_Container/Down_Bind_Button"]
+[node name="Down_Label" type="RichTextLabel" parent="Controls_Menu_Container/GridContainer/Down_Bind_Button"]
 layout_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -394,7 +475,7 @@ offset_bottom = -5.0
 mouse_filter = 1
 text = "Down:"
 
-[node name="Down_Container" type="HBoxContainer" parent="Controls_Menu_Container/Down_Bind_Button"]
+[node name="Down_Container" type="HBoxContainer" parent="Controls_Menu_Container/GridContainer/Down_Bind_Button"]
 layout_direction = 2
 layout_mode = 1
 anchors_preset = -1
@@ -407,7 +488,7 @@ offset_bottom = 69.0
 scale = Vector2(0.32, 0.32)
 metadata/_edit_group_ = true
 
-[node name="Down_Bind_1" type="TextureRect" parent="Controls_Menu_Container/Down_Bind_Button/Down_Container"]
+[node name="Down_Bind_1" type="TextureRect" parent="Controls_Menu_Container/GridContainer/Down_Bind_Button/Down_Container"]
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_stretch_ratio = 3.0
@@ -415,26 +496,22 @@ texture = ExtResource("5_yhxw7")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="Down_Bind_2" type="TextureRect" parent="Controls_Menu_Container/Down_Bind_Button/Down_Container"]
+[node name="Down_Bind_2" type="TextureRect" parent="Controls_Menu_Container/GridContainer/Down_Bind_Button/Down_Container"]
 layout_mode = 2
 size_flags_horizontal = 2
 texture = ExtResource("7_trj04")
 expand_mode = 2
 stretch_mode = 6
 
-[node name="Jump_Bind_Button" type="Button" parent="Controls_Menu_Container"]
+[node name="Jump_Bind_Button" type="Button" parent="Controls_Menu_Container/GridContainer"]
 self_modulate = Color(0.275747, 0.336159, 0.905667, 1)
 custom_minimum_size = Vector2(128, 32)
-layout_mode = 1
-anchors_preset = -1
-offset_left = 304.0
-offset_top = 384.0
-offset_right = 432.0
-offset_bottom = 416.0
-scale = Vector2(2, 2)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 metadata/_edit_group_ = true
 
-[node name="Jump_Label" type="RichTextLabel" parent="Controls_Menu_Container/Jump_Bind_Button"]
+[node name="Jump_Label" type="RichTextLabel" parent="Controls_Menu_Container/GridContainer/Jump_Bind_Button"]
 layout_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -445,7 +522,7 @@ offset_bottom = -5.0
 mouse_filter = 1
 text = "Jump:"
 
-[node name="Jump_Container" type="HBoxContainer" parent="Controls_Menu_Container/Jump_Bind_Button"]
+[node name="Jump_Container" type="HBoxContainer" parent="Controls_Menu_Container/GridContainer/Jump_Bind_Button"]
 layout_direction = 2
 layout_mode = 1
 anchors_preset = -1
@@ -458,7 +535,7 @@ offset_bottom = 69.0
 scale = Vector2(0.32, 0.32)
 metadata/_edit_group_ = true
 
-[node name="Jump_Bind_1" type="TextureRect" parent="Controls_Menu_Container/Jump_Bind_Button/Jump_Container"]
+[node name="Jump_Bind_1" type="TextureRect" parent="Controls_Menu_Container/GridContainer/Jump_Bind_Button/Jump_Container"]
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_stretch_ratio = 3.0
@@ -466,25 +543,19 @@ texture = ExtResource("5_yhxw7")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="Jump_Bind_2" type="TextureRect" parent="Controls_Menu_Container/Jump_Bind_Button/Jump_Container"]
+[node name="Jump_Bind_2" type="TextureRect" parent="Controls_Menu_Container/GridContainer/Jump_Bind_Button/Jump_Container"]
 layout_mode = 2
 size_flags_horizontal = 2
 texture = ExtResource("8_16hvj")
 expand_mode = 2
 stretch_mode = 6
 
-[node name="Glide_Bind_Button" type="Button" parent="Controls_Menu_Container"]
+[node name="Glide_Bind_Button" type="Button" parent="Controls_Menu_Container/GridContainer"]
 self_modulate = Color(0.275747, 0.336159, 0.905667, 1)
 custom_minimum_size = Vector2(128, 32)
-layout_mode = 1
-anchors_preset = -1
-offset_left = 592.0
-offset_top = 384.0
-offset_right = 720.0
-offset_bottom = 416.0
-scale = Vector2(2, 2)
+layout_mode = 2
 
-[node name="Glide_Label" type="RichTextLabel" parent="Controls_Menu_Container/Glide_Bind_Button"]
+[node name="Glide_Label" type="RichTextLabel" parent="Controls_Menu_Container/GridContainer/Glide_Bind_Button"]
 layout_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -495,7 +566,7 @@ offset_bottom = -5.0
 mouse_filter = 1
 text = "Glide:"
 
-[node name="Glide_Container" type="HBoxContainer" parent="Controls_Menu_Container/Glide_Bind_Button"]
+[node name="Glide_Container" type="HBoxContainer" parent="Controls_Menu_Container/GridContainer/Glide_Bind_Button"]
 layout_direction = 2
 layout_mode = 1
 anchors_preset = -1
@@ -508,7 +579,7 @@ offset_bottom = 69.0
 scale = Vector2(0.32, 0.32)
 metadata/_edit_group_ = true
 
-[node name="Glide_Bind_1" type="TextureRect" parent="Controls_Menu_Container/Glide_Bind_Button/Glide_Container"]
+[node name="Glide_Bind_1" type="TextureRect" parent="Controls_Menu_Container/GridContainer/Glide_Bind_Button/Glide_Container"]
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_stretch_ratio = 3.0
@@ -516,20 +587,12 @@ texture = ExtResource("5_yhxw7")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="Glide_Bind_2" type="TextureRect" parent="Controls_Menu_Container/Glide_Bind_Button/Glide_Container"]
+[node name="Glide_Bind_2" type="TextureRect" parent="Controls_Menu_Container/GridContainer/Glide_Bind_Button/Glide_Container"]
 layout_mode = 2
 size_flags_horizontal = 2
 texture = ExtResource("8_16hvj")
 expand_mode = 2
 stretch_mode = 6
-
-[node name="Controls_Done_Button" type="Button" parent="Controls_Menu_Container"]
-layout_mode = 0
-offset_left = 384.0
-offset_top = 480.0
-offset_right = 768.0
-offset_bottom = 520.0
-text = "Done"
 
 [connection signal="button_down" from="Main_Menu_Container/Start_Button" to="." method="_on_start_button_button_down"]
 [connection signal="mouse_entered" from="Main_Menu_Container/Start_Button" to="." method="_on_start_button_mouse_entered"]

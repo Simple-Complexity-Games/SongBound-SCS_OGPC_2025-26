@@ -9,6 +9,8 @@ extends Control
 @onready var Audio_Menu_Container = get_node("Audio_Menu_Container")
 @onready var Video_Menu_Container = get_node("Video_Menu_Container")
 
+var previous_window_mode
+
 
 
 func _ready() -> void:
@@ -20,6 +22,12 @@ func _process(delta) -> void:
 	
 	if Input.is_action_just_pressed("Esc"):
 		Load_Main_Menu()
+	if Input.is_action_just_pressed("Fullscreen"):
+		if DisplayServer.window_get_mode() != DisplayServer.WINDOW_MODE_FULLSCREEN:
+			previous_window_mode = DisplayServer.window_get_mode()
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+		else:
+			DisplayServer.window_set_mode(previous_window_mode)
 
 
 # -----Main Menu-----
