@@ -51,7 +51,6 @@ stream = ExtResource("4_ce3w2")
 volume_db = -4.108
 
 [node name="Main_Menu_Container" type="VBoxContainer" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.267
@@ -86,7 +85,7 @@ text = "Quit"
 
 [node name="Options_Menu_Label" type="RichTextLabel" parent="."]
 visible = false
-modulate = Color(0.400698, 0.400698, 0.400698, 1)
+modulate = Color(0.677646, 0.0992839, 0.527168, 1)
 layout_mode = 2
 anchor_left = 0.267
 anchor_top = 0.489
@@ -106,6 +105,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Options_Menu_Container" type="VBoxContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.267
