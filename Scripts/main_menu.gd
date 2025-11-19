@@ -11,9 +11,13 @@ extends Control
 @onready var Audio_Menu_Label = get_node("Audio_Menu_Label")
 @onready var Video_Menu_Container = get_node("Video_Menu_Container")
 @onready var Video_Menu_Label = get_node("Video_Menu_Label")
+@onready var Window_Mode_Button = get_node("Video_Menu_Container/Window_Mode_Button")
+
+# Window mode button dictionary for relating indexes and window modes
+var Window_Mode_Index_Dict = {0:DisplayServer.WINDOW_MODE_FULLSCREEN, 1:DisplayServer.WINDOW_MODE_MAXIMIZED,
+2:DisplayServer.WINDOW_MODE_WINDOWED}
 
 var previous_window_mode = DisplayServer.WINDOW_MODE_WINDOWED
-
 
 
 func _ready() -> void:
@@ -24,13 +28,19 @@ func _process(delta) -> void:
 		Music_Player.playing = true
 	
 	if Input.is_action_just_pressed("Esc"):
-		Load_Main_Menu()
+		if Options_Menu_Container.visible == false and Main_Menu_Container.visible == false:
+			Load_Options_Menu()
+		elif Options_Menu_Container.visible == true:
+			Load_Main_Menu()
 	if Input.is_action_just_pressed("Fullscreen"):
 		if DisplayServer.window_get_mode() != DisplayServer.WINDOW_MODE_FULLSCREEN:
 			previous_window_mode = DisplayServer.window_get_mode()
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+			Window_Mode_Button.selected = DisplayServer.WINDOW_MODE_FULLSCREEN
 		else:
 			DisplayServer.window_set_mode(previous_window_mode)
+			if Window_Mode_Index_Dict.has(previous_window_mode):
+				Window_Mode_Button.selected = previous_window_mode
 
 
 # -----Main Menu-----
@@ -84,12 +94,14 @@ func _on_audio_done_button_mouse_entered() -> void:
 func _on_audio_done_button_button_down() -> void:
 	Load_Options_Menu()
 	
-	# -----Audio Menu-----
+	# -----Video Menu-----
 # Done button
 func _on_video_done_button_mouse_entered() -> void:
 	Hover_SFX_Player.playing = true
 func _on_video_done_button_button_down() -> void:
 	Load_Options_Menu()
+func _on_window_mode_button_item_selected(index):
+	DisplayServer.window_set_mode(Window_Mode_Index_Dict.get(index))
 
 
 
