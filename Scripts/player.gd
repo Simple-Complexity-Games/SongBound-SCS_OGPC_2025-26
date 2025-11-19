@@ -32,9 +32,13 @@ var coyote_seconds = 0.15
 
 var abilities = {"flight":0, "glide":1}
 
+# Variable for handling fullscreen requests (f11 on windows)
+var previous_window_mode = DisplayServer.WINDOW_MODE_MAXIMIZED
+
 
 func _process(delta: float) -> void:
 	Handle_Inputs()
+	Handle_Fulscreening()
 
 func _physics_process(delta: float) -> void:
 	#Apply gravity
@@ -108,6 +112,14 @@ func Handle_Glide():
 			velocity.x = move_toward(velocity.x, direction * AIR_SPEED, ACCELERATION_FLYING)
 		else:
 			velocity.x = move_toward(velocity.x, 0, DECELERATON_SPEED_AIR)
+
+func Handle_Fulscreening():
+	if Input.is_action_just_pressed("Fullscreen"):
+		if DisplayServer.window_get_mode() != DisplayServer.WINDOW_MODE_FULLSCREEN:
+			previous_window_mode = DisplayServer.window_get_mode()
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+		else:
+			DisplayServer.window_set_mode(previous_window_mode)
 
 
 func coyote_timer_done(): # For Coyote time 
