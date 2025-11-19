@@ -297,6 +297,7 @@ theme_override_font_sizes/font_size = 29
 text = "Done"
 
 [node name="Video_Menu_Label" type="RichTextLabel" parent="."]
+visible = false
 self_modulate = Color(0.933333, 0.647059, 0.498039, 1)
 layout_mode = 2
 anchor_left = 0.267
@@ -317,6 +318,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Video_Menu_Container" type="VBoxContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.267
