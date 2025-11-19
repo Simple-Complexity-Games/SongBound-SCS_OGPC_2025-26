@@ -1,11 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://be8ds4pmwr8rn"]
+[gd_scene load_steps=9 format=3 uid="uid://be8ds4pmwr8rn"]
 
 [ext_resource type="Script" uid="uid://dxiy5wk0xbjug" path="res://Scripts/main_menu.gd" id="1_48xlc"]
 [ext_resource type="Texture2D" uid="uid://d0fy2swtgvp0l" path="res://Assets/Art/Environment/Bard_Tavern_Concept_Art.JPG" id="2_1ehe0"]
 [ext_resource type="AudioStream" uid="uid://drso7th4ouiao" path="res://Assets/Sound/Music/Game Music Concept Orchestrated.wav" id="3_1ehe0"]
 [ext_resource type="AudioStream" uid="uid://bhe7lcpnuo6q4" path="res://Assets/Sound/SFX/typing_blip.wav" id="4_ce3w2"]
 [ext_resource type="Texture2D" uid="uid://b648n6gojbbj0" path="res://Assets/Art/Button_Icons/Keyboard & Mouse/Dark/Mouse_Right_Key_Dark.png" id="5_yhxw7"]
-[ext_resource type="Texture2D" uid="uid://ne3kngu8sygi" path="res://Assets/Art/Button_Icons/Keyboard & Mouse/Dark/Ctrl_Key_Dark.png" id="6_yhxw7"]
 [ext_resource type="Texture2D" uid="uid://bcihx3b0w78px" path="res://Assets/Art/Button_Icons/Keyboard & Mouse/Dark/Space_Key_Dark.png" id="7_trj04"]
 [ext_resource type="Texture2D" uid="uid://b66hsm718vu2t" path="res://Assets/Art/Button_Icons/Keyboard & Mouse/Dark/Enter_Tall_Key_Dark.png" id="8_16hvj"]
 
@@ -19,6 +18,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_48xlc")
+metadata/_edit_lock_ = true
 
 [node name="Background_Color" type="ColorRect" parent="."]
 z_index = -1
@@ -37,10 +37,10 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 136.0
-offset_bottom = -128.0
+offset_right = 1440.0
 texture = ExtResource("2_1ehe0")
 expand_mode = 2
+stretch_mode = 4
 metadata/_edit_lock_ = true
 
 [node name="Music_Player" type="AudioStreamPlayer" parent="."]
@@ -54,81 +54,139 @@ volume_db = -4.108
 visible = false
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.233
-anchor_top = 0.578
-anchor_right = 0.767
-anchor_bottom = 0.773
-offset_left = 0.639984
-offset_top = -0.23999
-offset_right = -0.640015
-offset_bottom = 0.159912
+anchor_left = 0.267
+anchor_top = 0.615
+anchor_right = 0.733
+anchor_bottom = 0.85
+offset_left = -0.640015
+offset_top = -0.200012
+offset_right = 0.639893
+theme_override_constants/separation = 8
 metadata/_edit_group_ = true
 
 [node name="Start_Button" type="Button" parent="Main_Menu_Container"]
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
+theme_override_font_sizes/font_size = 29
 text = "Start"
 icon = SubResource("ImageTexture_ce3w2")
 
 [node name="Options_Button" type="Button" parent="Main_Menu_Container"]
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
+theme_override_font_sizes/font_size = 29
 text = "Options"
 icon_alignment = 1
 
 [node name="Quit_Button" type="Button" parent="Main_Menu_Container"]
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
+theme_override_font_sizes/font_size = 29
 text = "Quit"
 
-[node name="Options_Menu_Container" type="VBoxContainer" parent="."]
+[node name="Options_Menu_Label" type="RichTextLabel" parent="."]
 visible = false
+modulate = Color(0.400698, 0.400698, 0.400698, 1)
+layout_mode = 2
+anchor_left = 0.267
+anchor_top = 0.489
+anchor_right = 0.733
+anchor_bottom = 0.763
+offset_left = -0.640015
+offset_top = -0.119995
+offset_right = 0.639893
+offset_bottom = -224.04
+theme_override_font_sizes/bold_italics_font_size = 50
+theme_override_font_sizes/italics_font_size = 50
+theme_override_font_sizes/mono_font_size = 50
+theme_override_font_sizes/normal_font_size = 50
+theme_override_font_sizes/bold_font_size = 50
+text = "Options"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Options_Menu_Container" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.233
-anchor_top = 0.575
-anchor_right = 0.767
-anchor_bottom = 0.775
-offset_left = 0.639984
-offset_top = 2.99994
-offset_right = -0.640015
-offset_bottom = -5.00006
+anchor_left = 0.267
+anchor_top = 0.563
+anchor_right = 0.733
+anchor_bottom = 0.77
+offset_left = -0.640015
+offset_top = -0.0400391
+offset_right = 0.639893
+offset_bottom = 0.399963
+theme_override_constants/separation = 8
 metadata/_edit_group_ = true
 
 [node name="Controls_Button" type="Button" parent="Options_Menu_Container"]
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
+theme_override_font_sizes/font_size = 29
 text = "Controls"
 
 [node name="Audio_Button" type="Button" parent="Options_Menu_Container"]
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
+theme_override_font_sizes/font_size = 29
 text = "Audio"
 
 [node name="Video_Button" type="Button" parent="Options_Menu_Container"]
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
+theme_override_font_sizes/font_size = 29
 text = "Video"
 
 [node name="Done_Button" type="Button" parent="Options_Menu_Container"]
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
+theme_override_font_sizes/font_size = 29
 text = "Done"
+
+[node name="Audio_Menu_Label" type="RichTextLabel" parent="."]
+visible = false
+modulate = Color(0.631373, 0.709804, 0.988235, 1)
+layout_mode = 2
+anchor_left = 0.267
+anchor_top = 0.415
+anchor_right = 0.733
+anchor_bottom = 0.763
+offset_left = -0.640015
+offset_top = -0.200012
+offset_right = 0.639893
+offset_bottom = -304.04
+theme_override_font_sizes/bold_italics_font_size = 50
+theme_override_font_sizes/italics_font_size = 50
+theme_override_font_sizes/mono_font_size = 50
+theme_override_font_sizes/normal_font_size = 50
+theme_override_font_sizes/bold_font_size = 50
+text = "Audio"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Audio_Menu_Container" type="VBoxContainer" parent="."]
 visible = false
 layout_mode = 2
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 448.0
-offset_top = 624.0
-offset_right = -448.0
-offset_bottom = -248.0
+anchor_left = 0.267
+anchor_top = 0.489
+anchor_right = 0.733
+anchor_bottom = 0.763
+offset_left = -0.640015
+offset_top = -0.119995
+offset_right = 0.639893
+offset_bottom = -0.0400391
+theme_override_constants/separation = 8
 metadata/_edit_group_ = true
 
 [node name="Master_Volume_Label" type="RichTextLabel" parent="Audio_Menu_Container"]
+modulate = Color(0.633036, 0.710564, 0.987105, 1)
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
+theme_override_font_sizes/bold_italics_font_size = 22
+theme_override_font_sizes/italics_font_size = 22
+theme_override_font_sizes/mono_font_size = 22
+theme_override_font_sizes/normal_font_size = 22
+theme_override_font_sizes/bold_font_size = 22
 text = "Master Volume"
 fit_content = true
 horizontal_alignment = 1
@@ -157,9 +215,50 @@ custom_minimum_size = Vector2(0, 8)
 layout_mode = 2
 color = Color(1, 1, 1, 0)
 
-[node name="SFX_Volume_Label" type="RichTextLabel" parent="Audio_Menu_Container"]
+[node name="Music_Volume_Label" type="RichTextLabel" parent="Audio_Menu_Container"]
+modulate = Color(0.631373, 0.709804, 0.988235, 1)
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
+theme_override_font_sizes/bold_italics_font_size = 22
+theme_override_font_sizes/italics_font_size = 22
+theme_override_font_sizes/mono_font_size = 22
+theme_override_font_sizes/normal_font_size = 22
+theme_override_font_sizes/bold_font_size = 22
+text = "Music Volume"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Music_Volume_Label_Box" type="ColorRect" parent="Audio_Menu_Container/Music_Volume_Label"]
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.002
+anchor_bottom = 4.913
+offset_right = -0.0240479
+offset_bottom = 0.000999451
+color = Color(0.101961, 0.101961, 0.101961, 0.745098)
+
+[node name="Music_Volume_Slider" type="HSlider" parent="Audio_Menu_Container"]
+layout_mode = 2
+tooltip_text = "Music Volume"
+value = 80.0
+rounded = true
+
+[node name="Separator_2" type="ColorRect" parent="Audio_Menu_Container"]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+color = Color(1, 1, 1, 0)
+
+[node name="SFX_Volume_Label" type="RichTextLabel" parent="Audio_Menu_Container"]
+modulate = Color(0.631373, 0.709804, 0.988235, 1)
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+theme_override_font_sizes/bold_italics_font_size = 22
+theme_override_font_sizes/italics_font_size = 22
+theme_override_font_sizes/mono_font_size = 22
+theme_override_font_sizes/normal_font_size = 22
+theme_override_font_sizes/bold_font_size = 22
 text = "SFX Volume"
 fit_content = true
 horizontal_alignment = 1
@@ -182,35 +281,6 @@ tooltip_text = "SFX Volume
 value = 80.0
 rounded = true
 
-[node name="Separator_2" type="ColorRect" parent="Audio_Menu_Container"]
-custom_minimum_size = Vector2(0, 8)
-layout_mode = 2
-color = Color(1, 1, 1, 0)
-
-[node name="Music_Volume_Label" type="RichTextLabel" parent="Audio_Menu_Container"]
-custom_minimum_size = Vector2(0, 32)
-layout_mode = 2
-text = "Music Volume"
-fit_content = true
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Music_Volume_Label_Box" type="ColorRect" parent="Audio_Menu_Container/Music_Volume_Label"]
-z_index = -1
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.002
-anchor_bottom = 4.913
-offset_right = -0.0240479
-offset_bottom = 0.000999451
-color = Color(0.101961, 0.101961, 0.101961, 0.745098)
-
-[node name="Music_Volume_Slider" type="HSlider" parent="Audio_Menu_Container"]
-layout_mode = 2
-tooltip_text = "Music Volume"
-value = 80.0
-rounded = true
-
 [node name="Separator_3" type="ColorRect" parent="Audio_Menu_Container"]
 custom_minimum_size = Vector2(0, 16)
 layout_mode = 2
@@ -219,24 +289,56 @@ color = Color(1, 1, 1, 0)
 [node name="Audio_Done_Button" type="Button" parent="Audio_Menu_Container"]
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
-text = "Back"
+theme_override_font_sizes/font_size = 29
+text = "Done"
+
+[node name="Video_Menu_Label" type="RichTextLabel" parent="."]
+visible = false
+self_modulate = Color(0.933333, 0.647059, 0.498039, 1)
+layout_mode = 2
+anchor_left = 0.267
+anchor_top = 0.563
+anchor_right = 0.733
+anchor_bottom = 0.763
+offset_left = -0.640015
+offset_top = -0.0400391
+offset_right = 0.639893
+offset_bottom = -144.04
+theme_override_font_sizes/bold_italics_font_size = 50
+theme_override_font_sizes/italics_font_size = 50
+theme_override_font_sizes/mono_font_size = 50
+theme_override_font_sizes/normal_font_size = 50
+theme_override_font_sizes/bold_font_size = 50
+text = "Video"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Video_Menu_Container" type="VBoxContainer" parent="."]
+visible = false
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 448.0
-offset_top = 624.0
-offset_right = -448.0
-offset_bottom = -116.0
+anchors_preset = -1
+anchor_left = 0.267
+anchor_top = 0.637
+anchor_right = 0.733
+anchor_bottom = 0.904
+offset_left = -0.640015
+offset_top = 0.039978
+offset_right = 0.639893
+offset_bottom = -0.320068
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 8
 metadata/_edit_group_ = true
 
 [node name="Brightness_Label" type="RichTextLabel" parent="Video_Menu_Container"]
+modulate = Color(0.932671, 0.648798, 0.49854, 1)
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
+theme_override_font_sizes/bold_italics_font_size = 22
+theme_override_font_sizes/italics_font_size = 22
+theme_override_font_sizes/mono_font_size = 22
+theme_override_font_sizes/normal_font_size = 22
+theme_override_font_sizes/bold_font_size = 22
 text = "Brightness"
 fit_content = true
 horizontal_alignment = 1
@@ -264,140 +366,165 @@ layout_mode = 2
 color = Color(1, 1, 1, 0)
 
 [node name="Video_Done_Button" type="Button" parent="Video_Menu_Container"]
+custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
-text = "Back"
+theme_override_font_sizes/font_size = 29
+text = "Done"
 
 [node name="Controls_Menu_Container" type="Control" parent="."]
 visible = false
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_left = 0.267
+anchor_top = 0.43
+anchor_right = 0.733
+anchor_bottom = 0.763
+offset_left = -0.640015
+offset_top = -0.399994
+offset_right = 0.639893
+offset_bottom = -0.0400391
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Controls_Menu_Label" type="RichTextLabel" parent="Controls_Menu_Container"]
-layout_mode = 2
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 512.0
-offset_top = 256.0
-offset_right = -1109.0
-offset_bottom = -792.0
-scale = Vector2(3, 3)
-text = "Keybinds"
-horizontal_alignment = 1
-
-[node name="Controls_Done_Button" type="Button" parent="Controls_Menu_Container"]
+self_modulate = Color(0.537255, 0.8, 0.580392, 1)
 layout_mode = 1
 anchors_preset = -1
+anchor_top = -0.267
+anchor_right = 1.0
+anchor_bottom = 0.978
+offset_top = 0.12001
+offset_bottom = -376.08
+theme_override_font_sizes/bold_italics_font_size = 50
+theme_override_font_sizes/italics_font_size = 50
+theme_override_font_sizes/mono_font_size = 50
+theme_override_font_sizes/normal_font_size = 50
+theme_override_font_sizes/bold_font_size = 50
+text = "Controls"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Controls_Done_Button" type="Button" parent="Controls_Menu_Container"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.378
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 576.0
-offset_top = 880.0
-offset_right = -576.0
-offset_bottom = -136.0
+offset_top = 448.08
+theme_override_font_sizes/font_size = 29
 text = "Done"
 
 [node name="GridContainer" type="GridContainer" parent="Controls_Menu_Container"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 448.0
-offset_top = 384.0
-offset_right = -448.0
-offset_bottom = -232.0
+anchor_bottom = 0.822
+offset_top = -16.0
+offset_bottom = -15.92
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/h_separation = 48
-theme_override_constants/v_separation = 48
+theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 16
 columns = 2
 metadata/_edit_group_ = true
 
 [node name="Left_Bind_Button" type="Button" parent="Controls_Menu_Container/GridContainer"]
-self_modulate = Color(0.275747, 0.336159, 0.905667, 1)
-custom_minimum_size = Vector2(128, 32)
+self_modulate = Color(0.407843, 0.831373, 0.494118, 1)
+custom_minimum_size = Vector2(128, 72)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 metadata/_edit_group_ = true
 
 [node name="Left_Label" type="RichTextLabel" parent="Controls_Menu_Container/GridContainer/Left_Bind_Button"]
+modulate = Color(0.538153, 0.798106, 0.578632, 1)
 layout_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 8.0
 offset_top = 8.0
-offset_right = -176.0
+offset_right = -336.0
 offset_bottom = -8.0
 mouse_filter = 1
+theme_override_font_sizes/bold_italics_font_size = 39
+theme_override_font_sizes/italics_font_size = 39
+theme_override_font_sizes/mono_font_size = 39
+theme_override_font_sizes/normal_font_size = 39
+theme_override_font_sizes/bold_font_size = 39
 text = "Left:"
+vertical_alignment = 1
 
 [node name="Left_Container" type="HBoxContainer" parent="Controls_Menu_Container/GridContainer/Left_Bind_Button"]
 layout_direction = 2
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.328
-anchor_right = 0.861
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 0.0319977
-offset_right = 401.584
-offset_bottom = 136.0
+offset_left = 112.0
+offset_top = 8.0
+offset_right = 672.0
+offset_bottom = 145.0
 scale = Vector2(0.32, 0.32)
 metadata/_edit_group_ = true
 
 [node name="Left_Bind_1" type="TextureRect" parent="Controls_Menu_Container/GridContainer/Left_Bind_Button/Left_Container"]
 layout_mode = 2
-size_flags_horizontal = 0
-size_flags_stretch_ratio = 3.0
-texture = ExtResource("8_16hvj")
+size_flags_horizontal = 2
+size_flags_stretch_ratio = 0.3
+texture = ExtResource("7_trj04")
 expand_mode = 2
 stretch_mode = 4
 
 [node name="Left_Bind_2" type="TextureRect" parent="Controls_Menu_Container/GridContainer/Left_Bind_Button/Left_Container"]
 layout_mode = 2
-size_flags_horizontal = 0
-texture = ExtResource("6_yhxw7")
+size_flags_horizontal = 2
+texture = ExtResource("7_trj04")
 expand_mode = 2
 stretch_mode = 6
 
 [node name="Right_Bind_Button" type="Button" parent="Controls_Menu_Container/GridContainer"]
-self_modulate = Color(0.275747, 0.336159, 0.905667, 1)
-custom_minimum_size = Vector2(128, 32)
+self_modulate = Color(0.407843, 0.831373, 0.494118, 1)
+custom_minimum_size = Vector2(128, 72)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 metadata/_edit_group_ = true
 
 [node name="Right_Label" type="RichTextLabel" parent="Controls_Menu_Container/GridContainer/Right_Bind_Button"]
+modulate = Color(0.537255, 0.8, 0.580392, 1)
 layout_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 4.0
-offset_top = 4.0
-offset_right = -68.0
-offset_bottom = -5.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -312.0
+offset_bottom = -8.0
 mouse_filter = 1
+theme_override_font_sizes/bold_italics_font_size = 39
+theme_override_font_sizes/italics_font_size = 39
+theme_override_font_sizes/mono_font_size = 39
+theme_override_font_sizes/normal_font_size = 39
+theme_override_font_sizes/bold_font_size = 39
 text = "Right:"
+vertical_alignment = 1
 
 [node name="Right_Container" type="HBoxContainer" parent="Controls_Menu_Container/GridContainer/Right_Bind_Button"]
 layout_direction = 2
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.414
-anchor_right = 0.947
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 0.00799561
-offset_right = 144.784
-offset_bottom = 69.0
+offset_left = 136.0
+offset_top = 8.0
+offset_right = 621.0
+offset_bottom = 145.0
 scale = Vector2(0.32, 0.32)
 metadata/_edit_group_ = true
 
 [node name="Right_Bind_1" type="TextureRect" parent="Controls_Menu_Container/GridContainer/Right_Bind_Button/Right_Container"]
 layout_mode = 2
 size_flags_horizontal = 2
-size_flags_stretch_ratio = 3.0
+size_flags_stretch_ratio = 0.3
 texture = ExtResource("5_yhxw7")
 expand_mode = 2
 stretch_mode = 4
@@ -410,41 +537,48 @@ expand_mode = 2
 stretch_mode = 6
 
 [node name="Up_Bind_Button" type="Button" parent="Controls_Menu_Container/GridContainer"]
-self_modulate = Color(0.275747, 0.336159, 0.905667, 1)
-custom_minimum_size = Vector2(128, 32)
+self_modulate = Color(0.407843, 0.831373, 0.494118, 1)
+custom_minimum_size = Vector2(128, 72)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 metadata/_edit_group_ = true
 
 [node name="Up_Label" type="RichTextLabel" parent="Controls_Menu_Container/GridContainer/Up_Bind_Button"]
+modulate = Color(0.537255, 0.8, 0.580392, 1)
 layout_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 4.0
-offset_top = 4.0
-offset_right = -68.0
-offset_bottom = -5.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -360.0
+offset_bottom = -8.0
 mouse_filter = 1
+theme_override_font_sizes/bold_italics_font_size = 39
+theme_override_font_sizes/italics_font_size = 39
+theme_override_font_sizes/mono_font_size = 39
+theme_override_font_sizes/normal_font_size = 39
+theme_override_font_sizes/bold_font_size = 39
 text = "Up:"
+vertical_alignment = 1
 
 [node name="Up_Container" type="HBoxContainer" parent="Controls_Menu_Container/GridContainer/Up_Bind_Button"]
 layout_direction = 2
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.262
-anchor_right = 0.794
-anchor_bottom = 1.01
-offset_left = -0.0360031
-offset_right = 144.868
-offset_bottom = 68.68
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 88.0
+offset_top = 8.0
+offset_right = 723.0
+offset_bottom = 145.0
 scale = Vector2(0.32, 0.32)
 metadata/_edit_group_ = true
 
 [node name="Up_Bind_1" type="TextureRect" parent="Controls_Menu_Container/GridContainer/Up_Bind_Button/Up_Container"]
 layout_mode = 2
 size_flags_horizontal = 2
-size_flags_stretch_ratio = 3.0
+size_flags_stretch_ratio = 0.3
 texture = ExtResource("5_yhxw7")
 expand_mode = 2
 stretch_mode = 4
@@ -457,41 +591,48 @@ expand_mode = 2
 stretch_mode = 6
 
 [node name="Down_Bind_Button" type="Button" parent="Controls_Menu_Container/GridContainer"]
-self_modulate = Color(0.275747, 0.336159, 0.905667, 1)
-custom_minimum_size = Vector2(128, 32)
+self_modulate = Color(0.407843, 0.831373, 0.494118, 1)
+custom_minimum_size = Vector2(128, 72)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 metadata/_edit_group_ = true
 
 [node name="Down_Label" type="RichTextLabel" parent="Controls_Menu_Container/GridContainer/Down_Bind_Button"]
+modulate = Color(0.537255, 0.8, 0.580392, 1)
 layout_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 4.0
-offset_top = 4.0
-offset_right = -68.0
-offset_bottom = -5.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -296.0
+offset_bottom = -8.0
 mouse_filter = 1
+theme_override_font_sizes/bold_italics_font_size = 39
+theme_override_font_sizes/italics_font_size = 39
+theme_override_font_sizes/mono_font_size = 39
+theme_override_font_sizes/normal_font_size = 39
+theme_override_font_sizes/bold_font_size = 39
 text = "Down:"
+vertical_alignment = 1
 
 [node name="Down_Container" type="HBoxContainer" parent="Controls_Menu_Container/GridContainer/Down_Bind_Button"]
 layout_direction = 2
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.445
-anchor_right = 0.978
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 0.0399971
-offset_right = 144.816
-offset_bottom = 69.0
+offset_left = 144.0
+offset_top = 8.0
+offset_right = 604.0
+offset_bottom = 145.0
 scale = Vector2(0.32, 0.32)
 metadata/_edit_group_ = true
 
 [node name="Down_Bind_1" type="TextureRect" parent="Controls_Menu_Container/GridContainer/Down_Bind_Button/Down_Container"]
 layout_mode = 2
 size_flags_horizontal = 2
-size_flags_stretch_ratio = 3.0
+size_flags_stretch_ratio = 0.3
 texture = ExtResource("5_yhxw7")
 expand_mode = 2
 stretch_mode = 4
@@ -504,41 +645,48 @@ expand_mode = 2
 stretch_mode = 6
 
 [node name="Jump_Bind_Button" type="Button" parent="Controls_Menu_Container/GridContainer"]
-self_modulate = Color(0.275747, 0.336159, 0.905667, 1)
-custom_minimum_size = Vector2(128, 32)
+self_modulate = Color(0.407843, 0.831373, 0.494118, 1)
+custom_minimum_size = Vector2(128, 72)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 metadata/_edit_group_ = true
 
 [node name="Jump_Label" type="RichTextLabel" parent="Controls_Menu_Container/GridContainer/Jump_Bind_Button"]
+modulate = Color(0.537255, 0.8, 0.580392, 1)
 layout_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 4.0
-offset_top = 4.0
-offset_right = -68.0
-offset_bottom = -5.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -312.0
+offset_bottom = -8.0
 mouse_filter = 1
+theme_override_font_sizes/bold_italics_font_size = 39
+theme_override_font_sizes/italics_font_size = 39
+theme_override_font_sizes/mono_font_size = 39
+theme_override_font_sizes/normal_font_size = 39
+theme_override_font_sizes/bold_font_size = 39
 text = "Jump:"
+vertical_alignment = 1
 
 [node name="Jump_Container" type="HBoxContainer" parent="Controls_Menu_Container/GridContainer/Jump_Bind_Button"]
 layout_direction = 2
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.414
-anchor_right = 0.947
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 0.00799561
-offset_right = 144.784
-offset_bottom = 69.0
+offset_left = 136.0
+offset_top = 8.0
+offset_right = 621.0
+offset_bottom = 145.0
 scale = Vector2(0.32, 0.32)
 metadata/_edit_group_ = true
 
 [node name="Jump_Bind_1" type="TextureRect" parent="Controls_Menu_Container/GridContainer/Jump_Bind_Button/Jump_Container"]
 layout_mode = 2
 size_flags_horizontal = 2
-size_flags_stretch_ratio = 3.0
+size_flags_stretch_ratio = 0.3
 texture = ExtResource("5_yhxw7")
 expand_mode = 2
 stretch_mode = 4
@@ -551,38 +699,45 @@ expand_mode = 2
 stretch_mode = 6
 
 [node name="Glide_Bind_Button" type="Button" parent="Controls_Menu_Container/GridContainer"]
-self_modulate = Color(0.275747, 0.336159, 0.905667, 1)
-custom_minimum_size = Vector2(128, 32)
+self_modulate = Color(0.407843, 0.831373, 0.494118, 1)
+custom_minimum_size = Vector2(128, 72)
 layout_mode = 2
 
 [node name="Glide_Label" type="RichTextLabel" parent="Controls_Menu_Container/GridContainer/Glide_Bind_Button"]
+modulate = Color(0.537255, 0.8, 0.580392, 1)
 layout_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 4.0
-offset_top = 4.0
-offset_right = -68.0
-offset_bottom = -5.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -312.0
+offset_bottom = -8.0
 mouse_filter = 1
+theme_override_font_sizes/bold_italics_font_size = 39
+theme_override_font_sizes/italics_font_size = 39
+theme_override_font_sizes/mono_font_size = 39
+theme_override_font_sizes/normal_font_size = 39
+theme_override_font_sizes/bold_font_size = 39
 text = "Glide:"
+vertical_alignment = 1
 
 [node name="Glide_Container" type="HBoxContainer" parent="Controls_Menu_Container/GridContainer/Glide_Bind_Button"]
 layout_direction = 2
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.414
-anchor_right = 0.947
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -0.992004
-offset_right = 143.784
-offset_bottom = 69.0
+offset_left = 136.0
+offset_top = 8.0
+offset_right = 621.0
+offset_bottom = 145.0
 scale = Vector2(0.32, 0.32)
 metadata/_edit_group_ = true
 
 [node name="Glide_Bind_1" type="TextureRect" parent="Controls_Menu_Container/GridContainer/Glide_Bind_Button/Glide_Container"]
 layout_mode = 2
 size_flags_horizontal = 2
-size_flags_stretch_ratio = 3.0
+size_flags_stretch_ratio = 0.3
 texture = ExtResource("5_yhxw7")
 expand_mode = 2
 stretch_mode = 4

@@ -5,11 +5,14 @@ extends Control
 # Main menu
 @onready var Main_Menu_Container = get_node("Main_Menu_Container")
 @onready var Options_Menu_Container = get_node("Options_Menu_Container")
+@onready var Options_Menu_Label = get_node("Options_Menu_Label")
 @onready var Controls_Menu_Container = get_node("Controls_Menu_Container")
 @onready var Audio_Menu_Container = get_node("Audio_Menu_Container")
+@onready var Audio_Menu_Label = get_node("Audio_Menu_Label")
 @onready var Video_Menu_Container = get_node("Video_Menu_Container")
+@onready var Video_Menu_Label = get_node("Video_Menu_Label")
 
-var previous_window_mode
+var previous_window_mode = DisplayServer.WINDOW_MODE_WINDOWED
 
 
 
@@ -96,35 +99,50 @@ func Start_Game():
 
 func Load_Main_Menu():
 	Options_Menu_Container.hide()
+	Options_Menu_Label.hide()
 	Controls_Menu_Container.hide()
 	Audio_Menu_Container.hide()
+	Audio_Menu_Label.hide()
 	Video_Menu_Container.hide()
+	Video_Menu_Label.hide()
 	Main_Menu_Container.show()
 
 func Load_Options_Menu():
 	Main_Menu_Container.hide()
 	Controls_Menu_Container.hide()
 	Audio_Menu_Container.hide()
+	Audio_Menu_Label.hide()
 	Video_Menu_Container.hide()
+	Video_Menu_Label.hide()
 	Options_Menu_Container.show()
+	Options_Menu_Label.show()
 
 func Load_Controls_Menu():
 	Main_Menu_Container.hide()
 	Options_Menu_Container.hide()
+	Options_Menu_Label.hide()
 	Audio_Menu_Container.hide()
+	Audio_Menu_Label.hide()
 	Video_Menu_Container.hide()
+	Video_Menu_Label.hide()
 	Controls_Menu_Container.show()
 
 func Load_Audio_Menu():
 	Main_Menu_Container.hide()
 	Options_Menu_Container.hide()
+	Options_Menu_Label.hide()
 	Controls_Menu_Container.hide()
 	Video_Menu_Container.hide()
+	Video_Menu_Label.hide()
 	Audio_Menu_Container.show()
+	Audio_Menu_Label.show()
 	
 func Load_Video_Menu():
 	Main_Menu_Container.hide()
 	Options_Menu_Container.hide()
+	Options_Menu_Label.hide()
 	Controls_Menu_Container.hide()
 	Audio_Menu_Container.hide()
+	Audio_Menu_Label.hide()
 	Video_Menu_Container.show()
+	Video_Menu_Label.show()
