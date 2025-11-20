@@ -4,6 +4,7 @@ extends Control
 @onready var Hover_SFX_Player = get_node("Hover_SFX_Player")
 # Main menu
 @onready var Main_Menu_Container = get_node("Main_Menu_Container")
+@onready var Main_Menu_Label = get_node("Title_Label")
 @onready var Options_Menu_Container = get_node("Options_Menu_Container")
 @onready var Options_Menu_Label = get_node("Options_Menu_Label")
 @onready var Controls_Menu_Container = get_node("Controls_Menu_Container")
@@ -154,9 +155,11 @@ func Load_Main_Menu():
 	Video_Menu_Container.hide()
 	Video_Menu_Label.hide()
 	Main_Menu_Container.show()
+	Main_Menu_Label.show()
 
 func Load_Options_Menu():
 	Main_Menu_Container.hide()
+	Main_Menu_Label.hide()
 	Controls_Menu_Container.hide()
 	Audio_Menu_Container.hide()
 	Audio_Menu_Label.hide()
@@ -167,6 +170,7 @@ func Load_Options_Menu():
 
 func Load_Controls_Menu():
 	Main_Menu_Container.hide()
+	Main_Menu_Label.hide()
 	Options_Menu_Container.hide()
 	Options_Menu_Label.hide()
 	Audio_Menu_Container.hide()
@@ -177,6 +181,7 @@ func Load_Controls_Menu():
 
 func Load_Audio_Menu():
 	Main_Menu_Container.hide()
+	Main_Menu_Label.hide()
 	Options_Menu_Container.hide()
 	Options_Menu_Label.hide()
 	Controls_Menu_Container.hide()
@@ -187,6 +192,7 @@ func Load_Audio_Menu():
 	
 func Load_Video_Menu():
 	Main_Menu_Container.hide()
+	Main_Menu_Label.hide()
 	Options_Menu_Container.hide()
 	Options_Menu_Label.hide()
 	Controls_Menu_Container.hide()
@@ -221,6 +227,9 @@ func Create_Config_File(config):
 func Apply_Config(config):
 	World_Environment.environment.adjustment_brightness = config.get_value("Video", "Brightness")
 	Video_Brightness_Slider.value = World_Environment.environment.adjustment_brightness
-	config.get_value("Video", "Contrast")
-	config.get_value("Video", "Saturation")
-	config.get_value("Video", "Brightness")
+	World_Environment.environment.adjustment_contrast = config.get_value("Video", "Contrast")
+	Video_Contrast_Slider.value = World_Environment.environment.adjustment_contrast
+	World_Environment.environment.adjustment_saturation = config.get_value("Video", "Saturation")
+	Video_Saturation_Slider.value = World_Environment.environment.adjustment_saturation
+	
+	

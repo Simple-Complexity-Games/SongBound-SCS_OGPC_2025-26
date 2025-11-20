@@ -60,17 +60,17 @@ stream = ExtResource("4_ce3w2")
 volume_db = -10.685
 
 [node name="Title_Label" type="RichTextLabel" parent="."]
-modulate = Color(0, 0.717647, 0.682353, 1)
+modulate = Color(0.672616, 0.824828, 1, 1)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.267
-anchor_top = 0.489
-anchor_right = 0.733
-anchor_bottom = 0.763
-offset_left = -352.64
-offset_top = -438.12
-offset_right = 353.64
-offset_bottom = -533.04
+anchor_left = 0.083
+anchor_top = 0.081
+anchor_right = 0.917
+anchor_bottom = 0.268
+offset_left = 0.639984
+offset_top = 0.519997
+offset_right = 0.359863
+offset_bottom = -0.439941
 tooltip_text = "A Game By Simple Complexity"
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 20
