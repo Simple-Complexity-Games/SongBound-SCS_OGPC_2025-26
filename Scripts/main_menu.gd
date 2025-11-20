@@ -11,17 +11,31 @@ extends Control
 @onready var Audio_Menu_Label = get_node("Audio_Menu_Label")
 @onready var Video_Menu_Container = get_node("Video_Menu_Container")
 @onready var Video_Menu_Label = get_node("Video_Menu_Label")
+@onready var Video_Brightness_Slider = get_node("Video_Menu_Container/Brightness_Slider")
+@onready var Video_Contrast_Slider = get_node("Video_Menu_Container/Contrast_Slider")
+@onready var Video_Saturation_Slider = get_node("Video_Menu_Container/Saturation_Slider")
 @onready var Window_Mode_Button = get_node("Video_Menu_Container/Window_Mode_Button")
+@onready var World_Environment = get_node("WorldEnvironment")
 
 # Window mode button dictionary for relating indexes and window modes
 var Window_Mode_Index_Dict = {0:DisplayServer.WINDOW_MODE_FULLSCREEN, 1:DisplayServer.WINDOW_MODE_MAXIMIZED,
 2:DisplayServer.WINDOW_MODE_WINDOWED}
 
-var previous_window_mode = DisplayServer.WINDOW_MODE_WINDOWED
+var previous_window_mode = DisplayServer.WINDOW_MODE_MAXIMIZED
+
+# Config file container
+var config
 
 
 func _ready() -> void:
 	Load_Main_Menu()
+	
+	if !FileAccess.file_exists("user://config"):
+		Create_Config_File(config)
+	else:
+		config.load("user://config")
+		
+		Apply_Config(config)
 
 func _process(delta) -> void:
 	if Music_Player.playing == false:
@@ -36,11 +50,14 @@ func _process(delta) -> void:
 		if DisplayServer.window_get_mode() != DisplayServer.WINDOW_MODE_FULLSCREEN:
 			previous_window_mode = DisplayServer.window_get_mode()
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
-			Window_Mode_Button.selected = DisplayServer.WINDOW_MODE_FULLSCREEN
+			Window_Mode_Button.selected = Window_Mode_Index_Dict.find_key(DisplayServer.WINDOW_MODE_FULLSCREEN)
 		else:
 			DisplayServer.window_set_mode(previous_window_mode)
 			if Window_Mode_Index_Dict.has(previous_window_mode):
-				Window_Mode_Button.selected = previous_window_mode
+				Window_Mode_Button.selected = Window_Mode_Index_Dict.find_key(previous_window_mode)
+	if DisplayServer.window_get_mode() != previous_window_mode and DisplayServer.window_get_mode() != DisplayServer.WINDOW_MODE_FULLSCREEN:
+		Window_Mode_Button.selected = Window_Mode_Index_Dict.find_key(DisplayServer.window_get_mode())
+		previous_window_mode = DisplayServer.window_get_mode()
 
 
 # -----Main Menu-----
@@ -84,6 +101,8 @@ func _on_done_button_button_down() -> void:
 	
 
 # -----Controls Menu-----
+func _on_controls_done_button_mouse_entered():
+	Hover_SFX_Player.playing = true
 func _on_controls_done_button_button_down():
 	Load_Options_Menu()
 
@@ -95,6 +114,23 @@ func _on_audio_done_button_button_down() -> void:
 	Load_Options_Menu()
 	
 	# -----Video Menu-----
+# Brightness slider
+func _on_brightness_slider_value_changed(value):
+	World_Environment.environment.adjustment_brightness = value
+func _on_contrast_slider_value_changed(value):
+	World_Environment.environment.adjustment_contrast = value
+func _on_saturation_slider_value_changed(value):
+	World_Environment.environment.adjustment_saturation = value
+# Screen shake button
+func _on_screen_shake_button_mouse_entered():
+	Hover_SFX_Player.playing = true
+func _on_screen_shake_button_button_down():
+	pass
+# Screen blur button
+func _on_screen_blur_button_mouse_entered():
+	Hover_SFX_Player.playing = true
+func _on_screen_blur_button_button_down():
+	pass
 # Done button
 func _on_video_done_button_mouse_entered() -> void:
 	Hover_SFX_Player.playing = true
@@ -158,3 +194,33 @@ func Load_Video_Menu():
 	Audio_Menu_Label.hide()
 	Video_Menu_Container.show()
 	Video_Menu_Label.show()
+
+
+func Create_Config_File(config):
+	config = ConfigFile.new()
+	
+	# Set audio default values
+	config.set_value("Audio", "Master_Volume", 80)
+	config.set_value("Audio", "Music_Volume", 80)
+	config.set_value("Audio", "SFX_Volume", 80)
+	# Set video default values
+	config.set_value("Video", "Brightness", 1)
+	config.set_value("Video", "Contrast", 1)
+	config.set_value("Video", "Saturation", 1)
+	config.set_value("Video", "Window_Mode", DisplayServer.WINDOW_MODE_FULLSCREEN)
+	config.set_value("Video", "Screen_Shake", false)
+	config.set_value("Video", "Screen_Blur", false)
+	# Set controls default values
+	config.set_value("Controls", "Left", 0)
+	config.set_value("Controls", "Right", 0)
+	config.set_value("Controls", "Up", 0)
+	config.set_value("Controls", "Down", 0)
+	config.set_value("Controls", "Jump", 0)
+	config.set_value("Controls", "Glide", 0)
+
+func Apply_Config(config):
+	World_Environment.environment.adjustment_brightness = config.get_value("Video", "Brightness")
+	Video_Brightness_Slider.value = World_Environment.environment.adjustment_brightness
+	config.get_value("Video", "Contrast")
+	config.get_value("Video", "Saturation")
+	config.get_value("Video", "Brightness")
