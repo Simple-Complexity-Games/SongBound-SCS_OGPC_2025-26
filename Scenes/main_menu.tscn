@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://be8ds4pmwr8rn"]
+[gd_scene load_steps=12 format=3 uid="uid://be8ds4pmwr8rn"]
 
 [ext_resource type="Script" uid="uid://dxiy5wk0xbjug" path="res://Scripts/main_menu.gd" id="1_48xlc"]
 [ext_resource type="Theme" uid="uid://dvrk404vsmxjc" path="res://Assets/Themes/Main_Menu_Theme.tres" id="1_yhxw7"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://drso7th4ouiao" path="res://Assets/Sound/Music/Game Music Concept Orchestrated.wav" id="3_1ehe0"]
 [ext_resource type="AudioStream" uid="uid://bhe7lcpnuo6q4" path="res://Assets/Sound/SFX/typing_blip.wav" id="4_ce3w2"]
 [ext_resource type="Texture2D" uid="uid://b648n6gojbbj0" path="res://Assets/Art/Button_Icons/Keyboard & Mouse/Dark/Mouse_Right_Key_Dark.png" id="5_yhxw7"]
+[ext_resource type="FontFile" uid="uid://cqj32sh3raorv" path="res://Assets/Fonts/Macondo/MacondoSwashCaps-Regular.ttf" id="6_trj04"]
 [ext_resource type="Texture2D" uid="uid://bcihx3b0w78px" path="res://Assets/Art/Button_Icons/Keyboard & Mouse/Dark/Space_Key_Dark.png" id="7_trj04"]
 [ext_resource type="Texture2D" uid="uid://b66hsm718vu2t" path="res://Assets/Art/Button_Icons/Keyboard & Mouse/Dark/Enter_Tall_Key_Dark.png" id="8_16hvj"]
 
@@ -57,6 +58,26 @@ volume_db = -4.685
 [node name="Hover_SFX_Player" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_ce3w2")
 volume_db = -10.685
+
+[node name="Title_Label" type="RichTextLabel" parent="."]
+modulate = Color(0, 0.717647, 0.682353, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.267
+anchor_top = 0.489
+anchor_right = 0.733
+anchor_bottom = 0.763
+offset_left = -352.64
+offset_top = -438.12
+offset_right = 353.64
+offset_bottom = -533.04
+tooltip_text = "A Game By Simple Complexity"
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/normal_font = ExtResource("6_trj04")
+theme_override_font_sizes/normal_font_size = 150
+text = "Adventures in Avythera"
+horizontal_alignment = 1
 
 [node name="Main_Menu_Container" type="VBoxContainer" parent="."]
 layout_mode = 1
