@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://be8ds4pmwr8rn"]
+[gd_scene load_steps=11 format=3 uid="uid://be8ds4pmwr8rn"]
 
 [ext_resource type="Script" uid="uid://dxiy5wk0xbjug" path="res://Scripts/main_menu.gd" id="1_48xlc"]
 [ext_resource type="Theme" uid="uid://dvrk404vsmxjc" path="res://Assets/Themes/Main_Menu_Theme.tres" id="1_yhxw7"]
@@ -10,6 +10,11 @@
 [ext_resource type="Texture2D" uid="uid://b66hsm718vu2t" path="res://Assets/Art/Button_Icons/Keyboard & Mouse/Dark/Enter_Tall_Key_Dark.png" id="8_16hvj"]
 
 [sub_resource type="ImageTexture" id="ImageTexture_ce3w2"]
+
+[sub_resource type="Environment" id="Environment_yhxw7"]
+background_mode = 3
+tonemap_white = 0.37
+adjustment_enabled = true
 
 [node name="Main_Menu" type="Control"]
 layout_mode = 3
@@ -47,10 +52,11 @@ metadata/_edit_lock_ = true
 
 [node name="Music_Player" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_1ehe0")
+volume_db = -4.685
 
 [node name="Hover_SFX_Player" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_ce3w2")
-volume_db = -4.108
+volume_db = -10.685
 
 [node name="Main_Menu_Container" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -91,9 +97,9 @@ anchor_left = 0.267
 anchor_top = 0.489
 anchor_right = 0.733
 anchor_bottom = 0.763
-offset_left = -0.640015
+offset_left = -0.639954
 offset_top = -0.119995
-offset_right = 0.639893
+offset_right = 0.640015
 offset_bottom = -224.04
 theme_override_font_sizes/bold_italics_font_size = 60
 theme_override_font_sizes/italics_font_size = 60
@@ -105,16 +111,17 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Options_Menu_Container" type="VBoxContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.267
 anchor_top = 0.563
 anchor_right = 0.733
-anchor_bottom = 0.77
+anchor_bottom = 0.763
 offset_left = -0.640015
 offset_top = -0.0400391
 offset_right = 0.639893
-offset_bottom = 0.399963
+offset_bottom = -0.0400391
 theme_override_constants/separation = 8
 metadata/_edit_group_ = true
 
@@ -150,10 +157,10 @@ anchor_left = 0.267
 anchor_top = 0.415
 anchor_right = 0.733
 anchor_bottom = 0.763
-offset_left = -0.640015
-offset_top = -0.200012
-offset_right = 0.639893
-offset_bottom = -304.04
+offset_left = -0.639954
+offset_top = 15.8
+offset_right = 0.640015
+offset_bottom = -288.04
 theme_override_font_sizes/bold_italics_font_size = 60
 theme_override_font_sizes/italics_font_size = 60
 theme_override_font_sizes/mono_font_size = 60
@@ -167,11 +174,11 @@ vertical_alignment = 1
 visible = false
 layout_mode = 2
 anchor_left = 0.267
-anchor_top = 0.489
+anchor_top = 0.504
 anchor_right = 0.733
 anchor_bottom = 0.763
 offset_left = -0.640015
-offset_top = -0.119995
+offset_top = -0.320007
 offset_right = 0.639893
 offset_bottom = -0.0400391
 theme_override_constants/separation = 8
@@ -210,7 +217,7 @@ value = 80.0
 rounded = true
 
 [node name="Separator_1" type="ColorRect" parent="Audio_Menu_Container"]
-custom_minimum_size = Vector2(0, 8)
+custom_minimum_size = Vector2(0, 4)
 layout_mode = 2
 color = Color(1, 1, 1, 0)
 
@@ -245,7 +252,7 @@ value = 80.0
 rounded = true
 
 [node name="Separator_2" type="ColorRect" parent="Audio_Menu_Container"]
-custom_minimum_size = Vector2(0, 8)
+custom_minimum_size = Vector2(0, 4)
 layout_mode = 2
 color = Color(1, 1, 1, 0)
 
@@ -281,7 +288,7 @@ value = 80.0
 rounded = true
 
 [node name="Separator_3" type="ColorRect" parent="Audio_Menu_Container"]
-custom_minimum_size = Vector2(0, 16)
+custom_minimum_size = Vector2(0, 8)
 layout_mode = 2
 color = Color(1, 1, 1, 0)
 
@@ -296,13 +303,13 @@ visible = false
 self_modulate = Color(0.933333, 0.647059, 0.498039, 1)
 layout_mode = 2
 anchor_left = 0.267
-anchor_top = 0.407
+anchor_top = 0.267
 anchor_right = 0.733
 anchor_bottom = 0.763
 offset_left = -0.640015
-offset_top = 0.440002
+offset_top = -0.360016
 offset_right = 0.640015
-offset_bottom = -296.04
+offset_bottom = -448.04
 theme_override_font_sizes/bold_italics_font_size = 60
 theme_override_font_sizes/italics_font_size = 60
 theme_override_font_sizes/mono_font_size = 60
@@ -317,13 +324,13 @@ visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.267
-anchor_top = 0.489
+anchor_top = 0.348
 anchor_right = 0.733
-anchor_bottom = 0.785
+anchor_bottom = 0.763
 offset_left = -0.640015
-offset_top = -0.119995
+offset_top = 0.159973
 offset_right = 0.639893
-offset_bottom = 0.199951
+offset_bottom = 7.95996
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 8
@@ -356,8 +363,84 @@ color = Color(0.101961, 0.101961, 0.101961, 0.745098)
 [node name="Brightness_Slider" type="HSlider" parent="Video_Menu_Container"]
 layout_mode = 2
 tooltip_text = "Brightness"
-value = 80.0
-rounded = true
+min_value = 0.1
+max_value = 2.0
+step = 0.05
+value = 1.0
+
+[node name="Separator_3" type="ColorRect" parent="Video_Menu_Container"]
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
+color = Color(1, 1, 1, 0)
+
+[node name="Contrast_Label" type="RichTextLabel" parent="Video_Menu_Container"]
+modulate = Color(0.932671, 0.648798, 0.49854, 1)
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+theme_override_font_sizes/bold_italics_font_size = 27
+theme_override_font_sizes/italics_font_size = 27
+theme_override_font_sizes/mono_font_size = 27
+theme_override_font_sizes/normal_font_size = 27
+theme_override_font_sizes/bold_font_size = 27
+text = "Contrast"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Contrast_Label_Box" type="ColorRect" parent="Video_Menu_Container/Contrast_Label"]
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 4.913
+offset_right = 1.0
+offset_bottom = 0.000999451
+color = Color(0.101961, 0.101961, 0.101961, 0.745098)
+
+[node name="Contrast_Slider" type="HSlider" parent="Video_Menu_Container"]
+layout_mode = 2
+tooltip_text = "Brightness"
+min_value = 0.1
+max_value = 2.0
+step = 0.05
+value = 1.0
+
+[node name="Separator_2" type="ColorRect" parent="Video_Menu_Container"]
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
+color = Color(1, 1, 1, 0)
+
+[node name="Saturation_Label" type="RichTextLabel" parent="Video_Menu_Container"]
+modulate = Color(0.932671, 0.648798, 0.49854, 1)
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+theme_override_font_sizes/bold_italics_font_size = 27
+theme_override_font_sizes/italics_font_size = 27
+theme_override_font_sizes/mono_font_size = 27
+theme_override_font_sizes/normal_font_size = 27
+theme_override_font_sizes/bold_font_size = 27
+text = "Saturation"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Saturation_Label_Box" type="ColorRect" parent="Video_Menu_Container/Saturation_Label"]
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 4.913
+offset_right = 1.0
+offset_bottom = 0.000999451
+color = Color(0.101961, 0.101961, 0.101961, 0.745098)
+
+[node name="Saturation_Slider" type="HSlider" parent="Video_Menu_Container"]
+layout_mode = 2
+tooltip_text = "Brightness"
+min_value = 0.1
+max_value = 2.0
+step = 0.05
+value = 1.0
 
 [node name="Separator_1" type="ColorRect" parent="Video_Menu_Container"]
 custom_minimum_size = Vector2(0, 8)
@@ -377,16 +460,18 @@ popup/item_1/id = 1
 popup/item_2/text = "Windowed"
 popup/item_2/id = 2
 
-[node name="Toggle_Screen_Shake_Button" type="Button" parent="Video_Menu_Container"]
+[node name="Screen_Shake_Button" type="Button" parent="Video_Menu_Container"]
 modulate = Color(0.933333, 0.647059, 0.498039, 1)
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
+toggle_mode = true
 text = "Toggle Screen Shake"
 
-[node name="Toggle_Screen_Blur_Button" type="Button" parent="Video_Menu_Container"]
+[node name="Screen_Blur_Button" type="Button" parent="Video_Menu_Container"]
 modulate = Color(0.933333, 0.647059, 0.498039, 1)
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
+toggle_mode = true
 text = "Toggle Screen Blur"
 
 [node name="Video_Done_Button" type="Button" parent="Video_Menu_Container"]
@@ -775,6 +860,9 @@ texture = ExtResource("8_16hvj")
 expand_mode = 2
 stretch_mode = 6
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_yhxw7")
+
 [connection signal="button_down" from="Main_Menu_Container/Start_Button" to="." method="_on_start_button_button_down"]
 [connection signal="mouse_entered" from="Main_Menu_Container/Start_Button" to="." method="_on_start_button_mouse_entered"]
 [connection signal="button_down" from="Main_Menu_Container/Options_Button" to="." method="_on_options_button_button_down"]
@@ -791,7 +879,15 @@ stretch_mode = 6
 [connection signal="mouse_entered" from="Options_Menu_Container/Done_Button" to="." method="_on_done_button_mouse_entered"]
 [connection signal="button_down" from="Audio_Menu_Container/Audio_Done_Button" to="." method="_on_audio_done_button_button_down"]
 [connection signal="mouse_entered" from="Audio_Menu_Container/Audio_Done_Button" to="." method="_on_audio_done_button_mouse_entered"]
+[connection signal="value_changed" from="Video_Menu_Container/Brightness_Slider" to="." method="_on_brightness_slider_value_changed"]
+[connection signal="value_changed" from="Video_Menu_Container/Contrast_Slider" to="." method="_on_contrast_slider_value_changed"]
+[connection signal="value_changed" from="Video_Menu_Container/Saturation_Slider" to="." method="_on_saturation_slider_value_changed"]
 [connection signal="item_selected" from="Video_Menu_Container/Window_Mode_Button" to="." method="_on_window_mode_button_item_selected"]
-[connection signal="button_down" from="Video_Menu_Container/Video_Done_Button" to="." method="_on_audio_done_button_button_down"]
-[connection signal="mouse_entered" from="Video_Menu_Container/Video_Done_Button" to="." method="_on_audio_done_button_mouse_entered"]
+[connection signal="button_down" from="Video_Menu_Container/Screen_Shake_Button" to="." method="_on_screen_shake_button_button_down"]
+[connection signal="mouse_entered" from="Video_Menu_Container/Screen_Shake_Button" to="." method="_on_screen_shake_button_mouse_entered"]
+[connection signal="button_down" from="Video_Menu_Container/Screen_Blur_Button" to="." method="_on_screen_blur_button_button_down"]
+[connection signal="mouse_entered" from="Video_Menu_Container/Screen_Blur_Button" to="." method="_on_screen_blur_button_mouse_entered"]
+[connection signal="button_down" from="Video_Menu_Container/Video_Done_Button" to="." method="_on_video_done_button_button_down"]
+[connection signal="mouse_entered" from="Video_Menu_Container/Video_Done_Button" to="." method="_on_video_done_button_mouse_entered"]
 [connection signal="button_down" from="Controls_Menu_Container/Controls_Done_Button" to="." method="_on_controls_done_button_button_down"]
+[connection signal="mouse_entered" from="Controls_Menu_Container/Controls_Done_Button" to="." method="_on_controls_done_button_mouse_entered"]
