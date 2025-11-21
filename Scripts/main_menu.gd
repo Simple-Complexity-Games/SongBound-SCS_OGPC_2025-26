@@ -32,10 +32,9 @@ func _ready() -> void:
 	Load_Main_Menu()
 	
 	if !FileAccess.file_exists("user://config"):
-		Create_Config_File(config)
+		Create_Config(config)
 	else:
 		config.load("user://config")
-		
 		Apply_Config(config)
 
 func _process(delta) -> void:
@@ -116,12 +115,21 @@ func _on_audio_done_button_button_down() -> void:
 	
 	# -----Video Menu-----
 # Brightness slider
+func _on_brightness_slider_mouse_entered():
+	Hover_SFX_Player.playing = true
 func _on_brightness_slider_value_changed(value):
 	World_Environment.environment.adjustment_brightness = value
+	Hover_SFX_Player.playing = true
+func _on_contrast_slider_mouse_entered():
+	Hover_SFX_Player.playing = true
 func _on_contrast_slider_value_changed(value):
 	World_Environment.environment.adjustment_contrast = value
+	Hover_SFX_Player.playing = true
+func _on_saturation_slider_mouse_entered():
+	Hover_SFX_Player.playing = true
 func _on_saturation_slider_value_changed(value):
 	World_Environment.environment.adjustment_saturation = value
+	Hover_SFX_Player.playing = true
 # Screen shake button
 func _on_screen_shake_button_mouse_entered():
 	Hover_SFX_Player.playing = true
@@ -202,7 +210,7 @@ func Load_Video_Menu():
 	Video_Menu_Label.show()
 
 
-func Create_Config_File(config):
+func Create_Config(config):
 	config = ConfigFile.new()
 	
 	# Set audio default values
@@ -223,8 +231,16 @@ func Create_Config_File(config):
 	config.set_value("Controls", "Down", 0)
 	config.set_value("Controls", "Jump", 0)
 	config.set_value("Controls", "Glide", 0)
+	
+	Save_Config(config)
+
+func Update_Config(section, key, value):
+	config.set_value(section, key, value)
+func Save_Config(config):
+	config.save("user://config")
 
 func Apply_Config(config):
+	# Video settings
 	World_Environment.environment.adjustment_brightness = config.get_value("Video", "Brightness")
 	Video_Brightness_Slider.value = World_Environment.environment.adjustment_brightness
 	World_Environment.environment.adjustment_contrast = config.get_value("Video", "Contrast")
@@ -232,4 +248,4 @@ func Apply_Config(config):
 	World_Environment.environment.adjustment_saturation = config.get_value("Video", "Saturation")
 	Video_Saturation_Slider.value = World_Environment.environment.adjustment_saturation
 	
-	
+	DisplayServer.window_set_mode(config.get_value("Video", "Window_Mode"))

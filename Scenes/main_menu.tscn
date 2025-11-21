@@ -60,6 +60,7 @@ stream = ExtResource("4_ce3w2")
 volume_db = -10.685
 
 [node name="Title_Label" type="RichTextLabel" parent="."]
+visible = false
 modulate = Color(0.672616, 0.824828, 1, 1)
 layout_mode = 1
 anchors_preset = -1
@@ -80,6 +81,7 @@ text = "Adventures in Avythera"
 horizontal_alignment = 1
 
 [node name="Main_Menu_Container" type="VBoxContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.267
@@ -320,7 +322,6 @@ layout_mode = 2
 text = "Done"
 
 [node name="Video_Menu_Label" type="RichTextLabel" parent="."]
-visible = false
 self_modulate = Color(0.933333, 0.647059, 0.498039, 1)
 layout_mode = 2
 anchor_left = 0.267
@@ -341,7 +342,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Video_Menu_Container" type="VBoxContainer" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.267
@@ -900,8 +900,11 @@ environment = SubResource("Environment_yhxw7")
 [connection signal="mouse_entered" from="Options_Menu_Container/Done_Button" to="." method="_on_done_button_mouse_entered"]
 [connection signal="button_down" from="Audio_Menu_Container/Audio_Done_Button" to="." method="_on_audio_done_button_button_down"]
 [connection signal="mouse_entered" from="Audio_Menu_Container/Audio_Done_Button" to="." method="_on_audio_done_button_mouse_entered"]
+[connection signal="mouse_entered" from="Video_Menu_Container/Brightness_Slider" to="." method="_on_brightness_slider_mouse_entered"]
 [connection signal="value_changed" from="Video_Menu_Container/Brightness_Slider" to="." method="_on_brightness_slider_value_changed"]
+[connection signal="mouse_entered" from="Video_Menu_Container/Contrast_Slider" to="." method="_on_contrast_slider_mouse_entered"]
 [connection signal="value_changed" from="Video_Menu_Container/Contrast_Slider" to="." method="_on_contrast_slider_value_changed"]
+[connection signal="mouse_entered" from="Video_Menu_Container/Saturation_Slider" to="." method="_on_saturation_slider_mouse_entered"]
 [connection signal="value_changed" from="Video_Menu_Container/Saturation_Slider" to="." method="_on_saturation_slider_value_changed"]
 [connection signal="item_selected" from="Video_Menu_Container/Window_Mode_Button" to="." method="_on_window_mode_button_item_selected"]
 [connection signal="button_down" from="Video_Menu_Container/Screen_Shake_Button" to="." method="_on_screen_shake_button_button_down"]
