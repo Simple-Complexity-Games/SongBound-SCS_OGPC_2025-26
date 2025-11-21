@@ -10,11 +10,16 @@ extends Control
 @onready var Controls_Menu_Container = get_node("Controls_Menu_Container")
 @onready var Audio_Menu_Container = get_node("Audio_Menu_Container")
 @onready var Audio_Menu_Label = get_node("Audio_Menu_Label")
+@onready var Master_Volume_Slider = get_node("Audio_Menu_Container/Master_Volume_Slider")
+@onready var Music_Volume_Slider = get_node("Audio_Menu_Container/Music_Volume_Slider")
+@onready var SFX_Volume_Slider = get_node("Audio_Menu_Container/SFX_Volume_Slider")
 @onready var Video_Menu_Container = get_node("Video_Menu_Container")
 @onready var Video_Menu_Label = get_node("Video_Menu_Label")
 @onready var Video_Brightness_Slider = get_node("Video_Menu_Container/Brightness_Slider")
 @onready var Video_Contrast_Slider = get_node("Video_Menu_Container/Contrast_Slider")
 @onready var Video_Saturation_Slider = get_node("Video_Menu_Container/Saturation_Slider")
+@onready var Screen_Shake_Button = get_node("Video_Menu_Container/Screen_Shake_Button")
+@onready var Screen_Blur_Button = get_node("Video_Menu_Container/Screen_Blur_Button")
 @onready var Window_Mode_Button = get_node("Video_Menu_Container/Window_Mode_Button")
 @onready var World_Environment = get_node("WorldEnvironment")
 
@@ -24,15 +29,16 @@ var Window_Mode_Index_Dict = {0:DisplayServer.WINDOW_MODE_FULLSCREEN, 1:DisplayS
 
 var previous_window_mode = DisplayServer.WINDOW_MODE_MAXIMIZED
 
-# Config file container
-var config
-
+# Config file
+var config = ConfigFile.new()
+var autosave_timer = null
 
 func _ready() -> void:
 	Load_Main_Menu()
 	
 	if !FileAccess.file_exists("user://config"):
 		Create_Config(config)
+		Save_Config(config)
 	else:
 		config.load("user://config")
 		Apply_Config(config)
@@ -58,9 +64,16 @@ func _process(delta) -> void:
 	if DisplayServer.window_get_mode() != previous_window_mode and DisplayServer.window_get_mode() != DisplayServer.WINDOW_MODE_FULLSCREEN:
 		Window_Mode_Button.selected = Window_Mode_Index_Dict.find_key(DisplayServer.window_get_mode())
 		previous_window_mode = DisplayServer.window_get_mode()
+	
+	# Autosave functionality logic
+	if autosave_timer == null:
+		var autosave_timer = get_tree().create_timer(180, false, true)
+	elif autosave_timer.time_left <= 0:
+		Save_Config(config)
+		var autosave_timer = get_tree().create_timer(180, false, true)
 
 
-# -----Main Menu-----
+# -------------------------------------------------Main Menu Functions-----
 # Start button
 func _on_start_button_mouse_entered() -> void:
 	Hover_SFX_Player.playing = true
@@ -77,7 +90,7 @@ func _on_quit_button_mouse_entered() -> void:
 func _on_quit_button_button_down() -> void:
 	get_tree().quit()
 
-# -----Options Menu-----
+# -------------------------------------------------Options Menu Functions-----
 # Controls button
 func _on_controls_button_mouse_entered() -> void:
 	Hover_SFX_Player.playing = true
@@ -98,58 +111,102 @@ func _on_done_button_mouse_entered() -> void:
 	Hover_SFX_Player.playing = true
 func _on_done_button_button_down() -> void:
 	Load_Main_Menu()
-	
 
-# -----Controls Menu-----
+# -------------------------------------------------Controls Menu Functions-----
 func _on_controls_done_button_mouse_entered():
 	Hover_SFX_Player.playing = true
 func _on_controls_done_button_button_down():
+	Save_Config(config)
 	Load_Options_Menu()
 
-# -----Audio Menu-----
+# -------------------------------------------------Audio Menu Functions-----
+# Master volume slider
+func _on_master_volume_slider_mouse_entered():
+	Hover_SFX_Player.playing = true
+func _on_master_volume_slider_value_changed(value):
+	Hover_SFX_Player.playing = true
+	# > Change audio settings in game
+func _on_master_volume_slider_drag_ended(value_changed):
+	if value_changed:
+		Update_Config("Audio", "Master_Volume", Master_Volume_Slider.value)
+# Music volume slider
+func _on_music_volume_slider_mouse_entered():
+	Hover_SFX_Player.playing = true
+func _on_music_volume_slider_value_changed(value):
+	Hover_SFX_Player.playing = true
+	# > Change audio settings in game
+func _on_music_volume_slider_drag_ended(value_changed):
+	if value_changed:
+		Update_Config("Audio", "Music_Volume", Music_Volume_Slider.value)
+# SFX volume slider
+func _on_sfx_volume_slider_mouse_entered():
+	Hover_SFX_Player.playing = true
+func _on_sfx_volume_slider_value_changed(value):
+	Hover_SFX_Player.playing = true
+	# > Change audio settings in game
+func _on_sfx_volume_slider_drag_ended(value_changed):
+	if value_changed:
+		Update_Config("Audio", "SFX_Volume", SFX_Volume_Slider.value)
 # Done button
 func _on_audio_done_button_mouse_entered() -> void:
 	Hover_SFX_Player.playing = true
 func _on_audio_done_button_button_down() -> void:
+	Save_Config(config)
 	Load_Options_Menu()
-	
-	# -----Video Menu-----
+
+# -------------------------------------------------Video Menu Functions-----
 # Brightness slider
 func _on_brightness_slider_mouse_entered():
 	Hover_SFX_Player.playing = true
 func _on_brightness_slider_value_changed(value):
-	World_Environment.environment.adjustment_brightness = value
 	Hover_SFX_Player.playing = true
+	World_Environment.environment.adjustment_brightness = value
+func _on_brightness_slider_drag_ended(value_changed):
+	if value_changed:
+		Update_Config("Video", "Brightness", Video_Brightness_Slider.value)
+# Contrast slider
 func _on_contrast_slider_mouse_entered():
 	Hover_SFX_Player.playing = true
 func _on_contrast_slider_value_changed(value):
 	World_Environment.environment.adjustment_contrast = value
 	Hover_SFX_Player.playing = true
+func _on_contrast_slider_drag_ended(value_changed):
+	if value_changed:
+		Update_Config("Video", "Contrast", Video_Contrast_Slider.value)
+# Saturation slider
 func _on_saturation_slider_mouse_entered():
 	Hover_SFX_Player.playing = true
 func _on_saturation_slider_value_changed(value):
 	World_Environment.environment.adjustment_saturation = value
 	Hover_SFX_Player.playing = true
+func _on_saturation_slider_drag_ended(value_changed):
+	if value_changed:
+		Update_Config("Video", "Saturation", Video_Saturation_Slider.value)
 # Screen shake button
 func _on_screen_shake_button_mouse_entered():
 	Hover_SFX_Player.playing = true
 func _on_screen_shake_button_button_down():
-	pass
+	Update_Config("Video", "Screen_Shake", !config.get_value("Video", "Screen_Shake"))
 # Screen blur button
 func _on_screen_blur_button_mouse_entered():
 	Hover_SFX_Player.playing = true
 func _on_screen_blur_button_button_down():
-	pass
+	Update_Config("Video", "Screen_Blur", !config.get_value("Video", "Screen_Blur"))
+# Window mode button
+func _on_window_mode_button_mouse_entered():
+	Hover_SFX_Player.playing = true
+func _on_window_mode_button_item_selected(index):
+	Update_Config("Video", "Window_Mode", index)
+	DisplayServer.window_set_mode(Window_Mode_Index_Dict.get(index))
 # Done button
 func _on_video_done_button_mouse_entered() -> void:
 	Hover_SFX_Player.playing = true
 func _on_video_done_button_button_down() -> void:
+	Save_Config(config)
 	Load_Options_Menu()
-func _on_window_mode_button_item_selected(index):
-	DisplayServer.window_set_mode(Window_Mode_Index_Dict.get(index))
 
 
-
+# -------------------------------------------------Other / Load Functions-----
 
 func Start_Game():
 	get_tree().change_scene_to_file("res://Scenes/game.tscn")
@@ -210,6 +267,8 @@ func Load_Video_Menu():
 	Video_Menu_Label.show()
 
 
+# -------------------------------------------------Config Functions-----
+
 func Create_Config(config):
 	config = ConfigFile.new()
 	
@@ -221,7 +280,7 @@ func Create_Config(config):
 	config.set_value("Video", "Brightness", 1)
 	config.set_value("Video", "Contrast", 1)
 	config.set_value("Video", "Saturation", 1)
-	config.set_value("Video", "Window_Mode", DisplayServer.WINDOW_MODE_FULLSCREEN)
+	config.set_value("Video", "Window_Mode", 0)
 	config.set_value("Video", "Screen_Shake", false)
 	config.set_value("Video", "Screen_Blur", false)
 	# Set controls default values
@@ -236,10 +295,21 @@ func Create_Config(config):
 
 func Update_Config(section, key, value):
 	config.set_value(section, key, value)
+
 func Save_Config(config):
 	config.save("user://config")
 
 func Apply_Config(config):
+	# <> Control settings
+	
+	# Audio settings
+	# > Set master volume level in game
+	Master_Volume_Slider.value = config.get_value("Audio", "Master_Volume")
+	# > Set music volume level in game
+	Music_Volume_Slider.value = config.get_value("Audio", "Music_Volume")
+	# > Set SFX volume level in game
+	SFX_Volume_Slider.value = config.get_value("Audio", "SFX_Volume")
+	
 	# Video settings
 	World_Environment.environment.adjustment_brightness = config.get_value("Video", "Brightness")
 	Video_Brightness_Slider.value = World_Environment.environment.adjustment_brightness
@@ -247,5 +317,10 @@ func Apply_Config(config):
 	Video_Contrast_Slider.value = World_Environment.environment.adjustment_contrast
 	World_Environment.environment.adjustment_saturation = config.get_value("Video", "Saturation")
 	Video_Saturation_Slider.value = World_Environment.environment.adjustment_saturation
-	
-	DisplayServer.window_set_mode(config.get_value("Video", "Window_Mode"))
+	# Screen shake and blur
+	Screen_Shake_Button.button_pressed = config.get_value("Video", "Screen_Shake")
+	Screen_Blur_Button.button_pressed = config.get_value("Video", "Screen_Blur")
+	# Window setting
+	Window_Mode_Button.selected = config.get_value("Video", "Window_Mode")
+	print(config.get_value("Video", "Window_Mode"))
+	DisplayServer.window_set_mode(Window_Mode_Index_Dict.get(config.get_value("Video", "Window_Mode")))
