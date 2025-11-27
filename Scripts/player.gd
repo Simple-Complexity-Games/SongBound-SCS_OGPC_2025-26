@@ -72,9 +72,9 @@ func Update_Status_Vars():
 func Handle_Inputs():
 	direction = Input.get_axis("Move_Left", "Move_Right") # For left and right movement. 
 	
-	if Input.is_action_pressed("Gliding") and not is_on_floor() and not gliding: # Turns on Gliding
+	if Input.is_action_pressed("Glide") and not is_on_floor() and not gliding: # Turns on Gliding
 		gliding = true
-	elif Input.is_action_just_released("Gliding") and gliding:
+	elif Input.is_action_just_released("Glide") and gliding:
 		gliding = false
 
 func Handle_Jump():

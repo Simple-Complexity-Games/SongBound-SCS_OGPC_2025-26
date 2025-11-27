@@ -24,6 +24,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 theme = ExtResource("1_yhxw7")
 script = ExtResource("1_48xlc")
 metadata/_edit_lock_ = true
@@ -36,6 +37,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 color = Color(0, 0, 0, 1)
 metadata/_edit_lock_ = true
 
@@ -53,14 +55,13 @@ metadata/_edit_lock_ = true
 
 [node name="Music_Player" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_1ehe0")
-volume_db = -4.685
+bus = &"Music"
 
 [node name="Hover_SFX_Player" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_ce3w2")
-volume_db = -10.685
+bus = &"SFX"
 
 [node name="Title_Label" type="RichTextLabel" parent="."]
-modulate = Color(0, 0.67451, 0.741176, 1)
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.083
@@ -72,14 +73,17 @@ offset_top = 0.519997
 offset_right = 0.359863
 offset_bottom = -0.439941
 tooltip_text = "A Game By Simple Complexity"
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 20
+mouse_filter = 1
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.77365, 0.849942, 0.963951, 1)
+theme_override_constants/outline_size = 18
 theme_override_fonts/normal_font = ExtResource("6_trj04")
 theme_override_font_sizes/normal_font_size = 150
 text = "Adventures in Avythera"
 horizontal_alignment = 1
 
 [node name="Main_Menu_Container" type="VBoxContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.267
@@ -112,7 +116,6 @@ text = "Quit"
 
 [node name="Options_Menu_Label" type="RichTextLabel" parent="."]
 visible = false
-modulate = Color(0.82486, 0.558027, 0.917451, 1)
 layout_mode = 2
 anchor_left = 0.267
 anchor_top = 0.489
@@ -122,6 +125,9 @@ offset_left = -0.639954
 offset_top = -0.119995
 offset_right = 0.640015
 offset_bottom = -224.04
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.823529, 0.556863, 0.917647, 1)
+theme_override_constants/outline_size = 12
 theme_override_font_sizes/bold_italics_font_size = 60
 theme_override_font_sizes/italics_font_size = 60
 theme_override_font_sizes/mono_font_size = 60
@@ -172,7 +178,6 @@ text = "Done"
 
 [node name="Audio_Menu_Label" type="RichTextLabel" parent="."]
 visible = false
-modulate = Color(0.631373, 0.709804, 0.988235, 1)
 layout_mode = 2
 anchor_left = 0.267
 anchor_top = 0.415
@@ -182,6 +187,9 @@ offset_left = -0.639954
 offset_top = 15.8
 offset_right = 0.640015
 offset_bottom = -288.04
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.631373, 0.709804, 0.988235, 1)
+theme_override_constants/outline_size = 12
 theme_override_font_sizes/bold_italics_font_size = 60
 theme_override_font_sizes/italics_font_size = 60
 theme_override_font_sizes/mono_font_size = 60
@@ -234,8 +242,9 @@ color = Color(0.101961, 0.101961, 0.101961, 0.745098)
 layout_mode = 2
 tooltip_text = "Master Volume
 "
-value = 80.0
-rounded = true
+max_value = 1.0
+step = 0.025
+value = 0.6
 
 [node name="Separator_1" type="ColorRect" parent="Audio_Menu_Container"]
 custom_minimum_size = Vector2(0, 4)
@@ -269,8 +278,9 @@ color = Color(0.101961, 0.101961, 0.101961, 0.745098)
 [node name="Music_Volume_Slider" type="HSlider" parent="Audio_Menu_Container"]
 layout_mode = 2
 tooltip_text = "Music Volume"
-value = 80.0
-rounded = true
+max_value = 1.0
+step = 0.025
+value = 0.6
 
 [node name="Separator_2" type="ColorRect" parent="Audio_Menu_Container"]
 custom_minimum_size = Vector2(0, 4)
@@ -305,8 +315,9 @@ color = Color(0.101961, 0.101961, 0.101961, 0.745098)
 layout_mode = 2
 tooltip_text = "SFX Volume
 "
-value = 80.0
-rounded = true
+max_value = 1.0
+step = 0.025
+value = 0.6
 
 [node name="Separator_3" type="ColorRect" parent="Audio_Menu_Container"]
 custom_minimum_size = Vector2(0, 8)
@@ -321,7 +332,6 @@ text = "Done"
 
 [node name="Video_Menu_Label" type="RichTextLabel" parent="."]
 visible = false
-self_modulate = Color(0.933333, 0.647059, 0.498039, 1)
 layout_mode = 2
 anchor_left = 0.267
 anchor_top = 0.267
@@ -331,6 +341,9 @@ offset_left = -0.640015
 offset_top = -0.360016
 offset_right = 0.640015
 offset_bottom = -448.04
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.933333, 0.647059, 0.498039, 1)
+theme_override_constants/outline_size = 12
 theme_override_font_sizes/bold_italics_font_size = 60
 theme_override_font_sizes/italics_font_size = 60
 theme_override_font_sizes/mono_font_size = 60
@@ -387,7 +400,7 @@ tooltip_text = "Brightness"
 min_value = 0.1
 max_value = 2.0
 step = 0.05
-value = 1.0
+value = 0.1
 
 [node name="Separator_3" type="ColorRect" parent="Video_Menu_Container"]
 custom_minimum_size = Vector2(0, 4)
@@ -502,7 +515,6 @@ layout_mode = 2
 text = "Done"
 
 [node name="Controls_Menu_Container" type="Control" parent="."]
-visible = false
 layout_mode = 1
 anchor_left = 0.267
 anchor_top = 0.43
@@ -517,15 +529,17 @@ grow_vertical = 2
 metadata/_edit_group_ = true
 
 [node name="Controls_Menu_Label" type="RichTextLabel" parent="Controls_Menu_Container"]
-self_modulate = Color(0.498152, 0.838865, 0.544658, 1)
 layout_mode = 1
 anchors_preset = -1
 anchor_top = -0.267
 anchor_right = 1.0
-anchor_bottom = 0.978
+anchor_bottom = 1.0
 offset_top = 0.12001
 offset_right = 6.10352e-05
-offset_bottom = -368.08
+offset_bottom = -376.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.498039, 0.839216, 0.545098, 1)
+theme_override_constants/outline_size = 12
 theme_override_font_sizes/bold_italics_font_size = 60
 theme_override_font_sizes/italics_font_size = 60
 theme_override_font_sizes/mono_font_size = 60
@@ -928,3 +942,15 @@ environment = SubResource("Environment_yhxw7")
 [connection signal="mouse_entered" from="Video_Menu_Container/Video_Done_Button" to="." method="_on_video_done_button_mouse_entered"]
 [connection signal="button_down" from="Controls_Menu_Container/Controls_Done_Button" to="." method="_on_controls_done_button_button_down"]
 [connection signal="mouse_entered" from="Controls_Menu_Container/Controls_Done_Button" to="." method="_on_controls_done_button_mouse_entered"]
+[connection signal="button_down" from="Controls_Menu_Container/GridContainer/Left_Bind_Button" to="." method="_on_left_bind_button_button_down"]
+[connection signal="mouse_entered" from="Controls_Menu_Container/GridContainer/Left_Bind_Button" to="." method="_on_left_bind_button_mouse_entered"]
+[connection signal="button_down" from="Controls_Menu_Container/GridContainer/Right_Bind_Button" to="." method="_on_right_bind_button_button_down"]
+[connection signal="mouse_entered" from="Controls_Menu_Container/GridContainer/Right_Bind_Button" to="." method="_on_right_bind_button_mouse_entered"]
+[connection signal="button_down" from="Controls_Menu_Container/GridContainer/Up_Bind_Button" to="." method="_on_up_bind_button_button_down"]
+[connection signal="mouse_entered" from="Controls_Menu_Container/GridContainer/Up_Bind_Button" to="." method="_on_up_bind_button_mouse_entered"]
+[connection signal="button_down" from="Controls_Menu_Container/GridContainer/Down_Bind_Button" to="." method="_on_down_bind_button_button_down"]
+[connection signal="mouse_entered" from="Controls_Menu_Container/GridContainer/Down_Bind_Button" to="." method="_on_down_bind_button_mouse_entered"]
+[connection signal="button_down" from="Controls_Menu_Container/GridContainer/Jump_Bind_Button" to="." method="_on_jump_bind_button_button_down"]
+[connection signal="mouse_entered" from="Controls_Menu_Container/GridContainer/Jump_Bind_Button" to="." method="_on_jump_bind_button_mouse_entered"]
+[connection signal="button_down" from="Controls_Menu_Container/GridContainer/Glide_Bind_Button" to="." method="_on_glide_bind_button_button_down"]
+[connection signal="mouse_entered" from="Controls_Menu_Container/GridContainer/Glide_Bind_Button" to="." method="_on_glide_bind_button_mouse_entered"]

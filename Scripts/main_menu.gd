@@ -8,6 +8,18 @@ extends Control
 @onready var Options_Menu_Container = get_node("Options_Menu_Container")
 @onready var Options_Menu_Label = get_node("Options_Menu_Label")
 @onready var Controls_Menu_Container = get_node("Controls_Menu_Container")
+@onready var Left_Bind_1 = get_node("Controls_Menu_Container/GridContainer/Left_Bind_Button/Left_Container/Left_Bind_1")
+@onready var Left_Bind_2 = get_node("Controls_Menu_Container/GridContainer/Left_Bind_Button/Left_Container/Left_Bind_2")
+@onready var Right_Bind_1 = get_node("Controls_Menu_Container/GridContainer/Right_Bind_Button/Right_Container/Right_Bind_1")
+@onready var Right_Bind_2 = get_node("Controls_Menu_Container/GridContainer/Right_Bind_Button/Right_Container/Right_Bind_2")
+@onready var Up_Bind_1 = get_node("Controls_Menu_Container/GridContainer/Up_Bind_Button/Up_Container/Up_Bind_1")
+@onready var Up_Bind_2 = get_node("Controls_Menu_Container/GridContainer/Up_Bind_Button/Up_Container/Up_Bind_2")
+@onready var Down_Bind_1 = get_node("Controls_Menu_Container/GridContainer/Down_Bind_Button/Down_Container/Down_Bind_1")
+@onready var Down_Bind_2 = get_node("Controls_Menu_Container/GridContainer/Down_Bind_Button/Down_Container/Down_Bind_2")
+@onready var Jump_Bind_1 = get_node("Controls_Menu_Container/GridContainer/Jump_Bind_Button/Jump_Container/Jump_Bind_1")
+@onready var Jump_Bind_2 = get_node("Controls_Menu_Container/GridContainer/Jump_Bind_Button/Jump_Container/Jump_Bind_2")
+@onready var Glide_Bind_1 = get_node("Controls_Menu_Container/GridContainer/Glide_Bind_Button/Glide_Container/Glide_Bind_1")
+@onready var Glide_Bind_2 = get_node("Controls_Menu_Container/GridContainer/Glide_Bind_Button/Glide_Container/Glide_Bind_2")
 @onready var Audio_Menu_Container = get_node("Audio_Menu_Container")
 @onready var Audio_Menu_Label = get_node("Audio_Menu_Label")
 @onready var Master_Volume_Slider = get_node("Audio_Menu_Container/Master_Volume_Slider")
@@ -23,9 +35,15 @@ extends Control
 @onready var Window_Mode_Button = get_node("Video_Menu_Container/Window_Mode_Button")
 @onready var World_Environment = get_node("WorldEnvironment")
 
+# rebinding status var
+var rebinding = false
+var action_to_be_rebound: String
+
 # Window mode button dictionary for relating indexes and window modes
 var Window_Mode_Index_Dict = {0:DisplayServer.WINDOW_MODE_FULLSCREEN, 1:DisplayServer.WINDOW_MODE_MAXIMIZED,
 2:DisplayServer.WINDOW_MODE_WINDOWED}
+var Button_To_WindowMode_Index_Dict = {0:3, 1:2, 2:0}
+var unsupported_window_modes = [DisplayServer.WINDOW_MODE_MINIMIZED, DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN]
 
 var previous_window_mode = DisplayServer.WINDOW_MODE_MAXIMIZED
 
@@ -47,7 +65,7 @@ func _process(delta) -> void:
 	if Music_Player.playing == false:
 		Music_Player.playing = true
 	
-	if Input.is_action_just_pressed("Esc"):
+	if Input.is_action_just_pressed("Escape"):
 		if Options_Menu_Container.visible == false and Main_Menu_Container.visible == false:
 			Load_Options_Menu()
 		elif Options_Menu_Container.visible == true:
@@ -57,13 +75,18 @@ func _process(delta) -> void:
 			previous_window_mode = DisplayServer.window_get_mode()
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 			Window_Mode_Button.selected = Window_Mode_Index_Dict.find_key(DisplayServer.WINDOW_MODE_FULLSCREEN)
+			Change_Override_Config("display/window/size/mode", DisplayServer.WINDOW_MODE_FULLSCREEN)
 		else:
 			DisplayServer.window_set_mode(previous_window_mode)
 			if Window_Mode_Index_Dict.has(previous_window_mode):
 				Window_Mode_Button.selected = Window_Mode_Index_Dict.find_key(previous_window_mode)
-	if DisplayServer.window_get_mode() != previous_window_mode and DisplayServer.window_get_mode() != DisplayServer.WINDOW_MODE_FULLSCREEN:
+				Change_Override_Config("display/window/size/mode", previous_window_mode)
+	
+	if DisplayServer.window_get_mode() != previous_window_mode and DisplayServer.window_get_mode() not in unsupported_window_modes and DisplayServer.window_get_mode() != DisplayServer.WINDOW_MODE_FULLSCREEN:
 		Window_Mode_Button.selected = Window_Mode_Index_Dict.find_key(DisplayServer.window_get_mode())
+		Change_Override_Config("display/window/size/mode", DisplayServer.window_get_mode())
 		previous_window_mode = DisplayServer.window_get_mode()
+	
 	
 	# Autosave functionality logic
 	if autosave_timer == null:
@@ -90,6 +113,7 @@ func _on_quit_button_mouse_entered() -> void:
 func _on_quit_button_button_down() -> void:
 	get_tree().quit()
 
+
 # -------------------------------------------------Options Menu Functions-----
 # Controls button
 func _on_controls_button_mouse_entered() -> void:
@@ -112,12 +136,66 @@ func _on_done_button_mouse_entered() -> void:
 func _on_done_button_button_down() -> void:
 	Load_Main_Menu()
 
+
 # -------------------------------------------------Controls Menu Functions-----
+# Left action rebind button
+func _on_left_bind_button_mouse_entered():
+	Hover_SFX_Player.playing = true
+func _on_left_bind_button_button_down():
+	Hover_SFX_Player.playing = true
+	rebinding = true
+# Right action rebind button
+func _on_right_bind_button_mouse_entered():
+	Hover_SFX_Player.playing = true
+func _on_right_bind_button_button_down():
+	Hover_SFX_Player.playing = true
+# Up action rebind button
+func _on_up_bind_button_mouse_entered():
+	Hover_SFX_Player.playing = true
+func _on_up_bind_button_button_down():
+	Hover_SFX_Player.playing = true
+# Down action rebind button
+func _on_down_bind_button_mouse_entered():
+	Hover_SFX_Player.playing = true
+func _on_down_bind_button_button_down():
+	Hover_SFX_Player.playing = true
+# Jump action rebind button
+func _on_jump_bind_button_mouse_entered():
+	Hover_SFX_Player.playing = true
+func _on_jump_bind_button_button_down():
+	Hover_SFX_Player.playing = true
+# Glide action rebind button
+func _on_glide_bind_button_mouse_entered():
+	Hover_SFX_Player.playing = true
+func _on_glide_bind_button_button_down():
+	Hover_SFX_Player.playing = true
+# Done button
 func _on_controls_done_button_mouse_entered():
 	Hover_SFX_Player.playing = true
 func _on_controls_done_button_button_down():
 	Save_Config(config)
 	Load_Options_Menu()
+
+func Listen_For_Rebind(binding_slot_icon):
+	#print("ryretg")
+	#print(Input.is_anything_just_pressed())
+	#while not Input.is_anything_pressed():
+		#print("rebinding!")
+		#binding_slot_icon.modulate = Color("red")
+	#binding_slot_icon.modulate.v = 1
+	pass
+
+func _unhandled_input(event):
+	# Only rebind controls if the rebinding flag has been set to true by a rebind button button down func
+	if rebinding:
+		if event is InputEventMouseButton:
+			Update_Config("Controls", action_to_be_rebound, event.button_index)
+			rebinding = false
+		elif event is InputEventKey:
+			if event.is_pressed() == true and !event.is_echo():
+				Update_Config("Controls", action_to_be_rebound, event.keycode)
+				rebinding = false
+
 
 # -------------------------------------------------Audio Menu Functions-----
 # Master volume slider
@@ -125,7 +203,7 @@ func _on_master_volume_slider_mouse_entered():
 	Hover_SFX_Player.playing = true
 func _on_master_volume_slider_value_changed(value):
 	Hover_SFX_Player.playing = true
-	# > Change audio settings in game
+	AudioServer.set_bus_volume_linear(0, value * 2)
 func _on_master_volume_slider_drag_ended(value_changed):
 	if value_changed:
 		Update_Config("Audio", "Master_Volume", Master_Volume_Slider.value)
@@ -134,7 +212,7 @@ func _on_music_volume_slider_mouse_entered():
 	Hover_SFX_Player.playing = true
 func _on_music_volume_slider_value_changed(value):
 	Hover_SFX_Player.playing = true
-	# > Change audio settings in game
+	AudioServer.set_bus_volume_linear(1, value)
 func _on_music_volume_slider_drag_ended(value_changed):
 	if value_changed:
 		Update_Config("Audio", "Music_Volume", Music_Volume_Slider.value)
@@ -143,7 +221,7 @@ func _on_sfx_volume_slider_mouse_entered():
 	Hover_SFX_Player.playing = true
 func _on_sfx_volume_slider_value_changed(value):
 	Hover_SFX_Player.playing = true
-	# > Change audio settings in game
+	AudioServer.set_bus_volume_linear(2, value)
 func _on_sfx_volume_slider_drag_ended(value_changed):
 	if value_changed:
 		Update_Config("Audio", "SFX_Volume", SFX_Volume_Slider.value)
@@ -153,6 +231,7 @@ func _on_audio_done_button_mouse_entered() -> void:
 func _on_audio_done_button_button_down() -> void:
 	Save_Config(config)
 	Load_Options_Menu()
+
 
 # -------------------------------------------------Video Menu Functions-----
 # Brightness slider
@@ -196,7 +275,7 @@ func _on_screen_blur_button_button_down():
 func _on_window_mode_button_mouse_entered():
 	Hover_SFX_Player.playing = true
 func _on_window_mode_button_item_selected(index):
-	Update_Config("Video", "Window_Mode", index)
+	Change_Override_Config("display/window/size/mode", Button_To_WindowMode_Index_Dict.get(index))
 	DisplayServer.window_set_mode(Window_Mode_Index_Dict.get(index))
 # Done button
 func _on_video_done_button_mouse_entered() -> void:
@@ -207,9 +286,13 @@ func _on_video_done_button_button_down() -> void:
 
 
 # -------------------------------------------------Other / Load Functions-----
-
 func Start_Game():
 	get_tree().change_scene_to_file("res://Scenes/game.tscn")
+
+# Save settings upon quitting application at window manager request
+func _notification(what):
+	if what == NOTIFICATION_WM_CLOSE_REQUEST:
+		Save_Config(config)
 
 func Load_Main_Menu():
 	Options_Menu_Container.hide()
@@ -270,8 +353,6 @@ func Load_Video_Menu():
 # -------------------------------------------------Config Functions-----
 
 func Create_Config(config):
-	config = ConfigFile.new()
-	
 	# Set audio default values
 	config.set_value("Audio", "Master_Volume", 80)
 	config.set_value("Audio", "Music_Volume", 80)
@@ -290,24 +371,26 @@ func Create_Config(config):
 	config.set_value("Controls", "Down", 0)
 	config.set_value("Controls", "Jump", 0)
 	config.set_value("Controls", "Glide", 0)
-	
-	Save_Config(config)
 
 func Update_Config(section, key, value):
 	config.set_value(section, key, value)
+
+func Change_Override_Config(setting_path, value):
+	ProjectSettings.set_setting(setting_path, value)
+	ProjectSettings.save_custom("override.cfg")
 
 func Save_Config(config):
 	config.save("user://config")
 
 func Apply_Config(config):
-	# <> Control settings
+	# <> Controls settings
 	
 	# Audio settings
-	# > Set master volume level in game
-	Master_Volume_Slider.value = config.get_value("Audio", "Master_Volume")
-	# > Set music volume level in game
+	AudioServer.set_bus_volume_linear(0, config.get_value("Audio", "Master_Volume"))
+	Master_Volume_Slider.value = AudioServer.get_bus_volume_linear(0)
+	AudioServer.set_bus_volume_linear(1, config.get_value("Audio", "Music_Volume"))
 	Music_Volume_Slider.value = config.get_value("Audio", "Music_Volume")
-	# > Set SFX volume level in game
+	AudioServer.set_bus_volume_linear(2, config.get_value("Audio", "SFX_Volume"))
 	SFX_Volume_Slider.value = config.get_value("Audio", "SFX_Volume")
 	
 	# Video settings
@@ -321,6 +404,4 @@ func Apply_Config(config):
 	Screen_Shake_Button.button_pressed = config.get_value("Video", "Screen_Shake")
 	Screen_Blur_Button.button_pressed = config.get_value("Video", "Screen_Blur")
 	# Window setting
-	Window_Mode_Button.selected = config.get_value("Video", "Window_Mode")
-	print(config.get_value("Video", "Window_Mode"))
-	DisplayServer.window_set_mode(Window_Mode_Index_Dict.get(config.get_value("Video", "Window_Mode")))
+	Window_Mode_Button.selected = Button_To_WindowMode_Index_Dict.find_key(ProjectSettings.get_setting_with_override("display/window/size/mode"))
