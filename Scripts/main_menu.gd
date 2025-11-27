@@ -36,12 +36,14 @@ extends Control
 @onready var World_Environment = get_node("WorldEnvironment")
 
 # rebinding status var
+var start_rebinding = false
 var rebinding = false
 var action_to_be_rebound: String
+var Rebind_Action_To_Primary_Icon_Node_Dict = {}
 
 # Window mode button dictionary for relating indexes and window modes
-var Window_Mode_Index_Dict = {0:DisplayServer.WINDOW_MODE_FULLSCREEN, 1:DisplayServer.WINDOW_MODE_MAXIMIZED,
-2:DisplayServer.WINDOW_MODE_WINDOWED}
+var Window_Mode_Index_Dict = {0:DisplayServer.WINDOW_MODE_FULLSCREEN, 
+1:DisplayServer.WINDOW_MODE_MAXIMIZED, 2:DisplayServer.WINDOW_MODE_WINDOWED}
 var Button_To_WindowMode_Index_Dict = {0:3, 1:2, 2:0}
 var unsupported_window_modes = [DisplayServer.WINDOW_MODE_MINIMIZED, DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN]
 
@@ -60,6 +62,10 @@ func _ready() -> void:
 	else:
 		config.load("user://config")
 		Apply_Config(config)
+	
+	# This dict has to be defined in _ready() because it contains @onready vars which are not loaded until then
+	Rebind_Action_To_Primary_Icon_Node_Dict = {"Left":Left_Bind_1, "Right":Right_Bind_1, 
+	"Up":Up_Bind_1, "Down":Down_Bind_1, "Jump":Jump_Bind_1, "Glide":Glide_Bind_1}
 
 func _process(delta) -> void:
 	if Music_Player.playing == false:
@@ -86,7 +92,6 @@ func _process(delta) -> void:
 		Window_Mode_Button.selected = Window_Mode_Index_Dict.find_key(DisplayServer.window_get_mode())
 		Change_Override_Config("display/window/size/mode", DisplayServer.window_get_mode())
 		previous_window_mode = DisplayServer.window_get_mode()
-	
 	
 	# Autosave functionality logic
 	if autosave_timer == null:
@@ -143,7 +148,8 @@ func _on_left_bind_button_mouse_entered():
 	Hover_SFX_Player.playing = true
 func _on_left_bind_button_button_down():
 	Hover_SFX_Player.playing = true
-	rebinding = true
+	start_rebinding = true
+	action_to_be_rebound = "Left"
 # Right action rebind button
 func _on_right_bind_button_mouse_entered():
 	Hover_SFX_Player.playing = true
@@ -185,16 +191,28 @@ func Listen_For_Rebind(binding_slot_icon):
 	#binding_slot_icon.modulate.v = 1
 	pass
 
-func _unhandled_input(event):
-	# Only rebind controls if the rebinding flag has been set to true by a rebind button button down func
-	if rebinding:
+func _input(event):
+	# Only rebind controls if the rebinding flag has been set to true
+	if rebinding and event.is_action_type() and !event.is_echo():
 		if event is InputEventMouseButton:
+			print("m",event.button_index)
 			Update_Config("Controls", action_to_be_rebound, event.button_index)
 			rebinding = false
 		elif event is InputEventKey:
-			if event.is_pressed() == true and !event.is_echo():
+			if event.is_pressed() == true:
+				print(event.keycode)
 				Update_Config("Controls", action_to_be_rebound, event.keycode)
 				rebinding = false
+		Rebind_Action_To_Primary_Icon_Node_Dict.get(action_to_be_rebound).modulate.v = 1
+		get_viewport().set_input_as_handled()
+	# Ignore the first input when rebinding button is pressed, enabling the next input to be the one bound, 
+	# because otherwise the action will just be rebound to the button pressed to initiate the rebind 
+	# as even though it is handled already by the rebind button this is input and it doesn't care about that.
+	elif start_rebinding: 
+		start_rebinding = false
+		rebinding = true
+		
+		Rebind_Action_To_Primary_Icon_Node_Dict.get(action_to_be_rebound).modulate.v = 0.5
 
 
 # -------------------------------------------------Audio Menu Functions-----

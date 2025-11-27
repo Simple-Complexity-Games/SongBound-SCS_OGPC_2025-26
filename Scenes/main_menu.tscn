@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://be8ds4pmwr8rn"]
+[gd_scene load_steps=13 format=3 uid="uid://be8ds4pmwr8rn"]
 
 [ext_resource type="Script" uid="uid://dxiy5wk0xbjug" path="res://Scripts/main_menu.gd" id="1_48xlc"]
 [ext_resource type="Theme" uid="uid://dvrk404vsmxjc" path="res://Assets/Themes/Main_Menu_Theme.tres" id="1_yhxw7"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://bhe7lcpnuo6q4" path="res://Assets/Sound/SFX/typing_blip.wav" id="4_ce3w2"]
 [ext_resource type="Texture2D" uid="uid://b648n6gojbbj0" path="res://Assets/Art/Button_Icons/Keyboard & Mouse/Dark/Mouse_Right_Key_Dark.png" id="5_yhxw7"]
 [ext_resource type="FontFile" uid="uid://cqj32sh3raorv" path="res://Assets/Fonts/Macondo/MacondoSwashCaps-Regular.ttf" id="6_trj04"]
+[ext_resource type="Texture2D" uid="uid://1rsoquk8666j" path="res://Assets/Art/Button_Icons/Keyboard & Mouse/Dark/Mark_Right_Key_Dark.png" id="7_16hvj"]
 [ext_resource type="Texture2D" uid="uid://bcihx3b0w78px" path="res://Assets/Art/Button_Icons/Keyboard & Mouse/Dark/Space_Key_Dark.png" id="7_trj04"]
 [ext_resource type="Texture2D" uid="uid://b66hsm718vu2t" path="res://Assets/Art/Button_Icons/Keyboard & Mouse/Dark/Enter_Tall_Key_Dark.png" id="8_16hvj"]
 
@@ -62,6 +63,7 @@ stream = ExtResource("4_ce3w2")
 bus = &"SFX"
 
 [node name="Title_Label" type="RichTextLabel" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.083
@@ -617,7 +619,7 @@ metadata/_edit_group_ = true
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_stretch_ratio = 0.3
-texture = ExtResource("7_trj04")
+texture = ExtResource("7_16hvj")
 expand_mode = 2
 stretch_mode = 4
 
