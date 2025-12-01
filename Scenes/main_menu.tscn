@@ -522,9 +522,9 @@ anchor_left = 0.267
 anchor_top = 0.43
 anchor_right = 0.733
 anchor_bottom = 0.763
-offset_left = -0.640015
+offset_left = -0.640076
 offset_top = -0.399994
-offset_right = 0.639893
+offset_right = 0.640015
 offset_bottom = -0.0400391
 grow_horizontal = 2
 grow_vertical = 2
@@ -630,6 +630,20 @@ texture = ExtResource("7_trj04")
 expand_mode = 2
 stretch_mode = 6
 
+[node name="Left_Unbind_Last_Button" type="Button" parent="Controls_Menu_Container/GridContainer/Left_Bind_Button"]
+modulate = Color(0.972629, 0.296293, 0.305728, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 312.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+theme_override_font_sizes/font_size = 27
+text = "Unbind
+Last"
+
 [node name="Right_Bind_Button" type="Button" parent="Controls_Menu_Container/GridContainer"]
 self_modulate = Color(0.498039, 0.839216, 0.545098, 1)
 custom_minimum_size = Vector2(128, 72)
@@ -683,6 +697,20 @@ size_flags_horizontal = 2
 texture = ExtResource("7_trj04")
 expand_mode = 2
 stretch_mode = 6
+
+[node name="Right_Unbind_Last_Button" type="Button" parent="Controls_Menu_Container/GridContainer/Right_Bind_Button"]
+modulate = Color(0.972629, 0.296293, 0.305728, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 304.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+theme_override_font_sizes/font_size = 27
+text = "Unbind
+Last"
 
 [node name="Up_Bind_Button" type="Button" parent="Controls_Menu_Container/GridContainer"]
 self_modulate = Color(0.498039, 0.839216, 0.545098, 1)
@@ -738,6 +766,20 @@ texture = ExtResource("7_trj04")
 expand_mode = 2
 stretch_mode = 6
 
+[node name="Up_Unbind_Last_Button" type="Button" parent="Controls_Menu_Container/GridContainer/Up_Bind_Button"]
+modulate = Color(0.972629, 0.296293, 0.305728, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 304.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+theme_override_font_sizes/font_size = 27
+text = "Unbind
+Last"
+
 [node name="Down_Bind_Button" type="Button" parent="Controls_Menu_Container/GridContainer"]
 self_modulate = Color(0.498039, 0.839216, 0.545098, 1)
 custom_minimum_size = Vector2(128, 72)
@@ -791,6 +833,20 @@ size_flags_horizontal = 2
 texture = ExtResource("7_trj04")
 expand_mode = 2
 stretch_mode = 6
+
+[node name="Down_Unbind_Last_Button" type="Button" parent="Controls_Menu_Container/GridContainer/Down_Bind_Button"]
+modulate = Color(0.972629, 0.296293, 0.305728, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 304.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+theme_override_font_sizes/font_size = 27
+text = "Unbind
+Last"
 
 [node name="Jump_Bind_Button" type="Button" parent="Controls_Menu_Container/GridContainer"]
 self_modulate = Color(0.498039, 0.839216, 0.545098, 1)
@@ -846,6 +902,20 @@ texture = ExtResource("8_16hvj")
 expand_mode = 2
 stretch_mode = 6
 
+[node name="Jump_Unbind_Last_Button" type="Button" parent="Controls_Menu_Container/GridContainer/Jump_Bind_Button"]
+modulate = Color(0.972629, 0.296293, 0.305728, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 304.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+theme_override_font_sizes/font_size = 27
+text = "Unbind
+Last"
+
 [node name="Glide_Bind_Button" type="Button" parent="Controls_Menu_Container/GridContainer"]
 self_modulate = Color(0.498039, 0.839216, 0.545098, 1)
 custom_minimum_size = Vector2(128, 72)
@@ -896,6 +966,20 @@ size_flags_horizontal = 2
 texture = ExtResource("8_16hvj")
 expand_mode = 2
 stretch_mode = 6
+
+[node name="Glide_Unbind_Last_Button" type="Button" parent="Controls_Menu_Container/GridContainer/Glide_Bind_Button"]
+modulate = Color(0.972629, 0.296293, 0.305728, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 304.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+theme_override_font_sizes/font_size = 27
+text = "Unbind
+Last"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_yhxw7")

@@ -39,7 +39,12 @@ extends Control
 var start_rebinding = false
 var rebinding = false
 var action_to_be_rebound: String
+# Dictionaries to get an icon node during rebinding using the action_to_be_rebound var
 var Rebind_Action_To_Primary_Icon_Node_Dict = {}
+var Rebind_Action_To_Secondary_Icon_Node_Dict = {}
+# Dictionary to get the icon for a key by keycode
+var Keycode_To_Key_Icon_Dict = {}
+var Mouse_Index_To_Button_Icon_Dict = {}
 
 # Window mode button dictionary for relating indexes and window modes
 var Window_Mode_Index_Dict = {0:DisplayServer.WINDOW_MODE_FULLSCREEN, 
@@ -66,6 +71,8 @@ func _ready() -> void:
 	# This dict has to be defined in _ready() because it contains @onready vars which are not loaded until then
 	Rebind_Action_To_Primary_Icon_Node_Dict = {"Left":Left_Bind_1, "Right":Right_Bind_1, 
 	"Up":Up_Bind_1, "Down":Down_Bind_1, "Jump":Jump_Bind_1, "Glide":Glide_Bind_1}
+	Rebind_Action_To_Secondary_Icon_Node_Dict = {"Left":Left_Bind_2, "Right":Right_Bind_2, 
+	"Up":Up_Bind_2, "Down":Down_Bind_2, "Jump":Jump_Bind_2, "Glide":Glide_Bind_2}
 
 func _process(delta) -> void:
 	if Music_Player.playing == false:
@@ -196,14 +203,20 @@ func _input(event):
 	if rebinding and event.is_action_type() and !event.is_echo():
 		if event is InputEventMouseButton:
 			print("m",event.button_index)
-			Update_Config("Controls", action_to_be_rebound, event.button_index)
+			# Set secondary rebind slot icon to the primary slot's old image to make room for the new bind
+			Rebind_Action_To_Secondary_Icon_Node_Dict.get(action_to_be_rebound).texture = Rebind_Action_To_Primary_Icon_Node_Dict.get(action_to_be_rebound).texture
+			Rebind_Action_To_Primary_Icon_Node_Dict.get(action_to_be_rebound).texture = Mouse_Index_To_Button_Icon_Dict.get("m"+str(event.button_index))
+			Update_Config("Controls", action_to_be_rebound, Get_Config("Controls", action_to_be_rebound, 0), 1)
+			Update_Config("Controls", action_to_be_rebound, "m"+str(event.button_index), 0)
 			rebinding = false
 		elif event is InputEventKey:
 			if event.is_pressed() == true:
 				print(event.keycode)
-				Update_Config("Controls", action_to_be_rebound, event.keycode)
+				Update_Config("Controls", action_to_be_rebound, event.keycode, 0)
 				rebinding = false
-		Rebind_Action_To_Primary_Icon_Node_Dict.get(action_to_be_rebound).modulate.v = 1
+		# Bring icon back to normal value to show rebinding is finished
+		Rebind_Action_To_Secondary_Icon_Node_Dict.get(action_to_be_rebound).modulate.v = 1
+		# Set the input as handled so it doesn't effect anything else in game
 		get_viewport().set_input_as_handled()
 	# Ignore the first input when rebinding button is pressed, enabling the next input to be the one bound, 
 	# because otherwise the action will just be rebound to the button pressed to initiate the rebind 
@@ -212,7 +225,8 @@ func _input(event):
 		start_rebinding = false
 		rebinding = true
 		
-		Rebind_Action_To_Primary_Icon_Node_Dict.get(action_to_be_rebound).modulate.v = 0.5
+		# Grey out action icon to show rebinding has started
+		Rebind_Action_To_Secondary_Icon_Node_Dict.get(action_to_be_rebound).modulate.v = 0.5
 
 
 # -------------------------------------------------Audio Menu Functions-----
@@ -383,15 +397,27 @@ func Create_Config(config):
 	config.set_value("Video", "Screen_Shake", false)
 	config.set_value("Video", "Screen_Blur", false)
 	# Set controls default values
-	config.set_value("Controls", "Left", 0)
-	config.set_value("Controls", "Right", 0)
-	config.set_value("Controls", "Up", 0)
-	config.set_value("Controls", "Down", 0)
-	config.set_value("Controls", "Jump", 0)
-	config.set_value("Controls", "Glide", 0)
+	config.set_value("Controls", "Left", ["0", "0"])
+	config.set_value("Controls", "Right", ["0", "0"])
+	config.set_value("Controls", "Up", ["0", "0"])
+	config.set_value("Controls", "Down", ["0", "0"])
+	config.set_value("Controls", "Jump", ["0", "0"])
+	config.set_value("Controls", "Glide", ["0", "0"])
 
-func Update_Config(section, key, value):
-	config.set_value(section, key, value)
+func Get_Config(section, key, index = null):
+	if index != null:
+		var list = config.get_value(section, key)
+		return list[index]
+	else:
+		return config.get_value(section, key)
+
+func Update_Config(section, key, value, index = null):
+	if index != null:
+		var list = config.get_value(section, key)
+		list[index] = value
+		config.set_value(section, key, list)
+	else:
+		config.set_value(section, key, value)
 
 func Change_Override_Config(setting_path, value):
 	ProjectSettings.set_setting(setting_path, value)
