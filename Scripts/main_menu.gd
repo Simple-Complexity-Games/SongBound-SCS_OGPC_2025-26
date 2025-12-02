@@ -35,16 +35,65 @@ extends Control
 @onready var Window_Mode_Button = get_node("Video_Menu_Container/Window_Mode_Button")
 @onready var World_Environment = get_node("WorldEnvironment")
 
-# rebinding status var
+# Button icon folder
+var button_icon_folder_path = "res://Assets/Art/Button_Icons/Keyboard_And_Mouse/Dark/"
+# Unrecognized keybind texture paths
+var blank_button_icon_folder_path = "res://Assets/Art/Button_Icons/Keyboard_And_Mouse/Blank/"
+var blank_key_texture_name = "Blank_Black_Normal.png"
+var blank_mouse_texture_name = "Blank_Black_Mouse.png"
+# Rebinding status vars
 var start_rebinding = false
 var rebinding = false
 var action_to_be_rebound: String
 # Dictionaries to get an icon node during rebinding using the action_to_be_rebound var
 var Rebind_Action_To_Primary_Icon_Node_Dict = {}
 var Rebind_Action_To_Secondary_Icon_Node_Dict = {}
-# Dictionary to get the icon for a key by keycode
-var Keycode_To_Key_Icon_Dict = {}
-var Mouse_Index_To_Button_Icon_Dict = {}
+
+#region - Dictionaries of key/mouse button icon file names by keycode/mouse index, collapsed because of size
+# Unfortunately we don't really have the time to implement a way to show the chirality (handedness) of 
+# identical keys (shift, ctrl, alt, etc.). This is implemented in code, with a distinction between left 
+# and right keys, but the icons will just not reflect that because the icon pack does not contain icons 
+# for separate chiral keys and it would be too time consuming to add an extra indicator to the UI
+var Keycode_To_Button_Icon_File_Name_Dict = {
+8:"Backspace_Key_Dark.png", 
+9:"Tab_Key_Dark.png", 
+13:"Enter_Key_Dark.png", 
+16:"Shift_Key_Dark.png",
+17:"Ctrl_Key_Dark.png",
+18:"Alt_Key_Dark.png",
+20:"Caps_Lock_Key_Dark.png",
+27:"Esc_Key_Dark.png",
+32:"Space_Key_Dark.png",
+33:"Page_Up_Key_Dark.png",
+34:"Page_Down_Key_Dark.png",
+35:"End_Key_Dark.png",
+36:"Home_Key_Dark.png",
+37:"Arrow_Left_Key_Dark.png",
+38:"Up_Arrow_Key_Dark.png",
+39:"Arrow_Right_Key_Dark.png",
+40:"Arrow_Down_Key_Dark.png",
+44:"Print_Screen_Key_Dark.png",
+45:"Insert_Key_Dark.png",
+46:"Del_Key_Dark.png",
+48:"0_Key_Dark.png", 
+49:"1_Key_Dark.png", 
+50:"2_Key_Dark.png", 
+51:"3_Key_Dark.png", 
+52:"4_Key_Dark.png", 
+53:"5_Key_Dark.png", 
+54:"6_Key_Dark.png", 
+55:"7_Key_Dark.png", 
+56:"8_Key_Dark.png", 
+57:"9_Key_Dark.png", 
+65:"A_Key_Dark.png", # ----------- ALPHABET YAYYYY!! -------------
+160:"Shift_Key_Dark.png", 
+161:"Shift_Key_Dark.png", 
+162:"Ctrl_Key_Dark.png", 
+163:"Ctrl_Key_Dark.png", 
+164:"Alt_Key_Dark.png", 
+165:"Alt_Key_Dark.png"}
+var Mouse_Index_To_Button_Icon_File_Name_Dict = {}
+#endregion
 
 # Window mode button dictionary for relating indexes and window modes
 var Window_Mode_Index_Dict = {0:DisplayServer.WINDOW_MODE_FULLSCREEN, 
@@ -167,26 +216,36 @@ func _on_right_bind_button_mouse_entered():
 	Hover_SFX_Player.playing = true
 func _on_right_bind_button_button_down():
 	Hover_SFX_Player.playing = true
+	start_rebinding = true
+	action_to_be_rebound = "Right"
 # Up action rebind button
 func _on_up_bind_button_mouse_entered():
 	Hover_SFX_Player.playing = true
 func _on_up_bind_button_button_down():
 	Hover_SFX_Player.playing = true
+	start_rebinding = true
+	action_to_be_rebound = "Up"
 # Down action rebind button
 func _on_down_bind_button_mouse_entered():
 	Hover_SFX_Player.playing = true
 func _on_down_bind_button_button_down():
 	Hover_SFX_Player.playing = true
+	start_rebinding = true
+	action_to_be_rebound = "Down"
 # Jump action rebind button
 func _on_jump_bind_button_mouse_entered():
 	Hover_SFX_Player.playing = true
 func _on_jump_bind_button_button_down():
 	Hover_SFX_Player.playing = true
+	start_rebinding = true
+	action_to_be_rebound = "Jump"
 # Glide action rebind button
 func _on_glide_bind_button_mouse_entered():
 	Hover_SFX_Player.playing = true
 func _on_glide_bind_button_button_down():
 	Hover_SFX_Player.playing = true
+	start_rebinding = true
+	action_to_be_rebound = "Glide"
 # Done button
 func _on_controls_done_button_mouse_entered():
 	Hover_SFX_Player.playing = true
@@ -199,31 +258,43 @@ func _on_controls_done_button_button_down():
 func _input(event):
 	# Only rebind controls if the rebinding flag has been set to true
 	if rebinding and event.is_action_type() and !event.is_echo():
-		if event is InputEventMouseButton:
-			print("m",event.button_index)
+		if event is InputEventMouseButton and event.is_pressed() == true:
 			# Set secondary rebind slot icon to the primary slot's old image to make room for the new bind
 			Rebind_Action_To_Secondary_Icon_Node_Dict.get(action_to_be_rebound).texture = Rebind_Action_To_Primary_Icon_Node_Dict.get(action_to_be_rebound).texture
-			Rebind_Action_To_Primary_Icon_Node_Dict.get(action_to_be_rebound).texture = Mouse_Index_To_Button_Icon_Dict.get("m"+str(event.button_index))
+			# Search for button icon in reference dict and apply it to the newly rebound slot. If not found, 
+			# use blank mouse / key texture instead
+			if Mouse_Index_To_Button_Icon_File_Name_Dict.has(event.button_index):
+				Rebind_Action_To_Primary_Icon_Node_Dict.get(action_to_be_rebound).texture = Mouse_Index_To_Button_Icon_File_Name_Dict.get(event.button_index)
+			else:
+				Rebind_Action_To_Primary_Icon_Node_Dict.get(action_to_be_rebound).texture = load(blank_button_icon_folder_path+blank_key_texture_name)
+			# Actually update the binds list in the config file
 			Update_Config("Controls", action_to_be_rebound, Get_Config("Controls", action_to_be_rebound, 0), 1)
 			Update_Config("Controls", action_to_be_rebound, "m"+str(event.button_index), 0)
 			rebinding = false
-		elif event is InputEventKey:
-			if event.is_pressed() == true:
-				print(event.keycode)
-				Update_Config("Controls", action_to_be_rebound, "k"+str(event.keycode), 0)
-				rebinding = false
+		elif event is InputEventKey and event.is_pressed() == true:
+			# Set secondary rebind slot icon to the primary slot's old image to make room for the new bind
+			Rebind_Action_To_Secondary_Icon_Node_Dict.get(action_to_be_rebound).texture = Rebind_Action_To_Primary_Icon_Node_Dict.get(action_to_be_rebound).texture
+			# Search for button icon in reference dict and apply it to the newly rebound slot. If not found, 
+			# use blank mouse / key texture instead
+			if Keycode_To_Button_Icon_File_Name_Dict.has(event.keycode):
+				Rebind_Action_To_Primary_Icon_Node_Dict.get(action_to_be_rebound).texture = load(button_icon_folder_path+Keycode_To_Button_Icon_File_Name_Dict.get(event.keycode))
+			else:
+				Rebind_Action_To_Primary_Icon_Node_Dict.get(action_to_be_rebound).texture = load(blank_button_icon_folder_path+blank_mouse_texture_name)
+			# Actually update the binds list in the config file
+			Update_Config("Controls", action_to_be_rebound, Get_Config("Controls", action_to_be_rebound, 0), 1)
+			Update_Config("Controls", action_to_be_rebound, "k"+str(event.keycode), 0)
+			rebinding = false
 		# Set the input as handled so it doesn't effect anything else in game
 		get_viewport().set_input_as_handled()
 		# Set the hsv value of the rebound icon's modulate back to 1 once rebinding is finished
 		Rebind_Action_To_Secondary_Icon_Node_Dict.get(action_to_be_rebound).modulate.v = 1
-	
+		
 	# Ignore the first input when rebinding button is pressed, enabling the next input to be the one bound,
 	# otherwise the action will just be rebound to the button pressed to initiate the rebind as even though 
 	# that action is handled already by the rebind button this is _input() and it receives all input anyways
 	elif start_rebinding: 
 		start_rebinding = false
 		rebinding = true
-		
 		# Grey out action icon to show the rebinding process is active by setting hsv value to 0
 		Rebind_Action_To_Secondary_Icon_Node_Dict.get(action_to_be_rebound).modulate.v = 0.5
 
