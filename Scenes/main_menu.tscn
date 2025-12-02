@@ -630,6 +630,12 @@ texture = ExtResource("7_trj04")
 expand_mode = 2
 stretch_mode = 6
 
+[node name="Left_Remove_Button" type="Button" parent="Controls_Menu_Container/GridContainer/Left_Bind_Button/Left_Container"]
+modulate = Color(1, 0.525358, 0.386038, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 70
+text = "Remove Last"
+
 [node name="Right_Bind_Button" type="Button" parent="Controls_Menu_Container/GridContainer"]
 self_modulate = Color(0.498039, 0.839216, 0.545098, 1)
 custom_minimum_size = Vector2(128, 72)
@@ -683,6 +689,12 @@ size_flags_horizontal = 2
 texture = ExtResource("7_trj04")
 expand_mode = 2
 stretch_mode = 6
+
+[node name="Right_Remove_Button" type="Button" parent="Controls_Menu_Container/GridContainer/Right_Bind_Button/Right_Container"]
+modulate = Color(1, 0.525358, 0.386038, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 70
+text = "Remove Last"
 
 [node name="Up_Bind_Button" type="Button" parent="Controls_Menu_Container/GridContainer"]
 self_modulate = Color(0.498039, 0.839216, 0.545098, 1)
@@ -738,6 +750,12 @@ texture = ExtResource("7_trj04")
 expand_mode = 2
 stretch_mode = 6
 
+[node name="Up_Remove_Button" type="Button" parent="Controls_Menu_Container/GridContainer/Up_Bind_Button/Up_Container"]
+modulate = Color(1, 0.525358, 0.386038, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 70
+text = "Remove Last"
+
 [node name="Down_Bind_Button" type="Button" parent="Controls_Menu_Container/GridContainer"]
 self_modulate = Color(0.498039, 0.839216, 0.545098, 1)
 custom_minimum_size = Vector2(128, 72)
@@ -791,6 +809,12 @@ size_flags_horizontal = 2
 texture = ExtResource("7_trj04")
 expand_mode = 2
 stretch_mode = 6
+
+[node name="Down_Remove_Button" type="Button" parent="Controls_Menu_Container/GridContainer/Down_Bind_Button/Down_Container"]
+modulate = Color(1, 0.525358, 0.386038, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 70
+text = "Remove Last"
 
 [node name="Jump_Bind_Button" type="Button" parent="Controls_Menu_Container/GridContainer"]
 self_modulate = Color(0.498039, 0.839216, 0.545098, 1)
@@ -846,6 +870,12 @@ texture = ExtResource("8_16hvj")
 expand_mode = 2
 stretch_mode = 6
 
+[node name="Jump_Remove_Button" type="Button" parent="Controls_Menu_Container/GridContainer/Jump_Bind_Button/Jump_Container"]
+modulate = Color(1, 0.525358, 0.386038, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 70
+text = "Remove Last"
+
 [node name="Glide_Bind_Button" type="Button" parent="Controls_Menu_Container/GridContainer"]
 self_modulate = Color(0.498039, 0.839216, 0.545098, 1)
 custom_minimum_size = Vector2(128, 72)
@@ -896,6 +926,12 @@ size_flags_horizontal = 2
 texture = ExtResource("8_16hvj")
 expand_mode = 2
 stretch_mode = 6
+
+[node name="Glide_Remove_Button" type="Button" parent="Controls_Menu_Container/GridContainer/Glide_Bind_Button/Glide_Container"]
+modulate = Color(1, 0.525358, 0.386038, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 70
+text = "Remove Last"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_yhxw7")

@@ -99,6 +99,10 @@ func _process(delta) -> void:
 	elif autosave_timer.time_left <= 0:
 		Save_Config(config)
 		var autosave_timer = get_tree().create_timer(180, false, true)
+	
+	# Play rebinding animation on bind slot being rebound
+	if rebinding == true:
+		Rebind_Action_To_Primary_Icon_Node_Dict.get(action_to_be_rebound).modulate.v = 0.5
 
 
 # -------------------------------------------------Main Menu Functions-----
@@ -182,37 +186,28 @@ func _on_controls_done_button_button_down():
 	Save_Config(config)
 	Load_Options_Menu()
 
-func Listen_For_Rebind(binding_slot_icon):
-	#print("ryretg")
-	#print(Input.is_anything_just_pressed())
-	#while not Input.is_anything_pressed():
-		#print("rebinding!")
-		#binding_slot_icon.modulate = Color("red")
-	#binding_slot_icon.modulate.v = 1
-	pass
-
+# This function is used for listening for the rebind key when a rebinding sequence is initiated
 func _input(event):
 	# Only rebind controls if the rebinding flag has been set to true
 	if rebinding and event.is_action_type() and !event.is_echo():
 		if event is InputEventMouseButton:
-			print("m",event.button_index)
-			Update_Config("Controls", action_to_be_rebound, event.button_index)
+			Update_Config("Controls", action_to_be_rebound, "m"+str(event.button_index))
 			rebinding = false
 		elif event is InputEventKey:
 			if event.is_pressed() == true:
-				print(event.keycode)
-				Update_Config("Controls", action_to_be_rebound, event.keycode)
+				Update_Config("Controls", action_to_be_rebound, "k"+str(event.keycode))
 				rebinding = false
-		Rebind_Action_To_Primary_Icon_Node_Dict.get(action_to_be_rebound).modulate.v = 1
+		# Set input as handled to prevent the rebinding key press from causing anything else to happen
 		get_viewport().set_input_as_handled()
-	# Ignore the first input when rebinding button is pressed, enabling the next input to be the one bound, 
-	# because otherwise the action will just be rebound to the button pressed to initiate the rebind 
-	# as even though it is handled already by the rebind button this is input and it doesn't care about that.
+		# Set the hsv value of the rebound icon's modulate back to 1 once rebinding is finished
+		Rebind_Action_To_Primary_Icon_Node_Dict.get(action_to_be_rebound).modulate.v = 1
+	
+	# Ignore the first input when rebinding button is pressed, enabling the next input to be the one bound,
+	# otherwise the action will just be rebound to the button pressed to initiate the rebind as even though 
+	# that action is handled already by the rebind button this is _input() and it receives all input anyways
 	elif start_rebinding: 
 		start_rebinding = false
 		rebinding = true
-		
-		Rebind_Action_To_Primary_Icon_Node_Dict.get(action_to_be_rebound).modulate.v = 0.5
 
 
 # -------------------------------------------------Audio Menu Functions-----

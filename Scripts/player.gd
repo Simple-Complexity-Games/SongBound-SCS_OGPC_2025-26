@@ -38,7 +38,7 @@ var previous_window_mode = DisplayServer.WINDOW_MODE_MAXIMIZED
 
 func _process(delta: float) -> void:
 	Handle_Inputs()
-	Handle_Fulscreening()
+	Handle_Fullscreening()
 
 func _physics_process(delta: float) -> void:
 	#Apply gravity
@@ -113,7 +113,7 @@ func Handle_Glide():
 		else:
 			velocity.x = move_toward(velocity.x, 0, DECELERATON_SPEED_AIR)
 
-func Handle_Fulscreening():
+func Handle_Fullscreening():
 	if Input.is_action_just_pressed("Fullscreen"):
 		if DisplayServer.window_get_mode() != DisplayServer.WINDOW_MODE_FULLSCREEN:
 			previous_window_mode = DisplayServer.window_get_mode()
