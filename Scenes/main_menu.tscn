@@ -60,24 +60,24 @@ bus = &"Music"
 
 [node name="Hover_SFX_Player" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_ce3w2")
+volume_db = -2.811
 bus = &"SFX"
 
 [node name="Title_Label" type="RichTextLabel" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.083
 anchor_top = 0.081
 anchor_right = 0.917
 anchor_bottom = 0.268
-offset_left = 0.639984
+offset_left = 0.639999
 offset_top = 0.519997
 offset_right = 0.359863
 offset_bottom = -0.439941
 tooltip_text = "A Game By Simple Complexity"
 mouse_filter = 1
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0.77365, 0.849942, 0.963951, 1)
+theme_override_colors/font_outline_color = Color(0.509804, 0.894118, 1, 1)
 theme_override_constants/outline_size = 18
 theme_override_fonts/normal_font = ExtResource("6_trj04")
 theme_override_font_sizes/normal_font_size = 150
@@ -244,9 +244,8 @@ color = Color(0.101961, 0.101961, 0.101961, 0.745098)
 layout_mode = 2
 tooltip_text = "Master Volume
 "
-max_value = 1.0
-step = 0.025
-value = 0.6
+step = 2.5
+value = 70.0
 
 [node name="Separator_1" type="ColorRect" parent="Audio_Menu_Container"]
 custom_minimum_size = Vector2(0, 4)
@@ -280,9 +279,8 @@ color = Color(0.101961, 0.101961, 0.101961, 0.745098)
 [node name="Music_Volume_Slider" type="HSlider" parent="Audio_Menu_Container"]
 layout_mode = 2
 tooltip_text = "Music Volume"
-max_value = 1.0
-step = 0.025
-value = 0.6
+step = 2.5
+value = 70.0
 
 [node name="Separator_2" type="ColorRect" parent="Audio_Menu_Container"]
 custom_minimum_size = Vector2(0, 4)
@@ -317,9 +315,8 @@ color = Color(0.101961, 0.101961, 0.101961, 0.745098)
 layout_mode = 2
 tooltip_text = "SFX Volume
 "
-max_value = 1.0
-step = 0.025
-value = 0.6
+step = 2.5
+value = 70.0
 
 [node name="Separator_3" type="ColorRect" parent="Audio_Menu_Container"]
 custom_minimum_size = Vector2(0, 8)
@@ -517,14 +514,15 @@ layout_mode = 2
 text = "Done"
 
 [node name="Controls_Menu_Container" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchor_left = 0.267
 anchor_top = 0.43
 anchor_right = 0.733
 anchor_bottom = 0.763
-offset_left = -0.640015
+offset_left = -0.640076
 offset_top = -0.399994
-offset_right = 0.639893
+offset_right = 0.640015
 offset_bottom = -0.0400391
 grow_horizontal = 2
 grow_vertical = 2
@@ -630,11 +628,19 @@ texture = ExtResource("7_trj04")
 expand_mode = 2
 stretch_mode = 6
 
-[node name="Left_Remove_Button" type="Button" parent="Controls_Menu_Container/GridContainer/Left_Bind_Button/Left_Container"]
-modulate = Color(1, 0.525358, 0.386038, 1)
-layout_mode = 2
-theme_override_font_sizes/font_size = 70
-text = "Remove Last"
+[node name="Left_Unbind_Last_Button" type="Button" parent="Controls_Menu_Container/GridContainer/Left_Bind_Button"]
+modulate = Color(0.972629, 0.296293, 0.305728, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 312.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+theme_override_font_sizes/font_size = 27
+text = "Unbind
+Last"
 
 [node name="Right_Bind_Button" type="Button" parent="Controls_Menu_Container/GridContainer"]
 self_modulate = Color(0.498039, 0.839216, 0.545098, 1)
@@ -690,11 +696,19 @@ texture = ExtResource("7_trj04")
 expand_mode = 2
 stretch_mode = 6
 
-[node name="Right_Remove_Button" type="Button" parent="Controls_Menu_Container/GridContainer/Right_Bind_Button/Right_Container"]
-modulate = Color(1, 0.525358, 0.386038, 1)
-layout_mode = 2
-theme_override_font_sizes/font_size = 70
-text = "Remove Last"
+[node name="Right_Unbind_Last_Button" type="Button" parent="Controls_Menu_Container/GridContainer/Right_Bind_Button"]
+modulate = Color(0.972629, 0.296293, 0.305728, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 304.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+theme_override_font_sizes/font_size = 27
+text = "Unbind
+Last"
 
 [node name="Up_Bind_Button" type="Button" parent="Controls_Menu_Container/GridContainer"]
 self_modulate = Color(0.498039, 0.839216, 0.545098, 1)
@@ -750,11 +764,19 @@ texture = ExtResource("7_trj04")
 expand_mode = 2
 stretch_mode = 6
 
-[node name="Up_Remove_Button" type="Button" parent="Controls_Menu_Container/GridContainer/Up_Bind_Button/Up_Container"]
-modulate = Color(1, 0.525358, 0.386038, 1)
-layout_mode = 2
-theme_override_font_sizes/font_size = 70
-text = "Remove Last"
+[node name="Up_Unbind_Last_Button" type="Button" parent="Controls_Menu_Container/GridContainer/Up_Bind_Button"]
+modulate = Color(0.972629, 0.296293, 0.305728, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 304.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+theme_override_font_sizes/font_size = 27
+text = "Unbind
+Last"
 
 [node name="Down_Bind_Button" type="Button" parent="Controls_Menu_Container/GridContainer"]
 self_modulate = Color(0.498039, 0.839216, 0.545098, 1)
@@ -810,11 +832,19 @@ texture = ExtResource("7_trj04")
 expand_mode = 2
 stretch_mode = 6
 
-[node name="Down_Remove_Button" type="Button" parent="Controls_Menu_Container/GridContainer/Down_Bind_Button/Down_Container"]
-modulate = Color(1, 0.525358, 0.386038, 1)
-layout_mode = 2
-theme_override_font_sizes/font_size = 70
-text = "Remove Last"
+[node name="Down_Unbind_Last_Button" type="Button" parent="Controls_Menu_Container/GridContainer/Down_Bind_Button"]
+modulate = Color(0.972629, 0.296293, 0.305728, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 304.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+theme_override_font_sizes/font_size = 27
+text = "Unbind
+Last"
 
 [node name="Jump_Bind_Button" type="Button" parent="Controls_Menu_Container/GridContainer"]
 self_modulate = Color(0.498039, 0.839216, 0.545098, 1)
@@ -870,11 +900,19 @@ texture = ExtResource("8_16hvj")
 expand_mode = 2
 stretch_mode = 6
 
-[node name="Jump_Remove_Button" type="Button" parent="Controls_Menu_Container/GridContainer/Jump_Bind_Button/Jump_Container"]
-modulate = Color(1, 0.525358, 0.386038, 1)
-layout_mode = 2
-theme_override_font_sizes/font_size = 70
-text = "Remove Last"
+[node name="Jump_Unbind_Last_Button" type="Button" parent="Controls_Menu_Container/GridContainer/Jump_Bind_Button"]
+modulate = Color(0.972629, 0.296293, 0.305728, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 304.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+theme_override_font_sizes/font_size = 27
+text = "Unbind
+Last"
 
 [node name="Glide_Bind_Button" type="Button" parent="Controls_Menu_Container/GridContainer"]
 self_modulate = Color(0.498039, 0.839216, 0.545098, 1)
@@ -927,11 +965,19 @@ texture = ExtResource("8_16hvj")
 expand_mode = 2
 stretch_mode = 6
 
-[node name="Glide_Remove_Button" type="Button" parent="Controls_Menu_Container/GridContainer/Glide_Bind_Button/Glide_Container"]
-modulate = Color(1, 0.525358, 0.386038, 1)
-layout_mode = 2
-theme_override_font_sizes/font_size = 70
-text = "Remove Last"
+[node name="Glide_Unbind_Last_Button" type="Button" parent="Controls_Menu_Container/GridContainer/Glide_Bind_Button"]
+modulate = Color(0.972629, 0.296293, 0.305728, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 304.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+theme_override_font_sizes/font_size = 27
+text = "Unbind
+Last"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_yhxw7")

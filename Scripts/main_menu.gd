@@ -39,7 +39,12 @@ extends Control
 var start_rebinding = false
 var rebinding = false
 var action_to_be_rebound: String
+# Dictionaries to get an icon node during rebinding using the action_to_be_rebound var
 var Rebind_Action_To_Primary_Icon_Node_Dict = {}
+var Rebind_Action_To_Secondary_Icon_Node_Dict = {}
+# Dictionary to get the icon for a key by keycode
+var Keycode_To_Key_Icon_Dict = {}
+var Mouse_Index_To_Button_Icon_Dict = {}
 
 # Window mode button dictionary for relating indexes and window modes
 var Window_Mode_Index_Dict = {0:DisplayServer.WINDOW_MODE_FULLSCREEN, 
@@ -48,6 +53,7 @@ var Button_To_WindowMode_Index_Dict = {0:3, 1:2, 2:0}
 var unsupported_window_modes = [DisplayServer.WINDOW_MODE_MINIMIZED, DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN]
 
 var previous_window_mode = DisplayServer.WINDOW_MODE_MAXIMIZED
+var previous_window_size = Vector2()
 
 # Config file
 var config = ConfigFile.new()
@@ -66,6 +72,10 @@ func _ready() -> void:
 	# This dict has to be defined in _ready() because it contains @onready vars which are not loaded until then
 	Rebind_Action_To_Primary_Icon_Node_Dict = {"Left":Left_Bind_1, "Right":Right_Bind_1, 
 	"Up":Up_Bind_1, "Down":Down_Bind_1, "Jump":Jump_Bind_1, "Glide":Glide_Bind_1}
+	Rebind_Action_To_Secondary_Icon_Node_Dict = {"Left":Left_Bind_2, "Right":Right_Bind_2, 
+	"Up":Up_Bind_2, "Down":Down_Bind_2, "Jump":Jump_Bind_2, "Glide":Glide_Bind_2}
+	
+	previous_window_size = DisplayServer.window_get_size()
 
 func _process(delta) -> void:
 	if Music_Player.playing == false:
@@ -99,10 +109,6 @@ func _process(delta) -> void:
 	elif autosave_timer.time_left <= 0:
 		Save_Config(config)
 		var autosave_timer = get_tree().create_timer(180, false, true)
-	
-	# Play rebinding animation on bind slot being rebound
-	if rebinding == true:
-		Rebind_Action_To_Primary_Icon_Node_Dict.get(action_to_be_rebound).modulate.v = 0.5
 
 
 # -------------------------------------------------Main Menu Functions-----
@@ -143,6 +149,8 @@ func _on_video_button_button_down() -> void:
 func _on_done_button_mouse_entered() -> void:
 	Hover_SFX_Player.playing = true
 func _on_done_button_button_down() -> void:
+	Save_Config(config)
+	Check_And_Save_Window_Size()
 	Load_Main_Menu()
 
 
@@ -184,6 +192,7 @@ func _on_controls_done_button_mouse_entered():
 	Hover_SFX_Player.playing = true
 func _on_controls_done_button_button_down():
 	Save_Config(config)
+	Check_And_Save_Window_Size()
 	Load_Options_Menu()
 
 # This function is used for listening for the rebind key when a rebinding sequence is initiated
@@ -191,16 +200,22 @@ func _input(event):
 	# Only rebind controls if the rebinding flag has been set to true
 	if rebinding and event.is_action_type() and !event.is_echo():
 		if event is InputEventMouseButton:
-			Update_Config("Controls", action_to_be_rebound, "m"+str(event.button_index))
+			print("m",event.button_index)
+			# Set secondary rebind slot icon to the primary slot's old image to make room for the new bind
+			Rebind_Action_To_Secondary_Icon_Node_Dict.get(action_to_be_rebound).texture = Rebind_Action_To_Primary_Icon_Node_Dict.get(action_to_be_rebound).texture
+			Rebind_Action_To_Primary_Icon_Node_Dict.get(action_to_be_rebound).texture = Mouse_Index_To_Button_Icon_Dict.get("m"+str(event.button_index))
+			Update_Config("Controls", action_to_be_rebound, Get_Config("Controls", action_to_be_rebound, 0), 1)
+			Update_Config("Controls", action_to_be_rebound, "m"+str(event.button_index), 0)
 			rebinding = false
 		elif event is InputEventKey:
 			if event.is_pressed() == true:
-				Update_Config("Controls", action_to_be_rebound, "k"+str(event.keycode))
+				print(event.keycode)
+				Update_Config("Controls", action_to_be_rebound, "k"+str(event.keycode), 0)
 				rebinding = false
-		# Set input as handled to prevent the rebinding key press from causing anything else to happen
+		# Set the input as handled so it doesn't effect anything else in game
 		get_viewport().set_input_as_handled()
 		# Set the hsv value of the rebound icon's modulate back to 1 once rebinding is finished
-		Rebind_Action_To_Primary_Icon_Node_Dict.get(action_to_be_rebound).modulate.v = 1
+		Rebind_Action_To_Secondary_Icon_Node_Dict.get(action_to_be_rebound).modulate.v = 1
 	
 	# Ignore the first input when rebinding button is pressed, enabling the next input to be the one bound,
 	# otherwise the action will just be rebound to the button pressed to initiate the rebind as even though 
@@ -208,6 +223,9 @@ func _input(event):
 	elif start_rebinding: 
 		start_rebinding = false
 		rebinding = true
+		
+		# Grey out action icon to show the rebinding process is active by setting hsv value to 0
+		Rebind_Action_To_Secondary_Icon_Node_Dict.get(action_to_be_rebound).modulate.v = 0.5
 
 
 # -------------------------------------------------Audio Menu Functions-----
@@ -216,7 +234,7 @@ func _on_master_volume_slider_mouse_entered():
 	Hover_SFX_Player.playing = true
 func _on_master_volume_slider_value_changed(value):
 	Hover_SFX_Player.playing = true
-	AudioServer.set_bus_volume_linear(0, value * 2)
+	AudioServer.set_bus_volume_linear(0, value / 80)
 func _on_master_volume_slider_drag_ended(value_changed):
 	if value_changed:
 		Update_Config("Audio", "Master_Volume", Master_Volume_Slider.value)
@@ -225,7 +243,7 @@ func _on_music_volume_slider_mouse_entered():
 	Hover_SFX_Player.playing = true
 func _on_music_volume_slider_value_changed(value):
 	Hover_SFX_Player.playing = true
-	AudioServer.set_bus_volume_linear(1, value)
+	AudioServer.set_bus_volume_linear(1, value / 80)
 func _on_music_volume_slider_drag_ended(value_changed):
 	if value_changed:
 		Update_Config("Audio", "Music_Volume", Music_Volume_Slider.value)
@@ -234,7 +252,7 @@ func _on_sfx_volume_slider_mouse_entered():
 	Hover_SFX_Player.playing = true
 func _on_sfx_volume_slider_value_changed(value):
 	Hover_SFX_Player.playing = true
-	AudioServer.set_bus_volume_linear(2, value)
+	AudioServer.set_bus_volume_linear(2, value / 80)
 func _on_sfx_volume_slider_drag_ended(value_changed):
 	if value_changed:
 		Update_Config("Audio", "SFX_Volume", SFX_Volume_Slider.value)
@@ -243,6 +261,7 @@ func _on_audio_done_button_mouse_entered() -> void:
 	Hover_SFX_Player.playing = true
 func _on_audio_done_button_button_down() -> void:
 	Save_Config(config)
+	Check_And_Save_Window_Size()
 	Load_Options_Menu()
 
 
@@ -295,7 +314,12 @@ func _on_video_done_button_mouse_entered() -> void:
 	Hover_SFX_Player.playing = true
 func _on_video_done_button_button_down() -> void:
 	Save_Config(config)
+	Check_And_Save_Window_Size()
 	Load_Options_Menu()
+
+func Check_And_Save_Window_Size():
+	Change_Override_Config("display/window/size/window_width_override", DisplayServer.window_get_size().x)
+	Change_Override_Config("display/window/size/window_height_override", DisplayServer.window_get_size().y)
 
 
 # -------------------------------------------------Other / Load Functions-----
@@ -306,6 +330,7 @@ func Start_Game():
 func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
 		Save_Config(config)
+		Check_And_Save_Window_Size()
 
 func Load_Main_Menu():
 	Options_Menu_Container.hide()
@@ -367,9 +392,9 @@ func Load_Video_Menu():
 
 func Create_Config(config):
 	# Set audio default values
-	config.set_value("Audio", "Master_Volume", 80)
-	config.set_value("Audio", "Music_Volume", 80)
-	config.set_value("Audio", "SFX_Volume", 80)
+	config.set_value("Audio", "Master_Volume", 70)
+	config.set_value("Audio", "Music_Volume", 70)
+	config.set_value("Audio", "SFX_Volume", 70)
 	# Set video default values
 	config.set_value("Video", "Brightness", 1)
 	config.set_value("Video", "Contrast", 1)
@@ -378,15 +403,27 @@ func Create_Config(config):
 	config.set_value("Video", "Screen_Shake", false)
 	config.set_value("Video", "Screen_Blur", false)
 	# Set controls default values
-	config.set_value("Controls", "Left", 0)
-	config.set_value("Controls", "Right", 0)
-	config.set_value("Controls", "Up", 0)
-	config.set_value("Controls", "Down", 0)
-	config.set_value("Controls", "Jump", 0)
-	config.set_value("Controls", "Glide", 0)
+	config.set_value("Controls", "Left", ["0", "0"])
+	config.set_value("Controls", "Right", ["0", "0"])
+	config.set_value("Controls", "Up", ["0", "0"])
+	config.set_value("Controls", "Down", ["0", "0"])
+	config.set_value("Controls", "Jump", ["0", "0"])
+	config.set_value("Controls", "Glide", ["0", "0"])
 
-func Update_Config(section, key, value):
-	config.set_value(section, key, value)
+func Get_Config(section, key, index = null):
+	if index != null:
+		var list = config.get_value(section, key)
+		return list[index]
+	else:
+		return config.get_value(section, key)
+
+func Update_Config(section, key, value, index = null):
+	if index != null:
+		var list = config.get_value(section, key)
+		list[index] = value
+		config.set_value(section, key, list)
+	else:
+		config.set_value(section, key, value)
 
 func Change_Override_Config(setting_path, value):
 	ProjectSettings.set_setting(setting_path, value)
@@ -398,12 +435,14 @@ func Save_Config(config):
 func Apply_Config(config):
 	# <> Controls settings
 	
-	# Audio settings
-	AudioServer.set_bus_volume_linear(0, config.get_value("Audio", "Master_Volume"))
-	Master_Volume_Slider.value = AudioServer.get_bus_volume_linear(0)
-	AudioServer.set_bus_volume_linear(1, config.get_value("Audio", "Music_Volume"))
+	# Audio settings -- very important to divide each of these by around 100 to get a range close to 0-1
+	# because otherwise upon loading an existing config file the player's eardrums will be blasted out by 
+	# horribly deep-fried audio (ask me how I know)
+	AudioServer.set_bus_volume_linear(0, config.get_value("Audio", "Master_Volume") / 80)
+	Master_Volume_Slider.value = config.get_value("Audio", "Master_Volume")
+	AudioServer.set_bus_volume_linear(1, config.get_value("Audio", "Music_Volume") / 80)
 	Music_Volume_Slider.value = config.get_value("Audio", "Music_Volume")
-	AudioServer.set_bus_volume_linear(2, config.get_value("Audio", "SFX_Volume"))
+	AudioServer.set_bus_volume_linear(2, config.get_value("Audio", "SFX_Volume") / 80)
 	SFX_Volume_Slider.value = config.get_value("Audio", "SFX_Volume")
 	
 	# Video settings
