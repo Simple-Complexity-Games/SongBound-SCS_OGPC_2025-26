@@ -38,7 +38,7 @@ extends Control
 # Button icon folder
 var button_icon_folder_path = "res://Assets/Art/Button_Icons/Keyboard_And_Mouse/Dark/"
 # Unrecognized keybind texture paths
-var blank_button_icon_folder_path = "res://Assets/Art/Button_Icons/Keyboard_And_Mouse/Blank/"
+var blank_button_icon_folder_path = "res://Assets/Art/Button_Icons/Keyboard_And_Mouse/Blanks/"
 var blank_key_texture_name = "Blank_Black_Normal.png"
 var blank_mouse_texture_name = "Blank_Black_Mouse.png"
 # Rebinding status vars
@@ -55,99 +55,127 @@ var Rebind_Action_To_Secondary_Icon_Node_Dict = {}
 # and right keys, but the icons will just not reflect that because the icon pack does not contain icons 
 # for separate chiral keys and it would be too time consuming to add an extra indicator to the UI
 var Keycode_To_Button_Icon_File_Name_Dict = {
-8:"Backspace_Key_Dark.png", 
-9:"Tab_Key_Dark.png", 
-13:"Enter_Key_Dark.png", 
-16:"Shift_Key_Dark.png",
-17:"Ctrl_Key_Dark.png",
-18:"Alt_Key_Dark.png",
-20:"Caps_Lock_Key_Dark.png",
-27:"Esc_Key_Dark.png",
-32:"Space_Key_Dark.png",
-33:"Page_Up_Key_Dark.png",
-34:"Page_Down_Key_Dark.png",
-35:"End_Key_Dark.png",
-36:"Home_Key_Dark.png",
-37:"Arrow_Left_Key_Dark.png",
-38:"Up_Arrow_Key_Dark.png",
-39:"Arrow_Right_Key_Dark.png",
-40:"Arrow_Down_Key_Dark.png",
-44:"Print_Screen_Key_Dark.png",
-45:"Insert_Key_Dark.png",
-46:"Del_Key_Dark.png",
-48:"0_Key_Dark.png", 
-49:"1_Key_Dark.png", 
-50:"2_Key_Dark.png", 
-51:"3_Key_Dark.png", 
-52:"4_Key_Dark.png", 
-53:"5_Key_Dark.png", 
-54:"6_Key_Dark.png", 
-55:"7_Key_Dark.png", 
-56:"8_Key_Dark.png", 
-57:"9_Key_Dark.png", 
-65:"A_Key_Dark.png",
-66:"B_Key_Dark.png",
-67:"C_Key_Dark.png",
-68:"D_Key_Dark.png",
-69:"E_Key_Dark.png",
-70:"F_Key_Dark.png",
-71:"G_Key_Dark.png",
-72:"H_Key_Dark.png",
-73:"I_Key_Dark.png",
-74:"J_Key_Dark.png",
-75:"K_Key_Dark.png",
-76:"L_Key_Dark.png",
-77:"M_Key_Dark.png",
-78:"N_Key_Dark.png",
-79:"O_Key_Dark.png",
-80:"P_Key_Dark.png",
-81:"Q_Key_Dark.png",
-82:"R_Key_Dark.png",
-83:"S_Key_Dark.png",
-84:"T_Key_Dark.png",
-85:"U_Key_Dark.png",
-86:"V_Key_Dark.png",
-87:"W_Key_Dark.png",
-88:"X_Key_Dark.png",
-89:"Y_Key_Dark.png",
-90:"Z_Key_Dark.png",
-91:"Win_Key_Dark.png",
-92:"Win_Key_Dark.png",
-96:"0_Key_Dark.png",
-97:"1_Key_Dark.png",
-98:"2_Key_Dark.png",
-99:"3_Key_Dark.png",
-100:"4_Key_Dark.png",
-101:"5_Key_Dark.png",
-102:"6_Key_Dark.png",
-103:"7_Key_Dark.png",
-104:"8_Key_Dark.png",
-105:"9_Key_Dark.png",
-107:"Plus_Key_Dark.png",
-109:"Minus_Key_Dark.png",
-110:"Mark_Right_Key_Dark.png",
-111:"Slash_Key_Dark.png",
-112:"F1_Key_Dark.png",
-113:"F2_Key_Dark.png",
-114:"F3_Key_Dark.png",
-115:"F4_Key_Dark.png",
-116:"F5_Key_Dark.png",
-117:"F6_Key_Dark.png",
-118:"F7_Key_Dark.png",
-119:"F8_Key_Dark.png",
-120:"F9_Key_Dark.png",
-121:"F10_Key_Dark.png",
-122:"F11_Key_Dark.png",
-123:"F12_Key_Dark.png",
-144:"Num_Lock_Key_Dark.png",
-160:"Shift_Key_Dark.png", 
-161:"Shift_Key_Dark.png", 
-162:"Ctrl_Key_Dark.png", 
-163:"Ctrl_Key_Dark.png", 
-164:"Alt_Key_Dark.png", 
-165:"Alt_Key_Dark.png"}
+	8:"Backspace_Key_Dark.png", 
+	9:"Tab_Key_Dark.png", 
+	13:"Enter_Key_Dark.png", 
+	16:"Shift_Key_Dark.png",
+	17:"Ctrl_Key_Dark.png",
+	18:"Alt_Key_Dark.png",
+	20:"Caps_Lock_Key_Dark.png",
+	27:"Esc_Key_Dark.png",
+	32:"Space_Key_Dark.png",
+	33:"Page_Up_Key_Dark.png",
+	34:"Page_Down_Key_Dark.png",
+	35:"End_Key_Dark.png",
+	36:"Home_Key_Dark.png",
+	37:"Arrow_Left_Key_Dark.png",
+	38:"Up_Arrow_Key_Dark.png",
+	39:"Quote_Key_Dark.png",
+	40:"Arrow_Down_Key_Dark.png",
+	44:"Mark_Left_Key_Dark.png",
+	45:"Minus_Key_Dark.png",
+	46:"Mark_Right_Key_Dark.png",
+	47:"Question_Key_Dark.png",
+	48:"0_Key_Dark.png", 
+	49:"1_Key_Dark.png", 
+	50:"2_Key_Dark.png", 
+	51:"3_Key_Dark.png", 
+	52:"4_Key_Dark.png", 
+	53:"5_Key_Dark.png", 
+	54:"6_Key_Dark.png", 
+	55:"7_Key_Dark.png", 
+	56:"8_Key_Dark.png", 
+	57:"9_Key_Dark.png", 
+	59:"Semicolon_Key_Dark.png",
+	61:"Plus_Key_Dark.png",
+	65:"A_Key_Dark.png",
+	66:"B_Key_Dark.png",
+	67:"C_Key_Dark.png",
+	68:"D_Key_Dark.png",
+	69:"E_Key_Dark.png",
+	70:"F_Key_Dark.png",
+	71:"G_Key_Dark.png",
+	72:"H_Key_Dark.png",
+	73:"I_Key_Dark.png",
+	74:"J_Key_Dark.png",
+	75:"K_Key_Dark.png",
+	76:"L_Key_Dark.png",
+	77:"M_Key_Dark.png",
+	78:"N_Key_Dark.png",
+	79:"O_Key_Dark.png",
+	80:"P_Key_Dark.png",
+	81:"Q_Key_Dark.png",
+	82:"R_Key_Dark.png",
+	83:"S_Key_Dark.png",
+	84:"T_Key_Dark.png",
+	85:"U_Key_Dark.png",
+	86:"V_Key_Dark.png",
+	87:"W_Key_Dark.png",
+	88:"X_Key_Dark.png",
+	89:"Y_Key_Dark.png",
+	90:"Z_Key_Dark.png",
+	91:"Bracket_Left_Key_Dark.png",
+	92:"Slash_Key_Dark.png",
+	93:"Bracket_Right_Key_Dark.png",
+	96:"Tilda_Key_Dark.png",
+	97:"1_Key_Dark.png",
+	98:"2_Key_Dark.png",
+	99:"3_Key_Dark.png",
+	100:"4_Key_Dark.png",
+	101:"5_Key_Dark.png",
+	102:"6_Key_Dark.png",
+	103:"7_Key_Dark.png",
+	104:"8_Key_Dark.png",
+	105:"9_Key_Dark.png",
+	107:"Plus_Key_Dark.png",
+	109:"Minus_Key_Dark.png",
+	110:"Mark_Right_Key_Dark.png",
+	111:"Slash_Key_Dark.png",
+	112:"F1_Key_Dark.png",
+	113:"F2_Key_Dark.png",
+	114:"F3_Key_Dark.png",
+	115:"F4_Key_Dark.png",
+	116:"F5_Key_Dark.png",
+	117:"F6_Key_Dark.png",
+	118:"F7_Key_Dark.png",
+	119:"F8_Key_Dark.png",
+	120:"F9_Key_Dark.png",
+	121:"F10_Key_Dark.png",
+	122:"F11_Key_Dark.png",
+	123:"F12_Key_Dark.png",
+	144:"Num_Lock_Key_Dark.png",
+	160:"Shift_Key_Dark.png", 
+	161:"Shift_Key_Dark.png", 
+	162:"Ctrl_Key_Dark.png", 
+	163:"Ctrl_Key_Dark.png", 
+	164:"Alt_Key_Dark.png", 
+	165:"Alt_Key_Dark.png",
+	4194306:"Tab_Key_Dark.png",
+	4194310:"Enter_Tall_Key_Dark.png",
+	4194311:"Insert_Key_Dark.png",
+	4194312:"Del_Key_Dark.png",
+	4194317:"Home_Key_Dark.png",
+	4194318:"End_Key_Dark.png",
+	4194319:"Arrow_Left_Key_Dark.png",
+	4194320:"Arrow_Up_Key_Dark.png",
+	4194321:"Arrow_Right_Key_Dark.png",
+	4194322:"Arrow_Down_Key_Dark.png",
+	4194323:"Page_Up_Key_dark.png",
+	4194324:"Page_Down_Key_Dark.png",
+	4194325:"Shift_Key_Dark.png",
+	4194326:"Ctrl_Key_Dark.png",
+	4194327:"Win_Key_Dark.png",
+	4194328:"Alt_Key_Dark.png",
+	4194329:"Caps_Lock_Key_Dark.png",
+	4194330:"Num_Lock_Key_Dark.png",
+	4194438:"0_Key_Dark.png",
+	}
 
-var Mouse_Index_To_Button_Icon_File_Name_Dict = {}
+var Mouse_Index_To_Button_Icon_File_Name_Dict = {
+	1:"Mouse_Left_Key_Dark.png",
+	2:"Mouse_Right_Key_Dark.png",
+	3:"Mouse_Middle_Key_Dark.png",
+}
 #endregion
 
 # Window mode button dictionary for relating indexes and window modes
@@ -317,9 +345,9 @@ func _input(event):
 			# Set secondary rebind slot icon to the primary slot's old image to make room for the new bind
 			Rebind_Action_To_Secondary_Icon_Node_Dict.get(action_to_be_rebound).texture = Rebind_Action_To_Primary_Icon_Node_Dict.get(action_to_be_rebound).texture
 			# Search for button icon in reference dict and apply it to the newly rebound slot. If not found, 
-			# use blank mouse / key texture instead
+			# use blank mouse texture instead
 			if Mouse_Index_To_Button_Icon_File_Name_Dict.has(event.button_index):
-				Rebind_Action_To_Primary_Icon_Node_Dict.get(action_to_be_rebound).texture = Mouse_Index_To_Button_Icon_File_Name_Dict.get(event.button_index)
+				Rebind_Action_To_Primary_Icon_Node_Dict.get(action_to_be_rebound).texture = load(button_icon_folder_path+Mouse_Index_To_Button_Icon_File_Name_Dict.get(event.button_index))
 			else:
 				Rebind_Action_To_Primary_Icon_Node_Dict.get(action_to_be_rebound).texture = load(blank_button_icon_folder_path+blank_key_texture_name)
 			# Actually update the binds list in the config file
@@ -330,14 +358,14 @@ func _input(event):
 			# Set secondary rebind slot icon to the primary slot's old image to make room for the new bind
 			Rebind_Action_To_Secondary_Icon_Node_Dict.get(action_to_be_rebound).texture = Rebind_Action_To_Primary_Icon_Node_Dict.get(action_to_be_rebound).texture
 			# Search for button icon in reference dict and apply it to the newly rebound slot. If not found, 
-			# use blank mouse / key texture instead
-			if Keycode_To_Button_Icon_File_Name_Dict.has(event.keycode):
-				Rebind_Action_To_Primary_Icon_Node_Dict.get(action_to_be_rebound).texture = load(button_icon_folder_path+Keycode_To_Button_Icon_File_Name_Dict.get(event.keycode))
+			# use blank key texture instead
+			if Keycode_To_Button_Icon_File_Name_Dict.has(event.physical_keycode):
+				Rebind_Action_To_Primary_Icon_Node_Dict.get(action_to_be_rebound).texture = load(button_icon_folder_path+Keycode_To_Button_Icon_File_Name_Dict.get(event.physical_keycode))
 			else:
-				Rebind_Action_To_Primary_Icon_Node_Dict.get(action_to_be_rebound).texture = load(blank_button_icon_folder_path+blank_mouse_texture_name)
+				Rebind_Action_To_Primary_Icon_Node_Dict.get(action_to_be_rebound).texture = load(blank_button_icon_folder_path+blank_key_texture_name)
 			# Actually update the binds list in the config file
 			Update_Config("Controls", action_to_be_rebound, Get_Config("Controls", action_to_be_rebound, 0), 1)
-			Update_Config("Controls", action_to_be_rebound, "k"+str(event.keycode), 0)
+			Update_Config("Controls", action_to_be_rebound, "k"+str(event.physical_keycode), 0)
 			rebinding = false
 		# Set the input as handled so it doesn't effect anything else in game
 		get_viewport().set_input_as_handled()
@@ -560,6 +588,19 @@ func Save_Config(config):
 
 func Apply_Config(config):
 	# <> Controls settings
+	var binds = []
+	for key in config.get_section_keys("Controls"):
+		var bind_list = config.get_value("Controls", key)
+		
+		if bind_list[0][0] == "m":
+			Rebind_Action_To_Primary_Icon_Node_Dict.get(key).texture = Mouse_Index_To_Button_Icon_File_Name_Dict.get(bind_list[0].substr(1))
+		elif bind_list[0][0] == "k":
+			Rebind_Action_To_Primary_Icon_Node_Dict.get(key).texture = Keycode_To_Button_Icon_File_Name_Dict.get(bind_list[0].substr(1))
+		
+		if bind_list[1][0] == "m":
+			Rebind_Action_To_Secondary_Icon_Node_Dict.get(key).texture = Mouse_Index_To_Button_Icon_File_Name_Dict.get(bind_list[0].substr(1))
+		elif bind_list[1][0] == "k":
+			Rebind_Action_To_Secondary_Icon_Node_Dict.get(key).texture = Keycode_To_Button_Icon_File_Name_Dict.get(bind_list[0].substr(1))
 	
 	# Audio settings -- very important to divide each of these by around 100 to get a range close to 0-1
 	# because otherwise upon loading an existing config file the player's eardrums will be blasted out by 

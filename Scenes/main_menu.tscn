@@ -708,7 +708,7 @@ offset_right = -8.0
 offset_bottom = -8.0
 theme_override_font_sizes/font_size = 27
 text = "Unbind
-Last"
+Oldest"
 
 [node name="Up_Bind_Button" type="Button" parent="Controls_Menu_Container/GridContainer"]
 self_modulate = Color(0.498039, 0.839216, 0.545098, 1)
@@ -776,7 +776,7 @@ offset_right = -8.0
 offset_bottom = -8.0
 theme_override_font_sizes/font_size = 27
 text = "Unbind
-Last"
+Oldest"
 
 [node name="Down_Bind_Button" type="Button" parent="Controls_Menu_Container/GridContainer"]
 self_modulate = Color(0.498039, 0.839216, 0.545098, 1)
@@ -844,7 +844,7 @@ offset_right = -8.0
 offset_bottom = -8.0
 theme_override_font_sizes/font_size = 27
 text = "Unbind
-Last"
+Oldest"
 
 [node name="Jump_Bind_Button" type="Button" parent="Controls_Menu_Container/GridContainer"]
 self_modulate = Color(0.498039, 0.839216, 0.545098, 1)
@@ -912,7 +912,7 @@ offset_right = -8.0
 offset_bottom = -8.0
 theme_override_font_sizes/font_size = 27
 text = "Unbind
-Last"
+Oldest"
 
 [node name="Glide_Bind_Button" type="Button" parent="Controls_Menu_Container/GridContainer"]
 self_modulate = Color(0.498039, 0.839216, 0.545098, 1)
@@ -977,7 +977,7 @@ offset_right = -8.0
 offset_bottom = -8.0
 theme_override_font_sizes/font_size = 27
 text = "Unbind
-Last"
+Oldest"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_yhxw7")
