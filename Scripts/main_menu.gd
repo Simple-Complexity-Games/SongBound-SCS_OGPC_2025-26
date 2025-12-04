@@ -1,5 +1,7 @@
 extends Control
 
+#region ------@onready Node Container Definitions------
+# General scene nodes
 @onready var Music_Player = get_node("Music_Player")
 @onready var Hover_SFX_Player = get_node("Hover_SFX_Player")
 # Main menu
@@ -34,26 +36,28 @@ extends Control
 @onready var Screen_Blur_Button = get_node("Video_Menu_Container/Screen_Blur_Button")
 @onready var Window_Mode_Button = get_node("Video_Menu_Container/Window_Mode_Button")
 @onready var World_Environment = get_node("WorldEnvironment")
+#endregion
 
+#region ------File Path and File Name Definitions------
 # Button icon folder
 var button_icon_folder_path = "res://Assets/Art/Button_Icons/Keyboard_And_Mouse/Dark/"
 # Unrecognized keybind texture paths
 var blank_button_icon_folder_path = "res://Assets/Art/Button_Icons/Keyboard_And_Mouse/Blanks/"
 var blank_key_texture_name = "Blank_Black_Normal.png"
 var blank_mouse_texture_name = "Blank_Black_Mouse.png"
-# Rebinding status vars
-var start_rebinding = false
-var rebinding = false
-var action_to_be_rebound: String
-# Dictionaries to get an icon node during rebinding using the action_to_be_rebound var
+#endregion
+
+#region ------Keybinding Dictionary Definitions------
+# Dictionaries to get an icon node during rebinding using the action_to_be_rebound var, not populated
+# here due to needing to contain onready vars, which can only be referenced after the start of _ready():
 var Rebind_Action_To_Primary_Icon_Node_Dict = {}
 var Rebind_Action_To_Secondary_Icon_Node_Dict = {}
 
-#region - Dictionaries of key/mouse button icon file names by keycode/mouse index, collapsed because of size
 # Unfortunately we don't really have the time to implement a way to show the chirality (handedness) of 
-# identical keys (shift, ctrl, alt, etc.). This is implemented in code, with a distinction between left 
-# and right keys, but the icons will just not reflect that because the icon pack does not contain icons 
-# for separate chiral keys and it would be too time consuming to add an extra indicator to the UI
+# duplicate keys (shift, ctrl, alt, etc.). This is implemented in code, with a distinction between left 
+# and right versions of keys do to key codes being different, but the icons will just not reflect that 
+# because the icon pack does not contain icons for separate chiral keys and it would be too time 
+# consuming to add an extra indicator to the UI
 var Keycode_To_Button_Icon_File_Name_Dict = {
 	8:"Backspace_Key_Dark.png", 
 	9:"Tab_Key_Dark.png", 
@@ -178,6 +182,7 @@ var Mouse_Index_To_Button_Icon_File_Name_Dict = {
 }
 #endregion
 
+#region ------Window Mode Var Definitions------
 # Window mode button dictionary for relating indexes and window modes
 var Window_Mode_Index_Dict = {0:DisplayServer.WINDOW_MODE_FULLSCREEN, 
 1:DisplayServer.WINDOW_MODE_MAXIMIZED, 2:DisplayServer.WINDOW_MODE_WINDOWED}
@@ -186,12 +191,27 @@ var unsupported_window_modes = [DisplayServer.WINDOW_MODE_MINIMIZED, DisplayServ
 
 var previous_window_mode = DisplayServer.WINDOW_MODE_MAXIMIZED
 var previous_window_size = Vector2()
+#endregion
 
-# Config file
+#region ------General & Status Var Definitions------
+# Rebinding status vars
+var start_rebinding = false
+var rebinding = false
+var action_to_be_rebound: String
+
+# Config and saving
 var config = ConfigFile.new()
 var autosave_timer = null
+#endregion
+
 
 func _ready() -> void:
+	# This dict has to be defined in _ready() because it contains @onready vars which are not loaded until then
+	Rebind_Action_To_Primary_Icon_Node_Dict = {"Left":Left_Bind_1, "Right":Right_Bind_1, 
+	"Up":Up_Bind_1, "Down":Down_Bind_1, "Jump":Jump_Bind_1, "Glide":Glide_Bind_1}
+	Rebind_Action_To_Secondary_Icon_Node_Dict = {"Left":Left_Bind_2, "Right":Right_Bind_2, 
+	"Up":Up_Bind_2, "Down":Down_Bind_2, "Jump":Jump_Bind_2, "Glide":Glide_Bind_2}
+	
 	Load_Main_Menu()
 	
 	if !FileAccess.file_exists("user://config"):
@@ -200,12 +220,6 @@ func _ready() -> void:
 	else:
 		config.load("user://config")
 		Apply_Config(config)
-	
-	# This dict has to be defined in _ready() because it contains @onready vars which are not loaded until then
-	Rebind_Action_To_Primary_Icon_Node_Dict = {"Left":Left_Bind_1, "Right":Right_Bind_1, 
-	"Up":Up_Bind_1, "Down":Down_Bind_1, "Jump":Jump_Bind_1, "Glide":Glide_Bind_1}
-	Rebind_Action_To_Secondary_Icon_Node_Dict = {"Left":Left_Bind_2, "Right":Right_Bind_2, 
-	"Up":Up_Bind_2, "Down":Down_Bind_2, "Jump":Jump_Bind_2, "Glide":Glide_Bind_2}
 	
 	previous_window_size = DisplayServer.window_get_size()
 
@@ -237,13 +251,13 @@ func _process(delta) -> void:
 	
 	# Autosave functionality logic
 	if autosave_timer == null:
-		var autosave_timer = get_tree().create_timer(180, false, true)
+		autosave_timer = get_tree().create_timer(180, false, true)
 	elif autosave_timer.time_left <= 0:
 		Save_Config(config)
-		var autosave_timer = get_tree().create_timer(180, false, true)
+		autosave_timer = get_tree().create_timer(180, false, true)
 
 
-# -------------------------------------------------Main Menu Functions-----
+#region ------Main Menu Functions------
 # Start button
 func _on_start_button_mouse_entered() -> void:
 	Hover_SFX_Player.playing = true
@@ -259,9 +273,10 @@ func _on_quit_button_mouse_entered() -> void:
 	Hover_SFX_Player.playing = true
 func _on_quit_button_button_down() -> void:
 	get_tree().quit()
+#endregion
 
 
-# -------------------------------------------------Options Menu Functions-----
+#region ------Options Menu Functions------
 # Controls button
 func _on_controls_button_mouse_entered() -> void:
 	Hover_SFX_Player.playing = true
@@ -284,9 +299,10 @@ func _on_done_button_button_down() -> void:
 	Save_Config(config)
 	Check_And_Save_Window_Size()
 	Load_Main_Menu()
+#endregion
 
 
-# -------------------------------------------------Controls Menu Functions-----
+#region ------Controls Menu Functions------
 # Left action rebind button
 func _on_left_bind_button_mouse_entered():
 	Hover_SFX_Player.playing = true
@@ -336,8 +352,7 @@ func _on_controls_done_button_button_down():
 	Save_Config(config)
 	Check_And_Save_Window_Size()
 	Load_Options_Menu()
-
-# This function is used for listening for the rebind key when a rebinding sequence is initiated
+# _input() - This function is used for listening for the rebind key when a rebinding sequence is initiated
 func _input(event):
 	# Only rebind controls if the rebinding flag has been set to true
 	if rebinding and event.is_action_type() and !event.is_echo():
@@ -380,9 +395,10 @@ func _input(event):
 		rebinding = true
 		# Grey out action icon to show the rebinding process is active by setting hsv value to 0
 		Rebind_Action_To_Secondary_Icon_Node_Dict.get(action_to_be_rebound).modulate.v = 0.5
+#endregion
 
 
-# -------------------------------------------------Audio Menu Functions-----
+#region ------Audio Menu Functions------
 # Master volume slider
 func _on_master_volume_slider_mouse_entered():
 	Hover_SFX_Player.playing = true
@@ -417,9 +433,10 @@ func _on_audio_done_button_button_down() -> void:
 	Save_Config(config)
 	Check_And_Save_Window_Size()
 	Load_Options_Menu()
+#endregion
 
 
-# -------------------------------------------------Video Menu Functions-----
+#region ------Video Menu Functions------
 # Brightness slider
 func _on_brightness_slider_mouse_entered():
 	Hover_SFX_Player.playing = true
@@ -470,21 +487,23 @@ func _on_video_done_button_button_down() -> void:
 	Save_Config(config)
 	Check_And_Save_Window_Size()
 	Load_Options_Menu()
-
+# Function to save the current window size if in windowed mode to restore when launching or exiting fullscreen
 func Check_And_Save_Window_Size():
 	Change_Override_Config("display/window/size/window_width_override", DisplayServer.window_get_size().x)
 	Change_Override_Config("display/window/size/window_height_override", DisplayServer.window_get_size().y)
+#endregion
 
 
-# -------------------------------------------------Other / Load Functions-----
+#region ------Other Misc. & Functions------
 func Start_Game():
-	get_tree().change_scene_to_file("res://Scenes/game.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Areas/world.tscn")
 
 # Save settings upon quitting application at window manager request
 func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
 		Save_Config(config)
 		Check_And_Save_Window_Size()
+
 
 func Load_Main_Menu():
 	Options_Menu_Container.hide()
@@ -540,10 +559,10 @@ func Load_Video_Menu():
 	Audio_Menu_Label.hide()
 	Video_Menu_Container.show()
 	Video_Menu_Label.show()
+#endregion
 
 
-# -------------------------------------------------Config Functions-----
-
+#region ------Config Functions------
 func Create_Config(config):
 	# Set audio default values
 	config.set_value("Audio", "Master_Volume", 70)
@@ -587,32 +606,66 @@ func Save_Config(config):
 	config.save("user://config")
 
 func Apply_Config(config):
-	# <> Controls settings
-	var binds = []
+	#region <> Controls settings
 	for key in config.get_section_keys("Controls"):
 		var bind_list = config.get_value("Controls", key)
 		
+		# Load the button icons for the bind codes in the config file to the primary rebind slot, adapting 
+		# to different input methods depending on the first letter of the bind code
+		var primary_rebind_slot_icon
 		if bind_list[0][0] == "m":
-			Rebind_Action_To_Primary_Icon_Node_Dict.get(key).texture = Mouse_Index_To_Button_Icon_File_Name_Dict.get(bind_list[0].substr(1))
+			# If the mouse index is in the icon dictionary, load that icon. If not, load the blank key icon
+			# Use string slicing to get the numbers of the bind code, then convert it to an int for the dict
+			var icon_file_name = Mouse_Index_To_Button_Icon_File_Name_Dict.get(int(bind_list[0].substr(1)))
+			if icon_file_name:
+				primary_rebind_slot_icon = load(button_icon_folder_path+icon_file_name)
+			else:
+				primary_rebind_slot_icon = load(blank_button_icon_folder_path+blank_mouse_texture_name)
 		elif bind_list[0][0] == "k":
-			Rebind_Action_To_Primary_Icon_Node_Dict.get(key).texture = Keycode_To_Button_Icon_File_Name_Dict.get(bind_list[0].substr(1))
+			# If the keycode is in the icon dictionary, load that icon. If not, load the blank mouse icon
+			# Use string slicing to get the numbers of the bind code, then convert it to an int for the dict
+			var icon_file_name = Keycode_To_Button_Icon_File_Name_Dict.get(int(bind_list[0].substr(1)))
+			if icon_file_name:
+				primary_rebind_slot_icon = load(button_icon_folder_path+icon_file_name)
+			else:
+				primary_rebind_slot_icon = load(blank_button_icon_folder_path+blank_key_texture_name)
+		Rebind_Action_To_Primary_Icon_Node_Dict.get(str(key)).texture = primary_rebind_slot_icon
 		
+		# Load the button icons for the bind codes in the config file to the secondary rebind slot, adapting 
+		# to different input methods depending on the first letter of the bind code
+		var secondary_rebind_slot_icon
 		if bind_list[1][0] == "m":
-			Rebind_Action_To_Secondary_Icon_Node_Dict.get(key).texture = Mouse_Index_To_Button_Icon_File_Name_Dict.get(bind_list[0].substr(1))
+			# If the mouse index is in the icon dictionary, load that icon. If not, load the blank mouse icon
+			# Use string slicing to get the numbers of the bind code, then convert it to an int for the dict
+			var icon_file_name = Mouse_Index_To_Button_Icon_File_Name_Dict.get(int(bind_list[1].substr(1)))
+			if icon_file_name:
+				secondary_rebind_slot_icon = load(button_icon_folder_path+icon_file_name)
+			else:
+				secondary_rebind_slot_icon = load(blank_button_icon_folder_path+blank_mouse_texture_name)
 		elif bind_list[1][0] == "k":
-			Rebind_Action_To_Secondary_Icon_Node_Dict.get(key).texture = Keycode_To_Button_Icon_File_Name_Dict.get(bind_list[0].substr(1))
+			# If the keycode is in the icon dictionary, load that icon. If not, load the blank key icon
+			# Use string slicing to get the numbers of the bind code, then convert it to an int for the dict
+			var icon_file_name = Keycode_To_Button_Icon_File_Name_Dict.get(int(bind_list[1].substr(1)))
+			if icon_file_name:
+				secondary_rebind_slot_icon = load(button_icon_folder_path+icon_file_name)
+			else:
+				secondary_rebind_slot_icon = load(blank_button_icon_folder_path+blank_key_texture_name)
+		Rebind_Action_To_Secondary_Icon_Node_Dict.get(str(key)).texture = secondary_rebind_slot_icon
+	#endregion
 	
-	# Audio settings -- very important to divide each of these by around 100 to get a range close to 0-1
+	#region <> Audio settings
+	# Very important to divide each of these by around 100 to get a range close to 0-1
 	# because otherwise upon loading an existing config file the player's eardrums will be blasted out by 
-	# horribly deep-fried audio (ask me how I know)
+	# horribly deep-fried and amplified audio (ask me how I know)
 	AudioServer.set_bus_volume_linear(0, config.get_value("Audio", "Master_Volume") / 80)
 	Master_Volume_Slider.value = config.get_value("Audio", "Master_Volume")
 	AudioServer.set_bus_volume_linear(1, config.get_value("Audio", "Music_Volume") / 80)
 	Music_Volume_Slider.value = config.get_value("Audio", "Music_Volume")
 	AudioServer.set_bus_volume_linear(2, config.get_value("Audio", "SFX_Volume") / 80)
 	SFX_Volume_Slider.value = config.get_value("Audio", "SFX_Volume")
+	#endregion
 	
-	# Video settings
+	#region <> Video settings
 	World_Environment.environment.adjustment_brightness = config.get_value("Video", "Brightness")
 	Video_Brightness_Slider.value = World_Environment.environment.adjustment_brightness
 	World_Environment.environment.adjustment_contrast = config.get_value("Video", "Contrast")
@@ -624,3 +677,6 @@ func Apply_Config(config):
 	Screen_Blur_Button.button_pressed = config.get_value("Video", "Screen_Blur")
 	# Window setting
 	Window_Mode_Button.selected = Button_To_WindowMode_Index_Dict.find_key(ProjectSettings.get_setting_with_override("display/window/size/mode"))
+	#endregion
+	
+#endregion

@@ -1,23 +1,23 @@
 [gd_scene load_steps=9 format=3 uid="uid://c8xav3q6wf8ar"]
 
-[ext_resource type="Script" uid="uid://dsn8ntkfwvr5y" path="res://Scripts/textbox.gd" id="1_r448s"]
-[ext_resource type="Texture2D" uid="uid://c6r4fv54mx5nv" path="res://Assets/Art/Sprites/icon.svg" id="2_myx3b"]
-[ext_resource type="AudioStream" uid="uid://bhe7lcpnuo6q4" path="res://Assets/Sound/SFX/typing_blip.wav" id="3_ebco6"]
+[ext_resource type="Script" uid="uid://dsn8ntkfwvr5y" path="res://Scripts/textbox.gd" id="1_1ohis"]
+[ext_resource type="Texture2D" uid="uid://c6r4fv54mx5nv" path="res://Assets/Art/Sprites/icon.svg" id="2_igijl"]
+[ext_resource type="AudioStream" uid="uid://bhe7lcpnuo6q4" path="res://Assets/Sound/SFX/typing_blip.wav" id="3_34cjt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gomqe"]
-atlas = ExtResource("2_myx3b")
+atlas = ExtResource("2_igijl")
 region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_22oh7"]
-atlas = ExtResource("2_myx3b")
+atlas = ExtResource("2_igijl")
 region = Rect2(64, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2l1na"]
-atlas = ExtResource("2_myx3b")
+atlas = ExtResource("2_igijl")
 region = Rect2(0, 64, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_26et7"]
-atlas = ExtResource("2_myx3b")
+atlas = ExtResource("2_igijl")
 region = Rect2(64, 64, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_lvjv6"]
@@ -61,7 +61,7 @@ grow_horizontal = 2
 grow_vertical = 2
 bbcode_enabled = true
 fit_content = true
-script = ExtResource("1_r448s")
+script = ExtResource("1_1ohis")
 
 [node name="Test_Textbox" type="RichTextLabel" parent="Dialog_Box/Main_Textbox"]
 layout_mode = 1
@@ -80,7 +80,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_myx3b")
+texture = ExtResource("2_igijl")
 
 [node name="Character_Icon" type="AnimatedSprite2D" parent="Dialog_Box"]
 position = Vector2(72, 64)
@@ -88,4 +88,4 @@ scale = Vector2(1.75, 1.5)
 sprite_frames = SubResource("SpriteFrames_lvjv6")
 
 [node name="Audio_Player" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_ebco6")
+stream = ExtResource("3_34cjt")
