@@ -607,8 +607,10 @@ func Save_Config(config):
 
 func Apply_Config(config):
 	#region <> Controls settings
-	for key in config.get_section_keys("Controls"):
-		var bind_list = config.get_value("Controls", key)
+	for section_key in config.get_section_keys("Controls"):
+		var bind_list = config.get_value("Controls", section_key)
+		# Erase all input events to make room for loading those from the config file
+		InputMap.action_erase_events(section_key)
 		
 		# Load the button icons for the bind codes in the config file to the primary rebind slot, adapting 
 		# to different input methods depending on the first letter of the bind code
@@ -621,6 +623,10 @@ func Apply_Config(config):
 				primary_rebind_slot_icon = load(button_icon_folder_path+icon_file_name)
 			else:
 				primary_rebind_slot_icon = load(blank_button_icon_folder_path+blank_mouse_texture_name)
+			# Add keybind event using button index derived from numbers of bind code, found with substr() and cast to an int
+			var primary_keybind_event = InputEventMouse
+			primary_keybind_event.set_button_index(int(bind_list[0].substr(1)))
+			InputMap.action_add_event(section_key, primary_keybind_event)
 		elif bind_list[0][0] == "k":
 			# If the keycode is in the icon dictionary, load that icon. If not, load the blank mouse icon
 			# Use string slicing to get the numbers of the bind code, then convert it to an int for the dict
@@ -629,11 +635,16 @@ func Apply_Config(config):
 				primary_rebind_slot_icon = load(button_icon_folder_path+icon_file_name)
 			else:
 				primary_rebind_slot_icon = load(blank_button_icon_folder_path+blank_key_texture_name)
-		Rebind_Action_To_Primary_Icon_Node_Dict.get(str(key)).texture = primary_rebind_slot_icon
+			# Add keybind event using keycode derived from numbers of bind code, found with substr() and cast to an int
+			var primary_keybind_event = InputEventKey.new()
+			primary_keybind_event.set_keycode(int(bind_list[0].substr(1)))
+			InputMap.action_add_event(section_key, primary_keybind_event)
+		Rebind_Action_To_Primary_Icon_Node_Dict.get(str(section_key)).texture = primary_rebind_slot_icon
 		
 		# Load the button icons for the bind codes in the config file to the secondary rebind slot, adapting 
 		# to different input methods depending on the first letter of the bind code
 		var secondary_rebind_slot_icon
+		var secondary_keybind_event = InputEvent
 		if bind_list[1][0] == "m":
 			# If the mouse index is in the icon dictionary, load that icon. If not, load the blank mouse icon
 			# Use string slicing to get the numbers of the bind code, then convert it to an int for the dict
@@ -642,6 +653,10 @@ func Apply_Config(config):
 				secondary_rebind_slot_icon = load(button_icon_folder_path+icon_file_name)
 			else:
 				secondary_rebind_slot_icon = load(blank_button_icon_folder_path+blank_mouse_texture_name)
+			# Add keybind event using button index derived from numbers of bind code, found with substr() and cast to an int
+			var primary_keybind_event = InputEventMouse
+			primary_keybind_event.set_button_index(int(bind_list[1].substr(1)))
+			InputMap.action_add_event(section_key, primary_keybind_event)
 		elif bind_list[1][0] == "k":
 			# If the keycode is in the icon dictionary, load that icon. If not, load the blank key icon
 			# Use string slicing to get the numbers of the bind code, then convert it to an int for the dict
@@ -650,7 +665,11 @@ func Apply_Config(config):
 				secondary_rebind_slot_icon = load(button_icon_folder_path+icon_file_name)
 			else:
 				secondary_rebind_slot_icon = load(blank_button_icon_folder_path+blank_key_texture_name)
-		Rebind_Action_To_Secondary_Icon_Node_Dict.get(str(key)).texture = secondary_rebind_slot_icon
+			# Add keybind event using keycode derived from numbers of bind code, found with substr() and cast to an int
+			var primary_keybind_event = InputEventKey.new()
+			primary_keybind_event.set_keycode(int(bind_list[1].substr(1)))
+			InputMap.action_add_event(section_key, primary_keybind_event)
+		Rebind_Action_To_Secondary_Icon_Node_Dict.get(str(section_key)).texture = secondary_rebind_slot_icon
 	#endregion
 	
 	#region <> Audio settings
