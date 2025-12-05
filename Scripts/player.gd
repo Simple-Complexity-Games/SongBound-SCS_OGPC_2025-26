@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-#Constants for Movement/Jump
+#region ------Movement Constant Definitions------
 const ACCELERATION_GROUND = 35 # Grounded acceleration
 const ACCELERATION_AIR = 30 # Ungrounded acceleration
 const DECELERATON_SPEED = 20 
@@ -15,6 +15,7 @@ const MAX_GLIDE_SPEED = 380
 const MIN_GLIDE_SPEED = 40
 const MAX_FALL_SPEED = 415
 const GLIDE_ACCELERATION = 12
+#endregion
 
 # Variables for Movement/Jump
 var direction = 0
@@ -35,6 +36,9 @@ var abilities = {"flight":0, "glide":1}
 # Variable for handling fullscreen requests (f11 on windows)
 var previous_window_mode = DisplayServer.WINDOW_MODE_MAXIMIZED
 
+func _ready() -> void:
+	for action in InputMap.get_actions():
+		print(InputMap.action_get_events(action))
 
 func _process(delta: float) -> void:
 	Handle_Inputs()
@@ -70,7 +74,7 @@ func Update_Status_Vars():
 			coyote_jump_timer.timeout.connect(coyote_timer_done.bind())
 
 func Handle_Inputs():
-	direction = Input.get_axis("Move_Left", "Move_Right") # For left and right movement. 
+	direction = Input.get_axis("Left", "Right") # For left and right movement. 
 	
 	if Input.is_action_pressed("Glide") and not is_on_floor() and not gliding: # Turns on Gliding
 		gliding = true

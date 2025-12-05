@@ -275,7 +275,6 @@ func _on_quit_button_button_down() -> void:
 	get_tree().quit()
 #endregion
 
-
 #region ------Options Menu Functions------
 # Controls button
 func _on_controls_button_mouse_entered() -> void:
@@ -301,7 +300,6 @@ func _on_done_button_button_down() -> void:
 	Load_Main_Menu()
 #endregion
 
-
 #region ------Controls Menu Functions------
 # Left action rebind button
 func _on_left_bind_button_mouse_entered():
@@ -310,6 +308,17 @@ func _on_left_bind_button_button_down():
 	Hover_SFX_Player.playing = true
 	start_rebinding = true
 	action_to_be_rebound = "Left"
+# Left action unbind button
+func _on_left_unbind_button_mouse_entered():
+	Hover_SFX_Player.playing = true
+func _on_left_unbind_button_button_down():
+	Hover_SFX_Player.pitch_scale = 0.6
+	Hover_SFX_Player.playing = true
+	Hover_SFX_Player.plitch_scale = 1
+	if Left_Bind_2.texture != null:
+		Left_Bind_2.texture = null
+	else:
+		Left_Bind_1.texture = null
 # Right action rebind button
 func _on_right_bind_button_mouse_entered():
 	Hover_SFX_Player.playing = true
@@ -357,8 +366,10 @@ func _input(event):
 	# Only rebind controls if the rebinding flag has been set to true
 	if rebinding and event.is_action_type() and !event.is_echo():
 		if event is InputEventMouseButton and event.is_pressed() == true:
-			# Set secondary rebind slot icon to the primary slot's old image to make room for the new bind
+			# Set the secondary rebind slot icon to the primary slot's old image to make room for the new bind
 			Rebind_Action_To_Secondary_Icon_Node_Dict.get(action_to_be_rebound).texture = Rebind_Action_To_Primary_Icon_Node_Dict.get(action_to_be_rebound).texture
+			# Erase event corresponding to oldest rebind (second slot) since only two can be bound at once
+			InputMap.action_erase_event(action_to_be_rebound, config.get_value("Controls", action_to_be_rebound)[1].substr(1))
 			# Search for button icon in reference dict and apply it to the newly rebound slot. If not found, 
 			# use blank mouse texture instead
 			if Mouse_Index_To_Button_Icon_File_Name_Dict.has(event.button_index):
@@ -368,10 +379,18 @@ func _input(event):
 			# Actually update the binds list in the config file
 			Update_Config("Controls", action_to_be_rebound, Get_Config("Controls", action_to_be_rebound, 0), 1)
 			Update_Config("Controls", action_to_be_rebound, "m"+str(event.button_index), 0)
+			# Add the binding to the InputMap
+			var secondary_keybind_event = InputEventMouseButton.new()
+			secondary_keybind_event.set_button_index(int(config.get_value("Controls", action_to_be_rebound)[1].substr(1)))
+			InputMap.action_erase_event(action_to_be_rebound, secondary_keybind_event)
 			rebinding = false
 		elif event is InputEventKey and event.is_pressed() == true:
 			# Set secondary rebind slot icon to the primary slot's old image to make room for the new bind
 			Rebind_Action_To_Secondary_Icon_Node_Dict.get(action_to_be_rebound).texture = Rebind_Action_To_Primary_Icon_Node_Dict.get(action_to_be_rebound).texture
+			# Erase event corresponding to oldest rebind (second slot) since only two can be bound at once
+			var secondary_keybind_event = InputEventKey.new()
+			secondary_keybind_event.set_keycode(int(config.get_value("Controls", action_to_be_rebound)[1].substr(1)))
+			InputMap.action_erase_event(action_to_be_rebound, secondary_keybind_event)
 			# Search for button icon in reference dict and apply it to the newly rebound slot. If not found, 
 			# use blank key texture instead
 			if Keycode_To_Button_Icon_File_Name_Dict.has(event.physical_keycode):
@@ -381,6 +400,8 @@ func _input(event):
 			# Actually update the binds list in the config file
 			Update_Config("Controls", action_to_be_rebound, Get_Config("Controls", action_to_be_rebound, 0), 1)
 			Update_Config("Controls", action_to_be_rebound, "k"+str(event.physical_keycode), 0)
+			# Add the binding to the InputMap
+			InputMap.action_add_event(action_to_be_rebound, event)
 			rebinding = false
 		# Set the input as handled so it doesn't effect anything else in game
 		get_viewport().set_input_as_handled()
@@ -396,7 +417,6 @@ func _input(event):
 		# Grey out action icon to show the rebinding process is active by setting hsv value to 0
 		Rebind_Action_To_Secondary_Icon_Node_Dict.get(action_to_be_rebound).modulate.v = 0.5
 #endregion
-
 
 #region ------Audio Menu Functions------
 # Master volume slider
@@ -434,7 +454,6 @@ func _on_audio_done_button_button_down() -> void:
 	Check_And_Save_Window_Size()
 	Load_Options_Menu()
 #endregion
-
 
 #region ------Video Menu Functions------
 # Brightness slider
@@ -487,12 +506,12 @@ func _on_video_done_button_button_down() -> void:
 	Save_Config(config)
 	Check_And_Save_Window_Size()
 	Load_Options_Menu()
+
 # Function to save the current window size if in windowed mode to restore when launching or exiting fullscreen
 func Check_And_Save_Window_Size():
 	Change_Override_Config("display/window/size/window_width_override", DisplayServer.window_get_size().x)
 	Change_Override_Config("display/window/size/window_height_override", DisplayServer.window_get_size().y)
 #endregion
-
 
 #region ------Other Misc. & Functions------
 func Start_Game():
@@ -561,7 +580,6 @@ func Load_Video_Menu():
 	Video_Menu_Label.show()
 #endregion
 
-
 #region ------Config Functions------
 func Create_Config(config):
 	# Set audio default values
@@ -575,13 +593,13 @@ func Create_Config(config):
 	config.set_value("Video", "Window_Mode", 0)
 	config.set_value("Video", "Screen_Shake", false)
 	config.set_value("Video", "Screen_Blur", false)
-	# Set controls default values
-	config.set_value("Controls", "Left", ["0", "0"])
-	config.set_value("Controls", "Right", ["0", "0"])
-	config.set_value("Controls", "Up", ["0", "0"])
-	config.set_value("Controls", "Down", ["0", "0"])
-	config.set_value("Controls", "Jump", ["0", "0"])
-	config.set_value("Controls", "Glide", ["0", "0"])
+	# Set default keybind values (wasd and zxc)
+	config.set_value("Controls", "Left", ["k4194319", "k65"])
+	config.set_value("Controls", "Right", ["k4194321", "k68"])
+	config.set_value("Controls", "Up", ["k4194320", "k87"])
+	config.set_value("Controls", "Down", ["k4194322", "k83"])
+	config.set_value("Controls", "Jump", ["k67", "k32"])
+	config.set_value("Controls", "Glide", ["k90", "k4194325"])
 
 func Get_Config(section, key, index = null):
 	if index != null:
@@ -624,8 +642,9 @@ func Apply_Config(config):
 			else:
 				primary_rebind_slot_icon = load(blank_button_icon_folder_path+blank_mouse_texture_name)
 			# Add keybind event using button index derived from numbers of bind code, found with substr() and cast to an int
-			var primary_keybind_event = InputEventMouse
+			var primary_keybind_event = InputEventMouseButton.new()
 			primary_keybind_event.set_button_index(int(bind_list[0].substr(1)))
+			primary_keybind_event.pressed = true
 			InputMap.action_add_event(section_key, primary_keybind_event)
 		elif bind_list[0][0] == "k":
 			# If the keycode is in the icon dictionary, load that icon. If not, load the blank mouse icon
@@ -638,9 +657,9 @@ func Apply_Config(config):
 			# Add keybind event using keycode derived from numbers of bind code, found with substr() and cast to an int
 			var primary_keybind_event = InputEventKey.new()
 			primary_keybind_event.set_keycode(int(bind_list[0].substr(1)))
+			primary_keybind_event.pressed = true
 			InputMap.action_add_event(section_key, primary_keybind_event)
 		Rebind_Action_To_Primary_Icon_Node_Dict.get(str(section_key)).texture = primary_rebind_slot_icon
-		
 		# Load the button icons for the bind codes in the config file to the secondary rebind slot, adapting 
 		# to different input methods depending on the first letter of the bind code
 		var secondary_rebind_slot_icon
@@ -656,6 +675,7 @@ func Apply_Config(config):
 			# Add keybind event using button index derived from numbers of bind code, found with substr() and cast to an int
 			var primary_keybind_event = InputEventMouse
 			primary_keybind_event.set_button_index(int(bind_list[1].substr(1)))
+			primary_keybind_event.pressed = true
 			InputMap.action_add_event(section_key, primary_keybind_event)
 		elif bind_list[1][0] == "k":
 			# If the keycode is in the icon dictionary, load that icon. If not, load the blank key icon
@@ -668,8 +688,12 @@ func Apply_Config(config):
 			# Add keybind event using keycode derived from numbers of bind code, found with substr() and cast to an int
 			var primary_keybind_event = InputEventKey.new()
 			primary_keybind_event.set_keycode(int(bind_list[1].substr(1)))
+			primary_keybind_event.pressed = true
 			InputMap.action_add_event(section_key, primary_keybind_event)
 		Rebind_Action_To_Secondary_Icon_Node_Dict.get(str(section_key)).texture = secondary_rebind_slot_icon
+		
+		print("-----"+str(InputMap.action_get_events(section_key)))
+	
 	#endregion
 	
 	#region <> Audio settings
@@ -697,5 +721,4 @@ func Apply_Config(config):
 	# Window setting
 	Window_Mode_Button.selected = Button_To_WindowMode_Index_Dict.find_key(ProjectSettings.get_setting_with_override("display/window/size/mode"))
 	#endregion
-	
 #endregion
