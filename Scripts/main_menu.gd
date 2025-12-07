@@ -267,7 +267,6 @@ func _process(delta) -> void:
 			right_of_focused_control.grab_focus()
 	elif Input.is_action_just_pressed("Up"):
 		Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
-		Mouse_Blocker.mouse_filter = MOUSE_FILTER_STOP
 		var above_focused_control = get_viewport().gui_get_focus_owner().get_node_or_null(get_viewport().gui_get_focus_owner().focus_neighbor_top)
 		if above_focused_control:
 			above_focused_control.grab_focus()
