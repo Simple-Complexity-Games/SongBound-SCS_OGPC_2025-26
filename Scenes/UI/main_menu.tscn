@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://be8ds4pmwr8rn"]
+[gd_scene load_steps=14 format=3 uid="uid://be8ds4pmwr8rn"]
 
 [ext_resource type="Theme" uid="uid://dvrk404vsmxjc" path="res://Assets/Themes/Main_Menu_Theme.tres" id="1_wqme5"]
 [ext_resource type="Script" uid="uid://dxiy5wk0xbjug" path="res://Scripts/main_menu.gd" id="2_jewm6"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://bhe7lcpnuo6q4" path="res://Assets/Sound/SFX/typing_blip.wav" id="5_ypsd1"]
 [ext_resource type="FontFile" uid="uid://cqj32sh3raorv" path="res://Assets/Fonts/Macondo/MacondoSwashCaps-Regular.ttf" id="6_xp0kt"]
 [ext_resource type="Texture2D" uid="uid://1rsoquk8666j" path="res://Assets/Art/Button_Icons/Keyboard_And_Mouse/Dark/Mark_Right_Key_Dark.png" id="7_1yfdm"]
+[ext_resource type="StyleBox" uid="uid://bqfgor4l08s6t" path="res://button_not_hovered.tres" id="7_jewm6"]
 [ext_resource type="Texture2D" uid="uid://bcihx3b0w78px" path="res://Assets/Art/Button_Icons/Keyboard_And_Mouse/Dark/Space_Key_Dark.png" id="8_3h8o7"]
 [ext_resource type="Texture2D" uid="uid://b648n6gojbbj0" path="res://Assets/Art/Button_Icons/Keyboard_And_Mouse/Dark/Mouse_Right_Key_Dark.png" id="9_q6o50"]
 [ext_resource type="Texture2D" uid="uid://b66hsm718vu2t" path="res://Assets/Art/Button_Icons/Keyboard_And_Mouse/Dark/Enter_Tall_Key_Dark.png" id="10_46hhv"]
@@ -102,18 +103,40 @@ metadata/_edit_group_ = true
 [node name="Start_Button" type="Button" parent="Main_Menu_Container"]
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
+focus_neighbor_bottom = NodePath("../Options_Button")
+focus_next = NodePath("../Options_Button")
+focus_previous = NodePath("../Quit_Button")
+theme_override_styles/hover_pressed_mirrored = ExtResource("7_jewm6")
+theme_override_styles/hover_pressed = ExtResource("7_jewm6")
+theme_override_styles/hover_mirrored = ExtResource("7_jewm6")
+theme_override_styles/hover = ExtResource("7_jewm6")
 text = "Start"
 icon = SubResource("ImageTexture_ce3w2")
 
 [node name="Options_Button" type="Button" parent="Main_Menu_Container"]
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
+focus_neighbor_top = NodePath("../Start_Button")
+focus_neighbor_bottom = NodePath("../Quit_Button")
+focus_next = NodePath("../Quit_Button")
+focus_previous = NodePath("../Start_Button")
+theme_override_styles/hover_pressed_mirrored = ExtResource("7_jewm6")
+theme_override_styles/hover_pressed = ExtResource("7_jewm6")
+theme_override_styles/hover_mirrored = ExtResource("7_jewm6")
+theme_override_styles/hover = ExtResource("7_jewm6")
 text = "Options"
 icon_alignment = 1
 
 [node name="Quit_Button" type="Button" parent="Main_Menu_Container"]
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
+focus_neighbor_top = NodePath("../Options_Button")
+focus_next = NodePath("../Start_Button")
+focus_previous = NodePath("../Options_Button")
+theme_override_styles/hover_pressed_mirrored = ExtResource("7_jewm6")
+theme_override_styles/hover_pressed = ExtResource("7_jewm6")
+theme_override_styles/hover_mirrored = ExtResource("7_jewm6")
+theme_override_styles/hover = ExtResource("7_jewm6")
 text = "Quit"
 
 [node name="Options_Menu_Label" type="RichTextLabel" parent="."]
@@ -158,24 +181,54 @@ metadata/_edit_group_ = true
 modulate = Color(0.815226, 0.515689, 0.913521, 1)
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
+focus_neighbor_bottom = NodePath("../Audio_Button")
+focus_next = NodePath("../Audio_Button")
+focus_previous = NodePath("../Options_Done_Button")
+theme_override_styles/hover_pressed_mirrored = ExtResource("7_jewm6")
+theme_override_styles/hover_pressed = ExtResource("7_jewm6")
+theme_override_styles/hover_mirrored = ExtResource("7_jewm6")
+theme_override_styles/hover = ExtResource("7_jewm6")
 text = "Controls"
 
 [node name="Audio_Button" type="Button" parent="Options_Menu_Container"]
 modulate = Color(0.823529, 0.556863, 0.917647, 1)
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
+focus_neighbor_top = NodePath("../Controls_Button")
+focus_neighbor_bottom = NodePath("../Video_Button")
+focus_next = NodePath("../Video_Button")
+focus_previous = NodePath("../Controls_Button")
+theme_override_styles/hover_pressed_mirrored = ExtResource("7_jewm6")
+theme_override_styles/hover_pressed = ExtResource("7_jewm6")
+theme_override_styles/hover_mirrored = ExtResource("7_jewm6")
+theme_override_styles/hover = ExtResource("7_jewm6")
 text = "Audio"
 
 [node name="Video_Button" type="Button" parent="Options_Menu_Container"]
 modulate = Color(0.823529, 0.556863, 0.917647, 1)
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
+focus_neighbor_top = NodePath("../Audio_Button")
+focus_neighbor_bottom = NodePath("../Options_Done_Button")
+focus_next = NodePath("../Options_Done_Button")
+focus_previous = NodePath("../Audio_Button")
+theme_override_styles/hover_pressed_mirrored = ExtResource("7_jewm6")
+theme_override_styles/hover_pressed = ExtResource("7_jewm6")
+theme_override_styles/hover_mirrored = ExtResource("7_jewm6")
+theme_override_styles/hover = ExtResource("7_jewm6")
 text = "Video"
 
-[node name="Done_Button" type="Button" parent="Options_Menu_Container"]
+[node name="Options_Done_Button" type="Button" parent="Options_Menu_Container"]
 modulate = Color(0.823529, 0.556863, 0.917647, 1)
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
+focus_neighbor_top = NodePath("../Video_Button")
+focus_next = NodePath("../Controls_Button")
+focus_previous = NodePath("../Video_Button")
+theme_override_styles/hover_pressed_mirrored = ExtResource("7_jewm6")
+theme_override_styles/hover_pressed = ExtResource("7_jewm6")
+theme_override_styles/hover_mirrored = ExtResource("7_jewm6")
+theme_override_styles/hover = ExtResource("7_jewm6")
 text = "Done"
 
 [node name="Audio_Menu_Label" type="RichTextLabel" parent="."]
@@ -244,6 +297,9 @@ color = Color(0.101961, 0.101961, 0.101961, 0.745098)
 layout_mode = 2
 tooltip_text = "Master Volume
 "
+focus_neighbor_bottom = NodePath("../Music_Volume_Slider")
+focus_next = NodePath("../Music_Volume_Slider")
+focus_previous = NodePath("../Audio_Done_Button")
 step = 2.5
 value = 70.0
 
@@ -279,6 +335,10 @@ color = Color(0.101961, 0.101961, 0.101961, 0.745098)
 [node name="Music_Volume_Slider" type="HSlider" parent="Audio_Menu_Container"]
 layout_mode = 2
 tooltip_text = "Music Volume"
+focus_neighbor_top = NodePath("../Master_Volume_Slider")
+focus_neighbor_bottom = NodePath("../SFX_Volume_Slider")
+focus_next = NodePath("../SFX_Volume_Slider")
+focus_previous = NodePath("../Master_Volume_Slider")
 step = 2.5
 value = 70.0
 
@@ -315,6 +375,10 @@ color = Color(0.101961, 0.101961, 0.101961, 0.745098)
 layout_mode = 2
 tooltip_text = "SFX Volume
 "
+focus_neighbor_top = NodePath("../Music_Volume_Slider")
+focus_neighbor_bottom = NodePath("../Audio_Done_Button")
+focus_next = NodePath("../Audio_Done_Button")
+focus_previous = NodePath("../Music_Volume_Slider")
 step = 2.5
 value = 70.0
 
@@ -327,6 +391,13 @@ color = Color(1, 1, 1, 0)
 modulate = Color(0.631373, 0.709804, 0.988235, 1)
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
+focus_neighbor_top = NodePath("../SFX_Volume_Slider")
+focus_next = NodePath("../Master_Volume_Slider")
+focus_previous = NodePath("../SFX_Volume_Slider")
+theme_override_styles/hover_pressed_mirrored = ExtResource("7_jewm6")
+theme_override_styles/hover_pressed = ExtResource("7_jewm6")
+theme_override_styles/hover_mirrored = ExtResource("7_jewm6")
+theme_override_styles/hover = ExtResource("7_jewm6")
 text = "Done"
 
 [node name="Video_Menu_Label" type="RichTextLabel" parent="."]
@@ -396,6 +467,9 @@ color = Color(0.101961, 0.101961, 0.101961, 0.745098)
 [node name="Brightness_Slider" type="HSlider" parent="Video_Menu_Container"]
 layout_mode = 2
 tooltip_text = "Brightness"
+focus_neighbor_bottom = NodePath("../Contrast_Slider")
+focus_next = NodePath("../Contrast_Slider")
+focus_previous = NodePath("../Video_Done_Button")
 min_value = 0.1
 max_value = 2.0
 step = 0.05
@@ -433,6 +507,10 @@ color = Color(0.101961, 0.101961, 0.101961, 0.745098)
 [node name="Contrast_Slider" type="HSlider" parent="Video_Menu_Container"]
 layout_mode = 2
 tooltip_text = "Brightness"
+focus_neighbor_top = NodePath("../Brightness_Slider")
+focus_neighbor_bottom = NodePath("../Saturation_Slider")
+focus_next = NodePath("../Saturation_Slider")
+focus_previous = NodePath("../Brightness_Slider")
 min_value = 0.1
 max_value = 2.0
 step = 0.05
@@ -470,6 +548,10 @@ color = Color(0.101961, 0.101961, 0.101961, 0.745098)
 [node name="Saturation_Slider" type="HSlider" parent="Video_Menu_Container"]
 layout_mode = 2
 tooltip_text = "Brightness"
+focus_neighbor_top = NodePath("../Contrast_Slider")
+focus_neighbor_bottom = NodePath("../Window_Mode_Button")
+focus_next = NodePath("../Window_Mode_Button")
+focus_previous = NodePath("../Contrast_Slider")
 min_value = 0.1
 max_value = 2.0
 step = 0.05
@@ -483,6 +565,14 @@ color = Color(1, 1, 1, 0)
 [node name="Window_Mode_Button" type="OptionButton" parent="Video_Menu_Container"]
 modulate = Color(0.933333, 0.647059, 0.498039, 1)
 layout_mode = 2
+focus_neighbor_top = NodePath("../Saturation_Slider")
+focus_neighbor_bottom = NodePath("../Screen_Shake_Button")
+focus_next = NodePath("../Screen_Shake_Button")
+focus_previous = NodePath("../Saturation_Slider")
+theme_override_styles/hover_pressed_mirrored = ExtResource("7_jewm6")
+theme_override_styles/hover_pressed = ExtResource("7_jewm6")
+theme_override_styles/hover_mirrored = ExtResource("7_jewm6")
+theme_override_styles/hover = ExtResource("7_jewm6")
 alignment = 1
 selected = 0
 item_count = 3
@@ -497,6 +587,14 @@ popup/item_2/id = 2
 modulate = Color(0.933333, 0.647059, 0.498039, 1)
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
+focus_neighbor_top = NodePath("../Window_Mode_Button")
+focus_neighbor_bottom = NodePath("../Screen_Blur_Button")
+focus_next = NodePath("../Screen_Blur_Button")
+focus_previous = NodePath("../Window_Mode_Button")
+theme_override_styles/hover_pressed_mirrored = ExtResource("7_jewm6")
+theme_override_styles/hover_pressed = ExtResource("7_jewm6")
+theme_override_styles/hover_mirrored = ExtResource("7_jewm6")
+theme_override_styles/hover = ExtResource("7_jewm6")
 toggle_mode = true
 text = "Toggle Screen Shake"
 
@@ -504,6 +602,14 @@ text = "Toggle Screen Shake"
 modulate = Color(0.933333, 0.647059, 0.498039, 1)
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
+focus_neighbor_top = NodePath("../Screen_Shake_Button")
+focus_neighbor_bottom = NodePath("../Video_Done_Button")
+focus_next = NodePath("../Video_Done_Button")
+focus_previous = NodePath("../Screen_Shake_Button")
+theme_override_styles/hover_pressed_mirrored = ExtResource("7_jewm6")
+theme_override_styles/hover_pressed = ExtResource("7_jewm6")
+theme_override_styles/hover_mirrored = ExtResource("7_jewm6")
+theme_override_styles/hover = ExtResource("7_jewm6")
 toggle_mode = true
 text = "Toggle Screen Blur"
 
@@ -511,10 +617,16 @@ text = "Toggle Screen Blur"
 modulate = Color(0.933333, 0.647059, 0.498039, 1)
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
+focus_neighbor_top = NodePath("../Screen_Blur_Button")
+focus_next = NodePath("../Brightness_Slider")
+focus_previous = NodePath("../Screen_Blur_Button")
+theme_override_styles/hover_pressed_mirrored = ExtResource("7_jewm6")
+theme_override_styles/hover_pressed = ExtResource("7_jewm6")
+theme_override_styles/hover_mirrored = ExtResource("7_jewm6")
+theme_override_styles/hover = ExtResource("7_jewm6")
 text = "Done"
 
 [node name="Controls_Menu_Container" type="Control" parent="."]
-visible = false
 layout_mode = 1
 anchor_left = 0.267
 anchor_top = 0.43
@@ -558,6 +670,13 @@ anchor_top = -0.378
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 448.08
+focus_neighbor_top = NodePath("../GridContainer/Jump_Bind_Button")
+focus_next = NodePath("../GridContainer/Left_Bind_Button")
+focus_previous = NodePath("../GridContainer/Jump_Bind_Button")
+theme_override_styles/hover_pressed_mirrored = ExtResource("7_jewm6")
+theme_override_styles/hover_pressed = ExtResource("7_jewm6")
+theme_override_styles/hover_mirrored = ExtResource("7_jewm6")
+theme_override_styles/hover = ExtResource("7_jewm6")
 text = "Done"
 
 [node name="GridContainer" type="GridContainer" parent="Controls_Menu_Container"]
@@ -580,6 +699,14 @@ custom_minimum_size = Vector2(128, 72)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+focus_neighbor_right = NodePath("Left_Unbind_Button")
+focus_neighbor_bottom = NodePath("../Up_Bind_Button")
+focus_next = NodePath("Left_Unbind_Button")
+focus_previous = NodePath("../../Controls_Done_Button")
+theme_override_styles/hover_pressed_mirrored = ExtResource("7_jewm6")
+theme_override_styles/hover_pressed = ExtResource("7_jewm6")
+theme_override_styles/hover_mirrored = ExtResource("7_jewm6")
+theme_override_styles/hover = ExtResource("7_jewm6")
 metadata/_edit_group_ = true
 
 [node name="Left_Label" type="RichTextLabel" parent="Controls_Menu_Container/GridContainer/Left_Bind_Button"]
@@ -638,7 +765,16 @@ offset_left = 312.0
 offset_top = 8.0
 offset_right = -8.0
 offset_bottom = -8.0
+focus_neighbor_left = NodePath("..")
+focus_neighbor_right = NodePath("../../Right_Bind_Button")
+focus_neighbor_bottom = NodePath("../../Up_Bind_Button/Up_Unbind_Button")
+focus_next = NodePath("../../Right_Bind_Button")
+focus_previous = NodePath("..")
 theme_override_font_sizes/font_size = 27
+theme_override_styles/hover_pressed_mirrored = ExtResource("7_jewm6")
+theme_override_styles/hover_pressed = ExtResource("7_jewm6")
+theme_override_styles/hover_mirrored = ExtResource("7_jewm6")
+theme_override_styles/hover = ExtResource("7_jewm6")
 text = "Unbind
 Oldest"
 
@@ -648,6 +784,15 @@ custom_minimum_size = Vector2(128, 72)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+focus_neighbor_left = NodePath("../Left_Bind_Button/Left_Unbind_Button")
+focus_neighbor_right = NodePath("Right_Unbind_Button")
+focus_neighbor_bottom = NodePath("../Down_Bind_Button")
+focus_next = NodePath("Right_Unbind_Button")
+focus_previous = NodePath("../Left_Bind_Button/Left_Unbind_Button")
+theme_override_styles/hover_pressed_mirrored = ExtResource("7_jewm6")
+theme_override_styles/hover_pressed = ExtResource("7_jewm6")
+theme_override_styles/hover_mirrored = ExtResource("7_jewm6")
+theme_override_styles/hover = ExtResource("7_jewm6")
 metadata/_edit_group_ = true
 
 [node name="Right_Label" type="RichTextLabel" parent="Controls_Menu_Container/GridContainer/Right_Bind_Button"]
@@ -706,7 +851,15 @@ offset_left = 304.0
 offset_top = 8.0
 offset_right = -8.0
 offset_bottom = -8.0
+focus_neighbor_left = NodePath("..")
+focus_neighbor_bottom = NodePath("../../Down_Bind_Button/Down_Unbind_Button")
+focus_next = NodePath("../../Up_Bind_Button")
+focus_previous = NodePath("..")
 theme_override_font_sizes/font_size = 27
+theme_override_styles/hover_pressed_mirrored = ExtResource("7_jewm6")
+theme_override_styles/hover_pressed = ExtResource("7_jewm6")
+theme_override_styles/hover_mirrored = ExtResource("7_jewm6")
+theme_override_styles/hover = ExtResource("7_jewm6")
 text = "Unbind
 Oldest"
 
@@ -716,6 +869,15 @@ custom_minimum_size = Vector2(128, 72)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+focus_neighbor_top = NodePath("../Left_Bind_Button")
+focus_neighbor_right = NodePath("Up_Unbind_Button")
+focus_neighbor_bottom = NodePath("../Jump_Bind_Button")
+focus_next = NodePath("Up_Unbind_Button")
+focus_previous = NodePath("../Right_Bind_Button/Right_Unbind_Button")
+theme_override_styles/hover_pressed_mirrored = ExtResource("7_jewm6")
+theme_override_styles/hover_pressed = ExtResource("7_jewm6")
+theme_override_styles/hover_mirrored = ExtResource("7_jewm6")
+theme_override_styles/hover = ExtResource("7_jewm6")
 metadata/_edit_group_ = true
 
 [node name="Up_Label" type="RichTextLabel" parent="Controls_Menu_Container/GridContainer/Up_Bind_Button"]
@@ -774,7 +936,17 @@ offset_left = 304.0
 offset_top = 8.0
 offset_right = -8.0
 offset_bottom = -8.0
+focus_neighbor_left = NodePath("..")
+focus_neighbor_top = NodePath("../../Left_Bind_Button/Left_Unbind_Button")
+focus_neighbor_right = NodePath("../../Down_Bind_Button")
+focus_neighbor_bottom = NodePath("../../Jump_Bind_Button/Jump_Unbind_Button")
+focus_next = NodePath("../../Down_Bind_Button")
+focus_previous = NodePath("..")
 theme_override_font_sizes/font_size = 27
+theme_override_styles/hover_pressed_mirrored = ExtResource("7_jewm6")
+theme_override_styles/hover_pressed = ExtResource("7_jewm6")
+theme_override_styles/hover_mirrored = ExtResource("7_jewm6")
+theme_override_styles/hover = ExtResource("7_jewm6")
 text = "Unbind
 Oldest"
 
@@ -784,6 +956,16 @@ custom_minimum_size = Vector2(128, 72)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+focus_neighbor_left = NodePath("../Up_Bind_Button/Up_Unbind_Button")
+focus_neighbor_top = NodePath("../Right_Bind_Button")
+focus_neighbor_right = NodePath("Down_Unbind_Button")
+focus_neighbor_bottom = NodePath("../Glide_Bind_Button")
+focus_next = NodePath("Down_Unbind_Button")
+focus_previous = NodePath("../Up_Bind_Button/Up_Unbind_Button")
+theme_override_styles/hover_pressed_mirrored = ExtResource("7_jewm6")
+theme_override_styles/hover_pressed = ExtResource("7_jewm6")
+theme_override_styles/hover_mirrored = ExtResource("7_jewm6")
+theme_override_styles/hover = ExtResource("7_jewm6")
 metadata/_edit_group_ = true
 
 [node name="Down_Label" type="RichTextLabel" parent="Controls_Menu_Container/GridContainer/Down_Bind_Button"]
@@ -842,7 +1024,16 @@ offset_left = 304.0
 offset_top = 8.0
 offset_right = -8.0
 offset_bottom = -8.0
+focus_neighbor_left = NodePath("..")
+focus_neighbor_top = NodePath("../../Right_Bind_Button/Right_Unbind_Button")
+focus_neighbor_bottom = NodePath("../../Glide_Bind_Button/Glide_Unbind_Button")
+focus_next = NodePath("../../Jump_Bind_Button")
+focus_previous = NodePath("..")
 theme_override_font_sizes/font_size = 27
+theme_override_styles/hover_pressed_mirrored = ExtResource("7_jewm6")
+theme_override_styles/hover_pressed = ExtResource("7_jewm6")
+theme_override_styles/hover_mirrored = ExtResource("7_jewm6")
+theme_override_styles/hover = ExtResource("7_jewm6")
 text = "Unbind
 Oldest"
 
@@ -852,6 +1043,15 @@ custom_minimum_size = Vector2(128, 72)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+focus_neighbor_top = NodePath("../Up_Bind_Button")
+focus_neighbor_right = NodePath("Jump_Unbind_Button")
+focus_neighbor_bottom = NodePath("../../Controls_Done_Button")
+focus_next = NodePath("Jump_Unbind_Button")
+focus_previous = NodePath("../Down_Bind_Button/Down_Unbind_Button")
+theme_override_styles/hover_pressed_mirrored = ExtResource("7_jewm6")
+theme_override_styles/hover_pressed = ExtResource("7_jewm6")
+theme_override_styles/hover_mirrored = ExtResource("7_jewm6")
+theme_override_styles/hover = ExtResource("7_jewm6")
 metadata/_edit_group_ = true
 
 [node name="Jump_Label" type="RichTextLabel" parent="Controls_Menu_Container/GridContainer/Jump_Bind_Button"]
@@ -910,7 +1110,17 @@ offset_left = 304.0
 offset_top = 8.0
 offset_right = -8.0
 offset_bottom = -8.0
+focus_neighbor_left = NodePath("..")
+focus_neighbor_top = NodePath("../../Up_Bind_Button/Up_Unbind_Button")
+focus_neighbor_right = NodePath("../../Glide_Bind_Button")
+focus_neighbor_bottom = NodePath("../../../Controls_Done_Button")
+focus_next = NodePath("../../Glide_Bind_Button")
+focus_previous = NodePath("..")
 theme_override_font_sizes/font_size = 27
+theme_override_styles/hover_pressed_mirrored = ExtResource("7_jewm6")
+theme_override_styles/hover_pressed = ExtResource("7_jewm6")
+theme_override_styles/hover_mirrored = ExtResource("7_jewm6")
+theme_override_styles/hover = ExtResource("7_jewm6")
 text = "Unbind
 Oldest"
 
@@ -918,6 +1128,16 @@ Oldest"
 self_modulate = Color(0.498039, 0.839216, 0.545098, 1)
 custom_minimum_size = Vector2(128, 72)
 layout_mode = 2
+focus_neighbor_left = NodePath("../Jump_Bind_Button/Jump_Unbind_Button")
+focus_neighbor_top = NodePath("../Down_Bind_Button")
+focus_neighbor_right = NodePath("Glide_Unbind_Button")
+focus_neighbor_bottom = NodePath("../../Controls_Done_Button")
+focus_next = NodePath("Glide_Unbind_Button")
+focus_previous = NodePath("../Jump_Bind_Button/Jump_Unbind_Button")
+theme_override_styles/hover_pressed_mirrored = ExtResource("7_jewm6")
+theme_override_styles/hover_pressed = ExtResource("7_jewm6")
+theme_override_styles/hover_mirrored = ExtResource("7_jewm6")
+theme_override_styles/hover = ExtResource("7_jewm6")
 
 [node name="Glide_Label" type="RichTextLabel" parent="Controls_Menu_Container/GridContainer/Glide_Bind_Button"]
 modulate = Color(0.498039, 0.839216, 0.545098, 1)
@@ -975,7 +1195,16 @@ offset_left = 304.0
 offset_top = 8.0
 offset_right = -8.0
 offset_bottom = -8.0
+focus_neighbor_left = NodePath("..")
+focus_neighbor_top = NodePath("../../Down_Bind_Button/Down_Unbind_Button")
+focus_neighbor_bottom = NodePath("../../../Controls_Done_Button")
+focus_next = NodePath("../../../Controls_Done_Button")
+focus_previous = NodePath("..")
 theme_override_font_sizes/font_size = 27
+theme_override_styles/hover_pressed_mirrored = ExtResource("7_jewm6")
+theme_override_styles/hover_pressed = ExtResource("7_jewm6")
+theme_override_styles/hover_mirrored = ExtResource("7_jewm6")
+theme_override_styles/hover = ExtResource("7_jewm6")
 text = "Unbind
 Oldest"
 
@@ -994,8 +1223,8 @@ environment = SubResource("Environment_yhxw7")
 [connection signal="mouse_entered" from="Options_Menu_Container/Audio_Button" to="." method="_on_audio_button_mouse_entered"]
 [connection signal="button_down" from="Options_Menu_Container/Video_Button" to="." method="_on_video_button_button_down"]
 [connection signal="mouse_entered" from="Options_Menu_Container/Video_Button" to="." method="_on_video_button_mouse_entered"]
-[connection signal="button_down" from="Options_Menu_Container/Done_Button" to="." method="_on_done_button_button_down"]
-[connection signal="mouse_entered" from="Options_Menu_Container/Done_Button" to="." method="_on_done_button_mouse_entered"]
+[connection signal="button_down" from="Options_Menu_Container/Options_Done_Button" to="." method="_on_options_done_button_button_down"]
+[connection signal="mouse_entered" from="Options_Menu_Container/Options_Done_Button" to="." method="_on_options_done_button_mouse_entered"]
 [connection signal="drag_ended" from="Audio_Menu_Container/Master_Volume_Slider" to="." method="_on_master_volume_slider_drag_ended"]
 [connection signal="mouse_entered" from="Audio_Menu_Container/Master_Volume_Slider" to="." method="_on_master_volume_slider_mouse_entered"]
 [connection signal="value_changed" from="Audio_Menu_Container/Master_Volume_Slider" to="." method="_on_master_volume_slider_value_changed"]
@@ -1028,13 +1257,25 @@ environment = SubResource("Environment_yhxw7")
 [connection signal="mouse_entered" from="Controls_Menu_Container/Controls_Done_Button" to="." method="_on_controls_done_button_mouse_entered"]
 [connection signal="button_down" from="Controls_Menu_Container/GridContainer/Left_Bind_Button" to="." method="_on_left_bind_button_button_down"]
 [connection signal="mouse_entered" from="Controls_Menu_Container/GridContainer/Left_Bind_Button" to="." method="_on_left_bind_button_mouse_entered"]
+[connection signal="button_down" from="Controls_Menu_Container/GridContainer/Left_Bind_Button/Left_Unbind_Button" to="." method="_on_left_unbind_button_button_down"]
+[connection signal="mouse_entered" from="Controls_Menu_Container/GridContainer/Left_Bind_Button/Left_Unbind_Button" to="." method="_on_left_unbind_button_mouse_entered"]
 [connection signal="button_down" from="Controls_Menu_Container/GridContainer/Right_Bind_Button" to="." method="_on_right_bind_button_button_down"]
 [connection signal="mouse_entered" from="Controls_Menu_Container/GridContainer/Right_Bind_Button" to="." method="_on_right_bind_button_mouse_entered"]
+[connection signal="button_down" from="Controls_Menu_Container/GridContainer/Right_Bind_Button/Right_Unbind_Button" to="." method="_on_right_unbind_button_button_down"]
+[connection signal="mouse_entered" from="Controls_Menu_Container/GridContainer/Right_Bind_Button/Right_Unbind_Button" to="." method="_on_right_unbind_button_mouse_entered"]
 [connection signal="button_down" from="Controls_Menu_Container/GridContainer/Up_Bind_Button" to="." method="_on_up_bind_button_button_down"]
 [connection signal="mouse_entered" from="Controls_Menu_Container/GridContainer/Up_Bind_Button" to="." method="_on_up_bind_button_mouse_entered"]
+[connection signal="button_down" from="Controls_Menu_Container/GridContainer/Up_Bind_Button/Up_Unbind_Button" to="." method="_on_up_unbind_button_button_down"]
+[connection signal="mouse_entered" from="Controls_Menu_Container/GridContainer/Up_Bind_Button/Up_Unbind_Button" to="." method="_on_up_unbind_button_mouse_entered"]
 [connection signal="button_down" from="Controls_Menu_Container/GridContainer/Down_Bind_Button" to="." method="_on_down_bind_button_button_down"]
 [connection signal="mouse_entered" from="Controls_Menu_Container/GridContainer/Down_Bind_Button" to="." method="_on_down_bind_button_mouse_entered"]
+[connection signal="button_down" from="Controls_Menu_Container/GridContainer/Down_Bind_Button/Down_Unbind_Button" to="." method="_on_down_unbind_button_button_down"]
+[connection signal="mouse_entered" from="Controls_Menu_Container/GridContainer/Down_Bind_Button/Down_Unbind_Button" to="." method="_on_down_unbind_button_mouse_entered"]
 [connection signal="button_down" from="Controls_Menu_Container/GridContainer/Jump_Bind_Button" to="." method="_on_jump_bind_button_button_down"]
 [connection signal="mouse_entered" from="Controls_Menu_Container/GridContainer/Jump_Bind_Button" to="." method="_on_jump_bind_button_mouse_entered"]
+[connection signal="button_down" from="Controls_Menu_Container/GridContainer/Jump_Bind_Button/Jump_Unbind_Button" to="." method="_on_jump_unbind_button_button_down"]
+[connection signal="mouse_entered" from="Controls_Menu_Container/GridContainer/Jump_Bind_Button/Jump_Unbind_Button" to="." method="_on_jump_unbind_button_mouse_entered"]
 [connection signal="button_down" from="Controls_Menu_Container/GridContainer/Glide_Bind_Button" to="." method="_on_glide_bind_button_button_down"]
 [connection signal="mouse_entered" from="Controls_Menu_Container/GridContainer/Glide_Bind_Button" to="." method="_on_glide_bind_button_mouse_entered"]
+[connection signal="button_down" from="Controls_Menu_Container/GridContainer/Glide_Bind_Button/Glide_Unbind_Button" to="." method="_on_glide_unbind_button_button_down"]
+[connection signal="mouse_entered" from="Controls_Menu_Container/GridContainer/Glide_Bind_Button/Glide_Unbind_Button" to="." method="_on_glide_unbind_button_mouse_entered"]
