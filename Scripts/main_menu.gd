@@ -1,40 +1,67 @@
 extends Control
 
-#region ------@onready Node Container Definitions------
+#region ------@onready Node Definitions------
 # General scene nodes
 @onready var Music_Player = get_node("Music_Player")
 @onready var Hover_SFX_Player = get_node("Hover_SFX_Player")
-# Main menu
-@onready var Main_Menu_Container = get_node("Main_Menu_Container")
+@onready var Mouse_Blocker = get_node("Mouse_Blocker")
+# Main Menu
 @onready var Main_Menu_Label = get_node("Title_Label")
-@onready var Options_Menu_Container = get_node("Options_Menu_Container")
+@onready var Main_Menu_Container = get_node("Main_Menu_Container")
+@onready var Start_Button = get_node("Main_Menu_Container/Start_Button")
+@onready var Options_Button = get_node("Main_Menu_Container/Options_Button")
+@onready var Quit_Button = get_node("Main_Menu_Container/Quit_Button")
+# Options Menu
 @onready var Options_Menu_Label = get_node("Options_Menu_Label")
+@onready var Options_Menu_Container = get_node("Options_Menu_Container")
+@onready var Controls_Button = get_node("Options_Menu_Container/Controls_Button")
+@onready var Audio_Button = get_node("Options_Menu_Container/Audio_Button")
+@onready var Video_Button = get_node("Options_Menu_Container/Video_Button")
+@onready var Options_Done_Button = get_node("Options_Menu_Container/Options_Done_Button")
+# Controls Menu
 @onready var Controls_Menu_Container = get_node("Controls_Menu_Container")
+@onready var Left_Bind_Button = get_node("Controls_Menu_Container/GridContainer/Left_Bind_Button")
+@onready var Left_Unbind_Button = get_node("Controls_Menu_Container/GridContainer/Left_Bind_Button/Left_Unbind_Button")
 @onready var Left_Bind_1 = get_node("Controls_Menu_Container/GridContainer/Left_Bind_Button/Left_Container/Left_Bind_1")
 @onready var Left_Bind_2 = get_node("Controls_Menu_Container/GridContainer/Left_Bind_Button/Left_Container/Left_Bind_2")
+@onready var Right_Bind_Button = get_node("Controls_Menu_Container/GridContainer/Right_Bind_Button")
+@onready var Right_Unbind_Button = get_node("Controls_Menu_Container/GridContainer/Right_Bind_Button/Right_Unbind_Button")
 @onready var Right_Bind_1 = get_node("Controls_Menu_Container/GridContainer/Right_Bind_Button/Right_Container/Right_Bind_1")
 @onready var Right_Bind_2 = get_node("Controls_Menu_Container/GridContainer/Right_Bind_Button/Right_Container/Right_Bind_2")
+@onready var Up_Bind_Button = get_node("Controls_Menu_Container/GridContainer/Up_Bind_Button")
+@onready var Up_Unbind_Button = get_node("Controls_Menu_Container/GridContainer/Up_Bind_Button/Up_Unbind_Button")
 @onready var Up_Bind_1 = get_node("Controls_Menu_Container/GridContainer/Up_Bind_Button/Up_Container/Up_Bind_1")
 @onready var Up_Bind_2 = get_node("Controls_Menu_Container/GridContainer/Up_Bind_Button/Up_Container/Up_Bind_2")
+@onready var Down_Bind_Button = get_node("Controls_Menu_Container/GridContainer/Down_Bind_Button")
+@onready var Down_Unbind_Button = get_node("Controls_Menu_Container/GridContainer/Down_Bind_Button/Down_Unbind_Button")
 @onready var Down_Bind_1 = get_node("Controls_Menu_Container/GridContainer/Down_Bind_Button/Down_Container/Down_Bind_1")
 @onready var Down_Bind_2 = get_node("Controls_Menu_Container/GridContainer/Down_Bind_Button/Down_Container/Down_Bind_2")
+@onready var Jump_Bind_Button = get_node("Controls_Menu_Container/GridContainer/Jump_Bind_Button")
+@onready var Jump_Unbind_Button = get_node("Controls_Menu_Container/GridContainer/Jump_Bind_Button/Jump_Unbind_Button")
 @onready var Jump_Bind_1 = get_node("Controls_Menu_Container/GridContainer/Jump_Bind_Button/Jump_Container/Jump_Bind_1")
 @onready var Jump_Bind_2 = get_node("Controls_Menu_Container/GridContainer/Jump_Bind_Button/Jump_Container/Jump_Bind_2")
+@onready var Glide_Bind_Button = get_node("Controls_Menu_Container/GridContainer/Glide_Bind_Button")
+@onready var Glide_Unbind_Button = get_node("Controls_Menu_Container/GridContainer/Glide_Bind_Button/Glide_Unbind_Button")
 @onready var Glide_Bind_1 = get_node("Controls_Menu_Container/GridContainer/Glide_Bind_Button/Glide_Container/Glide_Bind_1")
 @onready var Glide_Bind_2 = get_node("Controls_Menu_Container/GridContainer/Glide_Bind_Button/Glide_Container/Glide_Bind_2")
-@onready var Audio_Menu_Container = get_node("Audio_Menu_Container")
+@onready var Controls_Done_Button = get_node("Controls_Menu_Container/Controls_Done_Button")
+# Audio Menu
 @onready var Audio_Menu_Label = get_node("Audio_Menu_Label")
+@onready var Audio_Menu_Container = get_node("Audio_Menu_Container")
 @onready var Master_Volume_Slider = get_node("Audio_Menu_Container/Master_Volume_Slider")
 @onready var Music_Volume_Slider = get_node("Audio_Menu_Container/Music_Volume_Slider")
 @onready var SFX_Volume_Slider = get_node("Audio_Menu_Container/SFX_Volume_Slider")
-@onready var Video_Menu_Container = get_node("Video_Menu_Container")
+@onready var Audio_Done_Button = get_node("Audio_Menu_Container/Audio_Done_Button")
+# Video Menu
 @onready var Video_Menu_Label = get_node("Video_Menu_Label")
+@onready var Video_Menu_Container = get_node("Video_Menu_Container")
 @onready var Video_Brightness_Slider = get_node("Video_Menu_Container/Brightness_Slider")
 @onready var Video_Contrast_Slider = get_node("Video_Menu_Container/Contrast_Slider")
 @onready var Video_Saturation_Slider = get_node("Video_Menu_Container/Saturation_Slider")
+@onready var Window_Mode_Button = get_node("Video_Menu_Container/Window_Mode_Button")
 @onready var Screen_Shake_Button = get_node("Video_Menu_Container/Screen_Shake_Button")
 @onready var Screen_Blur_Button = get_node("Video_Menu_Container/Screen_Blur_Button")
-@onready var Window_Mode_Button = get_node("Video_Menu_Container/Window_Mode_Button")
+@onready var Video_Done_Button = get_node("Video_Menu_Container/Video_Done_Button")
 @onready var World_Environment = get_node("WorldEnvironment")
 #endregion
 
@@ -202,6 +229,10 @@ var action_to_be_rebound: String
 # Config and saving
 var config = ConfigFile.new()
 var autosave_timer = null
+
+var mouse_hide_position = Vector2(0, 0)
+var mouse_stashed = false
+var warp_timer
 #endregion
 
 
@@ -211,6 +242,8 @@ func _ready() -> void:
 	"Up":Up_Bind_1, "Down":Down_Bind_1, "Jump":Jump_Bind_1, "Glide":Glide_Bind_1}
 	Rebind_Action_To_Secondary_Icon_Node_Dict = {"Left":Left_Bind_2, "Right":Right_Bind_2, 
 	"Up":Up_Bind_2, "Down":Down_Bind_2, "Jump":Jump_Bind_2, "Glide":Glide_Bind_2}
+	
+	warp_timer = get_tree().create_timer(0.0, false, true)
 	
 	Load_Main_Menu()
 	
@@ -226,6 +259,73 @@ func _ready() -> void:
 func _process(delta) -> void:
 	if Music_Player.playing == false:
 		Music_Player.playing = true
+	
+	# If the player moves the mouse with significant speed and the mouse is hidden, show the mouse cursor again and set mouse filters back to default
+	if get_viewport().get_mouse_position().distance_to(Vector2(0, 0)) > 1.1 and warp_timer.time_left == 0 and mouse_stashed:
+		print("h")
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		get_viewport().warp_mouse(mouse_hide_position)
+		mouse_stashed = false
+	
+	if mouse_stashed:
+		print("0")
+		print(warp_timer.time_left)
+		if warp_timer.time_left == 0:
+			print("1")
+			if Input.get_last_mouse_velocity().length() > 0.1:
+				print("2")
+	
+	# Allow keyboard / controller navigation, and hide mouse pointer and hover effects when in keyboard mode by setting all mouse filters to pass
+	if Input.is_action_just_pressed("Left"):
+		if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
+			Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+			mouse_hide_position = get_viewport().get_mouse_position()
+			Input.warp_mouse(Vector2(0, 0))
+			warp_timer = get_tree().create_timer(0.2, false, true)
+			mouse_stashed = true
+		var left_of_focused_control = get_viewport().gui_get_focus_owner().get_node_or_null(get_viewport().gui_get_focus_owner().get("focus_neighbor_left"))
+		if left_of_focused_control != null:
+			left_of_focused_control.grab_focus()
+	elif Input.is_action_just_pressed("Right"):
+		if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
+			Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+			mouse_hide_position = get_viewport().get_mouse_position()
+			Input.warp_mouse(Vector2(0, 0))
+			warp_timer = get_tree().create_timer(0.2, false, true)
+			mouse_stashed = true
+		var right_of_focused_control = get_viewport().gui_get_focus_owner().get_node_or_null(get_viewport().gui_get_focus_owner().get("focus_neighbor_right"))
+		if right_of_focused_control != null:
+			right_of_focused_control.grab_focus()
+	elif Input.is_action_just_pressed("Up"):
+		if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
+			Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+			mouse_hide_position = get_viewport().get_mouse_position()
+			Input.warp_mouse(Vector2(0, 0))
+			warp_timer = get_tree().create_timer(0.2, false, true)
+			mouse_stashed = true
+		var above_focused_control = get_viewport().gui_get_focus_owner().get_node_or_null(get_viewport().gui_get_focus_owner().focus_neighbor_top)
+		if above_focused_control:
+			above_focused_control.grab_focus()
+	elif Input.is_action_just_pressed("Down"):
+		if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
+			Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+			mouse_hide_position = get_viewport().get_mouse_position()
+			Input.warp_mouse(Vector2(0, 0))
+			warp_timer = get_tree().create_timer(0.2, false, true)
+			mouse_stashed = true
+		var below_focused_control = get_viewport().gui_get_focus_owner().get_node_or_null(get_viewport().gui_get_focus_owner().focus_neighbor_bottom)
+		if below_focused_control:
+			below_focused_control.grab_focus()
+	elif Input.is_action_just_pressed("Jump"):
+		if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
+			Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+			mouse_hide_position = get_viewport().get_mouse_position()
+			Input.warp_mouse(Vector2(0, 0))
+			warp_timer = get_tree().create_timer(0.2, false, true)
+			mouse_stashed = true
+		
+		if get_viewport().gui_get_focus_owner().get("pressed") != null:
+			get_viewport().gui_get_focus_owner().button_down.emit()
 	
 	if Input.is_action_just_pressed("Escape"):
 		if Options_Menu_Container.visible == false and Main_Menu_Container.visible == false:
@@ -256,131 +356,253 @@ func _process(delta) -> void:
 		Save_Config(config)
 		autosave_timer = get_tree().create_timer(180, false, true)
 
+#func Set_Hoverable_Control_Mouse_Filters_To(value, old_filter_list = mouse_filters, record_old_filters = false):
+	#for control in get_tree().get_nodes_in_group("Hoverable"):
+		#var control_mouse_filter = control.get("mouse_filter")
+		#if control_mouse_filter != null:
+			#if record_old_filters == true:
+				#old_filter_list.append(control_mouse_filter)
+			#control.mouse_filter = value
+
+#func Set_Hoverable_Control_Mouse_Filters_To_List(mouse_filter_list):
+	#var index = 0
+	#for control in get_tree().get_nodes_in_group("Hoverable"):
+		#var control_mouse_filter = control.get("mouse_filter")
+		#if control_mouse_filter != null:
+			#control.mouse_filter = mouse_filter_list[index]
+		#index += 1
 
 #region ------Main Menu Functions------
 # Start button
 func _on_start_button_mouse_entered() -> void:
 	Hover_SFX_Player.playing = true
+	Start_Button.grab_focus()
 func _on_start_button_button_down() -> void:
 	Start_Game()
 # Options button
 func _on_options_button_mouse_entered() -> void:
 	Hover_SFX_Player.playing = true
+	Options_Button.grab_focus()
 func _on_options_button_button_down() -> void:
 	Load_Options_Menu()
 # Quit button
 func _on_quit_button_mouse_entered() -> void:
 	Hover_SFX_Player.playing = true
+	Quit_Button.grab_focus()
 func _on_quit_button_button_down() -> void:
 	get_tree().quit()
 #endregion
-
 
 #region ------Options Menu Functions------
 # Controls button
 func _on_controls_button_mouse_entered() -> void:
 	Hover_SFX_Player.playing = true
+	Controls_Button.grab_focus()
 func _on_controls_button_button_down() -> void:
 	Load_Controls_Menu()
 # Audio button
 func _on_audio_button_mouse_entered() -> void:
 	Hover_SFX_Player.playing = true
+	Audio_Button.grab_focus()
 func _on_audio_button_button_down() -> void:
 	Load_Audio_Menu()
 # Video button
 func _on_video_button_mouse_entered() -> void:
 	Hover_SFX_Player.playing = true
+	Video_Button.grab_focus()
 func _on_video_button_button_down() -> void:
 	Load_Video_Menu()
 # Done button
-func _on_done_button_mouse_entered() -> void:
+func _on_options_done_button_mouse_entered() -> void:
 	Hover_SFX_Player.playing = true
-func _on_done_button_button_down() -> void:
+	Options_Done_Button.grab_focus()
+func _on_options_done_button_button_down() -> void:
 	Save_Config(config)
 	Check_And_Save_Window_Size()
 	Load_Main_Menu()
 #endregion
 
-
 #region ------Controls Menu Functions------
 # Left action rebind button
 func _on_left_bind_button_mouse_entered():
 	Hover_SFX_Player.playing = true
+	Left_Bind_Button.grab_focus()
 func _on_left_bind_button_button_down():
 	Hover_SFX_Player.playing = true
 	start_rebinding = true
 	action_to_be_rebound = "Left"
+# Left action unbind button
+func _on_left_unbind_button_mouse_entered():
+	Hover_SFX_Player.playing = true
+	Left_Unbind_Button.grab_focus()
+func _on_left_unbind_button_button_down():
+	Hover_SFX_Player.pitch_scale = 0.6
+	Hover_SFX_Player.playing = true
+	Hover_SFX_Player.pitch_scale = 1
+	if Left_Bind_2.texture != null:
+		Left_Bind_2.texture = null
+		Update_Config("Controls", "Left", "", 1)
+	else:
+		Left_Bind_1.texture = null
+		Update_Config("Controls", "Left", "", 0)
 # Right action rebind button
 func _on_right_bind_button_mouse_entered():
 	Hover_SFX_Player.playing = true
+	Right_Bind_Button.grab_focus()
 func _on_right_bind_button_button_down():
 	Hover_SFX_Player.playing = true
 	start_rebinding = true
 	action_to_be_rebound = "Right"
+# Right action unbind button
+func _on_right_unbind_button_mouse_entered():
+	Hover_SFX_Player.playing = true
+	Right_Unbind_Button.grab_focus()
+func _on_right_unbind_button_button_down():
+	Hover_SFX_Player.pitch_scale = 0.6
+	Hover_SFX_Player.playing = true
+	Hover_SFX_Player.pitch_scale = 1
+	if Right_Bind_2.texture != null:
+		Right_Bind_2.texture = null
+		Update_Config("Controls", "Right", "", 1)
+	else:
+		Right_Bind_1.texture = null
+		Update_Config("Controls", "Right", "", 0)
 # Up action rebind button
 func _on_up_bind_button_mouse_entered():
 	Hover_SFX_Player.playing = true
+	Up_Bind_Button.grab_focus()
 func _on_up_bind_button_button_down():
 	Hover_SFX_Player.playing = true
 	start_rebinding = true
 	action_to_be_rebound = "Up"
+# Up action unbind button
+func _on_up_unbind_button_mouse_entered():
+	Hover_SFX_Player.playing = true
+	Up_Unbind_Button.grab_focus()
+func _on_up_unbind_button_button_down():
+	Hover_SFX_Player.pitch_scale = 0.6
+	Hover_SFX_Player.playing = true
+	Hover_SFX_Player.pitch_scale = 1
+	if Up_Bind_2.texture != null:
+		Up_Bind_2.texture = null
+		Update_Config("Controls", "Up", "", 1)
+	else:
+		Up_Bind_1.texture = null
+		Update_Config("Controls", "Up", "", 0)
 # Down action rebind button
 func _on_down_bind_button_mouse_entered():
 	Hover_SFX_Player.playing = true
+	Down_Bind_Button.grab_focus()
 func _on_down_bind_button_button_down():
 	Hover_SFX_Player.playing = true
 	start_rebinding = true
 	action_to_be_rebound = "Down"
+# Down action unbind button
+func _on_down_unbind_button_mouse_entered():
+	Hover_SFX_Player.playing = true
+	Down_Unbind_Button.grab_focus()
+func _on_down_unbind_button_button_down():
+	Hover_SFX_Player.pitch_scale = 0.6
+	Hover_SFX_Player.playing = true
+	Hover_SFX_Player.pitch_scale = 1
+	if Down_Bind_2.texture != null:
+		Down_Bind_2.texture = null
+		Update_Config("Controls", "Down", "", 1)
+	else:
+		Down_Bind_1.texture = null
+		Update_Config("Controls", "Down", "", 0)
 # Jump action rebind button
 func _on_jump_bind_button_mouse_entered():
 	Hover_SFX_Player.playing = true
+	Jump_Bind_Button.grab_focus()
 func _on_jump_bind_button_button_down():
 	Hover_SFX_Player.playing = true
 	start_rebinding = true
 	action_to_be_rebound = "Jump"
+#Jump action unbind button
+func _on_jump_unbind_button_mouse_entered():
+	Hover_SFX_Player.playing = true
+	Jump_Unbind_Button.grab_focus()
+func _on_jump_unbind_button_button_down():
+	Hover_SFX_Player.pitch_scale = 0.6
+	Hover_SFX_Player.playing = true
+	Hover_SFX_Player.pitch_scale = 1
+	if Jump_Bind_2.texture != null:
+		Jump_Bind_2.texture = null
+		Update_Config("Controls", "Jump", "", 1)
+	else:
+		Jump_Bind_1.texture = null
+		Update_Config("Controls", "Jump", "", 0)
 # Glide action rebind button
 func _on_glide_bind_button_mouse_entered():
 	Hover_SFX_Player.playing = true
+	Glide_Bind_Button.grab_focus()
 func _on_glide_bind_button_button_down():
 	Hover_SFX_Player.playing = true
 	start_rebinding = true
 	action_to_be_rebound = "Glide"
-# Done button
+# Glide action unbind button
+func _on_glide_unbind_button_mouse_entered():
+	Hover_SFX_Player.playing = true
+	Glide_Unbind_Button.grab_focus()
+func _on_glide_unbind_button_button_down():
+	Hover_SFX_Player.pitch_scale = 0.6
+	Hover_SFX_Player.playing = true
+	Hover_SFX_Player.pitch_scale = 1
+	if Glide_Bind_2.texture != null:
+		Glide_Bind_2.texture = null
+		Update_Config("Controls", "Glide", "", 1)
+	else:
+		Glide_Bind_1.texture = null
+		Update_Config("Controls", "Glide", "", 0)
+# Done button 
 func _on_controls_done_button_mouse_entered():
 	Hover_SFX_Player.playing = true
+	Controls_Done_Button.grab_focus()
 func _on_controls_done_button_button_down():
 	Save_Config(config)
 	Check_And_Save_Window_Size()
 	Load_Options_Menu()
+
 # _input() - This function is used for listening for the rebind key when a rebinding sequence is initiated
 func _input(event):
 	# Only rebind controls if the rebinding flag has been set to true
 	if rebinding and event.is_action_type() and !event.is_echo():
 		if event is InputEventMouseButton and event.is_pressed() == true:
-			# Set secondary rebind slot icon to the primary slot's old image to make room for the new bind
+			# Set the secondary rebind slot icon to the primary slot's old image to make room for the new bind
 			Rebind_Action_To_Secondary_Icon_Node_Dict.get(action_to_be_rebound).texture = Rebind_Action_To_Primary_Icon_Node_Dict.get(action_to_be_rebound).texture
+			# Erase event corresponding to oldest rebind slot (second slot) since only two can be bound at once
+			InputMap.action_erase_event(action_to_be_rebound, config.get_value("Controls", action_to_be_rebound)[1].substr(1))
+			# Actually update the binds list in the config file
+			Update_Config("Controls", action_to_be_rebound, Get_Config("Controls", action_to_be_rebound, 0), 1)
+			Update_Config("Controls", action_to_be_rebound, "m"+str(event.button_index), 0)
+			# Add the binding to the InputMap
+			InputMap.action_add_event(action_to_be_rebound, event)
 			# Search for button icon in reference dict and apply it to the newly rebound slot. If not found, 
 			# use blank mouse texture instead
 			if Mouse_Index_To_Button_Icon_File_Name_Dict.has(event.button_index):
 				Rebind_Action_To_Primary_Icon_Node_Dict.get(action_to_be_rebound).texture = load(button_icon_folder_path+Mouse_Index_To_Button_Icon_File_Name_Dict.get(event.button_index))
 			else:
 				Rebind_Action_To_Primary_Icon_Node_Dict.get(action_to_be_rebound).texture = load(blank_button_icon_folder_path+blank_key_texture_name)
-			# Actually update the binds list in the config file
-			Update_Config("Controls", action_to_be_rebound, Get_Config("Controls", action_to_be_rebound, 0), 1)
-			Update_Config("Controls", action_to_be_rebound, "m"+str(event.button_index), 0)
 			rebinding = false
 		elif event is InputEventKey and event.is_pressed() == true:
 			# Set secondary rebind slot icon to the primary slot's old image to make room for the new bind
 			Rebind_Action_To_Secondary_Icon_Node_Dict.get(action_to_be_rebound).texture = Rebind_Action_To_Primary_Icon_Node_Dict.get(action_to_be_rebound).texture
+			# Erase event corresponding to oldest rebind slot (second slot) since only two can be bound at once
+			var secondary_keybind_event = InputEventKey.new()
+			secondary_keybind_event.set_keycode(int(config.get_value("Controls", action_to_be_rebound)[1].substr(1)))
+			InputMap.action_erase_event(action_to_be_rebound, secondary_keybind_event)
+			# Actually update the binds list in the config file
+			Update_Config("Controls", action_to_be_rebound, Get_Config("Controls", action_to_be_rebound, 0), 1)
+			Update_Config("Controls", action_to_be_rebound, "k"+str(event.physical_keycode), 0)
+			# Add the binding to the InputMap
+			InputMap.action_add_event(action_to_be_rebound, event)
 			# Search for button icon in reference dict and apply it to the newly rebound slot. If not found, 
 			# use blank key texture instead
 			if Keycode_To_Button_Icon_File_Name_Dict.has(event.physical_keycode):
 				Rebind_Action_To_Primary_Icon_Node_Dict.get(action_to_be_rebound).texture = load(button_icon_folder_path+Keycode_To_Button_Icon_File_Name_Dict.get(event.physical_keycode))
 			else:
 				Rebind_Action_To_Primary_Icon_Node_Dict.get(action_to_be_rebound).texture = load(blank_button_icon_folder_path+blank_key_texture_name)
-			# Actually update the binds list in the config file
-			Update_Config("Controls", action_to_be_rebound, Get_Config("Controls", action_to_be_rebound, 0), 1)
-			Update_Config("Controls", action_to_be_rebound, "k"+str(event.physical_keycode), 0)
 			rebinding = false
 		# Set the input as handled so it doesn't effect anything else in game
 		get_viewport().set_input_as_handled()
@@ -397,11 +619,11 @@ func _input(event):
 		Rebind_Action_To_Secondary_Icon_Node_Dict.get(action_to_be_rebound).modulate.v = 0.5
 #endregion
 
-
 #region ------Audio Menu Functions------
 # Master volume slider
 func _on_master_volume_slider_mouse_entered():
 	Hover_SFX_Player.playing = true
+	Master_Volume_Slider.grab_focus()
 func _on_master_volume_slider_value_changed(value):
 	Hover_SFX_Player.playing = true
 	AudioServer.set_bus_volume_linear(0, value / 80)
@@ -411,6 +633,7 @@ func _on_master_volume_slider_drag_ended(value_changed):
 # Music volume slider
 func _on_music_volume_slider_mouse_entered():
 	Hover_SFX_Player.playing = true
+	Music_Volume_Slider.grab_focus()
 func _on_music_volume_slider_value_changed(value):
 	Hover_SFX_Player.playing = true
 	AudioServer.set_bus_volume_linear(1, value / 80)
@@ -420,6 +643,7 @@ func _on_music_volume_slider_drag_ended(value_changed):
 # SFX volume slider
 func _on_sfx_volume_slider_mouse_entered():
 	Hover_SFX_Player.playing = true
+	SFX_Volume_Slider.grab_focus()
 func _on_sfx_volume_slider_value_changed(value):
 	Hover_SFX_Player.playing = true
 	AudioServer.set_bus_volume_linear(2, value / 80)
@@ -429,17 +653,18 @@ func _on_sfx_volume_slider_drag_ended(value_changed):
 # Done button
 func _on_audio_done_button_mouse_entered() -> void:
 	Hover_SFX_Player.playing = true
+	Audio_Done_Button.grab_focus()
 func _on_audio_done_button_button_down() -> void:
 	Save_Config(config)
 	Check_And_Save_Window_Size()
 	Load_Options_Menu()
 #endregion
 
-
 #region ------Video Menu Functions------
 # Brightness slider
 func _on_brightness_slider_mouse_entered():
 	Hover_SFX_Player.playing = true
+	Video_Brightness_Slider.grab_focus()
 func _on_brightness_slider_value_changed(value):
 	Hover_SFX_Player.playing = true
 	World_Environment.environment.adjustment_brightness = value
@@ -449,6 +674,7 @@ func _on_brightness_slider_drag_ended(value_changed):
 # Contrast slider
 func _on_contrast_slider_mouse_entered():
 	Hover_SFX_Player.playing = true
+	Video_Contrast_Slider.grab_focus()
 func _on_contrast_slider_value_changed(value):
 	World_Environment.environment.adjustment_contrast = value
 	Hover_SFX_Player.playing = true
@@ -458,6 +684,7 @@ func _on_contrast_slider_drag_ended(value_changed):
 # Saturation slider
 func _on_saturation_slider_mouse_entered():
 	Hover_SFX_Player.playing = true
+	Video_Saturation_Slider.grab_focus()
 func _on_saturation_slider_value_changed(value):
 	World_Environment.environment.adjustment_saturation = value
 	Hover_SFX_Player.playing = true
@@ -467,45 +694,43 @@ func _on_saturation_slider_drag_ended(value_changed):
 # Screen shake button
 func _on_screen_shake_button_mouse_entered():
 	Hover_SFX_Player.playing = true
+	Screen_Shake_Button.grab_focus()
 func _on_screen_shake_button_button_down():
 	Update_Config("Video", "Screen_Shake", !config.get_value("Video", "Screen_Shake"))
 # Screen blur button
 func _on_screen_blur_button_mouse_entered():
 	Hover_SFX_Player.playing = true
+	Screen_Blur_Button.grab_focus()
 func _on_screen_blur_button_button_down():
 	Update_Config("Video", "Screen_Blur", !config.get_value("Video", "Screen_Blur"))
 # Window mode button
 func _on_window_mode_button_mouse_entered():
 	Hover_SFX_Player.playing = true
+	Window_Mode_Button.grab_focus()
 func _on_window_mode_button_item_selected(index):
 	Change_Override_Config("display/window/size/mode", Button_To_WindowMode_Index_Dict.get(index))
 	DisplayServer.window_set_mode(Window_Mode_Index_Dict.get(index))
 # Done button
 func _on_video_done_button_mouse_entered() -> void:
 	Hover_SFX_Player.playing = true
+	Video_Done_Button.grab_focus()
 func _on_video_done_button_button_down() -> void:
 	Save_Config(config)
 	Check_And_Save_Window_Size()
 	Load_Options_Menu()
+
 # Function to save the current window size if in windowed mode to restore when launching or exiting fullscreen
 func Check_And_Save_Window_Size():
 	Change_Override_Config("display/window/size/window_width_override", DisplayServer.window_get_size().x)
 	Change_Override_Config("display/window/size/window_height_override", DisplayServer.window_get_size().y)
 #endregion
 
-
-#region ------Other Misc. & Functions------
+#region ------Navigation Functions------q
 func Start_Game():
 	get_tree().change_scene_to_file("res://Scenes/Areas/world.tscn")
 
-# Save settings upon quitting application at window manager request
-func _notification(what):
-	if what == NOTIFICATION_WM_CLOSE_REQUEST:
-		Save_Config(config)
-		Check_And_Save_Window_Size()
-
-
 func Load_Main_Menu():
+	Start_Button.grab_focus()
 	Options_Menu_Container.hide()
 	Options_Menu_Label.hide()
 	Controls_Menu_Container.hide()
@@ -517,6 +742,7 @@ func Load_Main_Menu():
 	Main_Menu_Label.show()
 
 func Load_Options_Menu():
+	Options_Done_Button.grab_focus()
 	Main_Menu_Container.hide()
 	Main_Menu_Label.hide()
 	Controls_Menu_Container.hide()
@@ -528,6 +754,7 @@ func Load_Options_Menu():
 	Options_Menu_Label.show()
 
 func Load_Controls_Menu():
+	Controls_Done_Button.grab_focus()
 	Main_Menu_Container.hide()
 	Main_Menu_Label.hide()
 	Options_Menu_Container.hide()
@@ -539,6 +766,7 @@ func Load_Controls_Menu():
 	Controls_Menu_Container.show()
 
 func Load_Audio_Menu():
+	Audio_Done_Button.grab_focus()
 	Main_Menu_Container.hide()
 	Main_Menu_Label.hide()
 	Options_Menu_Container.hide()
@@ -550,6 +778,7 @@ func Load_Audio_Menu():
 	Audio_Menu_Label.show()
 	
 func Load_Video_Menu():
+	Video_Done_Button.grab_focus()
 	Main_Menu_Container.hide()
 	Main_Menu_Label.hide()
 	Options_Menu_Container.hide()
@@ -560,7 +789,6 @@ func Load_Video_Menu():
 	Video_Menu_Container.show()
 	Video_Menu_Label.show()
 #endregion
-
 
 #region ------Config Functions------
 func Create_Config(config):
@@ -575,13 +803,13 @@ func Create_Config(config):
 	config.set_value("Video", "Window_Mode", 0)
 	config.set_value("Video", "Screen_Shake", false)
 	config.set_value("Video", "Screen_Blur", false)
-	# Set controls default values
-	config.set_value("Controls", "Left", ["0", "0"])
-	config.set_value("Controls", "Right", ["0", "0"])
-	config.set_value("Controls", "Up", ["0", "0"])
-	config.set_value("Controls", "Down", ["0", "0"])
-	config.set_value("Controls", "Jump", ["0", "0"])
-	config.set_value("Controls", "Glide", ["0", "0"])
+	# Set default keybind values (wasd and zxc)
+	config.set_value("Controls", "Left", ["k4194319", "k65"])
+	config.set_value("Controls", "Right", ["k4194321", "k68"])
+	config.set_value("Controls", "Up", ["k4194320", "k87"])
+	config.set_value("Controls", "Down", ["k4194322", "k83"])
+	config.set_value("Controls", "Jump", ["k67", "k32"])
+	config.set_value("Controls", "Glide", ["k90", "k4194325"])
 
 func Get_Config(section, key, index = null):
 	if index != null:
@@ -607,8 +835,10 @@ func Save_Config(config):
 
 func Apply_Config(config):
 	#region <> Controls settings
-	for key in config.get_section_keys("Controls"):
-		var bind_list = config.get_value("Controls", key)
+	for section_key in config.get_section_keys("Controls"):
+		var bind_list = config.get_value("Controls", section_key)
+		# Erase all input events to make room for loading those from the config file
+		InputMap.action_erase_events(section_key)
 		
 		# Load the button icons for the bind codes in the config file to the primary rebind slot, adapting 
 		# to different input methods depending on the first letter of the bind code
@@ -621,6 +851,11 @@ func Apply_Config(config):
 				primary_rebind_slot_icon = load(button_icon_folder_path+icon_file_name)
 			else:
 				primary_rebind_slot_icon = load(blank_button_icon_folder_path+blank_mouse_texture_name)
+			# Add keybind event using button index derived from numbers of bind code, found with substr() and cast to an int
+			var primary_keybind_event = InputEventMouseButton.new()
+			primary_keybind_event.set_button_index(int(bind_list[0].substr(1)))
+			primary_keybind_event.pressed = true
+			InputMap.action_add_event(section_key, primary_keybind_event)
 		elif bind_list[0][0] == "k":
 			# If the keycode is in the icon dictionary, load that icon. If not, load the blank mouse icon
 			# Use string slicing to get the numbers of the bind code, then convert it to an int for the dict
@@ -629,7 +864,12 @@ func Apply_Config(config):
 				primary_rebind_slot_icon = load(button_icon_folder_path+icon_file_name)
 			else:
 				primary_rebind_slot_icon = load(blank_button_icon_folder_path+blank_key_texture_name)
-		Rebind_Action_To_Primary_Icon_Node_Dict.get(str(key)).texture = primary_rebind_slot_icon
+			# Add keybind event using keycode derived from numbers of bind code, found with substr() and cast to an int
+			var primary_keybind_event = InputEventKey.new()
+			primary_keybind_event.set_keycode(int(bind_list[0].substr(1)))
+			primary_keybind_event.pressed = true
+			InputMap.action_add_event(section_key, primary_keybind_event)
+		Rebind_Action_To_Primary_Icon_Node_Dict.get(str(section_key)).texture = primary_rebind_slot_icon
 		
 		# Load the button icons for the bind codes in the config file to the secondary rebind slot, adapting 
 		# to different input methods depending on the first letter of the bind code
@@ -642,6 +882,11 @@ func Apply_Config(config):
 				secondary_rebind_slot_icon = load(button_icon_folder_path+icon_file_name)
 			else:
 				secondary_rebind_slot_icon = load(blank_button_icon_folder_path+blank_mouse_texture_name)
+			# Add keybind event using button index derived from numbers of bind code, found with substr() and cast to an int
+			var secondary_keybind_event = InputEventMouse
+			secondary_keybind_event.set_button_index(int(bind_list[1].substr(1)))
+			secondary_keybind_event.pressed = true
+			InputMap.action_add_event(section_key, secondary_keybind_event)
 		elif bind_list[1][0] == "k":
 			# If the keycode is in the icon dictionary, load that icon. If not, load the blank key icon
 			# Use string slicing to get the numbers of the bind code, then convert it to an int for the dict
@@ -650,7 +895,12 @@ func Apply_Config(config):
 				secondary_rebind_slot_icon = load(button_icon_folder_path+icon_file_name)
 			else:
 				secondary_rebind_slot_icon = load(blank_button_icon_folder_path+blank_key_texture_name)
-		Rebind_Action_To_Secondary_Icon_Node_Dict.get(str(key)).texture = secondary_rebind_slot_icon
+			# Add keybind event using keycode derived from numbers of bind code, found with substr() and cast to an int
+			var secondary_keybind_event = InputEventKey.new()
+			secondary_keybind_event.set_keycode(int(bind_list[1].substr(1)))
+			secondary_keybind_event.pressed = true
+			InputMap.action_add_event(section_key, secondary_keybind_event)
+		Rebind_Action_To_Secondary_Icon_Node_Dict.get(str(section_key)).texture = secondary_rebind_slot_icon
 	#endregion
 	
 	#region <> Audio settings
@@ -678,5 +928,9 @@ func Apply_Config(config):
 	# Window setting
 	Window_Mode_Button.selected = Button_To_WindowMode_Index_Dict.find_key(ProjectSettings.get_setting_with_override("display/window/size/mode"))
 	#endregion
-	
+# Save settings upon quitting application at window manager request
+func _notification(what):
+	if what == NOTIFICATION_WM_CLOSE_REQUEST:
+		Save_Config(config)
+		Check_And_Save_Window_Size()
 #endregion
