@@ -64,7 +64,7 @@ stream = ExtResource("5_ypsd1")
 volume_db = -2.811
 bus = &"SFX"
 
-[node name="Title_Label" type="RichTextLabel" parent="."]
+[node name="Title_Label" type="RichTextLabel" parent="." groups=["Hoverable"]]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.083
@@ -100,7 +100,7 @@ offset_bottom = 0.159973
 theme_override_constants/separation = 8
 metadata/_edit_group_ = true
 
-[node name="Start_Button" type="Button" parent="Main_Menu_Container"]
+[node name="Start_Button" type="Button" parent="Main_Menu_Container" groups=["Hoverable"]]
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../Options_Button")
@@ -113,7 +113,7 @@ theme_override_styles/hover = ExtResource("7_jewm6")
 text = "Start"
 icon = SubResource("ImageTexture_ce3w2")
 
-[node name="Options_Button" type="Button" parent="Main_Menu_Container"]
+[node name="Options_Button" type="Button" parent="Main_Menu_Container" groups=["Hoverable"]]
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
 focus_neighbor_top = NodePath("../Start_Button")
@@ -127,7 +127,7 @@ theme_override_styles/hover = ExtResource("7_jewm6")
 text = "Options"
 icon_alignment = 1
 
-[node name="Quit_Button" type="Button" parent="Main_Menu_Container"]
+[node name="Quit_Button" type="Button" parent="Main_Menu_Container" groups=["Hoverable"]]
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
 focus_neighbor_top = NodePath("../Options_Button")
@@ -139,7 +139,7 @@ theme_override_styles/hover_mirrored = ExtResource("7_jewm6")
 theme_override_styles/hover = ExtResource("7_jewm6")
 text = "Quit"
 
-[node name="Options_Menu_Label" type="RichTextLabel" parent="."]
+[node name="Options_Menu_Label" type="RichTextLabel" parent="." groups=["Hoverable"]]
 visible = false
 layout_mode = 2
 anchor_left = 0.267
@@ -177,7 +177,7 @@ offset_bottom = -0.0400391
 theme_override_constants/separation = 8
 metadata/_edit_group_ = true
 
-[node name="Controls_Button" type="Button" parent="Options_Menu_Container"]
+[node name="Controls_Button" type="Button" parent="Options_Menu_Container" groups=["Hoverable"]]
 modulate = Color(0.815226, 0.515689, 0.913521, 1)
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
@@ -190,7 +190,7 @@ theme_override_styles/hover_mirrored = ExtResource("7_jewm6")
 theme_override_styles/hover = ExtResource("7_jewm6")
 text = "Controls"
 
-[node name="Audio_Button" type="Button" parent="Options_Menu_Container"]
+[node name="Audio_Button" type="Button" parent="Options_Menu_Container" groups=["Hoverable"]]
 modulate = Color(0.823529, 0.556863, 0.917647, 1)
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
@@ -204,7 +204,7 @@ theme_override_styles/hover_mirrored = ExtResource("7_jewm6")
 theme_override_styles/hover = ExtResource("7_jewm6")
 text = "Audio"
 
-[node name="Video_Button" type="Button" parent="Options_Menu_Container"]
+[node name="Video_Button" type="Button" parent="Options_Menu_Container" groups=["Hoverable"]]
 modulate = Color(0.823529, 0.556863, 0.917647, 1)
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
@@ -218,7 +218,7 @@ theme_override_styles/hover_mirrored = ExtResource("7_jewm6")
 theme_override_styles/hover = ExtResource("7_jewm6")
 text = "Video"
 
-[node name="Options_Done_Button" type="Button" parent="Options_Menu_Container"]
+[node name="Options_Done_Button" type="Button" parent="Options_Menu_Container" groups=["Hoverable"]]
 modulate = Color(0.823529, 0.556863, 0.917647, 1)
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
@@ -231,7 +231,7 @@ theme_override_styles/hover_mirrored = ExtResource("7_jewm6")
 theme_override_styles/hover = ExtResource("7_jewm6")
 text = "Done"
 
-[node name="Audio_Menu_Label" type="RichTextLabel" parent="."]
+[node name="Audio_Menu_Label" type="RichTextLabel" parent="." groups=["Hoverable"]]
 visible = false
 layout_mode = 2
 anchor_left = 0.267
@@ -268,7 +268,7 @@ offset_bottom = -0.0400391
 theme_override_constants/separation = 8
 metadata/_edit_group_ = true
 
-[node name="Master_Volume_Label" type="RichTextLabel" parent="Audio_Menu_Container"]
+[node name="Master_Volume_Label" type="RichTextLabel" parent="Audio_Menu_Container" groups=["Hoverable"]]
 modulate = Color(0.633036, 0.710564, 0.987105, 1)
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
@@ -293,7 +293,7 @@ offset_right = 1.0
 offset_bottom = 0.000999451
 color = Color(0.101961, 0.101961, 0.101961, 0.745098)
 
-[node name="Master_Volume_Slider" type="HSlider" parent="Audio_Menu_Container"]
+[node name="Master_Volume_Slider" type="HSlider" parent="Audio_Menu_Container" groups=["Hoverable"]]
 layout_mode = 2
 tooltip_text = "Master Volume
 "
@@ -308,7 +308,7 @@ custom_minimum_size = Vector2(0, 4)
 layout_mode = 2
 color = Color(1, 1, 1, 0)
 
-[node name="Music_Volume_Label" type="RichTextLabel" parent="Audio_Menu_Container"]
+[node name="Music_Volume_Label" type="RichTextLabel" parent="Audio_Menu_Container" groups=["Hoverable"]]
 modulate = Color(0.631373, 0.709804, 0.988235, 1)
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
@@ -332,7 +332,7 @@ offset_right = -0.0240479
 offset_bottom = 0.000999451
 color = Color(0.101961, 0.101961, 0.101961, 0.745098)
 
-[node name="Music_Volume_Slider" type="HSlider" parent="Audio_Menu_Container"]
+[node name="Music_Volume_Slider" type="HSlider" parent="Audio_Menu_Container" groups=["Hoverable"]]
 layout_mode = 2
 tooltip_text = "Music Volume"
 focus_neighbor_top = NodePath("../Master_Volume_Slider")
@@ -347,7 +347,7 @@ custom_minimum_size = Vector2(0, 4)
 layout_mode = 2
 color = Color(1, 1, 1, 0)
 
-[node name="SFX_Volume_Label" type="RichTextLabel" parent="Audio_Menu_Container"]
+[node name="SFX_Volume_Label" type="RichTextLabel" parent="Audio_Menu_Container" groups=["Hoverable"]]
 modulate = Color(0.631373, 0.709804, 0.988235, 1)
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
@@ -371,7 +371,7 @@ offset_right = -0.0240479
 offset_bottom = 0.000999451
 color = Color(0.101961, 0.101961, 0.101961, 0.745098)
 
-[node name="SFX_Volume_Slider" type="HSlider" parent="Audio_Menu_Container"]
+[node name="SFX_Volume_Slider" type="HSlider" parent="Audio_Menu_Container" groups=["Hoverable"]]
 layout_mode = 2
 tooltip_text = "SFX Volume
 "
@@ -387,7 +387,7 @@ custom_minimum_size = Vector2(0, 8)
 layout_mode = 2
 color = Color(1, 1, 1, 0)
 
-[node name="Audio_Done_Button" type="Button" parent="Audio_Menu_Container"]
+[node name="Audio_Done_Button" type="Button" parent="Audio_Menu_Container" groups=["Hoverable"]]
 modulate = Color(0.631373, 0.709804, 0.988235, 1)
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
@@ -400,7 +400,7 @@ theme_override_styles/hover_mirrored = ExtResource("7_jewm6")
 theme_override_styles/hover = ExtResource("7_jewm6")
 text = "Done"
 
-[node name="Video_Menu_Label" type="RichTextLabel" parent="."]
+[node name="Video_Menu_Label" type="RichTextLabel" parent="." groups=["Hoverable"]]
 visible = false
 layout_mode = 2
 anchor_left = 0.267
@@ -440,7 +440,7 @@ grow_vertical = 2
 theme_override_constants/separation = 8
 metadata/_edit_group_ = true
 
-[node name="Brightness_Label" type="RichTextLabel" parent="Video_Menu_Container"]
+[node name="Brightness_Label" type="RichTextLabel" parent="Video_Menu_Container" groups=["Hoverable"]]
 modulate = Color(0.932671, 0.648798, 0.49854, 1)
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
@@ -464,7 +464,7 @@ offset_right = 1.0
 offset_bottom = 0.000999451
 color = Color(0.101961, 0.101961, 0.101961, 0.745098)
 
-[node name="Brightness_Slider" type="HSlider" parent="Video_Menu_Container"]
+[node name="Brightness_Slider" type="HSlider" parent="Video_Menu_Container" groups=["Hoverable"]]
 layout_mode = 2
 tooltip_text = "Brightness"
 focus_neighbor_bottom = NodePath("../Contrast_Slider")
@@ -480,7 +480,7 @@ custom_minimum_size = Vector2(0, 4)
 layout_mode = 2
 color = Color(1, 1, 1, 0)
 
-[node name="Contrast_Label" type="RichTextLabel" parent="Video_Menu_Container"]
+[node name="Contrast_Label" type="RichTextLabel" parent="Video_Menu_Container" groups=["Hoverable"]]
 modulate = Color(0.932671, 0.648798, 0.49854, 1)
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
@@ -504,7 +504,7 @@ offset_right = 1.0
 offset_bottom = 0.000999451
 color = Color(0.101961, 0.101961, 0.101961, 0.745098)
 
-[node name="Contrast_Slider" type="HSlider" parent="Video_Menu_Container"]
+[node name="Contrast_Slider" type="HSlider" parent="Video_Menu_Container" groups=["Hoverable"]]
 layout_mode = 2
 tooltip_text = "Brightness"
 focus_neighbor_top = NodePath("../Brightness_Slider")
@@ -521,7 +521,7 @@ custom_minimum_size = Vector2(0, 4)
 layout_mode = 2
 color = Color(1, 1, 1, 0)
 
-[node name="Saturation_Label" type="RichTextLabel" parent="Video_Menu_Container"]
+[node name="Saturation_Label" type="RichTextLabel" parent="Video_Menu_Container" groups=["Hoverable"]]
 modulate = Color(0.932671, 0.648798, 0.49854, 1)
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
@@ -545,7 +545,7 @@ offset_right = 1.0
 offset_bottom = 0.000999451
 color = Color(0.101961, 0.101961, 0.101961, 0.745098)
 
-[node name="Saturation_Slider" type="HSlider" parent="Video_Menu_Container"]
+[node name="Saturation_Slider" type="HSlider" parent="Video_Menu_Container" groups=["Hoverable"]]
 layout_mode = 2
 tooltip_text = "Brightness"
 focus_neighbor_top = NodePath("../Contrast_Slider")
@@ -562,7 +562,7 @@ custom_minimum_size = Vector2(0, 8)
 layout_mode = 2
 color = Color(1, 1, 1, 0)
 
-[node name="Window_Mode_Button" type="OptionButton" parent="Video_Menu_Container"]
+[node name="Window_Mode_Button" type="OptionButton" parent="Video_Menu_Container" groups=["Hoverable"]]
 modulate = Color(0.933333, 0.647059, 0.498039, 1)
 layout_mode = 2
 focus_neighbor_top = NodePath("../Saturation_Slider")
@@ -583,7 +583,7 @@ popup/item_1/id = 1
 popup/item_2/text = "Windowed"
 popup/item_2/id = 2
 
-[node name="Screen_Shake_Button" type="Button" parent="Video_Menu_Container"]
+[node name="Screen_Shake_Button" type="Button" parent="Video_Menu_Container" groups=["Hoverable"]]
 modulate = Color(0.933333, 0.647059, 0.498039, 1)
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
@@ -598,7 +598,7 @@ theme_override_styles/hover = ExtResource("7_jewm6")
 toggle_mode = true
 text = "Toggle Screen Shake"
 
-[node name="Screen_Blur_Button" type="Button" parent="Video_Menu_Container"]
+[node name="Screen_Blur_Button" type="Button" parent="Video_Menu_Container" groups=["Hoverable"]]
 modulate = Color(0.933333, 0.647059, 0.498039, 1)
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
@@ -613,7 +613,7 @@ theme_override_styles/hover = ExtResource("7_jewm6")
 toggle_mode = true
 text = "Toggle Screen Blur"
 
-[node name="Video_Done_Button" type="Button" parent="Video_Menu_Container"]
+[node name="Video_Done_Button" type="Button" parent="Video_Menu_Container" groups=["Hoverable"]]
 modulate = Color(0.933333, 0.647059, 0.498039, 1)
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
@@ -640,7 +640,7 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_group_ = true
 
-[node name="Controls_Menu_Label" type="RichTextLabel" parent="Controls_Menu_Container"]
+[node name="Controls_Menu_Label" type="RichTextLabel" parent="Controls_Menu_Container" groups=["Hoverable"]]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = -0.267
@@ -661,7 +661,7 @@ text = "Controls"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Controls_Done_Button" type="Button" parent="Controls_Menu_Container"]
+[node name="Controls_Done_Button" type="Button" parent="Controls_Menu_Container" groups=["Hoverable"]]
 modulate = Color(0.498039, 0.839216, 0.545098, 1)
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 1
@@ -693,7 +693,7 @@ theme_override_constants/v_separation = 16
 columns = 2
 metadata/_edit_group_ = true
 
-[node name="Left_Bind_Button" type="Button" parent="Controls_Menu_Container/GridContainer"]
+[node name="Left_Bind_Button" type="Button" parent="Controls_Menu_Container/GridContainer" groups=["Hoverable"]]
 self_modulate = Color(0.498039, 0.839216, 0.545098, 1)
 custom_minimum_size = Vector2(128, 72)
 layout_mode = 2
@@ -709,7 +709,7 @@ theme_override_styles/hover_mirrored = ExtResource("7_jewm6")
 theme_override_styles/hover = ExtResource("7_jewm6")
 metadata/_edit_group_ = true
 
-[node name="Left_Label" type="RichTextLabel" parent="Controls_Menu_Container/GridContainer/Left_Bind_Button"]
+[node name="Left_Label" type="RichTextLabel" parent="Controls_Menu_Container/GridContainer/Left_Bind_Button" groups=["Hoverable"]]
 modulate = Color(0.498039, 0.839216, 0.545098, 1)
 layout_mode = 2
 anchor_right = 1.0
@@ -740,7 +740,7 @@ offset_bottom = 145.0
 scale = Vector2(0.32, 0.32)
 metadata/_edit_group_ = true
 
-[node name="Left_Bind_1" type="TextureRect" parent="Controls_Menu_Container/GridContainer/Left_Bind_Button/Left_Container"]
+[node name="Left_Bind_1" type="TextureRect" parent="Controls_Menu_Container/GridContainer/Left_Bind_Button/Left_Container" groups=["Hoverable"]]
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_stretch_ratio = 0.3
@@ -748,14 +748,14 @@ texture = ExtResource("7_1yfdm")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="Left_Bind_2" type="TextureRect" parent="Controls_Menu_Container/GridContainer/Left_Bind_Button/Left_Container"]
+[node name="Left_Bind_2" type="TextureRect" parent="Controls_Menu_Container/GridContainer/Left_Bind_Button/Left_Container" groups=["Hoverable"]]
 layout_mode = 2
 size_flags_horizontal = 2
 texture = ExtResource("8_3h8o7")
 expand_mode = 2
 stretch_mode = 6
 
-[node name="Left_Unbind_Button" type="Button" parent="Controls_Menu_Container/GridContainer/Left_Bind_Button"]
+[node name="Left_Unbind_Button" type="Button" parent="Controls_Menu_Container/GridContainer/Left_Bind_Button" groups=["Hoverable"]]
 modulate = Color(0.972629, 0.296293, 0.305728, 1)
 layout_mode = 1
 anchors_preset = -1
@@ -778,7 +778,7 @@ theme_override_styles/hover = ExtResource("7_jewm6")
 text = "Unbind
 Oldest"
 
-[node name="Right_Bind_Button" type="Button" parent="Controls_Menu_Container/GridContainer"]
+[node name="Right_Bind_Button" type="Button" parent="Controls_Menu_Container/GridContainer" groups=["Hoverable"]]
 self_modulate = Color(0.498039, 0.839216, 0.545098, 1)
 custom_minimum_size = Vector2(128, 72)
 layout_mode = 2
@@ -795,7 +795,7 @@ theme_override_styles/hover_mirrored = ExtResource("7_jewm6")
 theme_override_styles/hover = ExtResource("7_jewm6")
 metadata/_edit_group_ = true
 
-[node name="Right_Label" type="RichTextLabel" parent="Controls_Menu_Container/GridContainer/Right_Bind_Button"]
+[node name="Right_Label" type="RichTextLabel" parent="Controls_Menu_Container/GridContainer/Right_Bind_Button" groups=["Hoverable"]]
 modulate = Color(0.498039, 0.839216, 0.545098, 1)
 layout_mode = 2
 anchor_right = 1.0
@@ -826,7 +826,7 @@ offset_bottom = 145.0
 scale = Vector2(0.32, 0.32)
 metadata/_edit_group_ = true
 
-[node name="Right_Bind_1" type="TextureRect" parent="Controls_Menu_Container/GridContainer/Right_Bind_Button/Right_Container"]
+[node name="Right_Bind_1" type="TextureRect" parent="Controls_Menu_Container/GridContainer/Right_Bind_Button/Right_Container" groups=["Hoverable"]]
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_stretch_ratio = 0.3
@@ -834,14 +834,14 @@ texture = ExtResource("9_q6o50")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="Right_Bind_2" type="TextureRect" parent="Controls_Menu_Container/GridContainer/Right_Bind_Button/Right_Container"]
+[node name="Right_Bind_2" type="TextureRect" parent="Controls_Menu_Container/GridContainer/Right_Bind_Button/Right_Container" groups=["Hoverable"]]
 layout_mode = 2
 size_flags_horizontal = 2
 texture = ExtResource("8_3h8o7")
 expand_mode = 2
 stretch_mode = 6
 
-[node name="Right_Unbind_Button" type="Button" parent="Controls_Menu_Container/GridContainer/Right_Bind_Button"]
+[node name="Right_Unbind_Button" type="Button" parent="Controls_Menu_Container/GridContainer/Right_Bind_Button" groups=["Hoverable"]]
 modulate = Color(0.972629, 0.296293, 0.305728, 1)
 layout_mode = 1
 anchors_preset = -1
@@ -863,7 +863,7 @@ theme_override_styles/hover = ExtResource("7_jewm6")
 text = "Unbind
 Oldest"
 
-[node name="Up_Bind_Button" type="Button" parent="Controls_Menu_Container/GridContainer"]
+[node name="Up_Bind_Button" type="Button" parent="Controls_Menu_Container/GridContainer" groups=["Hoverable"]]
 self_modulate = Color(0.498039, 0.839216, 0.545098, 1)
 custom_minimum_size = Vector2(128, 72)
 layout_mode = 2
@@ -880,7 +880,7 @@ theme_override_styles/hover_mirrored = ExtResource("7_jewm6")
 theme_override_styles/hover = ExtResource("7_jewm6")
 metadata/_edit_group_ = true
 
-[node name="Up_Label" type="RichTextLabel" parent="Controls_Menu_Container/GridContainer/Up_Bind_Button"]
+[node name="Up_Label" type="RichTextLabel" parent="Controls_Menu_Container/GridContainer/Up_Bind_Button" groups=["Hoverable"]]
 modulate = Color(0.498039, 0.839216, 0.545098, 1)
 layout_mode = 2
 anchor_right = 1.0
@@ -911,7 +911,7 @@ offset_bottom = 145.0
 scale = Vector2(0.32, 0.32)
 metadata/_edit_group_ = true
 
-[node name="Up_Bind_1" type="TextureRect" parent="Controls_Menu_Container/GridContainer/Up_Bind_Button/Up_Container"]
+[node name="Up_Bind_1" type="TextureRect" parent="Controls_Menu_Container/GridContainer/Up_Bind_Button/Up_Container" groups=["Hoverable"]]
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_stretch_ratio = 0.3
@@ -919,14 +919,14 @@ texture = ExtResource("9_q6o50")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="Up_Bind_2" type="TextureRect" parent="Controls_Menu_Container/GridContainer/Up_Bind_Button/Up_Container"]
+[node name="Up_Bind_2" type="TextureRect" parent="Controls_Menu_Container/GridContainer/Up_Bind_Button/Up_Container" groups=["Hoverable"]]
 layout_mode = 2
 size_flags_horizontal = 2
 texture = ExtResource("8_3h8o7")
 expand_mode = 2
 stretch_mode = 6
 
-[node name="Up_Unbind_Button" type="Button" parent="Controls_Menu_Container/GridContainer/Up_Bind_Button"]
+[node name="Up_Unbind_Button" type="Button" parent="Controls_Menu_Container/GridContainer/Up_Bind_Button" groups=["Hoverable"]]
 modulate = Color(0.972629, 0.296293, 0.305728, 1)
 layout_mode = 1
 anchors_preset = -1
@@ -950,7 +950,7 @@ theme_override_styles/hover = ExtResource("7_jewm6")
 text = "Unbind
 Oldest"
 
-[node name="Down_Bind_Button" type="Button" parent="Controls_Menu_Container/GridContainer"]
+[node name="Down_Bind_Button" type="Button" parent="Controls_Menu_Container/GridContainer" groups=["Hoverable"]]
 self_modulate = Color(0.498039, 0.839216, 0.545098, 1)
 custom_minimum_size = Vector2(128, 72)
 layout_mode = 2
@@ -968,7 +968,7 @@ theme_override_styles/hover_mirrored = ExtResource("7_jewm6")
 theme_override_styles/hover = ExtResource("7_jewm6")
 metadata/_edit_group_ = true
 
-[node name="Down_Label" type="RichTextLabel" parent="Controls_Menu_Container/GridContainer/Down_Bind_Button"]
+[node name="Down_Label" type="RichTextLabel" parent="Controls_Menu_Container/GridContainer/Down_Bind_Button" groups=["Hoverable"]]
 modulate = Color(0.498039, 0.839216, 0.545098, 1)
 layout_mode = 2
 anchor_right = 1.0
@@ -999,7 +999,7 @@ offset_bottom = 145.0
 scale = Vector2(0.32, 0.32)
 metadata/_edit_group_ = true
 
-[node name="Down_Bind_1" type="TextureRect" parent="Controls_Menu_Container/GridContainer/Down_Bind_Button/Down_Container"]
+[node name="Down_Bind_1" type="TextureRect" parent="Controls_Menu_Container/GridContainer/Down_Bind_Button/Down_Container" groups=["Hoverable"]]
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_stretch_ratio = 0.3
@@ -1007,14 +1007,14 @@ texture = ExtResource("9_q6o50")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="Down_Bind_2" type="TextureRect" parent="Controls_Menu_Container/GridContainer/Down_Bind_Button/Down_Container"]
+[node name="Down_Bind_2" type="TextureRect" parent="Controls_Menu_Container/GridContainer/Down_Bind_Button/Down_Container" groups=["Hoverable"]]
 layout_mode = 2
 size_flags_horizontal = 2
 texture = ExtResource("8_3h8o7")
 expand_mode = 2
 stretch_mode = 6
 
-[node name="Down_Unbind_Button" type="Button" parent="Controls_Menu_Container/GridContainer/Down_Bind_Button"]
+[node name="Down_Unbind_Button" type="Button" parent="Controls_Menu_Container/GridContainer/Down_Bind_Button" groups=["Hoverable"]]
 modulate = Color(0.972629, 0.296293, 0.305728, 1)
 layout_mode = 1
 anchors_preset = -1
@@ -1037,7 +1037,7 @@ theme_override_styles/hover = ExtResource("7_jewm6")
 text = "Unbind
 Oldest"
 
-[node name="Jump_Bind_Button" type="Button" parent="Controls_Menu_Container/GridContainer"]
+[node name="Jump_Bind_Button" type="Button" parent="Controls_Menu_Container/GridContainer" groups=["Hoverable"]]
 self_modulate = Color(0.498039, 0.839216, 0.545098, 1)
 custom_minimum_size = Vector2(128, 72)
 layout_mode = 2
@@ -1054,7 +1054,7 @@ theme_override_styles/hover_mirrored = ExtResource("7_jewm6")
 theme_override_styles/hover = ExtResource("7_jewm6")
 metadata/_edit_group_ = true
 
-[node name="Jump_Label" type="RichTextLabel" parent="Controls_Menu_Container/GridContainer/Jump_Bind_Button"]
+[node name="Jump_Label" type="RichTextLabel" parent="Controls_Menu_Container/GridContainer/Jump_Bind_Button" groups=["Hoverable"]]
 modulate = Color(0.498039, 0.839216, 0.545098, 1)
 layout_mode = 2
 anchor_right = 1.0
@@ -1085,7 +1085,7 @@ offset_bottom = 145.0
 scale = Vector2(0.32, 0.32)
 metadata/_edit_group_ = true
 
-[node name="Jump_Bind_1" type="TextureRect" parent="Controls_Menu_Container/GridContainer/Jump_Bind_Button/Jump_Container"]
+[node name="Jump_Bind_1" type="TextureRect" parent="Controls_Menu_Container/GridContainer/Jump_Bind_Button/Jump_Container" groups=["Hoverable"]]
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_stretch_ratio = 0.3
@@ -1093,14 +1093,14 @@ texture = ExtResource("9_q6o50")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="Jump_Bind_2" type="TextureRect" parent="Controls_Menu_Container/GridContainer/Jump_Bind_Button/Jump_Container"]
+[node name="Jump_Bind_2" type="TextureRect" parent="Controls_Menu_Container/GridContainer/Jump_Bind_Button/Jump_Container" groups=["Hoverable"]]
 layout_mode = 2
 size_flags_horizontal = 2
 texture = ExtResource("10_46hhv")
 expand_mode = 2
 stretch_mode = 6
 
-[node name="Jump_Unbind_Button" type="Button" parent="Controls_Menu_Container/GridContainer/Jump_Bind_Button"]
+[node name="Jump_Unbind_Button" type="Button" parent="Controls_Menu_Container/GridContainer/Jump_Bind_Button" groups=["Hoverable"]]
 modulate = Color(0.972629, 0.296293, 0.305728, 1)
 layout_mode = 1
 anchors_preset = -1
@@ -1124,7 +1124,7 @@ theme_override_styles/hover = ExtResource("7_jewm6")
 text = "Unbind
 Oldest"
 
-[node name="Glide_Bind_Button" type="Button" parent="Controls_Menu_Container/GridContainer"]
+[node name="Glide_Bind_Button" type="Button" parent="Controls_Menu_Container/GridContainer" groups=["Hoverable"]]
 self_modulate = Color(0.498039, 0.839216, 0.545098, 1)
 custom_minimum_size = Vector2(128, 72)
 layout_mode = 2
@@ -1139,7 +1139,7 @@ theme_override_styles/hover_pressed = ExtResource("7_jewm6")
 theme_override_styles/hover_mirrored = ExtResource("7_jewm6")
 theme_override_styles/hover = ExtResource("7_jewm6")
 
-[node name="Glide_Label" type="RichTextLabel" parent="Controls_Menu_Container/GridContainer/Glide_Bind_Button"]
+[node name="Glide_Label" type="RichTextLabel" parent="Controls_Menu_Container/GridContainer/Glide_Bind_Button" groups=["Hoverable"]]
 modulate = Color(0.498039, 0.839216, 0.545098, 1)
 layout_mode = 2
 anchor_right = 1.0
@@ -1170,7 +1170,7 @@ offset_bottom = 145.0
 scale = Vector2(0.32, 0.32)
 metadata/_edit_group_ = true
 
-[node name="Glide_Bind_1" type="TextureRect" parent="Controls_Menu_Container/GridContainer/Glide_Bind_Button/Glide_Container"]
+[node name="Glide_Bind_1" type="TextureRect" parent="Controls_Menu_Container/GridContainer/Glide_Bind_Button/Glide_Container" groups=["Hoverable"]]
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_stretch_ratio = 0.3
@@ -1178,14 +1178,14 @@ texture = ExtResource("9_q6o50")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="Glide_Bind_2" type="TextureRect" parent="Controls_Menu_Container/GridContainer/Glide_Bind_Button/Glide_Container"]
+[node name="Glide_Bind_2" type="TextureRect" parent="Controls_Menu_Container/GridContainer/Glide_Bind_Button/Glide_Container" groups=["Hoverable"]]
 layout_mode = 2
 size_flags_horizontal = 2
 texture = ExtResource("10_46hhv")
 expand_mode = 2
 stretch_mode = 6
 
-[node name="Glide_Unbind_Button" type="Button" parent="Controls_Menu_Container/GridContainer/Glide_Bind_Button"]
+[node name="Glide_Unbind_Button" type="Button" parent="Controls_Menu_Container/GridContainer/Glide_Bind_Button" groups=["Hoverable"]]
 modulate = Color(0.972629, 0.296293, 0.305728, 1)
 layout_mode = 1
 anchors_preset = -1

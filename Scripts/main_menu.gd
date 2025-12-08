@@ -1,6 +1,6 @@
 extends Control
 
-#region ------@onready Node Container Definitions------
+#region ------@onready Node Definitions------
 # General scene nodes
 @onready var Music_Player = get_node("Music_Player")
 @onready var Hover_SFX_Player = get_node("Hover_SFX_Player")
@@ -229,6 +229,10 @@ var action_to_be_rebound: String
 # Config and saving
 var config = ConfigFile.new()
 var autosave_timer = null
+
+var mouse_hide_position = Vector2(0, 0)
+var mouse_stashed = false
+var warp_timer
 #endregion
 
 
@@ -238,6 +242,8 @@ func _ready() -> void:
 	"Up":Up_Bind_1, "Down":Down_Bind_1, "Jump":Jump_Bind_1, "Glide":Glide_Bind_1}
 	Rebind_Action_To_Secondary_Icon_Node_Dict = {"Left":Left_Bind_2, "Right":Right_Bind_2, 
 	"Up":Up_Bind_2, "Down":Down_Bind_2, "Jump":Jump_Bind_2, "Glide":Glide_Bind_2}
+	
+	warp_timer = get_tree().create_timer(0.0, false, true)
 	
 	Load_Main_Menu()
 	
@@ -251,38 +257,75 @@ func _ready() -> void:
 	previous_window_size = DisplayServer.window_get_size()
 
 func _process(delta) -> void:
-	# If the player moves the mouse with significant speed, show the mouse cursor again
-	if Input.get_last_mouse_velocity().length() > 0.1:
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	if Music_Player.playing == false:
+		Music_Player.playing = true
 	
+	# If the player moves the mouse with significant speed and the mouse is hidden, show the mouse cursor again and set mouse filters back to default
+	if get_viewport().get_mouse_position().distance_to(Vector2(0, 0)) > 1.1 and warp_timer.time_left == 0 and mouse_stashed:
+		print("h")
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		get_viewport().warp_mouse(mouse_hide_position)
+		mouse_stashed = false
+	
+	if mouse_stashed:
+		print("0")
+		print(warp_timer.time_left)
+		if warp_timer.time_left == 0:
+			print("1")
+			if Input.get_last_mouse_velocity().length() > 0.1:
+				print("2")
+	
+	# Allow keyboard / controller navigation, and hide mouse pointer and hover effects when in keyboard mode by setting all mouse filters to pass
 	if Input.is_action_just_pressed("Left"):
-		Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
-		var left_of_focused_control = get_viewport().gui_get_focus_owner().get_node_or_null(get_viewport().gui_get_focus_owner().focus_neighbor_left)
+		if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
+			Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+			mouse_hide_position = get_viewport().get_mouse_position()
+			Input.warp_mouse(Vector2(0, 0))
+			warp_timer = get_tree().create_timer(0.2, false, true)
+			mouse_stashed = true
+		var left_of_focused_control = get_viewport().gui_get_focus_owner().get_node_or_null(get_viewport().gui_get_focus_owner().get("focus_neighbor_left"))
 		if left_of_focused_control != null:
 			left_of_focused_control.grab_focus()
 	elif Input.is_action_just_pressed("Right"):
-		Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
-		var right_of_focused_control = get_viewport().gui_get_focus_owner().get_node_or_null(get_viewport().gui_get_focus_owner().focus_neighbor_right)
-		if right_of_focused_control:
+		if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
+			Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+			mouse_hide_position = get_viewport().get_mouse_position()
+			Input.warp_mouse(Vector2(0, 0))
+			warp_timer = get_tree().create_timer(0.2, false, true)
+			mouse_stashed = true
+		var right_of_focused_control = get_viewport().gui_get_focus_owner().get_node_or_null(get_viewport().gui_get_focus_owner().get("focus_neighbor_right"))
+		if right_of_focused_control != null:
 			right_of_focused_control.grab_focus()
 	elif Input.is_action_just_pressed("Up"):
-		Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+		if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
+			Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+			mouse_hide_position = get_viewport().get_mouse_position()
+			Input.warp_mouse(Vector2(0, 0))
+			warp_timer = get_tree().create_timer(0.2, false, true)
+			mouse_stashed = true
 		var above_focused_control = get_viewport().gui_get_focus_owner().get_node_or_null(get_viewport().gui_get_focus_owner().focus_neighbor_top)
 		if above_focused_control:
 			above_focused_control.grab_focus()
 	elif Input.is_action_just_pressed("Down"):
-		Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+		if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
+			Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+			mouse_hide_position = get_viewport().get_mouse_position()
+			Input.warp_mouse(Vector2(0, 0))
+			warp_timer = get_tree().create_timer(0.2, false, true)
+			mouse_stashed = true
 		var below_focused_control = get_viewport().gui_get_focus_owner().get_node_or_null(get_viewport().gui_get_focus_owner().focus_neighbor_bottom)
 		if below_focused_control:
 			below_focused_control.grab_focus()
 	elif Input.is_action_just_pressed("Jump"):
-		Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+		if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
+			Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+			mouse_hide_position = get_viewport().get_mouse_position()
+			Input.warp_mouse(Vector2(0, 0))
+			warp_timer = get_tree().create_timer(0.2, false, true)
+			mouse_stashed = true
 		
-		if get_viewport().gui_get_focus_owner().pressed != null:
+		if get_viewport().gui_get_focus_owner().get("pressed") != null:
 			get_viewport().gui_get_focus_owner().button_down.emit()
-	
-	if Music_Player.playing == false:
-		Music_Player.playing = true
 	
 	if Input.is_action_just_pressed("Escape"):
 		if Options_Menu_Container.visible == false and Main_Menu_Container.visible == false:
@@ -313,10 +356,21 @@ func _process(delta) -> void:
 		Save_Config(config)
 		autosave_timer = get_tree().create_timer(180, false, true)
 
-func _unhandled_input(event):
-	# If the player moves the mouse with significant speed, show the mouse cursor again
-	if event is InputEventMouseMotion and Input.get_last_mouse_velocity().length() > 0.1:
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+#func Set_Hoverable_Control_Mouse_Filters_To(value, old_filter_list = mouse_filters, record_old_filters = false):
+	#for control in get_tree().get_nodes_in_group("Hoverable"):
+		#var control_mouse_filter = control.get("mouse_filter")
+		#if control_mouse_filter != null:
+			#if record_old_filters == true:
+				#old_filter_list.append(control_mouse_filter)
+			#control.mouse_filter = value
+
+#func Set_Hoverable_Control_Mouse_Filters_To_List(mouse_filter_list):
+	#var index = 0
+	#for control in get_tree().get_nodes_in_group("Hoverable"):
+		#var control_mouse_filter = control.get("mouse_filter")
+		#if control_mouse_filter != null:
+			#control.mouse_filter = mouse_filter_list[index]
+		#index += 1
 
 #region ------Main Menu Functions------
 # Start button
@@ -676,7 +730,7 @@ func Start_Game():
 	get_tree().change_scene_to_file("res://Scenes/Areas/world.tscn")
 
 func Load_Main_Menu():
-	Options_Button.grab_focus()
+	Start_Button.grab_focus()
 	Options_Menu_Container.hide()
 	Options_Menu_Label.hide()
 	Controls_Menu_Container.hide()
