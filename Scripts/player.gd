@@ -86,6 +86,9 @@ func Handle_Jump():
 		velocity.y = JUMP_VELOCITY
 		jumping = true
 		total_jumps += 1
+	elif Input.is_action_just_pressed("Jump") and total_jumps < MAX_JUMPS and not (is_on_floor() or coyote_time):
+		velocity.y = JUMP_VELOCITY
+		total_jumps += 2
 	elif Input.is_action_just_pressed("Jump") and (total_jumps < MAX_JUMPS or abilities.get("flight")):
 		velocity.y = JUMP_VELOCITY
 		total_jumps += 1
