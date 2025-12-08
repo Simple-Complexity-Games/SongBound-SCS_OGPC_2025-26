@@ -65,6 +65,9 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 		Jumping = true
 		Total_Jumps += 1
+	elif Input.is_action_just_pressed(\"Jump\") and Total_Jumps < MAX_JUMPS and not (is_on_floor() or coyote_time):
+		velocity.y = JUMP_VELOCITY
+		Total_Jumps += 2
 	elif Input.is_action_just_pressed(\"Jump\") and Total_Jumps < MAX_JUMPS:
 		velocity.y = JUMP_VELOCITY
 		Total_Jumps += 1
@@ -136,6 +139,7 @@ animations = [{
 size = Vector2(14, 24)
 
 [node name="Player" type="CharacterBody2D"]
+z_index = 10
 script = SubResource("GDScript_v0iea")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
