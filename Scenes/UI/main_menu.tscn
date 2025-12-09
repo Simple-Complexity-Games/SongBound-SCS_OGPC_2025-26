@@ -3,7 +3,7 @@
 [ext_resource type="Theme" uid="uid://dvrk404vsmxjc" path="res://Assets/Themes/Main_Menu_Theme.tres" id="1_wqme5"]
 [ext_resource type="Script" uid="uid://dxiy5wk0xbjug" path="res://Scripts/main_menu.gd" id="2_jewm6"]
 [ext_resource type="Texture2D" uid="uid://d0fy2swtgvp0l" path="res://Assets/Art/Environment/Bard_Tavern_Concept_Art.JPG" id="3_cejvf"]
-[ext_resource type="AudioStream" uid="uid://drso7th4ouiao" path="res://Assets/Sound/Music/Game Music Concept Orchestrated.wav" id="4_ru8vt"]
+[ext_resource type="AudioStream" uid="uid://b37c10j7od26c" path="res://Assets/Sound/Music/Game Music Concept Final Mix.wav" id="4_jewm6"]
 [ext_resource type="AudioStream" uid="uid://bhe7lcpnuo6q4" path="res://Assets/Sound/SFX/typing_blip.wav" id="5_ypsd1"]
 [ext_resource type="FontFile" uid="uid://cqj32sh3raorv" path="res://Assets/Fonts/Macondo/MacondoSwashCaps-Regular.ttf" id="6_xp0kt"]
 [ext_resource type="Texture2D" uid="uid://1rsoquk8666j" path="res://Assets/Art/Button_Icons/Keyboard_And_Mouse/Dark/Mark_Right_Key_Dark.png" id="7_1yfdm"]
@@ -33,6 +33,7 @@ metadata/_edit_lock_ = true
 
 [node name="Mouse_Blocker" type="Control" parent="."]
 layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_force_pass_scroll_events = false
@@ -62,7 +63,7 @@ stretch_mode = 4
 metadata/_edit_lock_ = true
 
 [node name="Music_Player" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_ru8vt")
+stream = ExtResource("4_jewm6")
 bus = &"Music"
 
 [node name="Hover_SFX_Player" type="AudioStreamPlayer" parent="."]
@@ -71,6 +72,7 @@ volume_db = -2.811
 bus = &"SFX"
 
 [node name="Title_Label" type="RichTextLabel" parent="." groups=["Hoverable"]]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.083
@@ -92,6 +94,7 @@ text = "Adventures in Avythera"
 horizontal_alignment = 1
 
 [node name="Main_Menu_Container" type="VBoxContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.267
@@ -237,7 +240,6 @@ theme_override_styles/hover = ExtResource("7_jewm6")
 text = "Done"
 
 [node name="Audio_Menu_Label" type="RichTextLabel" parent="." groups=["Hoverable"]]
-visible = false
 layout_mode = 2
 anchor_left = 0.267
 anchor_top = 0.415
@@ -260,7 +262,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Audio_Menu_Container" type="VBoxContainer" parent="."]
-visible = false
 layout_mode = 2
 anchor_left = 0.267
 anchor_top = 0.504
@@ -305,7 +306,7 @@ tooltip_text = "Master Volume
 focus_neighbor_bottom = NodePath("../Music_Volume_Slider")
 focus_next = NodePath("../Music_Volume_Slider")
 focus_previous = NodePath("../Audio_Done_Button")
-step = 2.5
+step = 1.75
 value = 70.0
 
 [node name="Separator_1" type="ColorRect" parent="Audio_Menu_Container"]
@@ -344,7 +345,7 @@ focus_neighbor_top = NodePath("../Master_Volume_Slider")
 focus_neighbor_bottom = NodePath("../SFX_Volume_Slider")
 focus_next = NodePath("../SFX_Volume_Slider")
 focus_previous = NodePath("../Master_Volume_Slider")
-step = 2.5
+step = 1.75
 value = 70.0
 
 [node name="Separator_2" type="ColorRect" parent="Audio_Menu_Container"]
@@ -384,7 +385,7 @@ focus_neighbor_top = NodePath("../Music_Volume_Slider")
 focus_neighbor_bottom = NodePath("../Audio_Done_Button")
 focus_next = NodePath("../Audio_Done_Button")
 focus_previous = NodePath("../Music_Volume_Slider")
-step = 2.5
+step = 1.75
 value = 70.0
 
 [node name="Separator_3" type="ColorRect" parent="Audio_Menu_Container"]
@@ -477,7 +478,7 @@ focus_next = NodePath("../Contrast_Slider")
 focus_previous = NodePath("../Video_Done_Button")
 min_value = 0.1
 max_value = 2.0
-step = 0.05
+step = 0.025
 value = 0.1
 
 [node name="Separator_3" type="ColorRect" parent="Video_Menu_Container"]
@@ -518,7 +519,7 @@ focus_next = NodePath("../Saturation_Slider")
 focus_previous = NodePath("../Brightness_Slider")
 min_value = 0.1
 max_value = 2.0
-step = 0.05
+step = 0.025
 value = 1.0
 
 [node name="Separator_2" type="ColorRect" parent="Video_Menu_Container"]
@@ -559,7 +560,7 @@ focus_next = NodePath("../Window_Mode_Button")
 focus_previous = NodePath("../Contrast_Slider")
 min_value = 0.1
 max_value = 2.0
-step = 0.05
+step = 0.025
 value = 1.0
 
 [node name="Separator_1" type="ColorRect" parent="Video_Menu_Container"]
