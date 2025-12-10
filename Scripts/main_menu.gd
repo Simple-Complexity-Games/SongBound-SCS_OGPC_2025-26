@@ -241,6 +241,8 @@ var keyboard_navigation_mode = false
 var focus_owner
 var dragging_slider = null
 var slider_drag_step_timer
+var action_hold_count = 1.05
+var left_right_balance
 #endregion
 
 
@@ -287,18 +289,31 @@ func _process(delta) -> void:
 		if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
 			keyboard_navigation_mode = true
 			warping = true
+		
+		action_hold_count = 1
 	elif Input.is_action_just_pressed("Right"):
 		# Mouse hiding
 		if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
 			keyboard_navigation_mode = true
 			warping = true
+		
+		action_hold_count = 1
 	elif Input.is_action_just_pressed("Up"):
 		if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
 			keyboard_navigation_mode = true
 			warping = true
 		# Keyboard mode menu navigation
 		var above_focused_control = get_viewport().gui_get_focus_owner().get_node_or_null(get_viewport().gui_get_focus_owner().focus_neighbor_top)
-		if above_focused_control:
+		if focus_owner is OptionButton:
+			if focus_owner.get_selected_id() - 1 >= 0:
+				focus_owner.button_pressed = false
+				focus_owner.select(focus_owner.get_selected_id() - 1)
+			elif focus_owner.get_selected_id() == 0:
+				#focus_owner.hovered = focus_owner.get_selected_id()
+				focus_owner.selected = focus_owner.get_selected_id()
+				focus_owner.grab_focus()
+				focus_owner.button_pressed = true
+		elif above_focused_control:
 			above_focused_control.grab_focus()
 	elif Input.is_action_just_pressed("Down"):
 		if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
@@ -306,7 +321,17 @@ func _process(delta) -> void:
 			warping = true
 		# Keyboard mode menu navigation
 		var below_focused_control = get_viewport().gui_get_focus_owner().get_node_or_null(get_viewport().gui_get_focus_owner().focus_neighbor_bottom)
-		if below_focused_control:
+		if focus_owner is OptionButton:
+			if focus_owner.button_pressed == true:
+				focus_owner.button_pressed = false
+			elif focus_owner.get_selected_id() + 1 < focus_owner.item_count:
+				focus_owner.button_pressed = false
+				focus_owner.select(focus_owner.get_selected_id() + 1)
+			elif focus_owner.get_selected_id() == 0:
+				focus_owner.hovered = focus_owner.get_selected_id()
+				focus_owner.grab_focus()
+				focus_owner.button_down = true
+		elif below_focused_control:
 			below_focused_control.grab_focus()
 	elif Input.is_action_just_pressed("Jump"):
 		# Keyboard mode menu navigation
@@ -314,16 +339,24 @@ func _process(delta) -> void:
 			keyboard_navigation_mode = true
 			warping = true
 		
-		# Handle menu interactions with select button in keyboard mode
+		# Handle menu interactions with the select / jump action in keyboard mode
 		focus_owner = get_viewport().gui_get_focus_owner()
-		if focus_owner.get("pressed") != null:
+		if focus_owner.get("toggle_mode"):
+			if focus_owner.button_pressed and focus_owner.get_popup().visible == false:
+				focus_owner.show_popup()
+			elif focus_owner.button_pressed and focus_owner.get_popup().visible == true:
+				focus_owner.get_popup().visibile = false
+			focus_owner.button_down.emit()
+		elif focus_owner.get("pressed") != null:
 			focus_owner.button_down.emit()
 	
+	# Handle menu actions to be taken continuously with button input
+	left_right_balance = Input.get_axis("Left", "Right")
+	action_hold_count += 1.1
 	if focus_owner is HSlider:
 		dragging_slider = focus_owner
-	if Input.is_action_pressed("Left") and slider_drag_step_timer.time_left == 0:
-		# Keyboard mode menu navigation
-		slider_drag_step_timer = get_tree().create_timer(0.06, true, true)
+	if left_right_balance < 0 and slider_drag_step_timer.time_left == 0:
+		slider_drag_step_timer = get_tree().create_timer(0.4 / action_hold_count, true, true)
 		
 		var left_of_focused_control = get_viewport().gui_get_focus_owner().get_node_or_null(get_viewport().gui_get_focus_owner().get("focus_neighbor_left"))
 		if left_of_focused_control != null:
@@ -331,11 +364,10 @@ func _process(delta) -> void:
 		
 		focus_owner = get_viewport().gui_get_focus_owner()
 		if focus_owner is HSlider:
-			if (focus_owner.value - focus_owner.step) >= focus_owner.min_value:
+			if (focus_owner.value + focus_owner.step) >= focus_owner.min_value and left_right_balance < 0:
 				focus_owner.value -= focus_owner.step
-	if Input.is_action_pressed("Right") and slider_drag_step_timer.time_left == 0:
-		# Keyboard mode menu navigation
-		slider_drag_step_timer = get_tree().create_timer(0.06, true, true)
+	if left_right_balance > 0 and slider_drag_step_timer.time_left == 0:
+		slider_drag_step_timer = get_tree().create_timer(0.4 / action_hold_count, true, true)
 		
 		var right_of_focused_control = get_viewport().gui_get_focus_owner().get_node_or_null(get_viewport().gui_get_focus_owner().get("focus_neighbor_right"))
 		if right_of_focused_control != null:
@@ -345,7 +377,9 @@ func _process(delta) -> void:
 		if focus_owner is HSlider:
 			if (focus_owner.value + focus_owner.step) <= focus_owner.max_value:
 				focus_owner.value += focus_owner.step
-	
+	if Input.is_action_just_released("Left") or Input.is_action_just_released("Right"):
+		slider_drag_step_timer.time_left = 0.0
+		action_hold_count = 8
 	
 	if Input.is_action_just_pressed("Escape"):
 		if Options_Menu_Container.visible == false and Main_Menu_Container.visible == false:
