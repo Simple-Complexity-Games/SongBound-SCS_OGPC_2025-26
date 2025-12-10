@@ -4,7 +4,6 @@ extends Control
 # General scene nodes
 @onready var Music_Player = get_node("Music_Player")
 @onready var Hover_SFX_Player = get_node("Hover_SFX_Player")
-@onready var Mouse_Blocker = get_node("Mouse_Blocker")
 # Main Menu
 @onready var Main_Menu_Label = get_node("Title_Label")
 @onready var Main_Menu_Container = get_node("Main_Menu_Container")
@@ -241,6 +240,7 @@ var keyboard_navigation_mode = false
 # Keyboard navigation vars
 var focus_owner
 var dragging_slider = null
+var slider_drag_step_timer
 #endregion
 
 
@@ -252,7 +252,8 @@ func _ready() -> void:
 	"Up":Up_Bind_2, "Down":Down_Bind_2, "Jump":Jump_Bind_2, "Glide":Glide_Bind_2}
 	
 	warp_timer = get_tree().create_timer(0.0, false, true)
-	Mouse_Blocker.mouse_filter = MOUSE_FILTER_PASS
+	slider_drag_step_timer = get_tree().create_timer(0.0, true, true)
+	
 	
 	Load_Main_Menu()
 	
@@ -278,7 +279,6 @@ func _process(delta) -> void:
 		Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 		mouse_hide_position = get_viewport().get_mouse_position()
 		Input.warp_mouse(Vector2(0, 0))
-		Mouse_Blocker.mouse_filter = MOUSE_FILTER_STOP
 		get_viewport().warp_mouse(mouse_hide_position)
 	
 	# Allow keyboard / controller navigation, and hide mouse pointer and hover effects when in keyboard mode by setting all mouse filters to pass
@@ -321,20 +321,26 @@ func _process(delta) -> void:
 	
 	if focus_owner is HSlider:
 		dragging_slider = focus_owner
-	if Input.is_action_pressed("Left"):
+	if Input.is_action_pressed("Left") and slider_drag_step_timer.time_left == 0:
 		# Keyboard mode menu navigation
+		slider_drag_step_timer = get_tree().create_timer(0.06, true, true)
+		
 		var left_of_focused_control = get_viewport().gui_get_focus_owner().get_node_or_null(get_viewport().gui_get_focus_owner().get("focus_neighbor_left"))
 		if left_of_focused_control != null:
 			left_of_focused_control.grab_focus()
+		
 		focus_owner = get_viewport().gui_get_focus_owner()
 		if focus_owner is HSlider:
 			if (focus_owner.value - focus_owner.step) >= focus_owner.min_value:
 				focus_owner.value -= focus_owner.step
-	if Input.is_action_pressed("Right"):
+	if Input.is_action_pressed("Right") and slider_drag_step_timer.time_left == 0:
 		# Keyboard mode menu navigation
+		slider_drag_step_timer = get_tree().create_timer(0.06, true, true)
+		
 		var right_of_focused_control = get_viewport().gui_get_focus_owner().get_node_or_null(get_viewport().gui_get_focus_owner().get("focus_neighbor_right"))
 		if right_of_focused_control != null:
 			right_of_focused_control.grab_focus()
+		
 		focus_owner = get_viewport().gui_get_focus_owner()
 		if focus_owner is HSlider:
 			if (focus_owner.value + focus_owner.step) <= focus_owner.max_value:
@@ -639,7 +645,11 @@ func _input(event):
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 			Set_Hoverable_Control_Mouse_Filters_To_List(mouse_filters)
 	if event is InputEventMouseMotion:
-		if ((last_mouse_hover_position.distance_to(mouse_hide_position) < 50 and last_mouse_hover_position.distance_to(Vector2(0, 0)) < 50 and warp_timer.time_left == 0) or (last_mouse_hover_position.distance_to(mouse_hide_position) < 50 and not last_mouse_hover_position.distance_to(Vector2(0, 0)) < 50)) and event.relative.length() > 3 and keyboard_navigation_mode:
+		if (
+				(last_mouse_hover_position.distance_to(mouse_hide_position) < 50
+				and event.relative.length() > 3 or event.relative.length() > 300)
+				and keyboard_navigation_mode
+		):
 			keyboard_navigation_mode = false
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 			Set_Hoverable_Control_Mouse_Filters_To_List(mouse_filters)
