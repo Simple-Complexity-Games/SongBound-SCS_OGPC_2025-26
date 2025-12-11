@@ -37,8 +37,7 @@ var abilities = {"flight":0, "glide":1}
 var previous_window_mode = DisplayServer.WINDOW_MODE_MAXIMIZED
 
 func _ready() -> void:
-	for action in InputMap.get_actions():
-		print(InputMap.action_get_events(action))
+	pass
 
 func _process(delta: float) -> void:
 	Handle_Inputs()

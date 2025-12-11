@@ -241,6 +241,8 @@ var keyboard_navigation_mode = false
 var focus_owner
 var dragging_slider = null
 var slider_drag_step_timer
+var action_hold_count = 1.05
+var left_right_balance
 #endregion
 
 
@@ -265,6 +267,13 @@ func _ready() -> void:
 		Apply_Config(config)
 	
 	previous_window_size = DisplayServer.window_get_size()
+	
+	var ui_up_event = InputEventKey.new()
+	ui_up_event.keycode = 87
+	InputMap.action_add_event("ui_up", ui_up_event)
+	var ui_down_event = InputEventKey.new()
+	ui_down_event.keycode = 83
+	InputMap.action_add_event("ui_down", ui_down_event)
 
 func _process(delta) -> void:
 	if Music_Player.playing == false:
@@ -287,18 +296,32 @@ func _process(delta) -> void:
 		if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
 			keyboard_navigation_mode = true
 			warping = true
+		
+		action_hold_count = 1
 	elif Input.is_action_just_pressed("Right"):
 		# Mouse hiding
 		if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
 			keyboard_navigation_mode = true
 			warping = true
+		
+		action_hold_count = 1
 	elif Input.is_action_just_pressed("Up"):
 		if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
 			keyboard_navigation_mode = true
 			warping = true
 		# Keyboard mode menu navigation
 		var above_focused_control = get_viewport().gui_get_focus_owner().get_node_or_null(get_viewport().gui_get_focus_owner().focus_neighbor_top)
-		if above_focused_control:
+		if focus_owner is OptionButton:
+			if focus_owner.get_selected_id() - 1 >= 0:
+				focus_owner.button_pressed = false
+				focus_owner.select(focus_owner.get_selected_id() - 1)
+				focus_owner.get_popup().grab_focus()
+			elif focus_owner.get_selected_id() == 0:
+				#focus_owner.hovered = focus_owner.get_selected_id()
+				focus_owner.selected = focus_owner.get_selected_id()
+				focus_owner.grab_focus()
+				focus_owner.button_pressed = true
+		elif above_focused_control:
 			above_focused_control.grab_focus()
 	elif Input.is_action_just_pressed("Down"):
 		if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
@@ -306,7 +329,17 @@ func _process(delta) -> void:
 			warping = true
 		# Keyboard mode menu navigation
 		var below_focused_control = get_viewport().gui_get_focus_owner().get_node_or_null(get_viewport().gui_get_focus_owner().focus_neighbor_bottom)
-		if below_focused_control:
+		if focus_owner is OptionButton:
+			if focus_owner.button_pressed == true:
+				focus_owner.button_pressed = false
+			elif focus_owner.get_selected_id() + 1 < focus_owner.item_count:
+				focus_owner.button_pressed = false
+				focus_owner.select(focus_owner.get_selected_id() + 1)
+			elif focus_owner.get_selected_id() == 0:
+				focus_owner.hovered = focus_owner.get_selected_id()
+				focus_owner.grab_focus()
+				focus_owner.button_down = true
+		elif below_focused_control:
 			below_focused_control.grab_focus()
 	elif Input.is_action_just_pressed("Jump"):
 		# Keyboard mode menu navigation
@@ -314,16 +347,61 @@ func _process(delta) -> void:
 			keyboard_navigation_mode = true
 			warping = true
 		
-		# Handle menu interactions with select button in keyboard mode
+		# Handle menu interactions with the select / jump action in keyboard mode
 		focus_owner = get_viewport().gui_get_focus_owner()
-		if focus_owner.get("pressed") != null:
+		if focus_owner is OptionButton:
+			if focus_owner.get_popup().visible == false:
+				focus_owner.show_popup()
+				focus_owner.get_popup().grab_focus()
+			elif focus_owner.get_popup().visible == true:
+				focus_owner.get_popup().visibile = false
 			focus_owner.button_down.emit()
+		elif focus_owner.get("pressed") != null:
+			focus_owner.button_down.emit()
+	if Input.is_action_just_pressed("ui_up"):
+		if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
+			keyboard_navigation_mode = true
+			warping = true
+		# Keyboard mode menu navigation
+		var above_focused_control = get_viewport().gui_get_focus_owner().get_node_or_null(get_viewport().gui_get_focus_owner().focus_neighbor_top)
+		#if focus_owner is OptionButton:
+			#if focus_owner.get_selected_id() - 1 >= 0:
+				#focus_owner.button_pressed = false
+				#focus_owner.select(focus_owner.get_selected_id() - 1)
+				#focus_owner.get_popup().grab_focus()
+			#elif focus_owner.get_selected_id() == 0:
+				##focus_owner.hovered = focus_owner.get_selected_id()
+				#focus_owner.selected = focus_owner.get_selected_id()
+				#focus_owner.grab_focus()
+				#focus_owner.button_pressed = true
+		if above_focused_control:
+			above_focused_control.grab_focus()
+	if Input.is_action_pressed("ui_down"):
+		if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
+			keyboard_navigation_mode = true
+			warping = true
+		# Keyboard mode menu navigation
+		var below_focused_control = get_viewport().gui_get_focus_owner().get_node_or_null(get_viewport().gui_get_focus_owner().focus_neighbor_bottom)
+		#if focus_owner is OptionButton:
+			#if focus_owner.button_pressed == true:
+				#focus_owner.button_pressed = false
+			#elif focus_owner.get_selected_id() + 1 < focus_owner.item_count:
+				#focus_owner.button_pressed = false
+				#focus_owner.select(focus_owner.get_selected_id() + 1)
+			#elif focus_owner.get_selected_id() == 0:
+				#focus_owner.hovered = focus_owner.get_selected_id()
+				#focus_owner.grab_focus()
+				#focus_owner.button_down = true
+		if below_focused_control:
+			below_focused_control.grab_focus()
 	
+	# Handle menu actions to be taken continuously with button input
+	left_right_balance = Input.get_axis("Left", "Right")
+	action_hold_count += 1.1
 	if focus_owner is HSlider:
 		dragging_slider = focus_owner
-	if Input.is_action_pressed("Left") and slider_drag_step_timer.time_left == 0:
-		# Keyboard mode menu navigation
-		slider_drag_step_timer = get_tree().create_timer(0.06, true, true)
+	if left_right_balance < 0 and slider_drag_step_timer.time_left == 0:
+		slider_drag_step_timer = get_tree().create_timer(0.4 / action_hold_count, true, true)
 		
 		var left_of_focused_control = get_viewport().gui_get_focus_owner().get_node_or_null(get_viewport().gui_get_focus_owner().get("focus_neighbor_left"))
 		if left_of_focused_control != null:
@@ -331,11 +409,10 @@ func _process(delta) -> void:
 		
 		focus_owner = get_viewport().gui_get_focus_owner()
 		if focus_owner is HSlider:
-			if (focus_owner.value - focus_owner.step) >= focus_owner.min_value:
+			if (focus_owner.value + focus_owner.step) >= focus_owner.min_value and left_right_balance < 0:
 				focus_owner.value -= focus_owner.step
-	if Input.is_action_pressed("Right") and slider_drag_step_timer.time_left == 0:
-		# Keyboard mode menu navigation
-		slider_drag_step_timer = get_tree().create_timer(0.06, true, true)
+	if left_right_balance > 0 and slider_drag_step_timer.time_left == 0:
+		slider_drag_step_timer = get_tree().create_timer(0.4 / action_hold_count, true, true)
 		
 		var right_of_focused_control = get_viewport().gui_get_focus_owner().get_node_or_null(get_viewport().gui_get_focus_owner().get("focus_neighbor_right"))
 		if right_of_focused_control != null:
@@ -345,7 +422,9 @@ func _process(delta) -> void:
 		if focus_owner is HSlider:
 			if (focus_owner.value + focus_owner.step) <= focus_owner.max_value:
 				focus_owner.value += focus_owner.step
-	
+	if Input.is_action_just_released("Left") or Input.is_action_just_released("Right"):
+		slider_drag_step_timer.time_left = 0.0
+		action_hold_count = 8
 	
 	if Input.is_action_just_pressed("Escape"):
 		if Options_Menu_Container.visible == false and Main_Menu_Container.visible == false:
@@ -588,12 +667,14 @@ func _on_controls_done_button_button_down():
 # _input() - This function is used for listening for the rebind key when a rebinding sequence is initiated
 func _input(event):
 	# Only rebind controls if the rebinding flag has been set to true
-	if rebinding and event.is_action_type() and !event.is_echo():
-		if event is InputEventMouseButton and event.is_pressed() == true:
+	if rebinding and event.is_action_type() and !event.is_echo() and event.is_pressed():
+		if event is InputEventMouseButton:
 			# Set the secondary rebind slot icon to the primary slot's old image to make room for the new bind
 			Rebind_Action_To_Secondary_Icon_Node_Dict.get(action_to_be_rebound).texture = Rebind_Action_To_Primary_Icon_Node_Dict.get(action_to_be_rebound).texture
 			# Erase event corresponding to oldest rebind slot (second slot) since only two can be bound at once
-			InputMap.action_erase_event(action_to_be_rebound, config.get_value("Controls", action_to_be_rebound)[1].substr(1))
+			var secondary_keybind_event = InputEventKey.new()
+			secondary_keybind_event.set_keycode(int(config.get_value("Controls", action_to_be_rebound)[1].substr(1)))
+			InputMap.action_erase_event(action_to_be_rebound, secondary_keybind_event)
 			# Actually update the binds list in the config file
 			Update_Config("Controls", action_to_be_rebound, Get_Config("Controls", action_to_be_rebound, 0), 1)
 			Update_Config("Controls", action_to_be_rebound, "m"+str(event.button_index), 0)
@@ -606,7 +687,7 @@ func _input(event):
 			else:
 				Rebind_Action_To_Primary_Icon_Node_Dict.get(action_to_be_rebound).texture = load(blank_button_icon_folder_path+blank_key_texture_name)
 			rebinding = false
-		elif event is InputEventKey and event.is_pressed() == true:
+		elif event is InputEventKey:
 			# Set secondary rebind slot icon to the primary slot's old image to make room for the new bind
 			Rebind_Action_To_Secondary_Icon_Node_Dict.get(action_to_be_rebound).texture = Rebind_Action_To_Primary_Icon_Node_Dict.get(action_to_be_rebound).texture
 			# Erase event corresponding to oldest rebind slot (second slot) since only two can be bound at once
@@ -761,7 +842,7 @@ func Check_And_Save_Window_Size():
 	Change_Override_Config("display/window/size/window_height_override", DisplayServer.window_get_size().y)
 #endregion
 
-#region ------Navigation Functions------q
+#region ------Navigation Functions------
 func Start_Game():
 	get_tree().change_scene_to_file("res://Scenes/Areas/world.tscn")
 
