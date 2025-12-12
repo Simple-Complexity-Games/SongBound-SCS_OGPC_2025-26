@@ -243,6 +243,7 @@ var dragging_slider = null
 var slider_drag_step_timer
 var action_hold_count = 1.05
 var left_right_balance
+var hovered_window_mode_button_item
 #endregion
 
 
@@ -311,16 +312,8 @@ func _process(delta) -> void:
 			warping = true
 		# Keyboard mode menu navigation
 		var above_focused_control = get_viewport().gui_get_focus_owner().get_node_or_null(get_viewport().gui_get_focus_owner().focus_neighbor_top)
-		if focus_owner is OptionButton:
-			if focus_owner.get_selected_id() - 1 >= 0:
-				focus_owner.button_pressed = false
-				focus_owner.select(focus_owner.get_selected_id() - 1)
-				focus_owner.get_popup().grab_focus()
-			elif focus_owner.get_selected_id() == 0:
-				#focus_owner.hovered = focus_owner.get_selected_id()
-				focus_owner.selected = focus_owner.get_selected_id()
-				focus_owner.grab_focus()
-				focus_owner.button_pressed = true
+		if focus_owner is OptionButton and focus_owner.get_popup().visible:
+			pass
 		elif above_focused_control:
 			above_focused_control.grab_focus()
 	elif Input.is_action_just_pressed("Down"):
@@ -329,60 +322,8 @@ func _process(delta) -> void:
 			warping = true
 		# Keyboard mode menu navigation
 		var below_focused_control = get_viewport().gui_get_focus_owner().get_node_or_null(get_viewport().gui_get_focus_owner().focus_neighbor_bottom)
-		if focus_owner is OptionButton:
-			if focus_owner.button_pressed == true:
-				focus_owner.button_pressed = false
-			elif focus_owner.get_selected_id() + 1 < focus_owner.item_count:
-				focus_owner.button_pressed = false
-				focus_owner.select(focus_owner.get_selected_id() + 1)
-			elif focus_owner.get_selected_id() == 0:
-				focus_owner.hovered = focus_owner.get_selected_id()
-				focus_owner.grab_focus()
-				focus_owner.button_down = true
-		elif below_focused_control:
-			below_focused_control.grab_focus()
-	elif Input.is_action_just_pressed("Jump"):
-		# Keyboard mode menu navigation
-		if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
-			keyboard_navigation_mode = true
-			warping = true
-		
-		# Handle menu interactions with the select / jump action in keyboard mode
-		focus_owner = get_viewport().gui_get_focus_owner()
-		if focus_owner is OptionButton:
-			if focus_owner.get_popup().visible == false:
-				focus_owner.show_popup()
-				focus_owner.get_popup().grab_focus()
-			elif focus_owner.get_popup().visible == true:
-				focus_owner.get_popup().visibile = false
-			focus_owner.button_down.emit()
-		elif focus_owner.get("pressed") != null:
-			focus_owner.button_down.emit()
-	if Input.is_action_just_pressed("ui_up"):
-		if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
-			keyboard_navigation_mode = true
-			warping = true
-		# Keyboard mode menu navigation
-		var above_focused_control = get_viewport().gui_get_focus_owner().get_node_or_null(get_viewport().gui_get_focus_owner().focus_neighbor_top)
-		#if focus_owner is OptionButton:
-			#if focus_owner.get_selected_id() - 1 >= 0:
-				#focus_owner.button_pressed = false
-				#focus_owner.select(focus_owner.get_selected_id() - 1)
-				#focus_owner.get_popup().grab_focus()
-			#elif focus_owner.get_selected_id() == 0:
-				##focus_owner.hovered = focus_owner.get_selected_id()
-				#focus_owner.selected = focus_owner.get_selected_id()
-				#focus_owner.grab_focus()
-				#focus_owner.button_pressed = true
-		if above_focused_control:
-			above_focused_control.grab_focus()
-	if Input.is_action_pressed("ui_down"):
-		if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
-			keyboard_navigation_mode = true
-			warping = true
-		# Keyboard mode menu navigation
-		var below_focused_control = get_viewport().gui_get_focus_owner().get_node_or_null(get_viewport().gui_get_focus_owner().focus_neighbor_bottom)
-		#if focus_owner is OptionButton:
+		if focus_owner is OptionButton and focus_owner.get_popup().visible:
+			pass
 			#if focus_owner.button_pressed == true:
 				#focus_owner.button_pressed = false
 			#elif focus_owner.get_selected_id() + 1 < focus_owner.item_count:
@@ -392,8 +333,45 @@ func _process(delta) -> void:
 				#focus_owner.hovered = focus_owner.get_selected_id()
 				#focus_owner.grab_focus()
 				#focus_owner.button_down = true
-		if below_focused_control:
+		elif below_focused_control:
 			below_focused_control.grab_focus()
+	elif Input.is_action_just_pressed("Jump"):
+		# Keyboard mode menu navigation
+		if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
+			keyboard_navigation_mode = true
+			warping = true
+		# Handle menu interactions with the select / jump action in keyboard mode
+		focus_owner = get_viewport().gui_get_focus_owner()
+		if focus_owner is OptionButton:
+			# Show the OptionButton popup menu and bind ui_up and ui_down actions to allow the hovered item
+			# in the OptionButton to be changed. It's jank but works.
+			if focus_owner.get_popup().visible == false:
+				focus_owner.show_popup()
+				InputMap.action_add_event("ui_up", InputMap.action_get_events("Up")[0])
+				InputMap.action_add_event("ui_up", InputMap.action_get_events("Up")[1])
+				InputMap.action_add_event("ui_down", InputMap.action_get_events("Down")[0])
+				InputMap.action_add_event("ui_down", InputMap.action_get_events("Down")[1])
+				focus_owner.get_popup().grab_focus()
+				hovered_window_mode_button_item = focus_owner.selected
+			# Hide the OptionButton popup menu and unbind ui_up and ui_down actions to return to normal
+			# keyboard mode navigation and select the hovered item as the new window mode
+			elif focus_owner.get_popup().visible == true:
+				focus_owner.get_popup().visible = false
+				InputMap.action_erase_events("ui_up")
+				InputMap.action_erase_events("ui_down")
+				focus_owner.select(hovered_window_mode_button_item)
+				_on_window_mode_button_item_selected(hovered_window_mode_button_item)
+			focus_owner.button_down.emit()
+		elif focus_owner.get("pressed") != null:
+			focus_owner.button_down.emit()
+	if Input.is_action_just_pressed("ui_up"):
+		if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
+			keyboard_navigation_mode = true
+			warping = true
+	if Input.is_action_just_pressed("ui_down"):
+		if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
+			keyboard_navigation_mode = true
+			warping = true
 	
 	# Handle menu actions to be taken continuously with button input
 	left_right_balance = Input.get_axis("Left", "Right")
@@ -824,8 +802,13 @@ func _on_screen_blur_button_button_down():
 func _on_window_mode_button_mouse_entered():
 	Hover_SFX_Player.playing = true
 	Window_Mode_Button.grab_focus()
+func _on_window_mode_button_item_focused(index):
+	hovered_window_mode_button_item = index
 func _on_window_mode_button_item_selected(index):
 	Change_Override_Config("display/window/size/mode", Button_To_WindowMode_Index_Dict.get(index))
+	if Button_To_WindowMode_Index_Dict.get(index) != DisplayServer.WINDOW_MODE_WINDOWED:
+		print("saved window size")
+		Check_And_Save_Window_Size()
 	DisplayServer.window_set_mode(Window_Mode_Index_Dict.get(index))
 # Done button
 func _on_video_done_button_mouse_entered() -> void:
@@ -833,7 +816,6 @@ func _on_video_done_button_mouse_entered() -> void:
 	Video_Done_Button.grab_focus()
 func _on_video_done_button_button_down() -> void:
 	Save_Config(config)
-	Check_And_Save_Window_Size()
 	Load_Options_Menu()
 
 # Function to save the current window size if in windowed mode to restore when launching or exiting fullscreen
