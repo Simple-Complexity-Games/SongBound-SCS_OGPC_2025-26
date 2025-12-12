@@ -807,7 +807,6 @@ func _on_window_mode_button_item_focused(index):
 func _on_window_mode_button_item_selected(index):
 	Change_Override_Config("display/window/size/mode", Button_To_WindowMode_Index_Dict.get(index))
 	if Button_To_WindowMode_Index_Dict.get(index) != DisplayServer.WINDOW_MODE_WINDOWED:
-		print("saved window size")
 		Check_And_Save_Window_Size()
 	DisplayServer.window_set_mode(Window_Mode_Index_Dict.get(index))
 # Done button
