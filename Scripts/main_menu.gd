@@ -268,13 +268,6 @@ func _ready() -> void:
 		Apply_Config(config)
 	
 	previous_window_size = DisplayServer.window_get_size()
-	
-	var ui_up_event = InputEventKey.new()
-	ui_up_event.keycode = 87
-	InputMap.action_add_event("ui_up", ui_up_event)
-	var ui_down_event = InputEventKey.new()
-	ui_down_event.keycode = 83
-	InputMap.action_add_event("ui_down", ui_down_event)
 
 func _process(delta) -> void:
 	if Music_Player.playing == false:
@@ -324,15 +317,6 @@ func _process(delta) -> void:
 		var below_focused_control = get_viewport().gui_get_focus_owner().get_node_or_null(get_viewport().gui_get_focus_owner().focus_neighbor_bottom)
 		if focus_owner is OptionButton and focus_owner.get_popup().visible:
 			pass
-			#if focus_owner.button_pressed == true:
-				#focus_owner.button_pressed = false
-			#elif focus_owner.get_selected_id() + 1 < focus_owner.item_count:
-				#focus_owner.button_pressed = false
-				#focus_owner.select(focus_owner.get_selected_id() + 1)
-			#elif focus_owner.get_selected_id() == 0:
-				#focus_owner.hovered = focus_owner.get_selected_id()
-				#focus_owner.grab_focus()
-				#focus_owner.button_down = true
 		elif below_focused_control:
 			below_focused_control.grab_focus()
 	elif Input.is_action_just_pressed("Jump"):
@@ -347,10 +331,14 @@ func _process(delta) -> void:
 			# in the OptionButton to be changed. It's jank but works.
 			if focus_owner.get_popup().visible == false:
 				focus_owner.show_popup()
-				InputMap.action_add_event("ui_up", InputMap.action_get_events("Up")[0])
-				InputMap.action_add_event("ui_up", InputMap.action_get_events("Up")[1])
-				InputMap.action_add_event("ui_down", InputMap.action_get_events("Down")[0])
-				InputMap.action_add_event("ui_down", InputMap.action_get_events("Down")[1])
+				if InputMap.action_get_events("Up").size() > 0:
+					InputMap.action_add_event("ui_up", InputMap.action_get_events("Up")[0])
+				if InputMap.action_get_events("Up").size() > 1:
+					InputMap.action_add_event("ui_up", InputMap.action_get_events("Up")[1])
+				if InputMap.action_get_events("Down").size() > 0:
+					InputMap.action_add_event("ui_down", InputMap.action_get_events("Down")[0])
+				if InputMap.action_get_events("Down").size() > 1:
+					InputMap.action_add_event("ui_down", InputMap.action_get_events("Down")[1])
 				focus_owner.get_popup().grab_focus()
 				hovered_window_mode_button_item = focus_owner.selected
 			# Hide the OptionButton popup menu and unbind ui_up and ui_down actions to return to normal
@@ -368,10 +356,18 @@ func _process(delta) -> void:
 		if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
 			keyboard_navigation_mode = true
 			warping = true
+		if focus_owner is OptionButton and focus_owner.get_popup().visible:
+			if hovered_window_mode_button_item == 2:
+				focus_owner.get_popup().hide()
+				InputMap.action_erase_events("ui_up")
+				InputMap.action_erase_events("ui_down")
 	if Input.is_action_just_pressed("ui_down"):
 		if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
 			keyboard_navigation_mode = true
 			warping = true
+		
+		if focus_owner is OptionButton and focus_owner.get_popup().visible:
+			focus_owner.button_pressed = false
 	
 	# Handle menu actions to be taken continuously with button input
 	left_right_balance = Input.get_axis("Left", "Right")
@@ -496,7 +492,8 @@ func _on_options_done_button_mouse_entered() -> void:
 	Options_Done_Button.grab_focus()
 func _on_options_done_button_button_down() -> void:
 	Save_Config(config)
-	Check_And_Save_Window_Size()
+	if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_WINDOWED:
+		Check_And_Save_Window_Size()
 	Load_Main_Menu()
 #endregion
 
@@ -523,6 +520,10 @@ func _on_left_unbind_button_button_down():
 	else:
 		Left_Bind_1.texture = null
 		Update_Config("Controls", "Left", "", 0)
+	# Delete end event in events list
+	if InputMap.action_get_events("Left").size() > 0:
+		var event_to_delete = InputMap.action_get_events("Left")[InputMap.action_get_events("Left").size() - 1]
+		InputMap.action_erase_event("Left", event_to_delete)
 # Right action rebind button
 func _on_right_bind_button_mouse_entered():
 	Hover_SFX_Player.playing = true
@@ -751,7 +752,8 @@ func _on_audio_done_button_mouse_entered() -> void:
 	Audio_Done_Button.grab_focus()
 func _on_audio_done_button_button_down() -> void:
 	Save_Config(config)
-	Check_And_Save_Window_Size()
+	if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_WINDOWED:
+		Check_And_Save_Window_Size()
 	Load_Options_Menu()
 #endregion
 
@@ -818,9 +820,16 @@ func _on_video_done_button_button_down() -> void:
 	Load_Options_Menu()
 
 # Function to save the current window size if in windowed mode to restore when launching or exiting fullscreen
-func Check_And_Save_Window_Size():
-	Change_Override_Config("display/window/size/window_width_override", DisplayServer.window_get_size().x)
-	Change_Override_Config("display/window/size/window_height_override", DisplayServer.window_get_size().y)
+func Check_And_Save_Window_Size(x = null, y = null):
+	if x:
+		Change_Override_Config("display/window/size/window_width_override", x)
+	else:
+		Change_Override_Config("display/window/size/window_height_override", DisplayServer.window_get_size().x)
+	
+	if y:
+		Change_Override_Config("display/window/size/window_height_override", y)
+	else:
+		Change_Override_Config("display/window/size/window_height_override", DisplayServer.window_get_size().y)
 #endregion
 
 #region ------Navigation Functions------
@@ -938,67 +947,73 @@ func Apply_Config(config):
 		# Erase all input events to make room for loading those from the config file
 		InputMap.action_erase_events(section_key)
 		
-		# Load the button icons for the bind codes in the config file to the primary rebind slot, adapting 
-		# to different input methods depending on the first letter of the bind code
-		var primary_rebind_slot_icon
-		if bind_list[0][0] == "m":
-			# If the mouse index is in the icon dictionary, load that icon. If not, load the blank key icon
-			# Use string slicing to get the numbers of the bind code, then convert it to an int for the dict
-			var icon_file_name = Mouse_Index_To_Button_Icon_File_Name_Dict.get(int(bind_list[0].substr(1)))
-			if icon_file_name:
-				primary_rebind_slot_icon = load(button_icon_folder_path+icon_file_name)
-			else:
-				primary_rebind_slot_icon = load(blank_button_icon_folder_path+blank_mouse_texture_name)
-			# Add keybind event using button index derived from numbers of bind code, found with substr() and cast to an int
-			var primary_keybind_event = InputEventMouseButton.new()
-			primary_keybind_event.set_button_index(int(bind_list[0].substr(1)))
-			primary_keybind_event.pressed = true
-			InputMap.action_add_event(section_key, primary_keybind_event)
-		elif bind_list[0][0] == "k":
-			# If the keycode is in the icon dictionary, load that icon. If not, load the blank mouse icon
-			# Use string slicing to get the numbers of the bind code, then convert it to an int for the dict
-			var icon_file_name = Keycode_To_Button_Icon_File_Name_Dict.get(int(bind_list[0].substr(1)))
-			if icon_file_name:
-				primary_rebind_slot_icon = load(button_icon_folder_path+icon_file_name)
-			else:
-				primary_rebind_slot_icon = load(blank_button_icon_folder_path+blank_key_texture_name)
-			# Add keybind event using keycode derived from numbers of bind code, found with substr() and cast to an int
-			var primary_keybind_event = InputEventKey.new()
-			primary_keybind_event.set_keycode(int(bind_list[0].substr(1)))
-			primary_keybind_event.pressed = true
-			InputMap.action_add_event(section_key, primary_keybind_event)
-		Rebind_Action_To_Primary_Icon_Node_Dict.get(str(section_key)).texture = primary_rebind_slot_icon
+		if bind_list[0] != "":
+			# Load the button icons for the bind codes in the config file to the primary rebind slot, adapting 
+			# to different input methods depending on the first letter of the bind code
+			var primary_rebind_slot_icon
+			if bind_list[0][0] == "m":
+				# If the mouse index is in the icon dictionary, load that icon. If not, load the blank key icon
+				# Use string slicing to get the numbers of the bind code, then convert it to an int for the dict
+				var icon_file_name = Mouse_Index_To_Button_Icon_File_Name_Dict.get(int(bind_list[0].substr(1)))
+				if icon_file_name:
+					primary_rebind_slot_icon = load(button_icon_folder_path+icon_file_name)
+				else:
+					primary_rebind_slot_icon = load(blank_button_icon_folder_path+blank_mouse_texture_name)
+				# Add keybind event using button index derived from numbers of bind code, found with substr() and cast to an int
+				var primary_keybind_event = InputEventMouseButton.new()
+				primary_keybind_event.set_button_index(int(bind_list[0].substr(1)))
+				primary_keybind_event.pressed = true
+				InputMap.action_add_event(section_key, primary_keybind_event)
+			elif bind_list[0][0] == "k":
+				# If the keycode is in the icon dictionary, load that icon. If not, load the blank mouse icon
+				# Use string slicing to get the numbers of the bind code, then convert it to an int for the dict
+				var icon_file_name = Keycode_To_Button_Icon_File_Name_Dict.get(int(bind_list[0].substr(1)))
+				if icon_file_name:
+					primary_rebind_slot_icon = load(button_icon_folder_path+icon_file_name)
+				else:
+					primary_rebind_slot_icon = load(blank_button_icon_folder_path+blank_key_texture_name)
+				# Add keybind event using keycode derived from numbers of bind code, found with substr() and cast to an int
+				var primary_keybind_event = InputEventKey.new()
+				primary_keybind_event.set_keycode(int(bind_list[0].substr(1)))
+				primary_keybind_event.pressed = true
+				InputMap.action_add_event(section_key, primary_keybind_event)
+			Rebind_Action_To_Primary_Icon_Node_Dict.get(str(section_key)).texture = primary_rebind_slot_icon
+		else:
+			Rebind_Action_To_Primary_Icon_Node_Dict.get(str(section_key)).texture = null
 		
-		# Load the button icons for the bind codes in the config file to the secondary rebind slot, adapting 
-		# to different input methods depending on the first letter of the bind code
-		var secondary_rebind_slot_icon
-		if bind_list[1][0] == "m":
-			# If the mouse index is in the icon dictionary, load that icon. If not, load the blank mouse icon
-			# Use string slicing to get the numbers of the bind code, then convert it to an int for the dict
-			var icon_file_name = Mouse_Index_To_Button_Icon_File_Name_Dict.get(int(bind_list[1].substr(1)))
-			if icon_file_name:
-				secondary_rebind_slot_icon = load(button_icon_folder_path+icon_file_name)
-			else:
-				secondary_rebind_slot_icon = load(blank_button_icon_folder_path+blank_mouse_texture_name)
-			# Add keybind event using button index derived from numbers of bind code, found with substr() and cast to an int
-			var secondary_keybind_event = InputEventMouse
-			secondary_keybind_event.set_button_index(int(bind_list[1].substr(1)))
-			secondary_keybind_event.pressed = true
-			InputMap.action_add_event(section_key, secondary_keybind_event)
-		elif bind_list[1][0] == "k":
-			# If the keycode is in the icon dictionary, load that icon. If not, load the blank key icon
-			# Use string slicing to get the numbers of the bind code, then convert it to an int for the dict
-			var icon_file_name = Keycode_To_Button_Icon_File_Name_Dict.get(int(bind_list[1].substr(1)))
-			if icon_file_name:
-				secondary_rebind_slot_icon = load(button_icon_folder_path+icon_file_name)
-			else:
-				secondary_rebind_slot_icon = load(blank_button_icon_folder_path+blank_key_texture_name)
-			# Add keybind event using keycode derived from numbers of bind code, found with substr() and cast to an int
-			var secondary_keybind_event = InputEventKey.new()
-			secondary_keybind_event.set_keycode(int(bind_list[1].substr(1)))
-			secondary_keybind_event.pressed = true
-			InputMap.action_add_event(section_key, secondary_keybind_event)
-		Rebind_Action_To_Secondary_Icon_Node_Dict.get(str(section_key)).texture = secondary_rebind_slot_icon
+		if bind_list[1] != "":
+			# Load the button icons for the bind codes in the config file to the secondary rebind slot, adapting 
+			# to different input methods depending on the first letter of the bind code
+			var secondary_rebind_slot_icon
+			if bind_list[1][0] == "m":
+				# If the mouse index is in the icon dictionary, load that icon. If not, load the blank mouse icon
+				# Use string slicing to get the numbers of the bind code, then convert it to an int for the dict
+				var icon_file_name = Mouse_Index_To_Button_Icon_File_Name_Dict.get(int(bind_list[1].substr(1)))
+				if icon_file_name:
+					secondary_rebind_slot_icon = load(button_icon_folder_path+icon_file_name)
+				else:
+					secondary_rebind_slot_icon = load(blank_button_icon_folder_path+blank_mouse_texture_name)
+				# Add keybind event using button index derived from numbers of bind code, found with substr() and cast to an int
+				var secondary_keybind_event = InputEventMouse
+				secondary_keybind_event.set_button_index(int(bind_list[1].substr(1)))
+				secondary_keybind_event.pressed = true
+				InputMap.action_add_event(section_key, secondary_keybind_event)
+			elif bind_list[1][0] == "k":
+				# If the keycode is in the icon dictionary, load that icon. If not, load the blank key icon
+				# Use string slicing to get the numbers of the bind code, then convert it to an int for the dict
+				var icon_file_name = Keycode_To_Button_Icon_File_Name_Dict.get(int(bind_list[1].substr(1)))
+				if icon_file_name:
+					secondary_rebind_slot_icon = load(button_icon_folder_path+icon_file_name)
+				else:
+					secondary_rebind_slot_icon = load(blank_button_icon_folder_path+blank_key_texture_name)
+				# Add keybind event using keycode derived from numbers of bind code, found with substr() and cast to an int
+				var secondary_keybind_event = InputEventKey.new()
+				secondary_keybind_event.set_keycode(int(bind_list[1].substr(1)))
+				secondary_keybind_event.pressed = true
+				InputMap.action_add_event(section_key, secondary_keybind_event)
+			Rebind_Action_To_Secondary_Icon_Node_Dict.get(str(section_key)).texture = secondary_rebind_slot_icon
+		else:
+			Rebind_Action_To_Secondary_Icon_Node_Dict.get(str(section_key)).texture = null
 	#endregion
 	
 	#region <> Audio settings
