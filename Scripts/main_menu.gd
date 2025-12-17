@@ -421,6 +421,7 @@ func _process(delta) -> void:
 			Change_Override_Config("display/window/size/mode", DisplayServer.WINDOW_MODE_FULLSCREEN)
 		else:
 			DisplayServer.window_set_mode(previous_window_mode)
+			DisplayServer.window_set_size(Vector2(ProjectSettings.get_setting_with_override("display/window/size/window_width_override").x, ProjectSettings.get_setting_with_override("display/window/size/window_width_override").y))
 			if Window_Mode_Index_Dict.has(previous_window_mode):
 				Window_Mode_Button.selected = Window_Mode_Index_Dict.find_key(previous_window_mode)
 				Change_Override_Config("display/window/size/mode", previous_window_mode)
@@ -474,7 +475,7 @@ func _on_quit_button_mouse_entered() -> void:
 func _on_quit_button_button_down() -> void:
 	get_tree().quit()
 	if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_WINDOWED:
-		Check_And_Save_Window_Size()
+		Save_Window_Size(DisplayServer.window_get_size().x, DisplayServer.window_get_size().y)
 #endregion
 
 #region ------Options Menu Functions------
@@ -503,7 +504,7 @@ func _on_options_done_button_mouse_entered() -> void:
 func _on_options_done_button_button_down() -> void:
 	Save_Config(config)
 	if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_WINDOWED:
-		Check_And_Save_Window_Size()
+		Save_Window_Size(DisplayServer.window_get_size().x, DisplayServer.window_get_size().y)
 	Load_Main_Menu()
 #endregion
 
@@ -671,7 +672,7 @@ func _on_controls_done_button_mouse_entered():
 func _on_controls_done_button_button_down():
 	Save_Config(config)
 	if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_WINDOWED:
-		Check_And_Save_Window_Size()
+		Save_Window_Size(DisplayServer.window_get_size().x, DisplayServer.window_get_size().y)
 	Load_Options_Menu()
 
 # _input() - This function is used for listening for the rebind key when a rebinding sequence is initiated
@@ -790,7 +791,7 @@ func _on_audio_done_button_mouse_entered() -> void:
 func _on_audio_done_button_button_down() -> void:
 	Save_Config(config)
 	if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_WINDOWED:
-		Check_And_Save_Window_Size()
+		Save_Window_Size(DisplayServer.window_get_size().x, DisplayServer.window_get_size().y)
 	Load_Options_Menu()
 #endregion
 
@@ -857,7 +858,7 @@ func _on_window_mode_button_item_focused(index):
 func _on_window_mode_button_item_selected(index):
 	Change_Override_Config("display/window/size/mode", Button_To_WindowMode_Index_Dict.get(index))
 	if Button_To_WindowMode_Index_Dict.get(index) != DisplayServer.WINDOW_MODE_WINDOWED:
-		Check_And_Save_Window_Size()
+		Save_Window_Size(DisplayServer.window_get_size().x, DisplayServer.window_get_size().y)
 	DisplayServer.window_set_mode(Window_Mode_Index_Dict.get(index))
 # Done button
 func _on_video_done_button_mouse_entered() -> void:
@@ -866,20 +867,13 @@ func _on_video_done_button_mouse_entered() -> void:
 func _on_video_done_button_button_down() -> void:
 	Save_Config(config)
 	if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_WINDOWED:
-		Check_And_Save_Window_Size()
+		Save_Window_Size(DisplayServer.window_get_size().x, DisplayServer.window_get_size().y)
 	Load_Options_Menu()
 
 # Function to save the current window size if in windowed mode to restore when launching or exiting fullscreen
-func Check_And_Save_Window_Size(x = null, y = null):
-	if x:
-		Change_Override_Config("display/window/size/window_width_override", x)
-	else:
-		Change_Override_Config("display/window/size/window_height_override", DisplayServer.window_get_size().x)
-	
-	if y:
-		Change_Override_Config("display/window/size/window_height_override", y)
-	else:
-		Change_Override_Config("display/window/size/window_height_override", DisplayServer.window_get_size().y)
+func Save_Window_Size(x = null, y = null):
+	Change_Override_Config("display/window/size/window_width_override", x)
+	Change_Override_Config("display/window/size/window_height_override", y)
 #endregion
 
 #region ------Navigation Functions------
@@ -1095,5 +1089,6 @@ func Apply_Config(config):
 func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
 		Save_Config(config)
-		Check_And_Save_Window_Size()
+		if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_WINDOWED:
+			Save_Window_Size(DisplayServer.window_get_size().x, DisplayServer.window_get_size().y)
 #endregion
