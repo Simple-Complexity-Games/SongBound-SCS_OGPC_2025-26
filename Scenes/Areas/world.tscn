@@ -536,3 +536,4 @@ tile_set = SubResource("TileSet_5a7ea")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_syva4")
+autoplay = true
