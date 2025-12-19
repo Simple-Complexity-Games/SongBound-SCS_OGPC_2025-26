@@ -244,6 +244,7 @@ var slider_drag_step_timer
 var action_hold_count = 1.05
 var left_right_balance
 var hovered_window_mode_button_item
+var in_popup_menu
 #endregion
 
 
@@ -284,6 +285,13 @@ func _process(delta) -> void:
 		Input.warp_mouse(Vector2(0, 0))
 		get_viewport().warp_mouse(mouse_hide_position)
 	
+	if focus_owner is OptionButton:
+		if focus_owner.get_popup().visible == true and in_popup_menu:
+			if Input.get_last_mouse_velocity().length() > 5:
+				var event = InputEventMouseMotion.new()
+				event.set_relative(Vector2(50, 50))
+				_input(event)
+	
 	# Allow keyboard / controller navigation, and hide mouse pointer and hover effects when in keyboard mode by setting all mouse filters to pass
 	if Input.is_action_just_pressed("Left"):
 		# Mouse hiding
@@ -305,7 +313,7 @@ func _process(delta) -> void:
 			warping = true
 		# Keyboard mode menu navigation
 		var above_focused_control = get_viewport().gui_get_focus_owner().get_node_or_null(get_viewport().gui_get_focus_owner().focus_neighbor_top)
-		if focus_owner is OptionButton and focus_owner.get_popup().visible:
+		if focus_owner is OptionButton and focus_owner.get_popup().visible and in_popup_menu:
 			pass
 		elif above_focused_control:
 			above_focused_control.grab_focus()
@@ -315,12 +323,11 @@ func _process(delta) -> void:
 			warping = true
 		# Keyboard mode menu navigation
 		var below_focused_control = get_viewport().gui_get_focus_owner().get_node_or_null(get_viewport().gui_get_focus_owner().focus_neighbor_bottom)
-		if focus_owner is OptionButton and focus_owner.get_popup().visible:
+		if focus_owner is OptionButton and focus_owner.get_popup().visible and in_popup_menu:
 			pass
 		elif below_focused_control:
 			below_focused_control.grab_focus()
 	elif Input.is_action_just_pressed("Jump"):
-		# Keyboard mode menu navigation
 		if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
 			keyboard_navigation_mode = true
 			warping = true
@@ -349,6 +356,7 @@ func _process(delta) -> void:
 				InputMap.action_erase_events("ui_down")
 				focus_owner.select(hovered_window_mode_button_item)
 				_on_window_mode_button_item_selected(hovered_window_mode_button_item)
+				in_popup_menu = false
 			focus_owner.button_down.emit()
 		elif focus_owner.get("pressed") != null:
 			focus_owner.button_down.emit()
@@ -413,6 +421,7 @@ func _process(delta) -> void:
 			Change_Override_Config("display/window/size/mode", DisplayServer.WINDOW_MODE_FULLSCREEN)
 		else:
 			DisplayServer.window_set_mode(previous_window_mode)
+			DisplayServer.window_set_size(Vector2(ProjectSettings.get_setting_with_override("display/window/size/window_width_override").x, ProjectSettings.get_setting_with_override("display/window/size/window_width_override").y))
 			if Window_Mode_Index_Dict.has(previous_window_mode):
 				Window_Mode_Button.selected = Window_Mode_Index_Dict.find_key(previous_window_mode)
 				Change_Override_Config("display/window/size/mode", previous_window_mode)
@@ -465,6 +474,8 @@ func _on_quit_button_mouse_entered() -> void:
 	Quit_Button.grab_focus()
 func _on_quit_button_button_down() -> void:
 	get_tree().quit()
+	if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_WINDOWED:
+		Save_Window_Size(DisplayServer.window_get_size().x, DisplayServer.window_get_size().y)
 #endregion
 
 #region ------Options Menu Functions------
@@ -493,7 +504,7 @@ func _on_options_done_button_mouse_entered() -> void:
 func _on_options_done_button_button_down() -> void:
 	Save_Config(config)
 	if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_WINDOWED:
-		Check_And_Save_Window_Size()
+		Save_Window_Size(DisplayServer.window_get_size().x, DisplayServer.window_get_size().y)
 	Load_Main_Menu()
 #endregion
 
@@ -546,6 +557,10 @@ func _on_right_unbind_button_button_down():
 	else:
 		Right_Bind_1.texture = null
 		Update_Config("Controls", "Right", "", 0)
+	# Delete end event in events list
+	if InputMap.action_get_events("Right").size() > 0:
+		var event_to_delete = InputMap.action_get_events("Right")[InputMap.action_get_events("Right").size() - 1]
+		InputMap.action_erase_event("Right", event_to_delete)
 # Up action rebind button
 func _on_up_bind_button_mouse_entered():
 	Hover_SFX_Player.playing = true
@@ -568,6 +583,10 @@ func _on_up_unbind_button_button_down():
 	else:
 		Up_Bind_1.texture = null
 		Update_Config("Controls", "Up", "", 0)
+	# Delete end event in events list
+	if InputMap.action_get_events("Up").size() > 0:
+		var event_to_delete = InputMap.action_get_events("Up")[InputMap.action_get_events("Up").size() - 1]
+		InputMap.action_erase_event("Up", event_to_delete)
 # Down action rebind button
 func _on_down_bind_button_mouse_entered():
 	Hover_SFX_Player.playing = true
@@ -590,6 +609,10 @@ func _on_down_unbind_button_button_down():
 	else:
 		Down_Bind_1.texture = null
 		Update_Config("Controls", "Down", "", 0)
+	# Delete end event in events list
+	if InputMap.action_get_events("Down").size() > 0:
+		var event_to_delete = InputMap.action_get_events("Down")[InputMap.action_get_events("Down").size() - 1]
+		InputMap.action_erase_event("Down", event_to_delete)
 # Jump action rebind button
 func _on_jump_bind_button_mouse_entered():
 	Hover_SFX_Player.playing = true
@@ -612,6 +635,10 @@ func _on_jump_unbind_button_button_down():
 	else:
 		Jump_Bind_1.texture = null
 		Update_Config("Controls", "Jump", "", 0)
+	# Delete end event in events list
+	if InputMap.action_get_events("Jump").size() > 0:
+		var event_to_delete = InputMap.action_get_events("Jump")[InputMap.action_get_events("Jump").size() - 1]
+		InputMap.action_erase_event("Jump", event_to_delete)
 # Glide action rebind button
 func _on_glide_bind_button_mouse_entered():
 	Hover_SFX_Player.playing = true
@@ -634,17 +661,28 @@ func _on_glide_unbind_button_button_down():
 	else:
 		Glide_Bind_1.texture = null
 		Update_Config("Controls", "Glide", "", 0)
+	# Delete end event in events list
+	if InputMap.action_get_events("Glide").size() > 0:
+		var event_to_delete = InputMap.action_get_events("Glide")[InputMap.action_get_events("Glide").size() - 1]
+		InputMap.action_erase_event("Glide", event_to_delete)
 # Done button 
 func _on_controls_done_button_mouse_entered():
 	Hover_SFX_Player.playing = true
 	Controls_Done_Button.grab_focus()
 func _on_controls_done_button_button_down():
 	Save_Config(config)
-	Check_And_Save_Window_Size()
+	if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_WINDOWED:
+		Save_Window_Size(DisplayServer.window_get_size().x, DisplayServer.window_get_size().y)
 	Load_Options_Menu()
 
 # _input() - This function is used for listening for the rebind key when a rebinding sequence is initiated
 func _input(event):
+	if event is InputEventMouseButton and focus_owner is OptionButton:
+		if focus_owner.get_popup().visible == true:
+			InputMap.action_erase_events("ui_up")
+			InputMap.action_erase_events("ui_down")
+			in_popup_menu = false
+	
 	# Only rebind controls if the rebinding flag has been set to true
 	if rebinding and event.is_action_type() and !event.is_echo() and event.is_pressed():
 		if event is InputEventMouseButton:
@@ -706,8 +744,8 @@ func _input(event):
 			Set_Hoverable_Control_Mouse_Filters_To_List(mouse_filters)
 	if event is InputEventMouseMotion:
 		if (
-				(last_mouse_hover_position.distance_to(mouse_hide_position) < 50
-				and event.relative.length() > 3 or event.relative.length() > 300)
+				((last_mouse_hover_position.distance_to(mouse_hide_position) < 50
+				and event.relative.length() > 3) or event.relative.length() > 300)
 				and keyboard_navigation_mode
 		):
 			keyboard_navigation_mode = false
@@ -753,7 +791,7 @@ func _on_audio_done_button_mouse_entered() -> void:
 func _on_audio_done_button_button_down() -> void:
 	Save_Config(config)
 	if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_WINDOWED:
-		Check_And_Save_Window_Size()
+		Save_Window_Size(DisplayServer.window_get_size().x, DisplayServer.window_get_size().y)
 	Load_Options_Menu()
 #endregion
 
@@ -804,12 +842,23 @@ func _on_screen_blur_button_button_down():
 func _on_window_mode_button_mouse_entered():
 	Hover_SFX_Player.playing = true
 	Window_Mode_Button.grab_focus()
+func _on_window_mode_button_button_down():
+	focus_owner = get_viewport().gui_get_focus_owner()
+	if InputMap.action_get_events("Up").size() > 0:
+		InputMap.action_add_event("ui_up", InputMap.action_get_events("Up")[0])
+	if InputMap.action_get_events("Up").size() > 1:
+		InputMap.action_add_event("ui_up", InputMap.action_get_events("Up")[1])
+	if InputMap.action_get_events("Down").size() > 0:
+		InputMap.action_add_event("ui_down", InputMap.action_get_events("Down")[0])
+	if InputMap.action_get_events("Down").size() > 1:
+		InputMap.action_add_event("ui_down", InputMap.action_get_events("Down")[1])
+	in_popup_menu = true
 func _on_window_mode_button_item_focused(index):
 	hovered_window_mode_button_item = index
 func _on_window_mode_button_item_selected(index):
 	Change_Override_Config("display/window/size/mode", Button_To_WindowMode_Index_Dict.get(index))
 	if Button_To_WindowMode_Index_Dict.get(index) != DisplayServer.WINDOW_MODE_WINDOWED:
-		Check_And_Save_Window_Size()
+		Save_Window_Size(DisplayServer.window_get_size().x, DisplayServer.window_get_size().y)
 	DisplayServer.window_set_mode(Window_Mode_Index_Dict.get(index))
 # Done button
 func _on_video_done_button_mouse_entered() -> void:
@@ -817,19 +866,14 @@ func _on_video_done_button_mouse_entered() -> void:
 	Video_Done_Button.grab_focus()
 func _on_video_done_button_button_down() -> void:
 	Save_Config(config)
+	if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_WINDOWED:
+		Save_Window_Size(DisplayServer.window_get_size().x, DisplayServer.window_get_size().y)
 	Load_Options_Menu()
 
 # Function to save the current window size if in windowed mode to restore when launching or exiting fullscreen
-func Check_And_Save_Window_Size(x = null, y = null):
-	if x:
-		Change_Override_Config("display/window/size/window_width_override", x)
-	else:
-		Change_Override_Config("display/window/size/window_height_override", DisplayServer.window_get_size().x)
-	
-	if y:
-		Change_Override_Config("display/window/size/window_height_override", y)
-	else:
-		Change_Override_Config("display/window/size/window_height_override", DisplayServer.window_get_size().y)
+func Save_Window_Size(x = null, y = null):
+	Change_Override_Config("display/window/size/window_width_override", x)
+	Change_Override_Config("display/window/size/window_height_override", y)
 #endregion
 
 #region ------Navigation Functions------
@@ -1045,5 +1089,6 @@ func Apply_Config(config):
 func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
 		Save_Config(config)
-		Check_And_Save_Window_Size()
+		if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_WINDOWED:
+			Save_Window_Size(DisplayServer.window_get_size().x, DisplayServer.window_get_size().y)
 #endregion

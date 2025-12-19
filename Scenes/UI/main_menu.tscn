@@ -1245,6 +1245,7 @@ environment = SubResource("Environment_yhxw7")
 [connection signal="drag_ended" from="Video_Menu_Container/Saturation_Slider" to="." method="_on_saturation_slider_drag_ended"]
 [connection signal="mouse_entered" from="Video_Menu_Container/Saturation_Slider" to="." method="_on_saturation_slider_mouse_entered"]
 [connection signal="value_changed" from="Video_Menu_Container/Saturation_Slider" to="." method="_on_saturation_slider_value_changed"]
+[connection signal="button_down" from="Video_Menu_Container/Window_Mode_Button" to="." method="_on_window_mode_button_button_down"]
 [connection signal="item_focused" from="Video_Menu_Container/Window_Mode_Button" to="." method="_on_window_mode_button_item_focused"]
 [connection signal="item_selected" from="Video_Menu_Container/Window_Mode_Button" to="." method="_on_window_mode_button_item_selected"]
 [connection signal="mouse_entered" from="Video_Menu_Container/Window_Mode_Button" to="." method="_on_window_mode_button_mouse_entered"]
