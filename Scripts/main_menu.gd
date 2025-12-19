@@ -415,13 +415,17 @@ func _process(delta) -> void:
 			Load_Main_Menu()
 	if Input.is_action_just_pressed("Fullscreen"):
 		if DisplayServer.window_get_mode() != DisplayServer.WINDOW_MODE_FULLSCREEN:
+			if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_WINDOWED:
+				Save_Window_Size(DisplayServer.window_get_size().x, DisplayServer.window_get_size().y)
+				Save_Window_Position(DisplayServer.window_get_position().x, DisplayServer.window_get_position().y)
 			previous_window_mode = DisplayServer.window_get_mode()
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 			Window_Mode_Button.selected = Window_Mode_Index_Dict.find_key(DisplayServer.WINDOW_MODE_FULLSCREEN)
 			Change_Override_Config("display/window/size/mode", DisplayServer.WINDOW_MODE_FULLSCREEN)
 		else:
 			DisplayServer.window_set_mode(previous_window_mode)
-			DisplayServer.window_set_size(Vector2(ProjectSettings.get_setting_with_override("display/window/size/window_width_override").x, ProjectSettings.get_setting_with_override("display/window/size/window_width_override").y))
+			DisplayServer.window_set_size(Vector2(float(ProjectSettings.get_setting_with_override("display/window/size/window_width_override")), float(ProjectSettings.get_setting_with_override("display/window/size/window_height_override"))))
+			#DisplayServer.window_set_position(ProjectSettings.get_setting_with_override("display/window/size/initial_position"))
 			if Window_Mode_Index_Dict.has(previous_window_mode):
 				Window_Mode_Button.selected = Window_Mode_Index_Dict.find_key(previous_window_mode)
 				Change_Override_Config("display/window/size/mode", previous_window_mode)
@@ -742,6 +746,8 @@ func _input(event):
 			keyboard_navigation_mode = false
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 			Set_Hoverable_Control_Mouse_Filters_To_List(mouse_filters)
+			InputMap.action_erase_events("ui_up")
+			InputMap.action_erase_events("ui_down")
 	if event is InputEventMouseMotion:
 		if (
 				((last_mouse_hover_position.distance_to(mouse_hide_position) < 50
@@ -751,6 +757,8 @@ func _input(event):
 			keyboard_navigation_mode = false
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 			Set_Hoverable_Control_Mouse_Filters_To_List(mouse_filters)
+			InputMap.action_erase_events("ui_up")
+			InputMap.action_erase_events("ui_down")
 #endregion
 
 #region ------Audio Menu Functions------
@@ -860,6 +868,8 @@ func _on_window_mode_button_item_selected(index):
 	if Button_To_WindowMode_Index_Dict.get(index) != DisplayServer.WINDOW_MODE_WINDOWED:
 		Save_Window_Size(DisplayServer.window_get_size().x, DisplayServer.window_get_size().y)
 	DisplayServer.window_set_mode(Window_Mode_Index_Dict.get(index))
+	InputMap.action_erase_events("ui_up")
+	InputMap.action_erase_events("ui_down")
 # Done button
 func _on_video_done_button_mouse_entered() -> void:
 	Hover_SFX_Player.playing = true
@@ -874,6 +884,19 @@ func _on_video_done_button_button_down() -> void:
 func Save_Window_Size(x = null, y = null):
 	Change_Override_Config("display/window/size/window_width_override", x)
 	Change_Override_Config("display/window/size/window_height_override", y)
+
+func Save_Window_Position(x = null, y = null):
+	var position = Vector2()
+	
+	if x != null:
+		position.x = x
+	else:
+		position.x = DisplayServer.window_get_position().x
+	
+	if y != null:
+		position.y = y
+	else:
+		position.y = DisplayServer.window_get_position().y
 #endregion
 
 #region ------Navigation Functions------
@@ -961,6 +984,9 @@ func Create_Config(config):
 	config.set_value("Controls", "Down", ["k4194322", "k83"])
 	config.set_value("Controls", "Jump", ["k67", "k32"])
 	config.set_value("Controls", "Glide", ["k90", "k4194325"])
+	
+	if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_WINDOWED:
+		Save_Window_Size(960, 540)
 
 func Get_Config(section, key, index = null):
 	if index != null:
@@ -1084,6 +1110,7 @@ func Apply_Config(config):
 	Screen_Blur_Button.button_pressed = config.get_value("Video", "Screen_Blur")
 	# Window setting
 	Window_Mode_Button.selected = Button_To_WindowMode_Index_Dict.find_key(ProjectSettings.get_setting_with_override("display/window/size/mode"))
+	DisplayServer.window_set_size(Vector2(float(ProjectSettings.get_setting_with_override("display/window/size/window_width_override")), float(ProjectSettings.get_setting_with_override("display/window/size/window_height_override"))))
 	#endregion
 # Save settings upon quitting application at window manager request
 func _notification(what):
