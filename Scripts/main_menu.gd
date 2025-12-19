@@ -417,6 +417,7 @@ func _process(delta) -> void:
 		if DisplayServer.window_get_mode() != DisplayServer.WINDOW_MODE_FULLSCREEN:
 			if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_WINDOWED:
 				Save_Window_Size(DisplayServer.window_get_size().x, DisplayServer.window_get_size().y)
+				Save_Window_Position(DisplayServer.window_get_position().x, DisplayServer.window_get_position().y)
 			previous_window_mode = DisplayServer.window_get_mode()
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 			Window_Mode_Button.selected = Window_Mode_Index_Dict.find_key(DisplayServer.WINDOW_MODE_FULLSCREEN)
@@ -424,6 +425,7 @@ func _process(delta) -> void:
 		else:
 			DisplayServer.window_set_mode(previous_window_mode)
 			DisplayServer.window_set_size(Vector2(float(ProjectSettings.get_setting_with_override("display/window/size/window_width_override")), float(ProjectSettings.get_setting_with_override("display/window/size/window_height_override"))))
+			#DisplayServer.window_set_position(ProjectSettings.get_setting_with_override("display/window/size/initial_position"))
 			if Window_Mode_Index_Dict.has(previous_window_mode):
 				Window_Mode_Button.selected = Window_Mode_Index_Dict.find_key(previous_window_mode)
 				Change_Override_Config("display/window/size/mode", previous_window_mode)
@@ -882,6 +884,19 @@ func _on_video_done_button_button_down() -> void:
 func Save_Window_Size(x = null, y = null):
 	Change_Override_Config("display/window/size/window_width_override", x)
 	Change_Override_Config("display/window/size/window_height_override", y)
+
+func Save_Window_Position(x = null, y = null):
+	var position = Vector2()
+	
+	if x != null:
+		position.x = x
+	else:
+		position.x = DisplayServer.window_get_position().x
+	
+	if y != null:
+		position.y = y
+	else:
+		position.y = DisplayServer.window_get_position().y
 #endregion
 
 #region ------Navigation Functions------
