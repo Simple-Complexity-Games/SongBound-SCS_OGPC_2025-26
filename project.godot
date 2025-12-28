@@ -23,6 +23,8 @@ boot_splash/minimum_display_time=1000
 window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/size/sharp_corners=true
+window/size/window_width_override=960
+window/size/window_height_override=540
 window/stretch/mode="viewport"
 
 [dotnet]
@@ -135,3 +137,4 @@ Fullscreen={
 
 2d_physics/layer_1="Terrain"
 2d_physics/layer_2="Entities"
+2d_physics/layer_3="Perchable Surfaces"
