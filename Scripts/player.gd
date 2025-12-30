@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@onready var Perch_Collision_Area = get_node("Perch_Collision_Area")
+
 #region ------Movement Constant Definitions------
 const ACCELERATION_GROUND = 35 # Grounded acceleration
 const ACCELERATION_AIR = 30 # Ungrounded acceleration
@@ -23,6 +25,7 @@ var total_jumps = 0 # Total amount of jumps you've done
 var jumping = false # Tells us if we're jumping
 var gliding = false
 var gliding_speed = 100
+var can_perch = false
 
 
 # Variables for Coyote Time
@@ -127,6 +130,11 @@ func Handle_Fullscreening():
 		else:
 			DisplayServer.window_set_mode(previous_window_mode)
 
-
 func coyote_timer_done(): # For Coyote time 
 	coyote_time = false
+
+func _perch_collision_area_body_entered(body: Node2D) -> void:
+	can_perch = true
+func _perch_collision_area_body_exited(body: Node2D) -> void:
+	if not Perch_Collision_Area.has_overlapping_bodies():
+		can_perch = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bdkged5clqdnl"]
+[gd_scene load_steps=6 format=3 uid="uid://bdkged5clqdnl"]
 
 [ext_resource type="Script" uid="uid://csxtgnkd7vffc" path="res://Scripts/player.gd" id="1_nqm6o"]
 [ext_resource type="Texture2D" uid="uid://c6r4fv54mx5nv" path="res://Assets/Art/Sprites/icon.svg" id="1_v0iea"]
@@ -15,14 +15,27 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i3pqv"]
-size = Vector2(14, 24)
+size = Vector2(16, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nqm6o"]
+size = Vector2(16, 4)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_nqm6o")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.109375, 0.1875)
+position = Vector2(0, -12)
+scale = Vector2(0.125, 0.1875)
 sprite_frames = SubResource("SpriteFrames_onrkg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -12)
 shape = SubResource("RectangleShape2D_i3pqv")
+
+[node name="Perch_Collision_Area" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Perch_Collision_Area"]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_nqm6o")
