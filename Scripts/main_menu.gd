@@ -270,7 +270,7 @@ func _ready() -> void:
 	
 	previous_window_size = DisplayServer.window_get_size()
 
-func _process(delta) -> void:
+func _process(_delta) -> void:
 	if Music_Player.playing == false:
 		Music_Player.playing = true
 	
@@ -886,17 +886,17 @@ func Save_Window_Size(x = null, y = null):
 	Change_Override_Config("display/window/size/window_height_override", y)
 
 func Save_Window_Position(x = null, y = null):
-	var position = Vector2()
+	var window_position = Vector2()
 	
 	if x != null:
-		position.x = x
+		window_position.x = x
 	else:
-		position.x = DisplayServer.window_get_position().x
+		window_position.x = DisplayServer.window_get_position().x
 	
 	if y != null:
-		position.y = y
+		window_position.y = y
 	else:
-		position.y = DisplayServer.window_get_position().y
+		window_position.y = DisplayServer.window_get_position().y
 #endregion
 
 #region ------Navigation Functions------
@@ -965,25 +965,25 @@ func Load_Video_Menu():
 #endregion
 
 #region ------Config Functions------
-func Create_Config(config):
+func Create_Config(config_file):
 	# Set audio default values
-	config.set_value("Audio", "Master_Volume", 70)
-	config.set_value("Audio", "Music_Volume", 70)
-	config.set_value("Audio", "SFX_Volume", 70)
+	config_file.set_value("Audio", "Master_Volume", 70)
+	config_file.set_value("Audio", "Music_Volume", 70)
+	config_file.set_value("Audio", "SFX_Volume", 70)
 	# Set video default values
-	config.set_value("Video", "Brightness", 1)
-	config.set_value("Video", "Contrast", 1)
-	config.set_value("Video", "Saturation", 1)
-	config.set_value("Video", "Window_Mode", 0)
-	config.set_value("Video", "Screen_Shake", false)
-	config.set_value("Video", "Screen_Blur", false)
+	config_file.set_value("Video", "Brightness", 1)
+	config_file.set_value("Video", "Contrast", 1)
+	config_file.set_value("Video", "Saturation", 1)
+	config_file.set_value("Video", "Window_Mode", 0)
+	config_file.set_value("Video", "Screen_Shake", false)
+	config_file.set_value("Video", "Screen_Blur", false)
 	# Set default keybind values (wasd and zxc)
-	config.set_value("Controls", "Left", ["k4194319", "k65"])
-	config.set_value("Controls", "Right", ["k4194321", "k68"])
-	config.set_value("Controls", "Up", ["k4194320", "k87"])
-	config.set_value("Controls", "Down", ["k4194322", "k83"])
-	config.set_value("Controls", "Jump", ["k67", "k32"])
-	config.set_value("Controls", "Glide", ["k90", "k4194325"])
+	config_file.set_value("Controls", "Left", ["k4194319", "k65"])
+	config_file.set_value("Controls", "Right", ["k4194321", "k68"])
+	config_file.set_value("Controls", "Up", ["k4194320", "k87"])
+	config_file.set_value("Controls", "Down", ["k4194322", "k83"])
+	config_file.set_value("Controls", "Jump", ["k67", "k32"])
+	config_file.set_value("Controls", "Glide", ["k90", "k4194325"])
 	
 	if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_WINDOWED:
 		Save_Window_Size(960, 540)
@@ -1007,13 +1007,13 @@ func Change_Override_Config(setting_path, value):
 	ProjectSettings.set_setting(setting_path, value)
 	ProjectSettings.save_custom("override.cfg")
 
-func Save_Config(config):
-	config.save("user://config")
+func Save_Config(config_file):
+	config_file.save("user://config")
 
-func Apply_Config(config):
+func Apply_Config(config_file):
 	#region <> Controls settings
-	for section_key in config.get_section_keys("Controls"):
-		var bind_list = config.get_value("Controls", section_key)
+	for section_key in config_file.get_section_keys("Controls"):
+		var bind_list = config_file.get_value("Controls", section_key)
 		# Erase all input events to make room for loading those from the config file
 		InputMap.action_erase_events(section_key)
 		
@@ -1090,24 +1090,24 @@ func Apply_Config(config):
 	# Very important to divide each of these by around 100 to get a range close to 0-1
 	# because otherwise upon loading an existing config file the player's eardrums will be blasted out by 
 	# horribly deep-fried and amplified audio (ask me how I know)
-	AudioServer.set_bus_volume_linear(0, config.get_value("Audio", "Master_Volume") / 80.0)
-	Master_Volume_Slider.value = config.get_value("Audio", "Master_Volume")
-	AudioServer.set_bus_volume_linear(1, config.get_value("Audio", "Music_Volume") / 80.0)
-	Music_Volume_Slider.value = config.get_value("Audio", "Music_Volume")
-	AudioServer.set_bus_volume_linear(2, config.get_value("Audio", "SFX_Volume") / 80.0)
-	SFX_Volume_Slider.value = config.get_value("Audio", "SFX_Volume")
+	AudioServer.set_bus_volume_linear(0, config_file.get_value("Audio", "Master_Volume") / 80.0)
+	Master_Volume_Slider.value = config_file.get_value("Audio", "Master_Volume")
+	AudioServer.set_bus_volume_linear(1, config_file.get_value("Audio", "Music_Volume") / 80.0)
+	Music_Volume_Slider.value = config_file.get_value("Audio", "Music_Volume")
+	AudioServer.set_bus_volume_linear(2, config_file.get_value("Audio", "SFX_Volume") / 80.0)
+	SFX_Volume_Slider.value = config_file.get_value("Audio", "SFX_Volume")
 	#endregion
 	
 	#region <> Video settings
-	World_Environment.environment.adjustment_brightness = config.get_value("Video", "Brightness")
+	World_Environment.environment.adjustment_brightness = config_file.get_value("Video", "Brightness")
 	Video_Brightness_Slider.value = World_Environment.environment.adjustment_brightness
-	World_Environment.environment.adjustment_contrast = config.get_value("Video", "Contrast")
+	World_Environment.environment.adjustment_contrast = config_file.get_value("Video", "Contrast")
 	Video_Contrast_Slider.value = World_Environment.environment.adjustment_contrast
-	World_Environment.environment.adjustment_saturation = config.get_value("Video", "Saturation")
+	World_Environment.environment.adjustment_saturation = config_file.get_value("Video", "Saturation")
 	Video_Saturation_Slider.value = World_Environment.environment.adjustment_saturation
 	# Screen shake and blur
-	Screen_Shake_Button.button_pressed = config.get_value("Video", "Screen_Shake")
-	Screen_Blur_Button.button_pressed = config.get_value("Video", "Screen_Blur")
+	Screen_Shake_Button.button_pressed = config_file.get_value("Video", "Screen_Shake")
+	Screen_Blur_Button.button_pressed = config_file.get_value("Video", "Screen_Blur")
 	# Window setting
 	Window_Mode_Button.selected = Button_To_WindowMode_Index_Dict.find_key(ProjectSettings.get_setting_with_override("display/window/size/mode"))
 	DisplayServer.window_set_size(Vector2(float(ProjectSettings.get_setting_with_override("display/window/size/window_width_override")), float(ProjectSettings.get_setting_with_override("display/window/size/window_height_override"))))
