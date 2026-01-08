@@ -49,6 +49,19 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	Handle_Inputs()
 	Handle_Fullscreening()
+	
+	#Developer Tools
+	if Input.is_action_just_pressed("Teleport_Up"):
+		position.y -= 200
+		
+	if Input.is_action_just_pressed("Teleport_Down"):
+		position.y += 200
+		
+	if Input.is_action_just_pressed("Teleport_Left"):
+		position.x -= 1500
+		
+	if Input.is_action_just_pressed("Teleport_Right"):
+		position.x += 1500
 
 func _physics_process(delta: float) -> void:
 	#Apply gravity
