@@ -39,3 +39,6 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Perch_Collision_Area"]
 position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_nqm6o")
+
+[connection signal="body_entered" from="Perch_Collision_Area" to="." method="_on_perch_collision_area_body_entered"]
+[connection signal="body_exited" from="Perch_Collision_Area" to="." method="_on_perch_collision_area_body_exited"]

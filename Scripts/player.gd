@@ -10,13 +10,15 @@ const DECELERATON_SPEED_AIR = 0.005
 const ACCELERATION_FLYING = 20
 const PASSIVE_ACCEL_AIR = 2
 const GROUND_SPEED = 200.0
-const AIR_SPEED = 150
+const AIR_SPEED = 150.0
 const JUMP_VELOCITY = -400.0
 const MAX_JUMPS = 2
 const MAX_GLIDE_SPEED = 380
 const MIN_GLIDE_SPEED = 40
 const MAX_FALL_SPEED = 415
 const GLIDE_ACCELERATION = 12
+const PERCH_LANDING_SPEED = 0.5
+const PERCH_DECELERATION_SPEED = 38
 #endregion
 
 # Variables for Movement/Jump
@@ -26,6 +28,8 @@ var jumping = false # Tells us if we're jumping
 var gliding = false
 var gliding_speed = 100
 var can_perch = false
+var perch_coordinates = Vector2(0, 0)
+var perching = false
 
 
 # Variables for Coyote Time
@@ -42,7 +46,7 @@ var previous_window_mode = DisplayServer.WINDOW_MODE_MAXIMIZED
 func _ready() -> void:
 	pass
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	Handle_Inputs()
 	Handle_Fullscreening()
 	
@@ -52,7 +56,7 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	#Apply gravity
-	if not on_ground and not gliding and velocity.y < MAX_FALL_SPEED: 
+	if not on_ground and not gliding and not perching and velocity.y < MAX_FALL_SPEED: 
 		velocity += get_gravity() * delta
 	
 	
@@ -61,6 +65,8 @@ func _physics_process(delta: float) -> void:
 	Handle_Jump()
 	
 	Handle_Glide()
+	
+	Handle_Perch()
 	
 	move_and_slide()
 
@@ -92,12 +98,15 @@ func Handle_Jump():
 		velocity.y = JUMP_VELOCITY
 		jumping = true
 		total_jumps += 1
+		perching = false
 	elif Input.is_action_just_pressed("Jump") and total_jumps < MAX_JUMPS and not (is_on_floor() or coyote_time):
 		velocity.y = JUMP_VELOCITY
-		total_jumps += 2
+		total_jumps += 1
+		perching = false
 	elif Input.is_action_just_pressed("Jump") and (total_jumps < MAX_JUMPS or abilities.get("flight")):
 		velocity.y = JUMP_VELOCITY
 		total_jumps += 1
+		perching = false
 	elif Input.is_action_just_released("Jump") and velocity.y < 0:
 		velocity.y = velocity.y / 3
 		jumping = false
@@ -117,7 +126,8 @@ func Handle_Glide():
 			if is_on_floor():
 				velocity.x = move_toward(velocity.x, direction * GROUND_SPEED, ACCELERATION_GROUND)
 			else:
-				velocity.x = move_toward(velocity.x, direction * AIR_SPEED, ACCELERATION_AIR)
+				if not perching:
+					velocity.x = move_toward(velocity.x, direction * AIR_SPEED, ACCELERATION_AIR)
 		else:
 			velocity.x = move_toward(velocity.x, 0, DECELERATON_SPEED)
 	else:
@@ -125,6 +135,22 @@ func Handle_Glide():
 			velocity.x = move_toward(velocity.x, direction * AIR_SPEED, ACCELERATION_FLYING)
 		else:
 			velocity.x = move_toward(velocity.x, 0, DECELERATON_SPEED_AIR)
+
+func Handle_Perch():
+	if Input.is_action_pressed("Up"):
+		if can_perch and velocity.y >= 0:
+			if not perching:
+				velocity.x = velocity.x / 2
+				velocity.y = velocity.y / 2
+			perching = true
+			velocity.x = move_toward(velocity.x, 0, PERCH_DECELERATION_SPEED)
+			velocity.y = move_toward(velocity.y, 0, PERCH_DECELERATION_SPEED)
+			position.x = move_toward(position.x, perch_coordinates.x, PERCH_LANDING_SPEED)
+			position.y = move_toward(position.y, perch_coordinates.y, PERCH_LANDING_SPEED)
+			total_jumps = 0
+	if Input.is_action_just_released("Up") and perching:
+		perching = false
+		velocity = Vector2(0, 0)
 
 func Handle_Fullscreening():
 	if Input.is_action_just_pressed("Fullscreen"):
@@ -137,8 +163,9 @@ func Handle_Fullscreening():
 func coyote_timer_done(): # For Coyote time 
 	coyote_time = false
 
-func _perch_collision_area_body_entered(body: Node2D) -> void:
+func _on_perch_collision_area_body_entered(_body: Node2D) -> void:
 	can_perch = true
-func _perch_collision_area_body_exited(body: Node2D) -> void:
-	if not Perch_Collision_Area.has_overlapping_bodies():
+	perch_coordinates = self.position
+func _on_perch_collision_area_body_exited(_body: Node2D) -> void:
+	if not Perch_Collision_Area.has_overlapping_bodies() and not perching:
 		can_perch = false
