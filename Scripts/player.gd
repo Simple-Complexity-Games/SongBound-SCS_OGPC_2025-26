@@ -18,7 +18,8 @@ const MIN_GLIDE_SPEED = 40
 const MAX_FALL_SPEED = 415
 const GLIDE_ACCELERATION = 12
 const PERCH_LANDING_SPEED = 0.5
-const PERCH_DECELERATION_SPEED = 38
+const PERCH_DECELERATION_SPEED = 10
+const FLAP_SPEED = 100
 #endregion
 
 # Variables for Movement/Jump
@@ -30,6 +31,7 @@ var gliding_speed = 100
 var can_perch = false
 var perch_coordinates = Vector2(0, 0)
 var perching = false
+var flapping = false
 
 
 # Variables for Coyote Time
@@ -52,7 +54,7 @@ func _process(_delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	#Apply gravity
-	if not on_ground and not gliding and not perching and velocity.y < MAX_FALL_SPEED: 
+	if not on_ground and not gliding and not perching and not flapping and velocity.y < MAX_FALL_SPEED: 
 		velocity += get_gravity() * delta
 	
 	
@@ -136,17 +138,25 @@ func Handle_Perch():
 	if Input.is_action_pressed("Up"):
 		if can_perch and velocity.y >= 0:
 			if not perching:
-				velocity.x = velocity.x / 2
-				velocity.y = velocity.y / 2
+				velocity.x = velocity.x / 6
+				velocity.y = velocity.y / 6
 			perching = true
 			velocity.x = move_toward(velocity.x, 0, PERCH_DECELERATION_SPEED)
 			velocity.y = move_toward(velocity.y, 0, PERCH_DECELERATION_SPEED)
 			position.x = move_toward(position.x, perch_coordinates.x, PERCH_LANDING_SPEED)
 			position.y = move_toward(position.y, perch_coordinates.y, PERCH_LANDING_SPEED)
 			total_jumps = 0
-	if Input.is_action_just_released("Up") and perching:
-		perching = false
-		velocity = Vector2(0, 0)
+	if Input.is_action_just_pressed("Up"):
+		flapping = true
+		var tween = get_tree().create_tween().set_ease(Tween.EASE_OUT)
+		if velocity.y > FLAP_SPEED:
+			tween.tween_property(self, "velocity:y", FLAP_SPEED, 0.8)
+	
+	if Input.is_action_just_released("Up"):
+		flapping = false
+		if perching:
+			perching = false
+			velocity = Vector2(0, 0)
 
 func Handle_Fullscreening():
 	if Input.is_action_just_pressed("Fullscreen"):
