@@ -19,7 +19,8 @@ const MAX_FALL_SPEED = 415
 const GLIDE_ACCELERATION = 12
 const PERCH_LANDING_SPEED = 0.5
 const PERCH_DECELERATION_SPEED = 10
-const FLAP_SPEED = 100
+const HOVER_SPEED = 150
+const HOVERING_DECELERATION = 1
 #endregion
 
 # Variables for Movement/Jump
@@ -31,7 +32,7 @@ var gliding_speed = 100
 var can_perch = false
 var perch_coordinates = Vector2(0, 0)
 var perching = false
-var flapping = false
+var hovering = false
 
 
 # Variables for Coyote Time
@@ -67,7 +68,7 @@ func _process(_delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	#Apply gravity
-	if not on_ground and not gliding and not perching and not flapping and velocity.y < MAX_FALL_SPEED: 
+	if (not gliding or hovering) and not perching and velocity.y < MAX_FALL_SPEED - (int(hovering) * (MAX_FALL_SPEED - HOVER_SPEED)): 
 		velocity += get_gravity() * delta
 	
 	
@@ -123,9 +124,8 @@ func Handle_Jump():
 		jumping = false
 
 func Handle_Glide(): 
-	if gliding:
+	if gliding and not hovering and not perching:
 		velocity.y = move_toward(velocity.y, (((MIN_GLIDE_SPEED - MAX_GLIDE_SPEED)/AIR_SPEED) * (abs(velocity.x) - AIR_SPEED) + MIN_GLIDE_SPEED), GLIDE_ACCELERATION)
-		
 		#if velocity.x > 5: 
 			#velocity.x += PASSIVE_ACCEL_AIR 
 		#elif velocity.x < -5: 
@@ -149,6 +149,12 @@ func Handle_Glide():
 
 func Handle_Perch():
 	if Input.is_action_pressed("Up"):
+		#if not is_on_floor():
+			#if velocity.x > 20:
+				#print("h")
+				#velocity.x -= HOVERING_DECELERATION
+			#if velocity.x < -20:
+				#velocity.x += HOVERING_DECELERATION
 		if can_perch and velocity.y >= 0:
 			if not perching:
 				velocity.x = velocity.x / 6
@@ -160,13 +166,13 @@ func Handle_Perch():
 			position.y = move_toward(position.y, perch_coordinates.y, PERCH_LANDING_SPEED)
 			total_jumps = 0
 	if Input.is_action_just_pressed("Up"):
-		flapping = true
-		var tween = get_tree().create_tween().set_ease(Tween.EASE_OUT)
-		if velocity.y > FLAP_SPEED:
-			tween.tween_property(self, "velocity:y", FLAP_SPEED, 0.8)
+		hovering = true
+		if velocity.y > HOVER_SPEED:
+			var tween = get_tree().create_tween().set_ease(Tween.EASE_OUT)
+			tween.tween_property(self, "velocity:y", HOVER_SPEED, 0.5)
 	
 	if Input.is_action_just_released("Up"):
-		flapping = false
+		hovering = false
 		if perching:
 			perching = false
 			velocity = Vector2(0, 0)
@@ -187,4 +193,5 @@ func _on_perch_collision_area_body_entered(_body: Node2D) -> void:
 	perch_coordinates = self.position
 func _on_perch_collision_area_body_exited(_body: Node2D) -> void:
 	if not Perch_Collision_Area.has_overlapping_bodies() and not perching:
+		await get_tree().create_timer(0.1).timeout
 		can_perch = false
