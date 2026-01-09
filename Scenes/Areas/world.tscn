@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://cj6w02wqewygg"]
+[gd_scene load_steps=23 format=4 uid="uid://cj6w02wqewygg"]
 
 [ext_resource type="Script" uid="uid://dltd48sm6e1bk" path="res://Scripts/camera_2d.gd" id="1_67hrm"]
 [ext_resource type="PackedScene" uid="uid://bdkged5clqdnl" path="res://Scenes/Entities/player.tscn" id="2_gwl6k"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://d2ugjn6om4qs" path="res://Assets/Art/Sprites/Avythera_Plains_Tree.png" id="7_vc2e2"]
 [ext_resource type="Texture2D" uid="uid://8ydaoyd111dk" path="res://Assets/Art/Sprites/Caravan.png" id="9_sghl5"]
 [ext_resource type="AudioStream" uid="uid://c624t28jwuwvw" path="res://Assets/Sound/Music/Vulture Boss Music Concept Actually just chill town music concept lol.wav" id="10_syva4"]
+[ext_resource type="PackedScene" uid="uid://ck25xcff0e7si" path="res://Scenes/travel_sign.tscn" id="11_wcev2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kykf2"]
 texture = ExtResource("3_2pjc6")
@@ -98,7 +99,7 @@ texture = ExtResource("3_2pjc6")
 [sub_resource type="TileSet" id="TileSet_enowb"]
 sources/0 = SubResource("TileSetAtlasSource_kykf2")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yin3e"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sjvcn"]
 texture = ExtResource("3_0qglv")
 0:0/size_in_atlas = Vector2i(12, 12)
 0:0/0 = 0
@@ -137,7 +138,7 @@ texture = ExtResource("3_0qglv")
 0:12/0/physics_layer_1/polygon_1/points = PackedVector2Array(0.35972595, -63.310272, 18.345596, -62.41098, 45.684128, -53.418045, 68.70604, -53.777763, 46.763275, -57.195076, 34.532883, -64.749146, 51.799316, -67.267166, 64.389435, -72.84279, 86.871765, -73.38236, 63.310272, -76.080246, 49.641006, -70.86434, 14.928284, -70.144905, 1.4388733, -72.662926, -14.928268, -67.08731, -24.64064, -73.562225, -34.892586, -72.30321, -44.964676, -81.835724, -56.655495, -79.67742, -71.22405, -82.19544, -60.072815, -77.698975, -46.943123, -76.97954, -41.3675, -70.144905, -60.432526, -68.885895, -74.64137, -63.490135, -85.25304, -52.159035, -71.04419, -61.691544, -58.813797, -65.28872, -39.74877, -64.749146, -29.137108, -67.80674, -23.921204, -63.84985, -16.007423, -62.41098)
 0:12/0/physics_layer_1/polygon_1/one_way = true
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_go701"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_enowb"]
 texture = ExtResource("3_2pjc6")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, 8, 8, -8, 8)
@@ -302,7 +303,7 @@ texture = ExtResource("3_2pjc6")
 8:8/0 = 0
 8:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, 8, 0, 0, -8, 8)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wcev2"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_suda1"]
 texture = ExtResource("5_vc2e2")
 0:0/size_in_atlas = Vector2i(4, 3)
 0:0/0 = 0
@@ -364,7 +365,7 @@ texture = ExtResource("5_vc2e2")
 8:0/0 = 0
 8:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-6.5, 8, -0.5, 5.5, 5.5, 5, 8, 8)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2pjc6"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w7ne4"]
 texture = ExtResource("4_gwl6k")
 0:0/size_in_atlas = Vector2i(8, 8)
 0:0/0 = 0
@@ -392,7 +393,7 @@ texture = ExtResource("4_gwl6k")
 0:8/0/physics_layer_1/polygon_2/points = PackedVector2Array(22.94477, -17.868496, 27.411896, -10.45713, 32.08207, -3.045765, 39.290382, 2.132038, 52.285652, 2.5381393, 39.899536, 0.5076294, 32.89427, -5.2793274, 29.746979, -11.878489)
 0:8/0/physics_layer_1/polygon_2/one_way = true
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sghl5"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bwcnv"]
 texture = ExtResource("6_yin3e")
 0:0/size_in_atlas = Vector2i(12, 12)
 0:0/0 = 0
@@ -433,7 +434,7 @@ texture = ExtResource("6_yin3e")
 12:19/size_in_atlas = Vector2i(12, 5)
 12:19/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_syva4"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6kq0q"]
 texture = ExtResource("7_vc2e2")
 2:2/size_in_atlas = Vector2i(4, 6)
 2:2/0 = 0
@@ -458,7 +459,7 @@ texture = ExtResource("7_vc2e2")
 0:10/size_in_atlas = Vector2i(6, 6)
 0:10/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vc2e2"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x68yl"]
 resource_name = "water"
 texture = ExtResource("3_2pjc6")
 0:0/0 = 0
@@ -543,7 +544,7 @@ texture = ExtResource("3_2pjc6")
 8:3/0 = 0
 1:1/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sjvcn"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vijum"]
 texture = ExtResource("9_sghl5")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(4, 3.5, 8, 2, 8, 8, 2.5, 8)
@@ -639,14 +640,14 @@ physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 2
 physics_layer_1/collision_layer = 4
 physics_layer_1/collision_mask = 0
-sources/2 = SubResource("TileSetAtlasSource_2pjc6")
-sources/1 = SubResource("TileSetAtlasSource_go701")
-sources/0 = SubResource("TileSetAtlasSource_yin3e")
-sources/3 = SubResource("TileSetAtlasSource_sghl5")
-sources/4 = SubResource("TileSetAtlasSource_syva4")
-sources/12 = SubResource("TileSetAtlasSource_wcev2")
-sources/5 = SubResource("TileSetAtlasSource_vc2e2")
-sources/6 = SubResource("TileSetAtlasSource_sjvcn")
+sources/2 = SubResource("TileSetAtlasSource_w7ne4")
+sources/1 = SubResource("TileSetAtlasSource_enowb")
+sources/0 = SubResource("TileSetAtlasSource_sjvcn")
+sources/3 = SubResource("TileSetAtlasSource_bwcnv")
+sources/4 = SubResource("TileSetAtlasSource_6kq0q")
+sources/12 = SubResource("TileSetAtlasSource_suda1")
+sources/5 = SubResource("TileSetAtlasSource_x68yl")
+sources/6 = SubResource("TileSetAtlasSource_vijum")
 
 [node name="World" type="Node2D"]
 
@@ -689,3 +690,9 @@ tile_set = SubResource("TileSet_5a7ea")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_syva4")
 autoplay = true
+
+[node name="travel sign" parent="." instance=ExtResource("11_wcev2")]
+position = Vector2(29, 29)
+travelsign = {
+0: "res://Scenes/Areas/world2.tscn"
+}

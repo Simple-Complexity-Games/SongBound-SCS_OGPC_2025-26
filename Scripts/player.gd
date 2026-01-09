@@ -161,8 +161,8 @@ func Handle_Perch():
 			total_jumps = 0
 	if Input.is_action_just_pressed("Up"):
 		flapping = true
-		var tween = get_tree().create_tween().set_ease(Tween.EASE_OUT)
 		if velocity.y > FLAP_SPEED:
+			var tween = get_tree().create_tween().set_ease(Tween.EASE_OUT)
 			tween.tween_property(self, "velocity:y", FLAP_SPEED, 0.8)
 	
 	if Input.is_action_just_released("Up"):
