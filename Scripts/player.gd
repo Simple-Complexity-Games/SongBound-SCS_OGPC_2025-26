@@ -33,6 +33,7 @@ var can_perch = false
 var perch_coordinates = Vector2(0, 0)
 var perching = false
 var hovering = false
+var hover_queued = false
 
 
 # Variables for Coyote Time
@@ -45,6 +46,11 @@ var abilities = {"flight":0, "glide":1}
 
 # Variable for handling fullscreen requests (f11 on windows)
 var previous_window_mode = DisplayServer.WINDOW_MODE_MAXIMIZED
+
+var hover_velocity_tween
+var perch_velocity_tween
+var perch_position_tween
+
 
 func _ready() -> void:
 	pass
@@ -157,23 +163,33 @@ func Handle_Perch():
 				#velocity.x += HOVERING_DECELERATION
 		if can_perch and velocity.y >= 0:
 			if not perching:
-				velocity.x = velocity.x / 6
-				velocity.y = velocity.y / 6
-			perching = true
-			velocity.x = move_toward(velocity.x, 0, PERCH_DECELERATION_SPEED)
-			velocity.y = move_toward(velocity.y, 0, PERCH_DECELERATION_SPEED)
-			position.x = move_toward(position.x, perch_coordinates.x, PERCH_LANDING_SPEED)
-			position.y = move_toward(position.y, perch_coordinates.y, PERCH_LANDING_SPEED)
+				perch_velocity_tween = get_tree().create_tween().set_ease(Tween.EASE_OUT)
+				perch_velocity_tween.tween_property(self, "velocity:y", 0, 0.8)
+				perch_position_tween = get_tree().create_tween().set_ease(Tween.EASE_OUT)
+				perch_position_tween.tween_property(self, "position", perch_coordinates, 1)
+				perching = true
 			total_jumps = 0
+		
+		if velocity.y > HOVER_SPEED and hover_queued:
+			hover_queued = false
+			hovering = true
+			hover_velocity_tween = get_tree().create_tween().set_ease(Tween.EASE_OUT)
+			hover_velocity_tween.tween_property(self, "velocity:y", HOVER_SPEED, 0.8)
 	if Input.is_action_just_pressed("Up"):
-		hovering = true
-		if velocity.y > HOVER_SPEED:
-			var tween = get_tree().create_tween().set_ease(Tween.EASE_OUT)
-			tween.tween_property(self, "velocity:y", HOVER_SPEED, 0.8)
+		hover_queued = true
+		if can_perch:
+			perching = true
+			perch_coordinates = self.position
 	
 	if Input.is_action_just_released("Up"):
+		hover_queued = false
 		hovering = false
-		if perching:
+		hover_velocity_tween.kill()
+		print("k")
+		if can_perch:
+			perch_velocity_tween.kill()
+			perch_position_tween.kill()
+			print("j")
 			perching = false
 			velocity = Vector2(0, 0)
 
@@ -190,8 +206,11 @@ func coyote_timer_done(): # For Coyote time
 
 func _on_perch_collision_area_body_entered(_body: Node2D) -> void:
 	can_perch = true
-	perch_coordinates = self.position
+	if perching == false:
+		perch_coordinates = self.position
 func _on_perch_collision_area_body_exited(_body: Node2D) -> void:
-	if not Perch_Collision_Area.has_overlapping_bodies() and not perching:
+	if not Perch_Collision_Area.has_overlapping_bodies():
 		await get_tree().create_timer(0.1).timeout
-		can_perch = false
+		#can_perch = false
+		if perching:
+			perching = false
