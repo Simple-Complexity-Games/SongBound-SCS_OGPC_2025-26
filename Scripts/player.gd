@@ -169,7 +169,7 @@ func Handle_Perch():
 		hovering = true
 		if velocity.y > HOVER_SPEED:
 			var tween = get_tree().create_tween().set_ease(Tween.EASE_OUT)
-			tween.tween_property(self, "velocity:y", HOVER_SPEED, 0.5)
+			tween.tween_property(self, "velocity:y", HOVER_SPEED, 0.8)
 	
 	if Input.is_action_just_released("Up"):
 		hovering = false
