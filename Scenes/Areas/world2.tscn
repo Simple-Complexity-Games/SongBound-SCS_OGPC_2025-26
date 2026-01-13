@@ -564,7 +564,7 @@ sources/6 = SubResource("TileSetAtlasSource_cmkx2")
 [node name="Node2D" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(17, 31)
+position = Vector2(8, 32)
 zoom = Vector2(3, 3)
 limit_right = 10000
 limit_bottom = 3000
@@ -574,7 +574,7 @@ script = ExtResource("1_li37h")
 [node name="Player" parent="." instance=ExtResource("2_w8vfd")]
 unique_name_in_owner = true
 z_index = 10
-position = Vector2(7, 15)
+position = Vector2(8, 46)
 
 [node name="ground" type="TileMapLayer" parent="."]
 modulate = Color(0.403922, 0.541176, 0.133333, 1)
