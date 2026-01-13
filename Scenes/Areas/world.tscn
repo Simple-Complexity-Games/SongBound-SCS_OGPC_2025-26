@@ -698,4 +698,7 @@ autoplay = true
 
 [node name="travel sign" parent="." instance=ExtResource("11_wcev2")]
 position = Vector2(29, 29)
+travel_sign = {
+0: "res://Scenes/Areas/world2.tscn"
+}
 sign_text = "help"
