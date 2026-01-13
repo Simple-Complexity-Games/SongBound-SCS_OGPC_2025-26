@@ -10,12 +10,14 @@ const DECELERATON_SPEED_AIR = 0.005
 const ACCELERATION_FLYING = 20
 const PASSIVE_ACCEL_AIR = 2
 const GROUND_SPEED = 200.0
-const AIR_SPEED = 150.0
-const JUMP_VELOCITY = -400.0
+const AIR_SPEED = 160.0
+const JUMP_VELOCITY = -300
+const JUMP_GRAVITY_MULT = 0.55
 const MAX_JUMPS = 2
 const MAX_GLIDE_SPEED = 380
 const MIN_GLIDE_SPEED = 40
-const MAX_FALL_SPEED = 415
+const MAX_FALL_SPEED = 515
+const SOFT_GRAVITY_SECONDS = 0.08
 const GLIDE_ACCELERATION = 12
 const PERCH_LANDING_SPEED = 0.5
 const PERCH_DECELERATION_SPEED = 10
@@ -24,6 +26,8 @@ const HOVERING_DECELERATION = 1
 #endregion
 
 # Variables for Movement/Jump
+var soft_gravity_timer = null
+
 var direction = 0
 var total_jumps = 0 # Total amount of jumps you've done
 var jumping = false # Tells us if we're jumping
@@ -74,9 +78,16 @@ func _process(_delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	#Apply gravity
-	if (not gliding or hovering) and not perching and velocity.y < MAX_FALL_SPEED - (int(hovering) * (MAX_FALL_SPEED - HOVER_SPEED)): 
-		velocity += get_gravity() * delta
-	
+	if soft_gravity_timer != null:
+		if soft_gravity_timer.time_left > 0:
+			velocity += get_gravity() * delta * ((SOFT_GRAVITY_SECONDS - soft_gravity_timer.time_left) / SOFT_GRAVITY_SECONDS)
+		else:
+			soft_gravity_timer = null
+	elif (not gliding or hovering) and not perching and velocity.y < MAX_FALL_SPEED - (int(hovering) * (MAX_FALL_SPEED - HOVER_SPEED)): 
+		if not jumping:
+			velocity += get_gravity() * delta
+		else:
+			velocity += get_gravity() * delta * JUMP_GRAVITY_MULT
 	
 	Update_Status_Vars()
 	
@@ -102,11 +113,13 @@ func Update_Status_Vars():
 			
 			coyote_jump_timer = get_tree().create_timer(coyote_seconds, false, true)
 			coyote_jump_timer.timeout.connect(coyote_timer_done.bind())
+			soft_gravity_timer = get_tree().create_timer(SOFT_GRAVITY_SECONDS, false, true)
 
 func Handle_Inputs():
 	direction = Input.get_axis("Left", "Right") # For left and right movement. 
 	
 	if Input.is_action_pressed("Glide") and not is_on_floor() and not gliding: # Turns on Gliding
+		jumping = false
 		gliding = true
 	elif Input.is_action_just_released("Glide") and gliding:
 		gliding = false
@@ -119,14 +132,15 @@ func Handle_Jump():
 		perching = false
 	elif Input.is_action_just_pressed("Jump") and total_jumps < MAX_JUMPS and not (is_on_floor() or coyote_time):
 		velocity.y = JUMP_VELOCITY
+		jumping = true
 		total_jumps += 1
 		perching = false
 	elif Input.is_action_just_pressed("Jump") and (total_jumps < MAX_JUMPS or abilities.get("flight")):
 		velocity.y = JUMP_VELOCITY
+		jumping = true
 		total_jumps += 1
 		perching = false
-	elif Input.is_action_just_released("Jump") and velocity.y < 0:
-		velocity.y = velocity.y / 3
+	elif Input.is_action_just_released("Jump") or (velocity.y > 0 and not is_on_floor()):
 		jumping = false
 
 func Handle_Glide(): 
@@ -176,6 +190,7 @@ func Handle_Perch():
 			hover_velocity_tween = get_tree().create_tween().set_ease(Tween.EASE_OUT)
 			hover_velocity_tween.tween_property(self, "velocity:y", HOVER_SPEED, 0.8)
 	if Input.is_action_just_pressed("Up"):
+		jumping = false
 		hover_queued = true
 		if can_perch:
 			perching = true
