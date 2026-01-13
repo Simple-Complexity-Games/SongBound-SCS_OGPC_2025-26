@@ -126,21 +126,36 @@ func Handle_Inputs():
 
 func Handle_Jump():
 	if Input.is_action_just_pressed("Jump") and (is_on_floor() or coyote_time) and not gliding and total_jumps < MAX_JUMPS:
-		velocity.y = JUMP_VELOCITY
 		jumping = true
+		if perching == true:
+			perching = false
+			perch_velocity_tween = get_tree().create_tween().set_ease(Tween.EASE_OUT)
+			perch_velocity_tween.tween_property(self, "velocity:y", 0, 0.8)
+			perch_position_tween = get_tree().create_tween().set_ease(Tween.EASE_OUT)
+			perch_position_tween.tween_property(self, "position", perch_coordinates, 1)
+		velocity.y = JUMP_VELOCITY
 		total_jumps += 1
-		perching = false
 	elif Input.is_action_just_pressed("Jump") and total_jumps < MAX_JUMPS and not (is_on_floor() or coyote_time):
-		velocity.y = JUMP_VELOCITY
 		jumping = true
+		if perching == true:
+			perching = false
+			perch_velocity_tween = get_tree().create_tween().set_ease(Tween.EASE_OUT)
+			perch_velocity_tween.tween_property(self, "velocity:y", 0, 0.8)
+			perch_position_tween = get_tree().create_tween().set_ease(Tween.EASE_OUT)
+			perch_position_tween.tween_property(self, "position", perch_coordinates, 1)
+		velocity.y = JUMP_VELOCITY
 		total_jumps += 1
-		perching = false
 	elif Input.is_action_just_pressed("Jump") and (total_jumps < MAX_JUMPS or abilities.get("flight")):
-		velocity.y = JUMP_VELOCITY
 		jumping = true
+		if perching == true:
+			perching = false
+			perch_velocity_tween = get_tree().create_tween().set_ease(Tween.EASE_OUT)
+			perch_velocity_tween.tween_property(self, "velocity:y", 0, 0.8)
+			perch_position_tween = get_tree().create_tween().set_ease(Tween.EASE_OUT)
+			perch_position_tween.tween_property(self, "position", perch_coordinates, 1)
+		velocity.y = JUMP_VELOCITY
 		total_jumps += 1
-		perching = false
-	elif Input.is_action_just_released("Jump") or (velocity.y > 0 and not is_on_floor()):
+	elif Input.is_action_just_released("Jump") or (velocity.y > 0 and not is_on_floor() and not perching):
 		jumping = false
 
 func Handle_Glide(): 
@@ -175,14 +190,17 @@ func Handle_Perch():
 				#velocity.x -= HOVERING_DECELERATION
 			#if velocity.x < -20:
 				#velocity.x += HOVERING_DECELERATION
+		
 		if can_perch and velocity.y >= 0:
-			if not perching:
+			print(jumping)
+			if not perching and not jumping:
+				print("tweens start")
+				perching = true
 				perch_velocity_tween = get_tree().create_tween().set_ease(Tween.EASE_OUT)
 				perch_velocity_tween.tween_property(self, "velocity:y", 0, 0.8)
 				perch_position_tween = get_tree().create_tween().set_ease(Tween.EASE_OUT)
 				perch_position_tween.tween_property(self, "position", perch_coordinates, 1)
-				perching = true
-			total_jumps = 0
+				total_jumps = 0
 		
 		if velocity.y > HOVER_SPEED and hover_queued:
 			hover_queued = false
@@ -200,11 +218,9 @@ func Handle_Perch():
 		hover_queued = false
 		hovering = false
 		hover_velocity_tween.kill()
-		print("k")
-		if can_perch:
+		if perch_velocity_tween != null and perch_position_tween != null:
 			perch_velocity_tween.kill()
 			perch_position_tween.kill()
-			print("j")
 			perching = false
 			velocity = Vector2(0, 0)
 
@@ -225,7 +241,8 @@ func _on_perch_collision_area_body_entered(_body: Node2D) -> void:
 		perch_coordinates = self.position
 func _on_perch_collision_area_body_exited(_body: Node2D) -> void:
 	if not Perch_Collision_Area.has_overlapping_bodies():
-		await get_tree().create_timer(0.1).timeout
-		#can_perch = false
-		if perching:
-			perching = false
+		can_perch = false
+		await get_tree().create_timer(0.2).timeout
+		if not Perch_Collision_Area.has_overlapping_bodies():
+			if perching:
+				perching = false
