@@ -22,7 +22,7 @@ const GLIDE_ACCELERATION = 12
 const PERCH_LANDING_SPEED = 0.5
 const PERCH_DECELERATION_SPEED = 10
 const HOVER_SPEED = 150
-const HOVERING_DECELERATION = 1
+const HOVERING_DECELERATION = 5
 #endregion
 
 # Variables for Movement/Jump
@@ -129,34 +129,40 @@ func Handle_Inputs():
 
 func Handle_Jump():
 	if Input.is_action_just_pressed("Jump") and (is_on_floor() or coyote_time) and not gliding and total_jumps < MAX_JUMPS:
+		print("jump")
 		if perching:
 			print("perch tween kill")
 			perch_velocity_tween.kill()
 			perch_position_tween.kill()
-			if hover_velocity_tween != null:
-				hover_velocity_tween.kill()
+		if hover_velocity_tween != null:
+			hover_velocity_tween.kill()
+			print("kill")
 		jumping = true
 		
 		velocity.y = JUMP_VELOCITY
 		total_jumps += 1
 	elif Input.is_action_just_pressed("Jump") and total_jumps < MAX_JUMPS and not (is_on_floor() or coyote_time):
+		print("jump")
 		if perching:
 			print("perch tween kill")
 			perch_velocity_tween.kill()
 			perch_position_tween.kill()
-			if hover_velocity_tween != null:
-				hover_velocity_tween.kill()
+		if hover_velocity_tween != null:
+			hover_velocity_tween.kill()
+			print("kill")
 		jumping = true
 		
 		velocity.y = JUMP_VELOCITY
 		total_jumps += 1
 	elif Input.is_action_just_pressed("Jump") and (total_jumps < MAX_JUMPS or abilities.get("flight")):
+		print("jump")
 		if perching:
 			print("perch tween kill")
 			perch_velocity_tween.kill()
 			perch_position_tween.kill()
-			if hover_velocity_tween != null:
-				hover_velocity_tween.kill()
+		if hover_velocity_tween != null:
+			hover_velocity_tween.kill()
+			print("kill")
 		jumping = true
 		
 		velocity.y = JUMP_VELOCITY
@@ -190,12 +196,11 @@ func Handle_Glide():
 
 func Handle_Perch():
 	if Input.is_action_pressed("Up"):
-		#if not is_on_floor():
-			#if velocity.x > 20:
-				#print("h")
-				#velocity.x -= HOVERING_DECELERATION
-			#if velocity.x < -20:
-				#velocity.x += HOVERING_DECELERATION
+		if hovering and not perching:
+			if velocity.x > 10:
+				velocity.x = move_toward(velocity.x, 10, HOVERING_DECELERATION * (velocity.x / 10))
+			if velocity.x < -10:
+				velocity.x = move_toward(velocity.x, -10, HOVERING_DECELERATION * (-velocity.x / 10))
 		print("velocity.y: ", velocity.y)
 		if can_perch and velocity.y > 0:
 			print("perching: ", perching)
@@ -249,7 +254,7 @@ func _on_perch_collision_area_body_entered(_body: Node2D) -> void:
 func _on_perch_collision_area_body_exited(_body: Node2D) -> void:
 	if not Perch_Collision_Area.has_overlapping_bodies():
 		can_perch = false
-		await get_tree().create_timer(0.2).timeout
+		await get_tree().create_timer(0.3).timeout
 		if not Perch_Collision_Area.has_overlapping_bodies():
 			if perching:
 				perching = false
