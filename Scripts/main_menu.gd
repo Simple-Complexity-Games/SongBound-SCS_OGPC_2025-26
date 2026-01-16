@@ -245,6 +245,7 @@ var action_hold_count = 1.05
 var left_right_balance
 var hovered_window_mode_button_item
 var in_popup_menu
+var config_update_cooldown_timer
 #endregion
 
 
@@ -257,6 +258,7 @@ func _ready() -> void:
 	
 	warp_timer = get_tree().create_timer(0.0, false, true)
 	slider_drag_step_timer = get_tree().create_timer(0.0, true, true)
+	config_update_cooldown_timer = get_tree().create_timer(0.01, true, false)
 	
 	
 	Load_Main_Menu()
@@ -351,13 +353,20 @@ func _process(_delta) -> void:
 			# Hide the OptionButton popup menu and unbind ui_up and ui_down actions to return to normal
 			# keyboard mode navigation and select the hovered item as the new window mode
 			elif focus_owner.get_popup().visible == true:
-				focus_owner.get_popup().visible = false
-				InputMap.action_erase_events("ui_up")
-				InputMap.action_erase_events("ui_down")
-				focus_owner.select(hovered_window_mode_button_item)
-				_on_window_mode_button_item_selected(hovered_window_mode_button_item)
-				in_popup_menu = false
-			focus_owner.button_down.emit()
+				if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
+					focus_owner.select(hovered_window_mode_button_item)
+					_on_window_mode_button_item_selected(hovered_window_mode_button_item)
+					keyboard_navigation_mode = true
+					warping = true
+					in_popup_menu = true
+				else:
+					focus_owner.get_popup().visible = false
+					InputMap.action_erase_events("ui_up")
+					InputMap.action_erase_events("ui_down")
+					focus_owner.select(hovered_window_mode_button_item)
+					_on_window_mode_button_item_selected(hovered_window_mode_button_item)
+					in_popup_menu = false
+					focus_owner.button_down.emit()
 		elif focus_owner.get("pressed") != null:
 			focus_owner.button_down.emit()
 	if Input.is_action_just_pressed("ui_up"):
@@ -769,6 +778,9 @@ func _on_master_volume_slider_mouse_entered():
 func _on_master_volume_slider_value_changed(value):
 	Hover_SFX_Player.playing = true
 	AudioServer.set_bus_volume_linear(0, value / 80)
+	if config_update_cooldown_timer.time_left <= 0:
+		Update_Config("Audio", "Master_Volume", Master_Volume_Slider.value)
+		config_update_cooldown_timer = get_tree().create_timer(0.05, true, false)
 func _on_master_volume_slider_drag_ended(value_changed):
 	if value_changed:
 		Update_Config("Audio", "Master_Volume", Master_Volume_Slider.value)
@@ -779,6 +791,9 @@ func _on_music_volume_slider_mouse_entered():
 func _on_music_volume_slider_value_changed(value):
 	Hover_SFX_Player.playing = true
 	AudioServer.set_bus_volume_linear(1, value / 80)
+	if config_update_cooldown_timer.time_left <= 0:
+		Update_Config("Audio", "Music_Volume", Music_Volume_Slider.value)
+		config_update_cooldown_timer = get_tree().create_timer(0.05, true, false)
 func _on_music_volume_slider_drag_ended(value_changed):
 	if value_changed:
 		Update_Config("Audio", "Music_Volume", Music_Volume_Slider.value)
@@ -789,6 +804,9 @@ func _on_sfx_volume_slider_mouse_entered():
 func _on_sfx_volume_slider_value_changed(value):
 	Hover_SFX_Player.playing = true
 	AudioServer.set_bus_volume_linear(2, value / 80)
+	if config_update_cooldown_timer.time_left <= 0:
+		Update_Config("Audio", "SFX_Volume", SFX_Volume_Slider.value)
+		config_update_cooldown_timer = get_tree().create_timer(0.05, true, false)
 func _on_sfx_volume_slider_drag_ended(value_changed):
 	if value_changed:
 		Update_Config("Audio", "SFX_Volume", SFX_Volume_Slider.value)
@@ -811,6 +829,9 @@ func _on_brightness_slider_mouse_entered():
 func _on_brightness_slider_value_changed(value):
 	Hover_SFX_Player.playing = true
 	World_Environment.environment.adjustment_brightness = value
+	if config_update_cooldown_timer.time_left <= 0:
+		Update_Config("Video", "Brightness", Video_Brightness_Slider.value)
+		config_update_cooldown_timer = get_tree().create_timer(0.05, true, false)
 func _on_brightness_slider_drag_ended(value_changed):
 	if value_changed:
 		Update_Config("Video", "Brightness", Video_Brightness_Slider.value)
@@ -821,6 +842,9 @@ func _on_contrast_slider_mouse_entered():
 func _on_contrast_slider_value_changed(value):
 	World_Environment.environment.adjustment_contrast = value
 	Hover_SFX_Player.playing = true
+	if config_update_cooldown_timer.time_left <= 0:
+		Update_Config("Video", "Contrast", Video_Contrast_Slider.value)
+		config_update_cooldown_timer = get_tree().create_timer(0.05, true, false)
 func _on_contrast_slider_drag_ended(value_changed):
 	if value_changed:
 		Update_Config("Video", "Contrast", Video_Contrast_Slider.value)
@@ -831,6 +855,9 @@ func _on_saturation_slider_mouse_entered():
 func _on_saturation_slider_value_changed(value):
 	World_Environment.environment.adjustment_saturation = value
 	Hover_SFX_Player.playing = true
+	if config_update_cooldown_timer.time_left <= 0:
+		Update_Config("Video", "Saturation", Video_Saturation_Slider.value)
+		config_update_cooldown_timer = get_tree().create_timer(0.05, true, false)
 func _on_saturation_slider_drag_ended(value_changed):
 	if value_changed:
 		Update_Config("Video", "Saturation", Video_Saturation_Slider.value)
@@ -864,6 +891,7 @@ func _on_window_mode_button_button_down():
 func _on_window_mode_button_item_focused(index):
 	hovered_window_mode_button_item = index
 func _on_window_mode_button_item_selected(index):
+	print("item selected")
 	Change_Override_Config("display/window/size/mode", Button_To_WindowMode_Index_Dict.get(index))
 	if Button_To_WindowMode_Index_Dict.get(index) != DisplayServer.WINDOW_MODE_WINDOWED:
 		Save_Window_Size(DisplayServer.window_get_size().x, DisplayServer.window_get_size().y)
