@@ -287,12 +287,11 @@ func _process(_delta) -> void:
 		Input.warp_mouse(Vector2(0, 0))
 		get_viewport().warp_mouse(mouse_hide_position)
 	
-	if focus_owner is OptionButton:
-		if focus_owner.get_popup().visible == true and in_popup_menu:
-			if Input.get_last_mouse_velocity().length() > 5:
-				var event = InputEventMouseMotion.new()
-				event.set_relative(Vector2(50, 50))
-				_input(event)
+	if in_popup_menu:
+		if Input.get_last_mouse_velocity().length() > 5 and keyboard_navigation_mode:
+			var event = InputEventMouseMotion.new()
+			event.set_relative(Vector2(50, 50))
+			_input(event)
 	
 	# Allow keyboard / controller navigation, and hide mouse pointer and hover effects when in keyboard mode by setting all mouse filters to pass
 	if Input.is_action_just_pressed("Left"):
@@ -315,7 +314,7 @@ func _process(_delta) -> void:
 			warping = true
 		# Keyboard mode menu navigation
 		var above_focused_control = get_viewport().gui_get_focus_owner().get_node_or_null(get_viewport().gui_get_focus_owner().focus_neighbor_top)
-		if focus_owner is OptionButton and focus_owner.get_popup().visible and in_popup_menu:
+		if in_popup_menu:
 			pass
 		elif above_focused_control:
 			above_focused_control.grab_focus()
@@ -325,7 +324,7 @@ func _process(_delta) -> void:
 			warping = true
 		# Keyboard mode menu navigation
 		var below_focused_control = get_viewport().gui_get_focus_owner().get_node_or_null(get_viewport().gui_get_focus_owner().focus_neighbor_bottom)
-		if focus_owner is OptionButton and focus_owner.get_popup().visible and in_popup_menu:
+		if in_popup_menu:
 			pass
 		elif below_focused_control:
 			below_focused_control.grab_focus()
@@ -338,7 +337,7 @@ func _process(_delta) -> void:
 		if focus_owner is OptionButton:
 			# Show the OptionButton popup menu and bind ui_up and ui_down actions to allow the hovered item
 			# in the OptionButton to be changed. It's jank but works.
-			if focus_owner.get_popup().visible == false:
+			if focus_owner.get_popup().visible == false and not in_popup_menu:
 				focus_owner.show_popup()
 				if InputMap.action_get_events("Up").size() > 0:
 					InputMap.action_add_event("ui_up", InputMap.action_get_events("Up")[0])
@@ -350,23 +349,34 @@ func _process(_delta) -> void:
 					InputMap.action_add_event("ui_down", InputMap.action_get_events("Down")[1])
 				focus_owner.get_popup().grab_focus()
 				hovered_window_mode_button_item = focus_owner.selected
+				in_popup_menu = true
 			# Hide the OptionButton popup menu and unbind ui_up and ui_down actions to return to normal
 			# keyboard mode navigation and select the hovered item as the new window mode
 			elif focus_owner.get_popup().visible == true:
 				if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
-					focus_owner.select(hovered_window_mode_button_item)
-					_on_window_mode_button_item_selected(hovered_window_mode_button_item)
+					var event = InputEventMouseButton.new()
+					event.button_index = MOUSE_BUTTON_LEFT
+					event.position = get_viewport().get_mouse_position() # For some reason this simulated click, even though it's likely in the right place given testing, is not properly clicking the option button item.
+					event.pressed = true
+					Input.parse_input_event(event)
+					event.pressed = false
+					Input.parse_input_event(event)
+					#focus_owner.select(hovered_window_mode_button_item)
+					#_on_window_mode_button_item_selected(hovered_window_mode_button_item)
+					focus_owner.get_popup().hide()
+					in_popup_menu = false
 					keyboard_navigation_mode = true
 					warping = true
-					in_popup_menu = true
-				else:
-					focus_owner.get_popup().visible = false
 					InputMap.action_erase_events("ui_up")
 					InputMap.action_erase_events("ui_down")
+				else:
+					focus_owner.get_popup().visible = false
 					focus_owner.select(hovered_window_mode_button_item)
 					_on_window_mode_button_item_selected(hovered_window_mode_button_item)
+					focus_owner.hide_popup()
 					in_popup_menu = false
-					focus_owner.button_down.emit()
+					InputMap.action_erase_events("ui_up")
+					InputMap.action_erase_events("ui_down")
 		elif focus_owner.get("pressed") != null:
 			focus_owner.button_down.emit()
 	if Input.is_action_just_pressed("ui_up"):
@@ -375,6 +385,7 @@ func _process(_delta) -> void:
 			warping = true
 		if focus_owner is OptionButton and focus_owner.get_popup().visible:
 			if hovered_window_mode_button_item == 2:
+				in_popup_menu = false
 				focus_owner.get_popup().hide()
 				InputMap.action_erase_events("ui_up")
 				InputMap.action_erase_events("ui_down")
@@ -464,7 +475,7 @@ func Set_Hoverable_Control_Mouse_Filters_To_List(mouse_filter_list):
 	var index = 0
 	for control in get_tree().get_nodes_in_group("Hoverable"):
 		var control_mouse_filter = control.get("mouse_filter")
-		if control_mouse_filter != null:
+		if control_mouse_filter != null and mouse_filter_list != null:
 			control.mouse_filter = mouse_filter_list[index]
 		index += 1
 
@@ -887,14 +898,15 @@ func _on_window_mode_button_button_down():
 		InputMap.action_add_event("ui_down", InputMap.action_get_events("Down")[0])
 	if InputMap.action_get_events("Down").size() > 1:
 		InputMap.action_add_event("ui_down", InputMap.action_get_events("Down")[1])
-	in_popup_menu = true
 func _on_window_mode_button_item_focused(index):
+	print("item_focused")
 	hovered_window_mode_button_item = index
 func _on_window_mode_button_item_selected(index):
-	print("item selected")
+	in_popup_menu = false
 	Change_Override_Config("display/window/size/mode", Button_To_WindowMode_Index_Dict.get(index))
 	if Button_To_WindowMode_Index_Dict.get(index) != DisplayServer.WINDOW_MODE_WINDOWED:
 		Save_Window_Size(DisplayServer.window_get_size().x, DisplayServer.window_get_size().y)
+		Save_Window_Position(DisplayServer.window_get_position().x, DisplayServer.window_get_position().y)
 	DisplayServer.window_set_mode(Window_Mode_Index_Dict.get(index))
 	InputMap.action_erase_events("ui_up")
 	InputMap.action_erase_events("ui_down")
@@ -1146,4 +1158,11 @@ func _notification(what):
 		Save_Config(config)
 		if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_WINDOWED:
 			Save_Window_Size(DisplayServer.window_get_size().x, DisplayServer.window_get_size().y)
+	elif what == NOTIFICATION_WM_MOUSE_EXIT:
+		keyboard_navigation_mode = false
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		if mouse_filters.size() > 0:
+			Set_Hoverable_Control_Mouse_Filters_To_List(mouse_filters)
+		InputMap.action_erase_events("ui_up")
+		InputMap.action_erase_events("ui_down")
 #endregion
