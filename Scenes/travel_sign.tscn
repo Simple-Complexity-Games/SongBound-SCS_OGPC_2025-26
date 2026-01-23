@@ -30,15 +30,17 @@ shape = SubResource("RectangleShape2D_1l5yg")
 [node name="Control" type="Control" parent="Area2D"]
 layout_mode = 3
 anchors_preset = 0
-offset_left = -111.0
-offset_top = -55.0
-offset_right = 112.0
+offset_left = -101.0
+offset_top = -151.0
+offset_right = 102.0
 offset_bottom = -19.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Area2D/Control"]
 layout_mode = 0
-offset_right = 1486.6666
-offset_bottom = 240.0
+offset_left = 29.0
+offset_top = 59.0
+offset_right = 969.0
+offset_bottom = 652.3334
 scale = Vector2(0.15, 0.15)
 theme_override_colors/default_color = Color(0.88235295, 0.7921569, 0.34509805, 1)
 theme_override_colors/font_outline_color = Color(0.5292189, 0.47300288, 0.19436695, 1)
@@ -48,6 +50,8 @@ theme_override_constants/table_v_separation = 3
 theme_override_fonts/normal_font = SubResource("FontVariation_otk2s")
 theme_override_font_sizes/normal_font_size = 200
 text = "World"
+scroll_active = false
+autowrap_mode = 2
 horizontal_alignment = 1
 vertical_alignment = 1
 

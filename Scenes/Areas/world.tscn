@@ -656,6 +656,18 @@ sources/6 = SubResource("TileSetAtlasSource_vijum")
 
 [node name="World" type="Node2D"]
 
+[node name="world border" type="StaticBody2D" parent="."]
+position = Vector2(-3, -1)
+rotation = 1.5707964
+collision_layer = 3
+collision_mask = 3
+collision_priority = 100.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="world border"]
+position = Vector2(2, 7)
+build_mode = 1
+polygon = PackedVector2Array(1758.9996, -9002, 1759, -10.000077, -3233, -9.999859, -3233.0005, -9002)
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(10, 16)
 zoom = Vector2(3, 3)
@@ -665,6 +677,8 @@ limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 70.0
 script = ExtResource("1_67hrm")
+left = 0
+right = 8992
 
 [node name="Player" parent="." instance=ExtResource("2_gwl6k")]
 unique_name_in_owner = true
@@ -700,6 +714,6 @@ stream = ExtResource("10_syva4")
 [node name="travel sign" parent="." instance=ExtResource("11_wcev2")]
 position = Vector2(29, 29)
 travel_sign = {
-0: "res://Scenes/Areas/world2.tscn"
+0: "res://Scenes/Areas/sparrow_sanctuary.tscn"
 }
-sign_text = "help"
+sign_text = "Sparrow Sanctuary"
