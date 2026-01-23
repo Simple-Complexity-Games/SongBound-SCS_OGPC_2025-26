@@ -37,7 +37,10 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if checker.is_colliding():
+		var collider = checker.get_collider()
+		var cell = collider.local_to_map(checker.get_collision_point())
+		var cell_data = collider.get_cell_tile_data(cell)		
 "
 
 [node name="Player" type="CharacterBody2D"]
