@@ -402,7 +402,6 @@ theme_override_styles/hover_pressed_mirrored = ExtResource("7_jewm6")
 text = "Done"
 
 [node name="Video_Menu_Label" type="RichTextLabel" parent="." groups=["Hoverable"]]
-visible = false
 layout_mode = 0
 anchor_left = 0.267
 anchor_top = 0.267
@@ -425,7 +424,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Video_Menu_Container" type="VBoxContainer" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.267
@@ -565,6 +563,7 @@ color = Color(1, 1, 1, 0)
 
 [node name="Window_Mode_Button" type="OptionButton" parent="Video_Menu_Container" groups=["Hoverable"]]
 modulate = Color(0.933333, 0.647059, 0.498039, 1)
+texture_filter = 1
 layout_mode = 2
 focus_neighbor_top = NodePath("../Saturation_Slider")
 focus_neighbor_bottom = NodePath("../Screen_Shake_Button")
@@ -628,6 +627,7 @@ theme_override_styles/hover_pressed_mirrored = ExtResource("7_jewm6")
 text = "Done"
 
 [node name="Controls_Menu_Container" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchor_left = 0.267
 anchor_top = 0.43
@@ -1211,6 +1211,11 @@ Oldest"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_yhxw7")
+
+[node name="Pointer" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [connection signal="button_down" from="Main_Menu_Container/Start_Button" to="." method="_on_start_button_button_down"]
 [connection signal="mouse_entered" from="Main_Menu_Container/Start_Button" to="." method="_on_start_button_mouse_entered"]

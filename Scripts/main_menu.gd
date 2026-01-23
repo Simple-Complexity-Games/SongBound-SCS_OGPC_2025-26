@@ -271,6 +271,8 @@ func _ready() -> void:
 		Apply_Config(config)
 	
 	previous_window_size = DisplayServer.window_get_size()
+	
+	get_node("Video_Menu_Container/Window_Mode_Button").get_popup().canvas_item_default_texture_filter = TEXTURE_FILTER_NEAREST
 
 func _process(_delta) -> void:
 	if Music_Player.playing == false:
@@ -286,7 +288,6 @@ func _process(_delta) -> void:
 		mouse_hide_position = get_viewport().get_mouse_position()
 		Input.warp_mouse(Vector2(0, 0))
 		get_viewport().warp_mouse(mouse_hide_position)
-	
 	if in_popup_menu:
 		if Input.get_last_mouse_velocity().length() > 5 and keyboard_navigation_mode:
 			var event = InputEventMouseMotion.new()
@@ -329,7 +330,7 @@ func _process(_delta) -> void:
 		elif below_focused_control:
 			below_focused_control.grab_focus()
 	elif Input.is_action_just_pressed("Jump"):
-		if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
+		if focus_owner is not OptionButton and Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
 			keyboard_navigation_mode = true
 			warping = true
 		# Handle menu interactions with the select / jump action in keyboard mode
@@ -354,17 +355,13 @@ func _process(_delta) -> void:
 			# keyboard mode navigation and select the hovered item as the new window mode
 			elif focus_owner.get_popup().visible == true:
 				if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
-					var event = InputEventMouseButton.new()
-					event.button_index = MOUSE_BUTTON_LEFT
-					event.position = get_viewport().get_mouse_position() # For some reason this simulated click, even though it's likely in the right place given testing, is not properly clicking the option button item.
-					event.pressed = true
-					Input.parse_input_event(event)
-					event.pressed = false
-					Input.parse_input_event(event)
-					#focus_owner.select(hovered_window_mode_button_item)
-					#_on_window_mode_button_item_selected(hovered_window_mode_button_item)
-					focus_owner.get_popup().hide()
-					in_popup_menu = false
+					var focused_item = focus_owner.get_popup().get_focused_item()
+					focus_owner.select(focused_item)
+					_on_window_mode_button_item_selected(focused_item)
+					
+					await get_tree().process_frame
+					
+					mouse_hide_position = get_viewport().get_mouse_position()
 					keyboard_navigation_mode = true
 					warping = true
 					InputMap.action_erase_events("ui_up")
@@ -373,7 +370,6 @@ func _process(_delta) -> void:
 					focus_owner.get_popup().visible = false
 					focus_owner.select(hovered_window_mode_button_item)
 					_on_window_mode_button_item_selected(hovered_window_mode_button_item)
-					focus_owner.hide_popup()
 					in_popup_menu = false
 					InputMap.action_erase_events("ui_up")
 					InputMap.action_erase_events("ui_down")
@@ -474,8 +470,7 @@ func Set_Hoverable_Control_Mouse_Filters_To(value, old_filter_list = mouse_filte
 func Set_Hoverable_Control_Mouse_Filters_To_List(mouse_filter_list):
 	var index = 0
 	for control in get_tree().get_nodes_in_group("Hoverable"):
-		var control_mouse_filter = control.get("mouse_filter")
-		if control_mouse_filter != null and mouse_filter_list != null:
+		if index > 0 and index < mouse_filter_list.size():
 			control.mouse_filter = mouse_filter_list[index]
 		index += 1
 
@@ -705,7 +700,6 @@ func _input(event):
 		if focus_owner.get_popup().visible == true:
 			InputMap.action_erase_events("ui_up")
 			InputMap.action_erase_events("ui_down")
-			in_popup_menu = false
 	
 	# Only rebind controls if the rebinding flag has been set to true
 	if rebinding and event.is_action_type() and !event.is_echo() and event.is_pressed():
@@ -889,6 +883,8 @@ func _on_window_mode_button_mouse_entered():
 	Hover_SFX_Player.playing = true
 	Window_Mode_Button.grab_focus()
 func _on_window_mode_button_button_down():
+	if not in_popup_menu:
+		in_popup_menu = true
 	focus_owner = get_viewport().gui_get_focus_owner()
 	if InputMap.action_get_events("Up").size() > 0:
 		InputMap.action_add_event("ui_up", InputMap.action_get_events("Up")[0])
@@ -899,12 +895,12 @@ func _on_window_mode_button_button_down():
 	if InputMap.action_get_events("Down").size() > 1:
 		InputMap.action_add_event("ui_down", InputMap.action_get_events("Down")[1])
 func _on_window_mode_button_item_focused(index):
-	print("item_focused")
 	hovered_window_mode_button_item = index
 func _on_window_mode_button_item_selected(index):
 	in_popup_menu = false
+	focus_owner.get_popup().hide()
 	Change_Override_Config("display/window/size/mode", Button_To_WindowMode_Index_Dict.get(index))
-	if Button_To_WindowMode_Index_Dict.get(index) != DisplayServer.WINDOW_MODE_WINDOWED:
+	if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_WINDOWED:
 		Save_Window_Size(DisplayServer.window_get_size().x, DisplayServer.window_get_size().y)
 		Save_Window_Position(DisplayServer.window_get_position().x, DisplayServer.window_get_position().y)
 	DisplayServer.window_set_mode(Window_Mode_Index_Dict.get(index))
