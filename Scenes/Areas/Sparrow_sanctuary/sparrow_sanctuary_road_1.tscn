@@ -714,3 +714,10 @@ sign_text = "World one"
 
 [node name="travel sign2" parent="." instance=ExtResource("11_pvrle")]
 position = Vector2(895, 29)
+
+[node name="travel sign3" parent="." instance=ExtResource("11_pvrle")]
+position = Vector2(410, 30)
+travel_sign = {
+0: "res://Scenes/Areas/Sparrow_sanctuary/sparrow_sanctuary_road_2.tscn"
+}
+sign_text = "Road Two"
