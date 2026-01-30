@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://ctjyv2iy2jhk5" path="res://Assets/Art/Sprites/Avythera_Plains_Tall_Tree_+_Owl_Home_Enterance.png" id="6_yin3e"]
 [ext_resource type="Texture2D" uid="uid://d2ugjn6om4qs" path="res://Assets/Art/Sprites/Avythera_Plains_Tree.png" id="7_vc2e2"]
 [ext_resource type="Texture2D" uid="uid://8ydaoyd111dk" path="res://Assets/Art/Sprites/Caravan.png" id="9_sghl5"]
-[ext_resource type="Texture2D" uid="uid://py1of7wkodmo" path="res://Assets/Art/Sprites/Tileset (5).png" id="10_sjvcn"]
+[ext_resource type="Texture2D" uid="uid://cubgmly0s6sxp" path="res://Assets/Art/Sprites/Tileset (6).png" id="10_sjvcn"]
 [ext_resource type="AudioStream" uid="uid://c624t28jwuwvw" path="res://Assets/Sound/Music/Vulture Boss Music Concept Actually just chill town music concept lol.wav" id="10_syva4"]
 [ext_resource type="PackedScene" uid="uid://ck25xcff0e7si" path="res://Scenes/travel_sign.tscn" id="11_wcev2"]
 
@@ -996,6 +996,14 @@ texture = ExtResource("10_sjvcn")
 14:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, -8, -8, -8, 8, 8, 8, 0, 0)
 15:8/0 = 0
 15:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 8, 8, 8, -8, -8, -8, 0, 0)
+16:8/0 = 0
+16:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 8, 0, 0)
+17:8/0 = 0
+17:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, 8, 8, 0, 0)
+16:9/0 = 0
+16:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -8, -8, -8, -8, 8, 0, 8, 8, 0)
+17:9/0 = 0
+17:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -8, 8, -8, 8, 8, 0, 8, -8, 0)
 
 [sub_resource type="TileSet" id="TileSet_5a7ea"]
 physics_layer_0/collision_layer = 1
