@@ -715,3 +715,9 @@ stream = ExtResource("10_jwg0k")
 [node name="travel sign" parent="." instance=ExtResource("11_rkfus")]
 position = Vector2(43, 29)
 sign_text = "Sparrow Sanctuary"
+
+[node name="travel sign2" parent="." instance=ExtResource("11_rkfus")]
+position = Vector2(9372, 29)
+travel_sign = {
+0: "res://Scenes/Areas/Pelican_port_east.tscn"
+}
