@@ -1,19 +1,19 @@
-[gd_scene load_steps=23 format=4 uid="uid://dob6g4pjq682y"]
+[gd_scene load_steps=23 format=4 uid="uid://dsdfxq1iqnqdt"]
 
-[ext_resource type="Script" uid="uid://dltd48sm6e1bk" path="res://Scripts/camera_2d.gd" id="1_h1d4m"]
-[ext_resource type="PackedScene" uid="uid://bdkged5clqdnl" path="res://Scenes/Entities/player.tscn" id="2_2smaf"]
-[ext_resource type="Texture2D" uid="uid://kp53elewnl2e" path="res://Assets/Art/Sprites/Tileset (1).png" id="3_uky8d"]
-[ext_resource type="Texture2D" uid="uid://dv4aicqdio1r3" path="res://Assets/Art/Sprites/Avythera_Mountain_Tall_Tree.png" id="4_2ib5b"]
-[ext_resource type="Texture2D" uid="uid://dyohkm8nigj0b" path="res://Assets/Art/Sprites/Rocks.png" id="5_4d3om"]
-[ext_resource type="Texture2D" uid="uid://dsnbe33rbmfvg" path="res://Assets/Art/Sprites/Avythera_Mountain_Tree.png" id="6_vj4vv"]
-[ext_resource type="Texture2D" uid="uid://ctjyv2iy2jhk5" path="res://Assets/Art/Sprites/Avythera_Plains_Tall_Tree_+_Owl_Home_Enterance.png" id="7_ueo80"]
-[ext_resource type="Texture2D" uid="uid://d2ugjn6om4qs" path="res://Assets/Art/Sprites/Avythera_Plains_Tree.png" id="8_8akg2"]
-[ext_resource type="Texture2D" uid="uid://8ydaoyd111dk" path="res://Assets/Art/Sprites/Caravan.png" id="9_4w3ua"]
-[ext_resource type="AudioStream" uid="uid://c624t28jwuwvw" path="res://Assets/Sound/Music/Vulture Boss Music Concept Actually just chill town music concept lol.wav" id="10_kr6si"]
-[ext_resource type="PackedScene" uid="uid://ck25xcff0e7si" path="res://Scenes/travel_sign.tscn" id="11_501dp"]
+[ext_resource type="Script" uid="uid://dltd48sm6e1bk" path="res://Scripts/camera_2d.gd" id="1_y6oq2"]
+[ext_resource type="PackedScene" uid="uid://bdkged5clqdnl" path="res://Scenes/Entities/player.tscn" id="2_e37l2"]
+[ext_resource type="Texture2D" uid="uid://kp53elewnl2e" path="res://Assets/Art/Sprites/Tileset (1).png" id="3_lthao"]
+[ext_resource type="Texture2D" uid="uid://dv4aicqdio1r3" path="res://Assets/Art/Sprites/Avythera_Mountain_Tall_Tree.png" id="4_xo5h2"]
+[ext_resource type="Texture2D" uid="uid://dyohkm8nigj0b" path="res://Assets/Art/Sprites/Rocks.png" id="5_jebnb"]
+[ext_resource type="Texture2D" uid="uid://dsnbe33rbmfvg" path="res://Assets/Art/Sprites/Avythera_Mountain_Tree.png" id="6_quskk"]
+[ext_resource type="Texture2D" uid="uid://ctjyv2iy2jhk5" path="res://Assets/Art/Sprites/Avythera_Plains_Tall_Tree_+_Owl_Home_Enterance.png" id="7_257ud"]
+[ext_resource type="Texture2D" uid="uid://d2ugjn6om4qs" path="res://Assets/Art/Sprites/Avythera_Plains_Tree.png" id="8_wduas"]
+[ext_resource type="Texture2D" uid="uid://8ydaoyd111dk" path="res://Assets/Art/Sprites/Caravan.png" id="9_v4lfv"]
+[ext_resource type="AudioStream" uid="uid://c624t28jwuwvw" path="res://Assets/Sound/Music/Vulture Boss Music Concept Actually just chill town music concept lol.wav" id="10_3arhv"]
+[ext_resource type="PackedScene" uid="uid://ck25xcff0e7si" path="res://Scenes/travel_sign.tscn" id="11_qagrj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kykf2"]
-texture = ExtResource("3_uky8d")
+texture = ExtResource("3_lthao")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -100,7 +100,7 @@ texture = ExtResource("3_uky8d")
 sources/0 = SubResource("TileSetAtlasSource_kykf2")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qatxr"]
-texture = ExtResource("4_2ib5b")
+texture = ExtResource("4_xo5h2")
 0:0/size_in_atlas = Vector2i(12, 12)
 0:0/0 = 0
 0:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-84.5336, 21.043472, -74.1018, 17.086578, -68.16646, 11.510963, -82.19544, 10.07209, -88.85021, 10.611664, -84.17389, 8.273506, -66.90745, 8.4533615, -48.921577, 7.3742065, -33.633583, 3.2374573, -21.942764, 5.755478, -17.086578, -1.798584, -29.31697, -11.690819, -40.108498, -12.590111, -47.30285, -16.187283, -53.5979, -15.46785, -65.82829, -15.287991, -72.66293, -18.525448, -59.7131, -17.446297, -46.403557, -19.784458, -38.669624, -15.827568, -28.05796, -15.46785, -5.215904, -3.0575943, -2.6978836, 3.5971756, 9.532509, 3.2374573, 25.719795, -4.4964676, 56.83535, -4.676323, 63.310265, -7.3742065, 75.00109, -6.2950516, 64.74914, -4.676323, 57.195076, -2.5180206, 43.705666, -2.1583023, 48.56185, 2.877739, 60.072807, 4.3166122, 45.863976, 4.1367493, 39.02935, -1.4388657, 29.67669, -1.2590103, 15.647713, 7.194351, 6.115196, 8, -5.755478, 8, -8, 1.2590103, -17.985878, -0.17985535, -25.000366, 10.611664, -62.05126, 10.791527, -71.044205, 17.62616)
@@ -139,7 +139,7 @@ texture = ExtResource("4_2ib5b")
 0:12/0/physics_layer_1/polygon_1/one_way = true
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p3847"]
-texture = ExtResource("3_uky8d")
+texture = ExtResource("3_lthao")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -304,7 +304,7 @@ texture = ExtResource("3_uky8d")
 8:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, 8, 0, 0, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i5gaq"]
-texture = ExtResource("5_4d3om")
+texture = ExtResource("5_jebnb")
 0:0/size_in_atlas = Vector2i(4, 3)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, -8, 8, -8, 8, -8, 8)
@@ -369,7 +369,7 @@ texture = ExtResource("5_4d3om")
 8:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, -8, 8, -8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jis23"]
-texture = ExtResource("6_vj4vv")
+texture = ExtResource("6_quskk")
 0:0/size_in_atlas = Vector2i(8, 8)
 0:0/0 = 0
 0:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-50.864296, 1.3198318, -43.85903, 1.3198318, -36.244617, -1.1167831, -41.930046, -4.873226, -46.39717, -7.0052643, -37.97055, -4.873226, -31.675968, -2.6396637, -19.492905, -2.2335625, -6.09153, -6.294586, -2.2335587, -1.8274612, -15.533405, 0.5076256, -28.122574, -0.81220627, -35.53394, 0.40610123, -43.96056, 2.8427124, -49.036835, 2.6396637)
@@ -397,7 +397,7 @@ texture = ExtResource("6_vj4vv")
 0:8/0/physics_layer_1/polygon_2/one_way = true
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c5c11"]
-texture = ExtResource("7_ueo80")
+texture = ExtResource("7_257ud")
 0:0/size_in_atlas = Vector2i(12, 12)
 0:0/0 = 0
 0:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-86.15233, -6.2950516, -72.662926, -5.3957596, -60.79225, -8.273499, -46.04384, -7.733925, -31.115562, -16.547005, -15.647713, -15.287987, -29.856552, -9.532509, -44.42511, -2.877739, -60.972107, -5.215904, -73.2025, -3.0575943)
@@ -438,7 +438,7 @@ texture = ExtResource("7_ueo80")
 12:19/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2ca1j"]
-texture = ExtResource("8_8akg2")
+texture = ExtResource("8_wduas")
 2:2/size_in_atlas = Vector2i(4, 6)
 2:2/0 = 0
 10:1/size_in_atlas = Vector2i(4, 7)
@@ -464,7 +464,7 @@ texture = ExtResource("8_8akg2")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7ui4d"]
 resource_name = "water"
-texture = ExtResource("3_uky8d")
+texture = ExtResource("3_lthao")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -548,7 +548,7 @@ texture = ExtResource("3_uky8d")
 1:1/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jldim"]
-texture = ExtResource("9_4w3ua")
+texture = ExtResource("9_v4lfv")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(4, 3.5, 8, 2, 8, 8, 2.5, 8)
 0:0/0/physics_layer_0/polygon_0/one_way = true
@@ -666,22 +666,22 @@ collision_priority = 100.0
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="world border"]
 position = Vector2(2, 7)
 build_mode = 1
-polygon = PackedVector2Array(302.9999, -2282, 303, -10.000013, -1697, -9.999926, -1697.0001, -2282)
+polygon = PackedVector2Array(302.99994, -1706, 303, -10.000013, -961, -9.999958, -961.00006, -1706)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(737, 13)
 zoom = Vector2(3, 3)
 limit_left = 0
-limit_top = -1696
-limit_right = 2272
+limit_top = -960
+limit_right = 1696
 limit_bottom = 224
 limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 70.0
 editor_draw_limits = true
-script = ExtResource("1_h1d4m")
+script = ExtResource("1_y6oq2")
 
-[node name="Player" parent="." instance=ExtResource("2_2smaf")]
+[node name="Player" parent="." instance=ExtResource("2_e37l2")]
 unique_name_in_owner = true
 z_index = 10
 position = Vector2(9, 15)
@@ -703,18 +703,11 @@ tile_map_data = PackedByteArray("AABSAA0AAQAIAAAAAAA4AAQAAQAIAAAAAAA4AAMAAQAIAAA
 tile_set = SubResource("TileSet_5a7ea")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("10_kr6si")
+stream = ExtResource("10_3arhv")
 
-[node name="travel sign" parent="." instance=ExtResource("11_501dp")]
+[node name="travel sign" parent="." instance=ExtResource("11_qagrj")]
 position = Vector2(43, 29)
 travel_sign = {
-0: "res://Scenes/Areas/beach_path.tscn"
+0: "res://Scenes/Areas/Turn_stone_village/path_one.tscn"
 }
-sign_text = "Beach Path"
-
-[node name="travel sign2" parent="." instance=ExtResource("11_501dp")]
-position = Vector2(776, 29)
-travel_sign = {
-0: "Void"
-}
-sign_text = "Void"
+sign_text = "Path One"
