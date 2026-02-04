@@ -27,7 +27,11 @@ collision_mask = 2
 position = Vector2(0, -6)
 shape = SubResource("RectangleShape2D_1l5yg")
 
-[node name="Control" type="Control" parent="Area2D"]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
+follow_viewport_enabled = true
+
+[node name="Control" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 0
 offset_left = -101.0
@@ -35,9 +39,9 @@ offset_top = -151.0
 offset_right = 102.0
 offset_bottom = -19.0
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Area2D/Control"]
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Control"]
 layout_mode = 0
-offset_left = 18.000002
+offset_left = 18.0
 offset_top = 66.0
 offset_right = 5205.4995
 offset_bottom = 2610.2258
