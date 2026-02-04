@@ -671,15 +671,15 @@ polygon = PackedVector2Array(254.99995, -954, 255, -10.000011, -593, -9.999974, 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(916, 16)
 zoom = Vector2(3, 3)
-limit_right = 10000
-limit_bottom = 3000
+limit_left = 0
+limit_top = -592
+limit_right = 944
+limit_bottom = 133
 limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 70.0
 editor_draw_limits = true
 script = ExtResource("1_8ik8f")
-left = 0
-right = 944
 
 [node name="Player" parent="." instance=ExtResource("2_eeikq")]
 unique_name_in_owner = true
