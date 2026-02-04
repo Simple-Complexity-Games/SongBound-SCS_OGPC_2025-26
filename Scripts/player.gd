@@ -21,6 +21,7 @@ const SOFT_GRAVITY_SECONDS = 0.08
 const GLIDE_ACCELERATION = 12
 const PERCH_LANDING_SPEED = 0.5
 const PERCH_DECELERATION_SPEED = 10
+const PERCH_TWEEN_TIME = 1
 const HOVER_SPEED = 150
 const HOVERING_DECELERATION = 5
 #endregion
@@ -56,7 +57,7 @@ var hover_velocity_tween
 var perch_velocity_tween
 var perch_position_tween
 
-var print_debug = false
+var print_debug = true
 
 func _ready() -> void:
 	pass
@@ -80,19 +81,20 @@ func _process(_delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	#Apply gravity
-	if soft_gravity_timer != null:
-		if soft_gravity_timer.time_left > 0:
-			velocity += get_gravity() * delta * ((SOFT_GRAVITY_SECONDS - soft_gravity_timer.time_left) / SOFT_GRAVITY_SECONDS)
-			if print_debug: print("soft grav")
-		else:
-			soft_gravity_timer = null
-	elif (not gliding or hovering) and ((not perching) or jumping) and velocity.y < MAX_FALL_SPEED - (int(hovering) * (MAX_FALL_SPEED - HOVER_SPEED)): 
-		if not jumping:
-			if print_debug: print("normal grav")
-			velocity += get_gravity() * delta
-		else:
-			velocity += get_gravity() * delta * JUMP_GRAVITY_MULT
-			if print_debug: print("jump grav")
+	if (not gliding or hovering) and ((not perching) or jumping) and velocity.y < MAX_FALL_SPEED - (int(hovering) * (MAX_FALL_SPEED - HOVER_SPEED)):
+		if soft_gravity_timer != null:
+			if soft_gravity_timer.time_left > 0:
+				velocity += get_gravity() * delta * ((SOFT_GRAVITY_SECONDS - soft_gravity_timer.time_left) / SOFT_GRAVITY_SECONDS)
+				if print_debug: print("soft grav")
+			else:
+				soft_gravity_timer = null
+		else: 
+			if not jumping:
+				if print_debug: print("normal grav")
+				velocity += get_gravity() * delta
+			else:
+				velocity += get_gravity() * delta * JUMP_GRAVITY_MULT
+				if print_debug: print("jump grav")
 	
 	Update_Status_Vars()
 	
@@ -205,10 +207,10 @@ func Handle_Perch():
 				velocity.x = move_toward(velocity.x, -10, HOVERING_DECELERATION * (-velocity.x / 10))
 		
 		if velocity.y > HOVER_SPEED and hover_queued and not perching and not jumping:
-			if print_debug: print("k")
+			if print_debug: print("start hover")
 			hover_queued = false
 			hovering = true
-			hover_velocity_tween = get_tree().create_tween().set_ease(Tween.EASE_OUT)
+			hover_velocity_tween = create_tween().set_ease(Tween.EASE_OUT)
 			hover_velocity_tween.tween_property(self, "velocity:y", HOVER_SPEED, 0.8)
 	if Input.is_action_just_pressed("Up"):
 		jumping = false
@@ -222,18 +224,27 @@ func Handle_Perch():
 				perch_position_tween.kill()
 				perching = false
 	
-	if can_perch and perch_buffer:
+	if abs(direction) > 0.2 and perching:
+		if perch_velocity_tween != null and perch_position_tween != null:
+			print("direction perch kill")
+			perch_velocity_tween.kill()
+			perch_position_tween.kill()
+			perching = false
+	
+	# TODO Make movement perch cancel only happen when re-pressing the movement keys, as opposed to just if there is any movement keypress at all
+	if can_perch and perch_buffer and not perching:
 		perching = true
 		perch_coordinates = self.position
 		if print_debug: print("tweens started")
-		perch_velocity_tween = get_tree().create_tween().set_ease(Tween.EASE_OUT)
-		perch_velocity_tween.tween_property(self, "velocity:y", 0, 0.8)
-		perch_position_tween = get_tree().create_tween().set_ease(Tween.EASE_OUT)
-		perch_position_tween.tween_property(self, "position", perch_coordinates, 1)
+		perch_velocity_tween = create_tween().set_ease(Tween.EASE_OUT)
+		perch_velocity_tween.parallel().tween_property(self, "velocity:y", 0, PERCH_TWEEN_TIME)
+		perch_position_tween = create_tween().set_ease(Tween.EASE_OUT)
+		perch_position_tween.parallel().tween_property(self, "position", perch_coordinates, PERCH_TWEEN_TIME)
 		if not jumping:
 			total_jumps = 0
 	
 	if Input.is_action_just_released("Up"):
+		if print_debug: print("hover release")
 		hover_queued = false
 		hovering = false
 		if hover_velocity_tween != null:
@@ -262,6 +273,6 @@ func _on_perch_collision_area_body_exited(_body: Node2D) -> void:
 		can_perch = false
 		await get_tree().create_timer(0.3).timeout
 		if not Perch_Collision_Area.has_overlapping_bodies():
-			if perching:
+			if perching and not perch_position_tween.is_running and not perch_velocity_tween.is_running:
 				perching = false
 				if print_debug: print("perch reset")
