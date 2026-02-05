@@ -1,6 +1,7 @@
-[gd_scene load_steps=25 format=4 uid="uid://cj6w02wqewygg"]
+[gd_scene load_steps=26 format=4 uid="uid://cj6w02wqewygg"]
 
 [ext_resource type="Script" uid="uid://dltd48sm6e1bk" path="res://Scripts/camera_2d.gd" id="1_67hrm"]
+[ext_resource type="PackedScene" uid="uid://dihy0istq3alv" path="res://Scenes/UI/canvas_layer.tscn" id="1_kykf2"]
 [ext_resource type="PackedScene" uid="uid://bdkged5clqdnl" path="res://Scenes/Entities/player.tscn" id="2_gwl6k"]
 [ext_resource type="Texture2D" uid="uid://dv4aicqdio1r3" path="res://Assets/Art/Sprites/Avythera_Mountain_Tall_Tree.png" id="3_0qglv"]
 [ext_resource type="Texture2D" uid="uid://kp53elewnl2e" path="res://Assets/Art/Sprites/Tileset (1).png" id="3_2pjc6"]
@@ -1024,6 +1025,8 @@ sources/7 = SubResource("TileSetAtlasSource_oofs8")
 
 [node name="World" type="Node2D"]
 
+[node name="CanvasLayer" parent="." instance=ExtResource("1_kykf2")]
+
 [node name="world border" type="StaticBody2D" parent="."]
 position = Vector2(-3, -1)
 rotation = 1.5707964
@@ -1037,6 +1040,7 @@ build_mode = 1
 polygon = PackedVector2Array(1758.9996, -9002, 1759, -10.000077, -3233, -9.999859, -3233.0005, -9002)
 
 [node name="Camera2D" type="Camera2D" parent="."]
+visibility_layer = 3
 position = Vector2(10, 16)
 zoom = Vector2(3, 3)
 limit_left = 0

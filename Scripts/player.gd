@@ -57,7 +57,7 @@ var hover_velocity_tween
 var perch_velocity_tween
 var perch_position_tween
 
-var print_debug = true
+var print_debug = false
 
 func _ready() -> void:
 	pass

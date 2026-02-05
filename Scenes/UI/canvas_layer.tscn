@@ -7,12 +7,20 @@ base_font = ExtResource("1_lft5s")
 spacing_glyph = 10
 
 [node name="CanvasLayer" type="CanvasLayer"]
+layer = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-offset_left = -82.99999
-offset_top = -82.0
-offset_right = 5104.4995
-offset_bottom = 2462.2258
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 809.0
+offset_top = 13.308
+offset_right = 1009.0
+offset_bottom = 163.308
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control"]
+layout_mode = 0
+offset_right = 6250.0
+offset_bottom = 4687.5
 scale = Vector2(0.032, 0.032)
 theme_override_colors/default_color = Color(0.88235295, 0.7921569, 0.34509805, 1)
 theme_override_colors/font_outline_color = Color(0.5292189, 0.47300288, 0.19436695, 1)
