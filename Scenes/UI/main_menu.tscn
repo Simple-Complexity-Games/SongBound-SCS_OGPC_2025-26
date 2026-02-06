@@ -1212,11 +1212,6 @@ Oldest"
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_yhxw7")
 
-[node name="Pointer" type="ColorRect" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
 [connection signal="button_down" from="Main_Menu_Container/Start_Button" to="." method="_on_start_button_button_down"]
 [connection signal="mouse_entered" from="Main_Menu_Container/Start_Button" to="." method="_on_start_button_mouse_entered"]
 [connection signal="button_down" from="Main_Menu_Container/Options_Button" to="." method="_on_options_button_button_down"]
