@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://cj6w02wqewygg"]
+[gd_scene load_steps=27 format=4 uid="uid://cj6w02wqewygg"]
 
 [ext_resource type="Script" uid="uid://dltd48sm6e1bk" path="res://Scripts/camera_2d.gd" id="1_67hrm"]
 [ext_resource type="PackedScene" uid="uid://dihy0istq3alv" path="res://Scenes/UI/canvas_layer.tscn" id="1_kykf2"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://cubgmly0s6sxp" path="res://Assets/Art/Sprites/Tileset (6).png" id="10_sjvcn"]
 [ext_resource type="AudioStream" uid="uid://c624t28jwuwvw" path="res://Assets/Sound/Music/Vulture Boss Music Concept Actually just chill town music concept lol.wav" id="10_syva4"]
 [ext_resource type="PackedScene" uid="uid://ck25xcff0e7si" path="res://Scenes/travel_sign.tscn" id="11_wcev2"]
+[ext_resource type="Texture2D" uid="uid://d2jogl53m4xkv" path="res://Assets/Art/Environment/Plains_Ground_Art.png" id="14_enowb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kykf2"]
 texture = ExtResource("3_2pjc6")
@@ -1052,3 +1053,9 @@ travel_sign = {
 0: "res://Scenes/Areas/world2.tscn"
 }
 sign_text = "World Two"
+
+[node name="PlainsGroundArt" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(4496, 904)
+scale = Vector2(0.374974, 0.37209305)
+texture = ExtResource("14_enowb")
