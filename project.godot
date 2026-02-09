@@ -164,3 +164,8 @@ Teleport_Right={
 
 2d/default_gravity=3000.0
 common/physics_interpolation=true
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+2d/canvas_textures/default_texture_filter=1

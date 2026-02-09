@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://dihy0istq3alv"]
+
+[ext_resource type="FontFile" uid="uid://bvhn1qdmm6q7i" path="res://Assets/Fonts/Macondo/Macondo-Regular.ttf" id="1_lft5s"]
+[ext_resource type="Script" uid="uid://bdhjuldhui8qa" path="res://Scripts/canvas_layer.gd" id="1_w6mh2"]
+
+[sub_resource type="FontVariation" id="FontVariation_w6mh2"]
+base_font = ExtResource("1_lft5s")
+spacing_glyph = 10
+
+[node name="CanvasLayer" type="CanvasLayer"]
+layer = 2
+script = ExtResource("1_w6mh2")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 128.0
+offset_top = -152.0
+offset_right = 1792.0
+offset_bottom = 64.0
+metadata/_edit_group_ = true
+
+[node name="sign_text" type="RichTextLabel" parent="Control"]
+layout_mode = 0
+offset_right = 39619.05
+offset_bottom = 5142.8574
+scale = Vector2(0.042, 0.042)
+theme_override_colors/default_color = Color(0.88235295, 0.7921569, 0.34509805, 1)
+theme_override_colors/font_outline_color = Color(0.5292189, 0.47300288, 0.19436695, 1)
+theme_override_constants/outline_size = 15
+theme_override_constants/table_h_separation = 3
+theme_override_constants/table_v_separation = 3
+theme_override_fonts/normal_font = SubResource("FontVariation_w6mh2")
+theme_override_font_sizes/normal_font_size = 1000
+text = "World"
+scroll_active = false
+autowrap_mode = 2
+horizontal_alignment = 1
+vertical_alignment = 1

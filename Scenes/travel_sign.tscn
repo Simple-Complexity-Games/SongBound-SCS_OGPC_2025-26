@@ -1,15 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://ck25xcff0e7si"]
+[gd_scene load_steps=4 format=3 uid="uid://ck25xcff0e7si"]
 
 [ext_resource type="Script" uid="uid://wb8f6p7bp5se" path="res://Scripts/travel_sign.gd" id="1_1l5yg"]
 [ext_resource type="Texture2D" uid="uid://4yi2cfq10kuf" path="res://Assets/Art/Sprites/mine Tile Design Template (1).png" id="2_qjge1"]
-[ext_resource type="FontFile" uid="uid://bvhn1qdmm6q7i" path="res://Assets/Fonts/Macondo/Macondo-Regular.ttf" id="3_qsn6w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1l5yg"]
 size = Vector2(53, 50.75)
-
-[sub_resource type="FontVariation" id="FontVariation_otk2s"]
-base_font = ExtResource("3_qsn6w")
-spacing_glyph = 10
 
 [node name="travel sign" type="Node2D"]
 script = ExtResource("1_1l5yg")
@@ -26,34 +21,6 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, -6)
 shape = SubResource("RectangleShape2D_1l5yg")
-
-[node name="Control" type="Control" parent="Area2D"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = -101.0
-offset_top = -151.0
-offset_right = 102.0
-offset_bottom = -19.0
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Area2D/Control"]
-layout_mode = 0
-offset_left = 18.000002
-offset_top = 66.0
-offset_right = 5205.4995
-offset_bottom = 2610.2258
-scale = Vector2(0.032, 0.032)
-theme_override_colors/default_color = Color(0.88235295, 0.7921569, 0.34509805, 1)
-theme_override_colors/font_outline_color = Color(0.5292189, 0.47300288, 0.19436695, 1)
-theme_override_constants/outline_size = 15
-theme_override_constants/table_h_separation = 3
-theme_override_constants/table_v_separation = 3
-theme_override_fonts/normal_font = SubResource("FontVariation_otk2s")
-theme_override_font_sizes/normal_font_size = 1000
-text = "World"
-scroll_active = false
-autowrap_mode = 2
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
