@@ -3,13 +3,13 @@ extends CharacterBody2D
 @onready var Perch_Collision_Area = get_node("Perch_Collision_Area")
 
 #region ------Movement Constant Definitions------
-const ACCELERATION_GROUND = 35 # Grounded acceleration
+const ACCELERATION_GROUND = 20 # Grounded acceleration
 const ACCELERATION_AIR = 30 # Ungrounded acceleration
-const DECELERATON_SPEED = 20 
+const DECELERATON_SPEED = 12 
 const DECELERATON_SPEED_AIR = 0.005
 const ACCELERATION_FLYING = 20
 const PASSIVE_ACCEL_AIR = 2
-const GROUND_SPEED = 200.0
+const GROUND_SPEED = 240.0
 const AIR_SPEED = 160.0
 const JUMP_VELOCITY = -300
 const JUMP_GRAVITY_MULT = 0.55
@@ -21,7 +21,7 @@ const SOFT_GRAVITY_SECONDS = 0.08
 const GLIDE_ACCELERATION = 12
 const PERCH_LANDING_SPEED = 0.5
 const PERCH_DECELERATION_SPEED = 10
-const PERCH_TWEEN_TIME = 1
+const PERCH_TWEEN_TIME = 0.4
 const HOVER_SPEED = 150
 const HOVERING_DECELERATION = 5
 #endregion
@@ -257,7 +257,6 @@ func Handle_Perch():
 			perch_position_tween.kill()
 			perching = false
 	
-	# TODO Make movement perch cancel only happen when re-pressing the movement keys, as opposed to just if there is any movement keypress at all
 	if can_perch and perch_buffer and not perching:
 		direction = 0
 		perching = true
