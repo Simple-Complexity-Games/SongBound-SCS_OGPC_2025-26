@@ -1060,9 +1060,10 @@ stream = ExtResource("10_syva4")
 [node name="travel sign" parent="." instance=ExtResource("11_wcev2")]
 position = Vector2(43, 29)
 travel_sign = {
-0: "res://Scenes/Areas/Sparrow_sanctuary/sparrow_sanctuary_road_1.tscn"
+0: "res://Scenes/Areas/Sparrow_sanctuary/path_one.tscn"
 }
 sign_text = "Sparrow Sanctuary"
+connected_sign_name = "world"
 
 [node name="travel sign2" parent="." instance=ExtResource("11_wcev2")]
 position = Vector2(8951, 1181)
