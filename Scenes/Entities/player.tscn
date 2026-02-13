@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://bdkged5clqdnl"]
+[gd_scene load_steps=7 format=3 uid="uid://bdkged5clqdnl"]
 
 [ext_resource type="Script" uid="uid://csxtgnkd7vffc" path="res://Scripts/player.gd" id="1_nqm6o"]
 [ext_resource type="Texture2D" uid="uid://c6r4fv54mx5nv" path="res://Assets/Art/Sprites/icon.svg" id="1_v0iea"]
+[ext_resource type="PackedScene" uid="uid://dcmw2s3k5ngm4" path="res://Scenes/Utility/health_manager.tscn" id="3_qbyki"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_onrkg"]
 animations = [{
@@ -19,29 +20,6 @@ size = Vector2(16, 24)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nqm6o"]
 size = Vector2(8, 2)
-
-[sub_resource type="SeparationRayShape2D" id="SeparationRayShape2D_nqm6o"]
-length = 6.0
-slide_on_slope = true
-
-[sub_resource type="GDScript" id="GDScript_qbyki"]
-resource_name = "Step_UpMechanic"
-script/source = "extends CollisionShape2D
-@onready var checker: RayCast2D = $Checker #Getting the Checker 
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	if checker.is_colliding():
-		var collider = checker.get_collider()
-		var cell = collider.local_to_map(checker.get_collision_point())
-		var cell_data = collider.get_cell_tile_data(cell)		
-"
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
@@ -64,14 +42,9 @@ collision_mask = 4
 position = Vector2(0, -3)
 shape = SubResource("RectangleShape2D_nqm6o")
 
-[node name="Step_Up" type="CollisionShape2D" parent="."]
-shape = SubResource("SeparationRayShape2D_nqm6o")
-disabled = true
-script = SubResource("GDScript_qbyki")
-
-[node name="Checker" type="RayCast2D" parent="Step_Up"]
-position = Vector2(0, -1)
-target_position = Vector2(11, 0)
+[node name="Health_Manager" parent="." instance=ExtResource("3_qbyki")]
+max_health = 20
+I_frame_timer = 1
 
 [connection signal="body_entered" from="Perch_Collision_Area" to="." method="_on_perch_collision_area_body_entered"]
 [connection signal="body_exited" from="Perch_Collision_Area" to="." method="_on_perch_collision_area_body_exited"]
