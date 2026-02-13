@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://c2rq8qrx2isq"]
+[gd_scene load_steps=24 format=4 uid="uid://c2rq8qrx2isq"]
 
 [ext_resource type="Script" uid="uid://dltd48sm6e1bk" path="res://Scripts/camera_2d.gd" id="1_8ik8f"]
 [ext_resource type="PackedScene" uid="uid://bdkged5clqdnl" path="res://Scenes/Entities/player.tscn" id="2_eeikq"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://8ydaoyd111dk" path="res://Assets/Art/Sprites/Caravan.png" id="9_p1vo2"]
 [ext_resource type="AudioStream" uid="uid://c624t28jwuwvw" path="res://Assets/Sound/Music/Vulture Boss Music Concept Actually just chill town music concept lol.wav" id="10_tid5k"]
 [ext_resource type="PackedScene" uid="uid://ck25xcff0e7si" path="res://Scenes/travel_sign.tscn" id="11_pvrle"]
+[ext_resource type="PackedScene" uid="uid://dihy0istq3alv" path="res://Scenes/UI/canvas_layer.tscn" id="12_jkig4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kykf2"]
 texture = ExtResource("3_bl7ud")
@@ -714,6 +715,8 @@ sign_text = "World one"
 
 [node name="travel sign2" parent="." instance=ExtResource("11_pvrle")]
 position = Vector2(895, 29)
+sign_text = "world"
+connected_sign_name = "Sparrow Sanctuary"
 
 [node name="travel sign3" parent="." instance=ExtResource("11_pvrle")]
 position = Vector2(410, 30)
@@ -721,3 +724,5 @@ travel_sign = {
 0: "res://Scenes/Areas/Sparrow_sanctuary/sparrow_sanctuary_road_2.tscn"
 }
 sign_text = "Road Two"
+
+[node name="CanvasLayer" parent="." instance=ExtResource("12_jkig4")]
