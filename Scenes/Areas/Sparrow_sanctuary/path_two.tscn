@@ -705,14 +705,14 @@ tile_set = SubResource("TileSet_5a7ea")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_ypmv5")
 
-[node name="travel sign" parent="." instance=ExtResource("11_5l78m")]
+[node name="travel sign" parent="." groups=["Signs"] instance=ExtResource("11_5l78m")]
 position = Vector2(42, 29)
 travel_sign = {
 0: "heh"
 }
 sign_text = "Void"
 
-[node name="travel sign2" parent="." instance=ExtResource("11_5l78m")]
+[node name="travel sign2" parent="." groups=["Signs"] instance=ExtResource("11_5l78m")]
 position = Vector2(683, 29)
 travel_sign = {
 0: "res://Scenes/Areas/Sparrow_sanctuary/sparrow_sanctuary_road_1.tscn"
