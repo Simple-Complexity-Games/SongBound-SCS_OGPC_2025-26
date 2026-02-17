@@ -706,19 +706,19 @@ tile_set = SubResource("TileSet_5a7ea")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_tid5k")
 
-[node name="travel sign" parent="." instance=ExtResource("11_pvrle")]
+[node name="travel sign" parent="." groups=["Signs"] instance=ExtResource("11_pvrle")]
 position = Vector2(42, 29)
 travel_sign = {
 0: "heh"
 }
 sign_text = "World one"
 
-[node name="travel sign2" parent="." instance=ExtResource("11_pvrle")]
+[node name="travel sign2" parent="." groups=["Signs"] instance=ExtResource("11_pvrle")]
 position = Vector2(895, 29)
 sign_text = "world"
 connected_sign_name = "Sparrow Sanctuary"
 
-[node name="travel sign3" parent="." instance=ExtResource("11_pvrle")]
+[node name="travel sign3" parent="." groups=["Signs"] instance=ExtResource("11_pvrle")]
 position = Vector2(410, 30)
 travel_sign = {
 0: "res://Scenes/Areas/Sparrow_sanctuary/sparrow_sanctuary_road_2.tscn"
