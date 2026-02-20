@@ -133,21 +133,26 @@ func Handle_Inputs():
 		if print_debugging: print("moving again")
 		direction = Input.get_axis("Left", "Right") # For left and right movement. 
 	
-	if Input.is_action_pressed("Glide") and not is_on_floor() and not gliding: # Turns on Gliding
+	if Input.is_action_pressed("Glide") and not is_on_floor() and not gliding and not perching: # Turns on Gliding
 		jumping = false
 		gliding = true
 	elif Input.is_action_just_released("Glide") and gliding:
 		gliding = false
 
 func Handle_Jump():
+	print("perch tween", perch_velocity_tween)
 	if Input.is_action_just_pressed("Jump") and (is_on_floor() or coyote_time) and not gliding and total_jumps < MAX_JUMPS:
 		if print_debugging: print("jump1")
 		if perching:
 			if print_debugging: print("perch tween kill")
 			perching = false
 			perch_buffer = false
-			perch_velocity_tween.kill()
-			perch_position_tween.kill()
+			if perch_velocity_tween != null:
+				print("tween kill")
+				perch_velocity_tween.kill()
+				perch_velocity_tween = null
+				perch_position_tween.kill()
+				perch_position_tween = null
 		if hover_velocity_tween != null:
 			hovering = false
 			hover_velocity_tween.kill()
@@ -164,8 +169,11 @@ func Handle_Jump():
 			if print_debugging: print("perch tween kill")
 			perching = false
 			perch_buffer = false
-			perch_velocity_tween.kill()
-			perch_position_tween.kill()
+			if perch_velocity_tween != null:
+				perch_velocity_tween.kill()
+				perch_velocity_tween = null
+				perch_position_tween.kill()
+				perch_position_tween = null
 		if hover_velocity_tween != null:
 			hovering = false
 			hover_velocity_tween.kill()
@@ -182,8 +190,11 @@ func Handle_Jump():
 			if print_debugging: print("perch tween kill")
 			perching = false
 			perch_buffer = false
-			perch_velocity_tween.kill()
-			perch_position_tween.kill()
+			if perch_velocity_tween != null:
+				perch_velocity_tween.kill()
+				perch_velocity_tween = null
+				perch_position_tween.kill()
+				perch_position_tween = null
 		if hover_velocity_tween != null:
 			hovering = false
 			hover_velocity_tween.kill()
@@ -239,7 +250,7 @@ func Handle_Perch():
 	if Input.is_action_just_pressed("Up"):
 		jumping = false
 		hover_queued = true
-		get_tree().create_timer(0.1).timeout.connect(Perch_Buffer_Over)
+		get_tree().create_timer(0.2).timeout.connect(Perch_Buffer_Over)
 		perch_buffer = true
 		
 		if perching:
@@ -254,12 +265,16 @@ func Handle_Perch():
 		if perch_velocity_tween != null and perch_position_tween != null:
 			if print_debugging: print("direction perch kill")
 			perch_velocity_tween.kill()
+			perch_velocity_tween = null
 			perch_position_tween.kill()
+			perch_position_tween = null
 			perching = false
 	
-	if can_perch and perch_buffer and not perching:
+	if can_perch and perch_buffer and not perching and perch_velocity_tween == null:
+		gliding = false
 		direction = 0
 		perching = true
+		Perch_Buffer_Over()
 		perch_coordinates = self.position
 		if print_debug: print("tweens started")
 		perch_velocity_tween = create_tween().set_ease(Tween.EASE_OUT)
@@ -298,7 +313,7 @@ func _on_perch_collision_area_body_exited(_body: Node2D) -> void:
 	if not Perch_Collision_Area.has_overlapping_bodies():
 		can_perch = false
 		await get_tree().create_timer(0.5).timeout
-		if not Perch_Collision_Area.has_overlapping_bodies():
+		if not Perch_Collision_Area.has_overlapping_bodies() and perch_velocity_tween == null:
 			if perching and not perch_position_tween.is_running and not perch_velocity_tween.is_running:
 				perching = false
 				if print_debug: print("perch reset")

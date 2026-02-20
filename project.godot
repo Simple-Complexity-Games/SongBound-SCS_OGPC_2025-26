@@ -165,6 +165,11 @@ Teleport_Right={
 
 [layer_names]
 
+2d_render/layer_1="Background"
+2d_render/layer_2="Midground Terrain"
+2d_render/layer_3="Midground Decorations"
+2d_render/layer_4="Foreground"
+2d_render/layer_5="Entities"
 2d_physics/layer_1="Terrain"
 2d_physics/layer_2="Player"
 2d_physics/layer_3="Perchable Surfaces"
