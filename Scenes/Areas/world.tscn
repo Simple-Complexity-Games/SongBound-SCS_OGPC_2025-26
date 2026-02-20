@@ -982,7 +982,8 @@ travel_sign = {
 0: "res://Scenes/Areas/Sparrow_sanctuary/path_one.tscn"
 }
 sign_text = "Sparrow Sanctuary"
-connected_sign_name = "world"
+connected_sign_pos_x = 42
+connected_sign_pos_y = 29
 
 [node name="travel sign2" parent="." groups=["Signs"] instance=ExtResource("11_wcev2")]
 position = Vector2(8951, 1181)
