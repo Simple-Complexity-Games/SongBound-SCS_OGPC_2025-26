@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cawm3msv5iclu"]
+
+[ext_resource type="Texture2D" uid="uid://c6r4fv54mx5nv" path="res://Assets/Art/Sprites/icon.svg" id="1_h5cgg"]
+[ext_resource type="Script" uid="uid://cshdig3xcgmcv" path="res://Scenes/Entities/testing_enemy.gd" id="2_j00w6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v7j6w"]
+size = Vector2(1215.04, 686.552)
+
+[node name="TestingEnemy" type="Sprite2D"]
+position = Vector2(0, -9)
+scale = Vector2(0.130859, 0.130859)
+texture = ExtResource("1_h5cgg")
+script = ExtResource("2_j00w6")
+
+[node name="AlertingArea" type="Area2D" parent="."]
+position = Vector2(2.86568, -10.5075)
+
+[node name="Alert" type="CollisionShape2D" parent="AlertingArea"]
+position = Vector2(-2.86567, -264.597)
+shape = SubResource("RectangleShape2D_v7j6w")

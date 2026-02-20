@@ -65,29 +65,27 @@ volume_db = -2.811
 bus = &"SFX"
 
 [node name="Title_Label" type="RichTextLabel" parent="." groups=["Hoverable"]]
-visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.083
 anchor_top = 0.081
 anchor_right = 0.917
 anchor_bottom = 0.268
-offset_left = 0.639999
-offset_top = 0.519997
-offset_right = 0.359863
-offset_bottom = -0.439941
+offset_left = 0.6399994
+offset_top = 0.51999664
+offset_right = 0.35986328
+offset_bottom = 59.559998
 tooltip_text = "A Game By Simple Complexity"
 mouse_filter = 1
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0.509804, 0.894118, 1, 1)
 theme_override_constants/outline_size = 18
 theme_override_fonts/normal_font = ExtResource("6_xp0kt")
-theme_override_font_sizes/normal_font_size = 150
-text = "Adventures in Avythera"
+theme_override_font_sizes/normal_font_size = 200
+text = "SongBound"
 horizontal_alignment = 1
 
 [node name="Main_Menu_Container" type="VBoxContainer" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.267
@@ -565,6 +563,7 @@ color = Color(1, 1, 1, 0)
 
 [node name="Window_Mode_Button" type="OptionButton" parent="Video_Menu_Container" groups=["Hoverable"]]
 modulate = Color(0.933333, 0.647059, 0.498039, 1)
+texture_filter = 1
 layout_mode = 2
 focus_neighbor_top = NodePath("../Saturation_Slider")
 focus_neighbor_bottom = NodePath("../Screen_Shake_Button")
@@ -628,6 +627,7 @@ theme_override_styles/hover_pressed_mirrored = ExtResource("7_jewm6")
 text = "Done"
 
 [node name="Controls_Menu_Container" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchor_left = 0.267
 anchor_top = 0.43

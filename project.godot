@@ -18,6 +18,10 @@ boot_splash/image="uid://ctcpgiopmolp8"
 config/icon="res://Assets/Art/Sprites/icon.svg"
 boot_splash/minimum_display_time=1000
 
+[autoload]
+
+GameManager="*res://Scripts/game manager.gd"
+
 [display]
 
 window/size/viewport_width=1920
@@ -26,6 +30,7 @@ window/size/sharp_corners=true
 window/size/window_width_override=960
 window/size/window_height_override=540
 window/stretch/mode="viewport"
+window/delta_smoothing=true
 
 [dotnet]
 
@@ -163,3 +168,16 @@ Teleport_Right={
 [physics]
 
 2d/default_gravity=3000.0
+common/physics_interpolation=true
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=3
+textures/vram_compression/compress_with_gpu=false
+textures/default_filters/use_nearest_mipmap_filter=true
+anti_aliasing/quality/msaa_2d=1
+anti_aliasing/quality/msaa_3d=1
+anti_aliasing/quality/screen_space_aa=1
+anti_aliasing/quality/use_taa=true
+anti_aliasing/quality/use_debanding=true
+2d/canvas_textures/default_texture_filter=1

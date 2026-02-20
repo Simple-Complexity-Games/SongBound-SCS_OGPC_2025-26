@@ -3,13 +3,13 @@ extends CharacterBody2D
 @onready var Perch_Collision_Area = get_node("Perch_Collision_Area")
 
 #region ------Movement Constant Definitions------
-const ACCELERATION_GROUND = 35 # Grounded acceleration
+const ACCELERATION_GROUND = 20 # Grounded acceleration
 const ACCELERATION_AIR = 30 # Ungrounded acceleration
-const DECELERATON_SPEED = 20 
+const DECELERATON_SPEED = 12 
 const DECELERATON_SPEED_AIR = 0.005
 const ACCELERATION_FLYING = 20
 const PASSIVE_ACCEL_AIR = 2
-const GROUND_SPEED = 200.0
+const GROUND_SPEED = 240.0
 const AIR_SPEED = 160.0
 const JUMP_VELOCITY = -300
 const JUMP_GRAVITY_MULT = 0.55
@@ -21,6 +21,7 @@ const SOFT_GRAVITY_SECONDS = 0.08
 const GLIDE_ACCELERATION = 12
 const PERCH_LANDING_SPEED = 0.5
 const PERCH_DECELERATION_SPEED = 10
+const PERCH_TWEEN_TIME = 0.4
 const HOVER_SPEED = 150
 const HOVERING_DECELERATION = 5
 #endregion
@@ -56,6 +57,7 @@ var hover_velocity_tween
 var perch_velocity_tween
 var perch_position_tween
 
+var print_debugging = false
 
 func _ready() -> void:
 	pass
@@ -78,20 +80,26 @@ func _process(_delta: float) -> void:
 		position.x += 1500
 
 func _physics_process(delta: float) -> void:
-	#Apply gravity
 	if soft_gravity_timer != null:
-		if soft_gravity_timer.time_left > 0:
-			velocity += get_gravity() * delta * ((SOFT_GRAVITY_SECONDS - soft_gravity_timer.time_left) / SOFT_GRAVITY_SECONDS)
-			print("soft grav")
-		else:
+		if velocity.y < 0 and abs(velocity.y) > 5:
 			soft_gravity_timer = null
-	elif (not gliding or hovering) and ((not perching) or jumping) and velocity.y < MAX_FALL_SPEED - (int(hovering) * (MAX_FALL_SPEED - HOVER_SPEED)): 
-		if not jumping:
-			print("normal grav")
-			velocity += get_gravity() * delta
-		else:
-			velocity += get_gravity() * delta * JUMP_GRAVITY_MULT
-			print("jump grav")
+	
+	#Apply gravity
+	if (not gliding or hovering) and ((not perching) or jumping) and velocity.y < MAX_FALL_SPEED - (int(hovering) * (MAX_FALL_SPEED - HOVER_SPEED)):
+		if print_debugging: print("gravity")
+		if soft_gravity_timer != null:
+			if soft_gravity_timer.time_left > 0:
+				velocity += get_gravity() * delta * ((SOFT_GRAVITY_SECONDS - soft_gravity_timer.time_left) / SOFT_GRAVITY_SECONDS)
+				if print_debugging: print("soft grav")
+			else:
+				soft_gravity_timer = null
+		else: 
+			if not jumping:
+				if print_debugging: print("normal grav")
+				velocity += get_gravity() * delta
+			else:
+				velocity += get_gravity() * delta * JUMP_GRAVITY_MULT
+				if print_debugging: print("jump grav")
 	
 	Update_Status_Vars()
 	
@@ -117,10 +125,13 @@ func Update_Status_Vars():
 			
 			coyote_jump_timer = get_tree().create_timer(coyote_seconds, false, true)
 			coyote_jump_timer.timeout.connect(Coyote_Timer_Done.bind())
+			if print_debugging: print("soft gravity start")
 			soft_gravity_timer = get_tree().create_timer(SOFT_GRAVITY_SECONDS, false, true)
 
 func Handle_Inputs():
-	direction = Input.get_axis("Left", "Right") # For left and right movement. 
+	if not perching:
+		if print_debugging: print("moving again")
+		direction = Input.get_axis("Left", "Right") # For left and right movement. 
 	
 	if Input.is_action_pressed("Glide") and not is_on_floor() and not gliding: # Turns on Gliding
 		jumping = false
@@ -130,42 +141,57 @@ func Handle_Inputs():
 
 func Handle_Jump():
 	if Input.is_action_just_pressed("Jump") and (is_on_floor() or coyote_time) and not gliding and total_jumps < MAX_JUMPS:
-		print("jump")
+		if print_debugging: print("jump1")
 		if perching:
-			print("perch tween kill")
+			if print_debugging: print("perch tween kill")
+			perching = false
+			perch_buffer = false
 			perch_velocity_tween.kill()
 			perch_position_tween.kill()
 		if hover_velocity_tween != null:
+			hovering = false
 			hover_velocity_tween.kill()
-			print("kill")
+			if print_debugging: print("kill")
 		jumping = true
 		
+		if soft_gravity_timer != null:
+			soft_gravity_timer = null
 		velocity.y = JUMP_VELOCITY
 		total_jumps += 1
 	elif Input.is_action_just_pressed("Jump") and total_jumps < MAX_JUMPS and not (is_on_floor() or coyote_time):
-		print("jump")
+		if print_debugging: print("jump2")
 		if perching:
-			print("perch tween kill")
+			if print_debugging: print("perch tween kill")
+			perching = false
+			perch_buffer = false
 			perch_velocity_tween.kill()
 			perch_position_tween.kill()
 		if hover_velocity_tween != null:
+			hovering = false
 			hover_velocity_tween.kill()
-			print("kill")
+			if print_debugging: print("kill")
 		jumping = true
 		
+		if soft_gravity_timer != null:
+			soft_gravity_timer = null
 		velocity.y = JUMP_VELOCITY
 		total_jumps += 1
 	elif Input.is_action_just_pressed("Jump") and (total_jumps < MAX_JUMPS or abilities.get("flight")):
-		print("jump")
+		if print_debugging: print("jump3")
 		if perching:
-			print("perch tween kill")
+			if print_debugging: print("perch tween kill")
+			perching = false
+			perch_buffer = false
 			perch_velocity_tween.kill()
 			perch_position_tween.kill()
 		if hover_velocity_tween != null:
+			hovering = false
 			hover_velocity_tween.kill()
-			print("kill")
+			if print_debugging: print("kill")
 		jumping = true
 		
+		if soft_gravity_timer != null:
+			soft_gravity_timer = null
 		velocity.y = JUMP_VELOCITY
 		total_jumps += 1
 	elif Input.is_action_just_released("Jump") or (velocity.y > 0 and not is_on_floor() and not perching):
@@ -173,6 +199,7 @@ func Handle_Jump():
 
 func Handle_Glide(): 
 	if gliding and not hovering and not perching:
+		if print_debugging: print("glide velocity change")
 		velocity.y = move_toward(velocity.y, (((MIN_GLIDE_SPEED - MAX_GLIDE_SPEED)/AIR_SPEED) * (abs(velocity.x) - AIR_SPEED) + MIN_GLIDE_SPEED), GLIDE_ACCELERATION)
 		#if velocity.x > 5: 
 			#velocity.x += PASSIVE_ACCEL_AIR 
@@ -204,10 +231,10 @@ func Handle_Perch():
 				velocity.x = move_toward(velocity.x, -10, HOVERING_DECELERATION * (-velocity.x / 10))
 		
 		if velocity.y > HOVER_SPEED and hover_queued and not perching and not jumping:
-			print("k")
+			if print_debugging: print("start hover")
 			hover_queued = false
 			hovering = true
-			hover_velocity_tween = get_tree().create_tween().set_ease(Tween.EASE_OUT)
+			hover_velocity_tween = create_tween().set_ease(Tween.EASE_OUT)
 			hover_velocity_tween.tween_property(self, "velocity:y", HOVER_SPEED, 0.8)
 	if Input.is_action_just_pressed("Up"):
 		jumping = false
@@ -221,18 +248,29 @@ func Handle_Perch():
 				perch_position_tween.kill()
 				perching = false
 	
-	if can_perch and perch_buffer:
+	if perching and (Input.is_action_just_pressed("Left") or Input.is_action_just_pressed("Right")):
+		if not jumping:
+			soft_gravity_timer = get_tree().create_timer(1, false, true)
+		if perch_velocity_tween != null and perch_position_tween != null:
+			if print_debugging: print("direction perch kill")
+			perch_velocity_tween.kill()
+			perch_position_tween.kill()
+			perching = false
+	
+	if can_perch and perch_buffer and not perching:
+		direction = 0
 		perching = true
 		perch_coordinates = self.position
-		print("tweens started")
-		perch_velocity_tween = get_tree().create_tween().set_ease(Tween.EASE_OUT)
-		perch_velocity_tween.tween_property(self, "velocity:y", 0, 0.8)
-		perch_position_tween = get_tree().create_tween().set_ease(Tween.EASE_OUT)
-		perch_position_tween.tween_property(self, "position", perch_coordinates, 1)
+		if print_debug: print("tweens started")
+		perch_velocity_tween = create_tween().set_ease(Tween.EASE_OUT)
+		perch_velocity_tween.parallel().tween_property(self, "velocity:y", 0, PERCH_TWEEN_TIME)
+		perch_position_tween = create_tween().set_ease(Tween.EASE_OUT)
+		perch_position_tween.parallel().tween_property(self, "position", perch_coordinates, PERCH_TWEEN_TIME)
 		if not jumping:
 			total_jumps = 0
 	
 	if Input.is_action_just_released("Up"):
+		if print_debug: print("hover release")
 		hover_queued = false
 		hovering = false
 		if hover_velocity_tween != null:
@@ -259,8 +297,8 @@ func _on_perch_collision_area_body_entered(_body: Node2D) -> void:
 func _on_perch_collision_area_body_exited(_body: Node2D) -> void:
 	if not Perch_Collision_Area.has_overlapping_bodies():
 		can_perch = false
-		await get_tree().create_timer(0.3).timeout
+		await get_tree().create_timer(0.5).timeout
 		if not Perch_Collision_Area.has_overlapping_bodies():
-			if perching:
+			if perching and not perch_position_tween.is_running and not perch_velocity_tween.is_running:
 				perching = false
-				print("perch reset")
+				if print_debug: print("perch reset")
