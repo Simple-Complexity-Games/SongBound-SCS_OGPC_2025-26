@@ -711,14 +711,14 @@ tile_set = SubResource("TileSet_5a7ea")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_bm0xd")
 
-[node name="travel sign" parent="." instance=ExtResource("11_u6sdf")]
+[node name="travel sign" parent="." groups=["Signs"] instance=ExtResource("11_u6sdf")]
 position = Vector2(43, 29)
 travel_sign = {
 0: "res://Scenes/Areas/pelican_port_east.tscn"
 }
 sign_text = "Pelican Port East"
 
-[node name="travel sign2" parent="." instance=ExtResource("11_u6sdf")]
+[node name="travel sign2" parent="." groups=["Signs"] instance=ExtResource("11_u6sdf")]
 position = Vector2(2678, 29)
 travel_sign = {
 0: "res://Scenes/Areas/Turn_stone_village/path_one.tscn"
