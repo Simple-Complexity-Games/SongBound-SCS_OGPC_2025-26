@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dqua7vldr3xdw"
-path="res://.godot/imported/Bard_Tavern_Concept_Art_Cropped.JPG-1652e7c4937fcf4f81e6d217171d2b1d.ctex"
+uid="uid://d0fy2swtgvp0l"
+path="res://.godot/imported/Bard_Tavern_Concept_Art.JPG-d599f15f2911cafe82404732d7718a62.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Environment/Bard_Tavern_Concept_Art_Cropped.JPG"
-dest_files=["res://.godot/imported/Bard_Tavern_Concept_Art_Cropped.JPG-1652e7c4937fcf4f81e6d217171d2b1d.ctex"]
+source_file="res://Assets/Art/Concept Art/Bard_Tavern_Concept_Art.JPG"
+dest_files=["res://.godot/imported/Bard_Tavern_Concept_Art.JPG-d599f15f2911cafe82404732d7718a62.ctex"]
 
 [params]
 

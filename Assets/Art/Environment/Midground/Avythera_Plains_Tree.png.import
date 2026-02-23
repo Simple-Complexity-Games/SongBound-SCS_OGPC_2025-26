@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ctcpgiopmolp8"
-path="res://.godot/imported/Bard_Tavern_Concept_Art_Cropped.png-389d2af25600035563edf24a306684e4.ctex"
+uid="uid://bbfw105uay4w1"
+path="res://.godot/imported/Avythera_Plains_Tree.png-97fc7d2b570a886cbc7faf0c9bed20af.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Environment/Bard_Tavern_Concept_Art_Cropped.png"
-dest_files=["res://.godot/imported/Bard_Tavern_Concept_Art_Cropped.png-389d2af25600035563edf24a306684e4.ctex"]
+source_file="res://Assets/Art/Environment/Midground/Avythera_Plains_Tree.png"
+dest_files=["res://.godot/imported/Avythera_Plains_Tree.png-97fc7d2b570a886cbc7faf0c9bed20af.ctex"]
 
 [params]
 

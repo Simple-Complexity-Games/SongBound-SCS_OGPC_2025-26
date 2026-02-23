@@ -184,6 +184,7 @@ common/physics_interpolation=true
 
 textures/canvas_textures/default_texture_filter=2
 textures/vram_compression/compress_with_gpu=false
+viewport/hdr_2d=true
 anti_aliasing/quality/msaa_2d=2
 anti_aliasing/quality/msaa_3d=1
 textures/default_filters/texture_mipmap_bias=1.0
