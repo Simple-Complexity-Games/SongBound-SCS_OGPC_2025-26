@@ -7,13 +7,13 @@ extends Node2D
 var is_in_area = false
 
 func _ready() -> void:
-	GameManager.new_player_location()
-
+	get_parent().get_node("player_location").change_location()
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("Up") and is_in_area:
 		get_tree().change_scene_to_file(travel_sign.get(0))
 
-func _on_area_2d_body_entered(_body: Node2D) -> void:
+
+func on_area_2d_body_entered(_body: Node2D) -> void:
 	is_in_area = true
 	get_parent().get_node("CanvasLayer").Show_Text(sign_text)
 	GameManager.pos_x = connected_sign_pos_x

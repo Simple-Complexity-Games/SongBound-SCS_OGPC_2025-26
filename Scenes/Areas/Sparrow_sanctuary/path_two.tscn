@@ -1,6 +1,8 @@
-[gd_scene load_steps=23 format=4 uid="uid://dackrmtcbhbc"]
+[gd_scene load_steps=25 format=4 uid="uid://dackrmtcbhbc"]
 
+[ext_resource type="PackedScene" uid="uid://dihy0istq3alv" path="res://Scenes/UI/canvas_layer.tscn" id="1_dutln"]
 [ext_resource type="Script" uid="uid://dltd48sm6e1bk" path="res://Scripts/camera_2d.gd" id="1_mwm3a"]
+[ext_resource type="PackedScene" uid="uid://rq24inwg7cap" path="res://Scenes/Utility/player_location.tscn" id="2_oh685"]
 [ext_resource type="PackedScene" uid="uid://bdkged5clqdnl" path="res://Scenes/Entities/player.tscn" id="2_qwsqi"]
 [ext_resource type="Texture2D" uid="uid://kp53elewnl2e" path="res://Assets/Art/Sprites/Tileset (1).png" id="3_bvf04"]
 [ext_resource type="Texture2D" uid="uid://dv4aicqdio1r3" path="res://Assets/Art/Sprites/Avythera_Mountain_Tall_Tree.png" id="4_n5qat"]
@@ -656,6 +658,10 @@ sources/6 = SubResource("TileSetAtlasSource_vijum")
 
 [node name="World" type="Node2D"]
 
+[node name="CanvasLayer" parent="." instance=ExtResource("1_dutln")]
+
+[node name="player_location" parent="." instance=ExtResource("2_oh685")]
+
 [node name="world border" type="StaticBody2D" parent="."]
 position = Vector2(-3, -1)
 rotation = 1.5707964
@@ -715,6 +721,8 @@ sign_text = "Void"
 [node name="travel sign2" parent="." groups=["Signs"] instance=ExtResource("11_5l78m")]
 position = Vector2(683, 29)
 travel_sign = {
-0: "res://Scenes/Areas/Sparrow_sanctuary/sparrow_sanctuary_road_1.tscn"
+0: "res://Scenes/Areas/Sparrow_sanctuary/path_one.tscn"
 }
 sign_text = "road 1"
+connected_sign_pos_x = 410
+connected_sign_pos_y = 29

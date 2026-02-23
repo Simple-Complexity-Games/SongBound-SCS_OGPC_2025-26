@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://cj6w02wqewygg"]
+[gd_scene load_steps=34 format=4 uid="uid://cj6w02wqewygg"]
 
 [ext_resource type="Script" uid="uid://dltd48sm6e1bk" path="res://Scripts/camera_2d.gd" id="1_67hrm"]
 [ext_resource type="PackedScene" uid="uid://dihy0istq3alv" path="res://Scenes/UI/canvas_layer.tscn" id="1_kykf2"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://ck25xcff0e7si" path="res://Scenes/travel_sign.tscn" id="11_wcev2"]
 [ext_resource type="Texture2D" uid="uid://bbfw105uay4w1" path="res://Assets/Art/Environment/Avythera_Plains_Tree.png" id="13_bwcnv"]
 [ext_resource type="Texture2D" uid="uid://d2jogl53m4xkv" path="res://Assets/Art/Environment/Plains_Ground_Art.png" id="14_enowb"]
+[ext_resource type="PackedScene" uid="uid://rq24inwg7cap" path="res://Scenes/Utility/player_location.tscn" id="16_6kq0q"]
 [ext_resource type="Texture2D" uid="uid://bvy6wx8w0dcg3" path="res://Assets/Art/Environment/Sky Draft Image.png" id="17_bwcnv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sjvcn"]
@@ -1007,6 +1008,8 @@ tile_set = SubResource("TileSet_5a7ea")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_syva4")
 
+[node name="player_location" parent="." instance=ExtResource("16_6kq0q")]
+
 [node name="travel sign" parent="." groups=["Signs"] instance=ExtResource("11_wcev2")]
 light_mask = 4
 visibility_layer = 4
@@ -1015,7 +1018,7 @@ travel_sign = {
 0: "res://Scenes/Areas/Sparrow_sanctuary/path_one.tscn"
 }
 sign_text = "Sparrow Sanctuary"
-connected_sign_pos_x = 42
+connected_sign_pos_x = 895
 connected_sign_pos_y = 29
 
 [node name="travel sign2" parent="." groups=["Signs"] instance=ExtResource("11_wcev2")]

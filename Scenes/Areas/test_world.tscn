@@ -1,6 +1,8 @@
-[gd_scene load_steps=23 format=4 uid="uid://bdiftdnufsasm"]
+[gd_scene load_steps=25 format=4 uid="uid://bdiftdnufsasm"]
 
 [ext_resource type="Script" uid="uid://dltd48sm6e1bk" path="res://Scripts/camera_2d.gd" id="1_li37h"]
+[ext_resource type="PackedScene" uid="uid://dihy0istq3alv" path="res://Scenes/UI/canvas_layer.tscn" id="1_o4wn2"]
+[ext_resource type="PackedScene" uid="uid://rq24inwg7cap" path="res://Scenes/Utility/player_location.tscn" id="2_iipbt"]
 [ext_resource type="PackedScene" uid="uid://bdkged5clqdnl" path="res://Scenes/Entities/player.tscn" id="2_w8vfd"]
 [ext_resource type="Texture2D" uid="uid://dv4aicqdio1r3" path="res://Assets/Art/Sprites/Avythera_Mountain_Tall_Tree.png" id="3_50hgc"]
 [ext_resource type="Texture2D" uid="uid://kp53elewnl2e" path="res://Assets/Art/Sprites/Tileset (1).png" id="4_bqixu"]
@@ -567,6 +569,10 @@ sources/6 = SubResource("TileSetAtlasSource_cmkx2")
 
 [node name="Node2D" type="Node2D"]
 
+[node name="CanvasLayer" parent="." instance=ExtResource("1_o4wn2")]
+
+[node name="player_location" parent="." instance=ExtResource("2_iipbt")]
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(8, 32)
 zoom = Vector2(3, 3)
@@ -588,6 +594,11 @@ tile_set = SubResource("TileSet_6ykog")
 
 [node name="travel sign" parent="." instance=ExtResource("10_w8vfd")]
 position = Vector2(39, 30)
+travel_sign = {
+0: "res://Scenes/Areas/Sparrow_sanctuary/path_one.tscn"
+}
+connected_sign_pos_x = 42
+connected_sign_pos_y = 29
 
 [node name="hurt_box" type="Area2D" parent="."]
 collision_layer = 0
