@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=4 uid="uid://cj6w02wqewygg"]
+[gd_scene load_steps=37 format=4 uid="uid://83jvl5ynxjre"]
 
 [ext_resource type="Script" uid="uid://dltd48sm6e1bk" path="res://Scripts/camera_2d.gd" id="1_67hrm"]
 [ext_resource type="PackedScene" uid="uid://dihy0istq3alv" path="res://Scenes/UI/canvas_layer.tscn" id="1_kykf2"]
@@ -16,7 +16,8 @@
 [ext_resource type="PackedScene" uid="uid://ck25xcff0e7si" path="res://Scenes/travel_sign.tscn" id="11_wcev2"]
 [ext_resource type="Texture2D" uid="uid://bbfw105uay4w1" path="res://Assets/Art/Environment/Midground/Avythera_Plains_Tree.png" id="13_bwcnv"]
 [ext_resource type="Texture2D" uid="uid://d2jogl53m4xkv" path="res://Assets/Art/Environment/Midground/Plains_Ground_Art.png" id="14_enowb"]
-[ext_resource type="Texture2D" uid="uid://bj3jav3awka52" path="res://Assets/Art/Environment/Background/SKY.png" id="17_bwcnv"]
+[ext_resource type="PackedScene" uid="uid://rq24inwg7cap" path="res://Scenes/Utility/player_location.tscn" id="16_6kq0q"]
+[ext_resource type="Texture2D" uid="uid://bj3jav3awka52" path="res://Assets/Art/Environment/Background/SKY.png" id="18_6kq0q"]
 
 [sub_resource type="Environment" id="Environment_bwcnv"]
 tonemap_mode = 1
@@ -956,7 +957,7 @@ color = Color(0.8966953, 0.8862543, 0.69328964, 1)
 
 [node name="The_Sun" type="PointLight2D" parent="."]
 light_mask = 0
-position = Vector2(11712, -3736)
+position = Vector2(10624, -2992)
 scale = Vector2(100, 100)
 color = Color(0.9591395, 0.9721615, 0.79300624, 1)
 range_z_min = 0
@@ -992,7 +993,7 @@ polygon = PackedVector2Array(1758.9996, -9002, 1759, -10.000077, -3233, -9.99985
 light_mask = 0
 visibility_layer = 0
 position = Vector2(10, 16)
-zoom = Vector2(3, 3)
+zoom = Vector2(4, 4)
 limit_left = 0
 limit_top = -3232
 limit_right = 8992
@@ -1044,6 +1045,8 @@ tile_set = SubResource("TileSet_5a7ea")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_syva4")
 
+[node name="player_location" parent="." instance=ExtResource("16_6kq0q")]
+
 [node name="travel sign" parent="." groups=["Signs"] instance=ExtResource("11_wcev2")]
 light_mask = 4
 visibility_layer = 4
@@ -1052,7 +1055,7 @@ travel_sign = {
 0: "res://Scenes/Areas/Sparrow_sanctuary/path_one.tscn"
 }
 sign_text = "Sparrow Sanctuary"
-connected_sign_pos_x = 42
+connected_sign_pos_x = 895
 connected_sign_pos_y = 29
 
 [node name="travel sign2" parent="." groups=["Signs"] instance=ExtResource("11_wcev2")]
@@ -1073,10 +1076,9 @@ scale = Vector2(0.374974, 0.37209305)
 texture = ExtResource("14_enowb")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="PlainsGroundArt"]
-visible = false
 show_behind_parent = true
-light_mask = 2
-visibility_layer = 2
+light_mask = 64
+visibility_layer = 64
 occluder = SubResource("OccluderPolygon2D_6kq0q")
 occluder_light_mask = 21
 
@@ -1092,7 +1094,7 @@ metadata/_edit_group_ = true
 material = SubResource("CanvasItemMaterial_bwcnv")
 position = Vector2(4496.0005, 315.99997)
 scale = Vector2(0.5864583, 0.7520834)
-texture = ExtResource("17_bwcnv")
+texture = ExtResource("18_6kq0q")
 
 [node name="Sky_Canvas_Layer" type="CanvasLayer" parent="."]
 layer = -1
