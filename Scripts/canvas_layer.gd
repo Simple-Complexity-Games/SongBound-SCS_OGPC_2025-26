@@ -5,7 +5,9 @@ var high_text_height = -151.0
 
 
 func _ready() -> void:
-	pass
+	$Control/HealthBar.value = GameManager.healthforbar
+func set_healthbar():
+	$Control/HealthBar.value = get_parent().get_node("Player/Health_Manager").current_health
 
 func Show_Text(text):
 	$Control/sign_text.text = text

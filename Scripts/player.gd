@@ -62,7 +62,6 @@ var print_debugging = false
 func _ready() -> void:
 	velocity.x = 0
 	velocity.y = 0
-
 func _process(_delta: float) -> void:
 	Handle_Inputs()
 	Handle_Fullscreening()
