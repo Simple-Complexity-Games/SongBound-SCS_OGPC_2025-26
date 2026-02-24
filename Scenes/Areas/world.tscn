@@ -947,6 +947,8 @@ light_mode = 1
 [node name="World" type="Node2D"]
 texture_filter = 4
 
+[node name="CanvasLayer" parent="." instance=ExtResource("1_kykf2")]
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_bwcnv")
 
@@ -954,8 +956,6 @@ environment = SubResource("Environment_bwcnv")
 light_mask = 22
 visibility_layer = 0
 color = Color(0.8966953, 0.8862543, 0.69328964, 1)
-
-[node name="CanvasLayer" parent="." instance=ExtResource("1_kykf2")]
 
 [node name="The_Sun" type="PointLight2D" parent="."]
 light_mask = 0
