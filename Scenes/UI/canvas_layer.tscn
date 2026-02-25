@@ -45,4 +45,10 @@ offset_top = 168.0
 offset_right = 1108.0
 offset_bottom = 195.0
 max_value = 20.0
+value = 20.0
 show_percentage = false
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
