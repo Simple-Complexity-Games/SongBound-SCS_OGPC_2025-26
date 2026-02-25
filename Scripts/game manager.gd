@@ -4,7 +4,8 @@ var sign_location = "Sparrow Sanctuary"
 var pos_x = 43
 var pos_y = 29
 var healthforbar = 20
-	
+
+
 
 	
 # make the sign script on ready to signal the game manager to teleport the player.
