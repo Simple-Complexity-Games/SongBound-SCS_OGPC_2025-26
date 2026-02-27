@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8fqlm6hgluw6"
-path="res://.godot/imported/[32 Px Outline] Avythera_Plains_Tall_Tree_+_Owl_Home_Enterance.png-8cbcc08a240f735c54ada40485cb8457.ctex"
+uid="uid://b13mnu32vlol0"
+path="res://.godot/imported/[32 Px Outline] (No Lighting) Avythera_Mountain_Tree.png-7ec9fd574ea82c8d908a7ed525e793b5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Environment/Midground/[32 Px Outline] Avythera_Plains_Tall_Tree_+_Owl_Home_Enterance.png"
-dest_files=["res://.godot/imported/[32 Px Outline] Avythera_Plains_Tall_Tree_+_Owl_Home_Enterance.png-8cbcc08a240f735c54ada40485cb8457.ctex"]
+source_file="res://Assets/Art/Environment/Midground/[32 Px Outline] (No Lighting) Avythera_Mountain_Tree.png"
+dest_files=["res://.godot/imported/[32 Px Outline] (No Lighting) Avythera_Mountain_Tree.png-7ec9fd574ea82c8d908a7ed525e793b5.ctex"]
 
 [params]
 
