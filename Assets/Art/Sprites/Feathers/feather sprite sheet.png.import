@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7803t4sk84sp"
-path="res://.godot/imported/Health UI (3).png-6ce0c097e5372654daff6dcab78c747c.ctex"
+uid="uid://sdg5bod2m3c2"
+path="res://.godot/imported/feather sprite sheet.png-3faf7673250cf8b0f8944eba6708bc8a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Sprites/Feathers/Health UI (3).png"
-dest_files=["res://.godot/imported/Health UI (3).png-6ce0c097e5372654daff6dcab78c747c.ctex"]
+source_file="res://Assets/Art/Sprites/Feathers/feather sprite sheet.png"
+dest_files=["res://.godot/imported/feather sprite sheet.png-3faf7673250cf8b0f8944eba6708bc8a.ctex"]
 
 [params]
 
