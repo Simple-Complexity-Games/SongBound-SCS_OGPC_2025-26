@@ -1,14 +1,16 @@
 extends Node2D
 
 @export var max_health = 1
-@export var I_frame_timer = 0
+@export var I_frame_timer = .1
 
 var current_health = 1
 var taking_damage = false
 
 func _ready() -> void:
-	current_health = max_health
-
+	if not CharacterBody2D:
+		current_health = max_health
+	if CharacterBody2D:
+		current_health = GameManager.TrueHealth 
 @warning_ignore("unused_parameter")
 func Damage(value, ignore_i_frames = false):
 	taking_damage = true
@@ -16,9 +18,9 @@ func Damage(value, ignore_i_frames = false):
 	get_tree().create_timer(I_frame_timer)
 	taking_damage = false
 	if CharacterBody2D:
-		GameManager.healthforbar -= value
+		GameManager.TrueHealth -= value
 		if current_health <= 0:
-			GameManager.healthforbar = 20
+			GameManager.TrueHealth = 20
 			get_tree().reload_current_scene()
 			
 	if not CharacterBody2D and current_health <= 0:
@@ -27,3 +29,5 @@ func Damage(value, ignore_i_frames = false):
 @warning_ignore("unused_parameter")
 func Heal(value, ignore_max_health = false):
 	current_health += value
+	if CharacterBody2D:
+		GameManager.TrueHealth += value

@@ -140,7 +140,7 @@ func Handle_Inputs():
 		gliding = false
 
 func Handle_Jump():
-	print("perch tween", perch_velocity_tween)
+	if print_debugging: print("perch tween", perch_velocity_tween)
 	if Input.is_action_just_pressed("Jump") and (is_on_floor() or coyote_time) and not gliding and total_jumps < MAX_JUMPS:
 		if print_debugging: print("jump1")
 		if perching:

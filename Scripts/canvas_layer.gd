@@ -5,10 +5,10 @@ var high_text_height = -151.0
 var display_health = 20
 
 func _ready() -> void:
-	display_health = GameManager.healthforbar
+	display_health = GameManager.TrueHealth
 
 func _on_timer_timeout() -> void:
-	$Control/HealthBar.value = GameManager.healthforbar
+	$Control/HealthBar.value = GameManager.TrueHealth
 
 
 func Show_Text(text):
