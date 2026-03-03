@@ -194,14 +194,8 @@ autowrap_mode = 2
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 0.2
-autostart = true
-
 [node name="FeatherAnimation" type="AnimatedSprite2D" parent="."]
 position = Vector2(432, 344)
 scale = Vector2(0.34999996, 0.34999996)
 sprite_frames = SubResource("SpriteFrames_ortvo")
 frame_progress = 0.020800961
-
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

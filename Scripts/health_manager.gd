@@ -18,6 +18,7 @@ func Damage(value, ignore_i_frames = false):
 	get_tree().create_timer(I_frame_timer)
 	taking_damage = false
 	if CharacterBody2D:
+		get_parent().get_parent().get_node("CanvasLayer").Damage(GameManager.TrueHealth - value)
 		GameManager.TrueHealth -= value
 		if current_health <= 0:
 			GameManager.TrueHealth = 20
