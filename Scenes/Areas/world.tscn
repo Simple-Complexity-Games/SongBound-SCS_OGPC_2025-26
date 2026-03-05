@@ -3,9 +3,9 @@
 [ext_resource type="Script" uid="uid://dltd48sm6e1bk" path="res://Scripts/camera_2d.gd" id="1_67hrm"]
 [ext_resource type="PackedScene" uid="uid://dihy0istq3alv" path="res://Scenes/UI/canvas_layer.tscn" id="1_kykf2"]
 [ext_resource type="PackedScene" uid="uid://bdkged5clqdnl" path="res://Scenes/Entities/player.tscn" id="2_gwl6k"]
-[ext_resource type="Texture2D" uid="uid://fdrwpkocssty" path="res://Assets/Art/Environment/Midground/[32 Px Outline] (No Lighting) Avythera_Mountain_Tall_Tree.png" id="4_w7ne4"]
 [ext_resource type="Texture2D" uid="uid://b13mnu32vlol0" path="res://Assets/Art/Environment/Midground/[32 Px Outline] (No Lighting) Avythera_Mountain_Tree.png" id="5_bwcnv"]
-[ext_resource type="Texture2D" uid="uid://c6qm54060241s" path="res://Assets/Art/Environment/Midground/[32 Px Outline] (No Lighting) Avythera_Plains_Tall_Tree_+_Owl_Home_Enterance.png" id="7_6kq0q"]
+[ext_resource type="Texture2D" uid="uid://bj7aiywx237qf" path="res://Assets/Art/Environment/Midground/[Averaged Outline] (No Lighting) Avythera_Plains_Tall_Tree (1).png" id="6_enowb"]
+[ext_resource type="Texture2D" uid="uid://dw3eesmuvpmey" path="res://Assets/Art/Environment/Midground/[Averaged Outline] (No Lighting) Avythera_Mountain_Tall_Tree.png" id="7_kykf2"]
 [ext_resource type="Texture2D" uid="uid://ycwvph6bweep" path="res://Assets/Art/Environment/Midground/Tileset (6).png" id="8_suda1"]
 [ext_resource type="Texture2D" uid="uid://cjwywe8jbg7p7" path="res://Assets/Art/Environment/Midground/[32 Px Outline] (No Lighting) Avythera_Plains_Tree.png" id="8_x68yl"]
 [ext_resource type="Texture2D" uid="uid://8ydaoyd111dk" path="res://Assets/Art/Sprites/Caravan.png" id="9_sghl5"]
@@ -31,7 +31,7 @@ height = 1024
 use_hdr = true
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oofs8"]
-texture = ExtResource("4_w7ne4")
+texture = ExtResource("7_kykf2")
 texture_region_size = Vector2i(1250, 1250)
 0:0/0 = 0
 1:0/0 = 0
@@ -47,7 +47,7 @@ texture_region_size = Vector2i(1250, 1250)
 0:1/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qlx3f"]
-texture = ExtResource("7_6kq0q")
+texture = ExtResource("6_enowb")
 texture_region_size = Vector2i(1250, 1250)
 0:0/0 = 0
 1:0/0 = 0
@@ -348,9 +348,9 @@ custom_data_layer_0/type = 2
 sources/6 = SubResource("TileSetAtlasSource_vijum")
 sources/0 = SubResource("TileSetAtlasSource_oofs8")
 sources/1 = SubResource("TileSetAtlasSource_xq811")
-sources/2 = SubResource("TileSetAtlasSource_qlx3f")
 sources/3 = SubResource("TileSetAtlasSource_8of7p")
 sources/4 = SubResource("TileSetAtlasSource_w7ne4")
+sources/2 = SubResource("TileSetAtlasSource_qlx3f")
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_6kq0q"]
 closed = false
@@ -360,7 +360,6 @@ polygon = PackedVector2Array(-12011.5, 2300.5, 12011.5, 2300.5, 12011.5, 778.5, 
 light_mode = 1
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_enowb"]
-load_path = "res://.godot/imported/Avythera_Plains_Tall_Tree_+_Owl_Home_Enterance (3) (1).png-6fe17da8f9a1f1e2c5d13616192a9b0e.ctex"
 
 [node name="World" type="Node2D"]
 texture_filter = 4
@@ -444,7 +443,7 @@ z_index = 1
 texture_filter = 4
 position = Vector2(0, 5)
 scale = Vector2(0.2, 0.2)
-tile_map_data = PackedByteArray("AABUAAAAAQABAAAAAADwAJEAAQAAAAEAAACPADcAAAAAAAEAAABqA04BAAAAAAEAABDqAkABAAABAAAAAAB5AboAAQAAAAAAAAC7AiYBAQABAAEAABAZAggBAQAAAAEAAADAAGkAAAAAAAAAAABTAhMBAQAAAAAAAAB8AgUBAQABAAAAAAAFBk4BAgABAAEAAAB0BUYBAgABAAAAAABMBlIBAgAAAAAAAAATBUcBAQAAAAEAAADzA1kBAQABAAEAAAA+BFwBAwABAAEAAADcBFQBAgAAAAAAABDkB2EBAgABAAAAAADKCF0BAgAAAAEAAABeCG8BAgAAAAAAAABkClMBAgAAAAEAAAAJCGwBAQAAAAEAAAAiCl0BAQABAAEAAADZClUBAwABAAEAAAA0B3kBAgAAAAEAAAA=")
+tile_map_data = PackedByteArray("AADwAJEAAQAAAAEAAACPADcAAAAAAAEAAABqA04BAAAAAAEAABDqAkABAAABAAAAAAB5AboAAQAAAAAAAAC7AiYBAQABAAEAABDAAGkAAAAAAAAAAAAFBk4BAgABAAEAAAB0BUYBAgABAAAAAABMBlIBAgAAAAAAAAATBUcBAQAAAAEAAADzA1kBAQABAAEAAAA+BFwBAwABAAEAAADcBFQBAgAAAAAAABDkB2EBAgABAAAAAADKCF0BAgAAAAEAAABeCG8BAgAAAAAAAABkClMBAgAAAAEAAAAJCGwBAQAAAAEAAAAiCl0BAQABAAEAAADZClUBAwABAAEAAAA0B3kBAgAAAAEAAAB+AhQBAAAAAAEAAABSAg4BAAABAAEAAAAVAgwBAQAAAAEAAAB1AiABAwAAAAAAAACRAdEAAwABAAAAAAAJAaUAAwAAAAAAAAA7AAQAAQABAAAAAADjBVwBAwABAAEAAACNBUoBAAABAAAAAACMB3MBAAABAAAAABA=")
 tile_set = SubResource("TileSet_5a7ea")
 
 [node name="Water" type="TileMapLayer" parent="."]
