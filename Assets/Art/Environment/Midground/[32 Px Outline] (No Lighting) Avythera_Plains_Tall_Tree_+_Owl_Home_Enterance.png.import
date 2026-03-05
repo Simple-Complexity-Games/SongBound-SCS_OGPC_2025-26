@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dqua7vldr3xdw"
-path="res://.godot/imported/Bard_Tavern_Concept_Art_Cropped.JPG-1652e7c4937fcf4f81e6d217171d2b1d.ctex"
+uid="uid://c6qm54060241s"
+path="res://.godot/imported/[32 Px Outline] (No Lighting) Avythera_Plains_Tall_Tree_+_Owl_Home_Enterance.png-166b04c6aff70d1a6f47c684d6f0c6e8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Environment/Bard_Tavern_Concept_Art_Cropped.JPG"
-dest_files=["res://.godot/imported/Bard_Tavern_Concept_Art_Cropped.JPG-1652e7c4937fcf4f81e6d217171d2b1d.ctex"]
+source_file="res://Assets/Art/Environment/Midground/[32 Px Outline] (No Lighting) Avythera_Plains_Tall_Tree_+_Owl_Home_Enterance.png"
+dest_files=["res://.godot/imported/[32 Px Outline] (No Lighting) Avythera_Plains_Tall_Tree_+_Owl_Home_Enterance.png-166b04c6aff70d1a6f47c684d6f0c6e8.ctex"]
 
 [params]
 
@@ -23,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""

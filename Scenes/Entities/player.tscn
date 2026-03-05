@@ -16,7 +16,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i3pqv"]
-size = Vector2(16, 24)
+size = Vector2(14, 22)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nqm6o"]
 size = Vector2(8, 2)
@@ -50,10 +50,11 @@ max_health = 20
 I_frame_timer = 1
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
-light_mask = 0
-visibility_layer = 0
+light_mask = 22
+visibility_layer = 16
 z_index = 1
 occluder = SubResource("OccluderPolygon2D_qbyki")
+occluder_light_mask = 23
 
 [connection signal="body_entered" from="Perch_Collision_Area" to="." method="_on_perch_collision_area_body_entered"]
 [connection signal="body_exited" from="Perch_Collision_Area" to="." method="_on_perch_collision_area_body_exited"]
