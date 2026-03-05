@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://cj6w02wqewygg"]
+[gd_scene load_steps=34 format=4 uid="uid://cj6w02wqewygg"]
 
 [ext_resource type="Script" uid="uid://dltd48sm6e1bk" path="res://Scripts/camera_2d.gd" id="1_67hrm"]
 [ext_resource type="PackedScene" uid="uid://dihy0istq3alv" path="res://Scenes/UI/canvas_layer.tscn" id="1_kykf2"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://bbfw105uay4w1" path="res://Assets/Art/Environment/Avythera_Plains_Tree.png" id="13_bwcnv"]
 [ext_resource type="Texture2D" uid="uid://d2jogl53m4xkv" path="res://Assets/Art/Environment/Plains_Ground_Art.png" id="14_enowb"]
 [ext_resource type="Texture2D" uid="uid://bvy6wx8w0dcg3" path="res://Assets/Art/Environment/Sky Draft Image.png" id="17_bwcnv"]
+[ext_resource type="PackedScene" uid="uid://cawm3msv5iclu" path="res://Scenes/Entities/testing_enemy.tscn" id="18_6kq0q"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sjvcn"]
 texture = ExtResource("3_0qglv")
@@ -1040,7 +1041,7 @@ light_mask = 22
 color = Color(0.29219002, 0.29219005, 0.29219002, 1)
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(6288, -1208)
+position = Vector2(6290, -1168)
 color = Color(1, 1, 0.8509804, 1)
 energy = 2.61
 range_layer_max = 3
@@ -1083,3 +1084,6 @@ metadata/_edit_group_ = true
 position = Vector2(4495.9995, 672.75006)
 scale = Vector2(4.729, 4.729)
 texture = ExtResource("17_bwcnv")
+
+[node name="TestingEnemy" parent="." instance=ExtResource("18_6kq0q")]
+position = Vector2(1792, 979)

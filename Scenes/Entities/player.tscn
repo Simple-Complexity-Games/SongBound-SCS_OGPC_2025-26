@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bdkged5clqdnl"]
+[gd_scene load_steps=8 format=3 uid="uid://bdkged5clqdnl"]
 
 [ext_resource type="Script" uid="uid://csxtgnkd7vffc" path="res://Scripts/player.gd" id="1_nqm6o"]
 [ext_resource type="Texture2D" uid="uid://c6r4fv54mx5nv" path="res://Assets/Art/Sprites/icon.svg" id="1_v0iea"]
@@ -20,26 +20,6 @@ size = Vector2(16, 24)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nqm6o"]
 size = Vector2(8, 2)
-
-[sub_resource type="SeparationRayShape2D" id="SeparationRayShape2D_nqm6o"]
-length = 6.0
-slide_on_slope = true
-
-[sub_resource type="GDScript" id="GDScript_qbyki"]
-resource_name = "Step_UpMechanic"
-script/source = "extends CollisionShape2D
-@onready var checker: RayCast2D = $Checker #Getting the Checker 
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-"
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_qbyki"]
 polygon = PackedVector2Array(6, -24, 8, -22, 8, -2, 6, 0, -6, 0, -8, -2, -8, -22, -6, -24)
