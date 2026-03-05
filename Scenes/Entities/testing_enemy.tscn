@@ -1,20 +1,44 @@
-[gd_scene load_steps=4 format=3 uid="uid://cawm3msv5iclu"]
+[gd_scene load_steps=5 format=3 uid="uid://cawm3msv5iclu"]
 
 [ext_resource type="Texture2D" uid="uid://c6r4fv54mx5nv" path="res://Assets/Art/Sprites/icon.svg" id="1_h5cgg"]
-[ext_resource type="Script" uid="uid://cshdig3xcgmcv" path="res://Scenes/Entities/testing_enemy.gd" id="2_j00w6"]
+[ext_resource type="Script" uid="uid://cshdig3xcgmcv" path="res://Scripts/testing_enemy.gd" id="2_j00w6"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_v7j6w"]
-size = Vector2(1215.04, 686.552)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j00w6"]
+size = Vector2(122.269, 122.269)
 
-[node name="TestingEnemy" type="Sprite2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_j00w6"]
+radius = 680.29297
+
+[node name="TestingEnemy" type="CharacterBody2D"]
 position = Vector2(0, -9)
 scale = Vector2(0.130859, 0.130859)
-texture = ExtResource("1_h5cgg")
+collision_layer = 8
 script = ExtResource("2_j00w6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_j00w6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_h5cgg")
+
+[node name="RayRight" type="RayCast2D" parent="."]
+position = Vector2(0, 38.20906)
+scale = Vector2(3.5196512, 16.092096)
+target_position = Vector2(28.225399, 2.3841858e-07)
+
+[node name="RayLeft" type="RayCast2D" parent="."]
+position = Vector2(0, 38.209064)
+scale = Vector2(1.611352, 18.117666)
+target_position = Vector2(-56.90982, 0)
 
 [node name="AlertingArea" type="Area2D" parent="."]
 position = Vector2(2.86568, -10.5075)
+collision_layer = 2
+collision_mask = 2
 
-[node name="Alert" type="CollisionShape2D" parent="AlertingArea"]
-position = Vector2(-2.86567, -264.597)
-shape = SubResource("RectangleShape2D_v7j6w")
+[node name="AlertRange" type="CollisionShape2D" parent="AlertingArea"]
+position = Vector2(-2.8656807, 2.8656616)
+shape = SubResource("CircleShape2D_j00w6")
+
+[connection signal="body_entered" from="AlertingArea" to="." method="_on_alerting_area_body_entered"]
+[connection signal="body_exited" from="AlertingArea" to="." method="_on_alerting_area_body_exited"]
