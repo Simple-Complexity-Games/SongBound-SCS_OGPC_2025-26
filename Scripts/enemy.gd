@@ -5,16 +5,10 @@ var Alert = false
 var Player_Position
 var Enemy_Position = self.position.x
 #var Distance = Enemy_Position - Player_Position
-var Speed = 25
+var Speed = 50
 
 @onready var ray_right: RayCast2D = $RayRight
 @onready var ray_left: RayCast2D = $RayLeft
-
-
-func _ready():
-	#Player_Position = get_parent().get_node("Player").position.x
-	pass
-
 
 #EnemyScountingMovement
 func _physics_process(delta: float) -> void:
@@ -36,11 +30,9 @@ func _physics_process(delta: float) -> void:
 	
 		if Enemy_Position - Player_Position < 0: #Positive
 			velocity.x = move_toward(velocity.x, Speed, 5)
-			print("Targeted")
 		if Enemy_Position - Player_Position > 0: #Negative
 			velocity.x = move_toward(velocity.x, -Speed, 5)
 			
-			print("Otherway")
 	
 	
 	#position.x = move_toward(position.x, Enemy_Position.x, Speed)
@@ -48,7 +40,6 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _on_alerting_area_body_entered(_body: Node2D) -> void: #Player is in view
-	print("alert")
 	Alert = true
 func _on_alerting_area_body_exited(_body: Node2D) -> void: #Player is not in view
 	Alert = false
