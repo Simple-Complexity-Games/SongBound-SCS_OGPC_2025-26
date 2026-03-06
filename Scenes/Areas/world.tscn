@@ -547,4 +547,5 @@ scale = Vector2(0.15, 0.15)
 texture = SubResource("CompressedTexture2D_enowb")
 
 [node name="TestingEnemy" parent="." instance=ExtResource("15_suda1")]
+z_index = 1
 position = Vector2(1793, 980)
