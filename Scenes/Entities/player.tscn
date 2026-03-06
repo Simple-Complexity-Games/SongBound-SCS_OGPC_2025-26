@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bdkged5clqdnl"]
+[gd_scene load_steps=9 format=3 uid="uid://bdkged5clqdnl"]
 
 [ext_resource type="Script" uid="uid://csxtgnkd7vffc" path="res://Scripts/player.gd" id="1_nqm6o"]
 [ext_resource type="Texture2D" uid="uid://c6r4fv54mx5nv" path="res://Assets/Art/Sprites/icon.svg" id="1_v0iea"]
 [ext_resource type="PackedScene" uid="uid://dcmw2s3k5ngm4" path="res://Scenes/Utility/health_manager.tscn" id="3_qbyki"]
+[ext_resource type="PackedScene" uid="uid://coxgv1rfwx4ii" path="res://Scenes/Items/polearm.tscn" id="4_svftf"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_onrkg"]
 animations = [{
@@ -55,6 +56,8 @@ visibility_layer = 16
 z_index = 1
 occluder = SubResource("OccluderPolygon2D_qbyki")
 occluder_light_mask = 23
+
+[node name="Polearm" parent="." instance=ExtResource("4_svftf")]
 
 [connection signal="body_entered" from="Perch_Collision_Area" to="." method="_on_perch_collision_area_body_entered"]
 [connection signal="body_exited" from="Perch_Collision_Area" to="." method="_on_perch_collision_area_body_exited"]
