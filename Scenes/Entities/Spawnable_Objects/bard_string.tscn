@@ -1,30 +1,30 @@
 [gd_scene load_steps=6 format=3 uid="uid://bbb2ji3hkluq6"]
 
-[ext_resource type="Texture2D" uid="uid://dbsd6f6t3p2v8" path="res://Assets/Art/Sprites/Song Spell System/Melody Strings.png" id="1_siqwn"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_siqwn"]
-atlas = ExtResource("1_siqwn")
-region = Rect2(0, 0, 96, 720)
+[ext_resource type="Texture2D" uid="uid://b221tyuu01pvq" path="res://Assets/Art/Sprites/Song Spell System/Smaller Vibration Melody Strings.png" id="1_siqwn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1i2tt"]
 atlas = ExtResource("1_siqwn")
-region = Rect2(96, 0, 96, 720)
+region = Rect2(0, 0, 96, 720)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jrrjq"]
 atlas = ExtResource("1_siqwn")
 region = Rect2(192, 0, 96, 720)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_lxiu2"]
+atlas = ExtResource("1_siqwn")
+region = Rect2(96, 0, 96, 720)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_xuulw"]
 animations = [{
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_siqwn")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1i2tt")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_jrrjq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lxiu2")
 }],
 "loop": true,
 "name": &"new_animation",
