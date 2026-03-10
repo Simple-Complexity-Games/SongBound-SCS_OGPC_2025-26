@@ -12,20 +12,28 @@ script = ExtResource("1_6xh5y")
 
 [node name="attack_box" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="attack_box"]
+[node name="midle" type="CollisionShape2D" parent="attack_box"]
 shape = SubResource("RectangleShape2D_nbgrp")
 disabled = true
 
-[node name="Sprite2D" type="Sprite2D" parent="attack_box"]
-scale = Vector2(25, 8)
+[node name="Sprite2D" type="Sprite2D" parent="attack_box/midle"]
+scale = Vector2(25, 6)
 texture = SubResource("CanvasTexture_6xh5y")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="attack_box"]
-position = Vector2(-6, -5)
+[node name="left" type="CollisionShape2D" parent="attack_box"]
+position = Vector2(-6, -4.5)
 shape = SubResource("RectangleShape2D_nbgrp")
 disabled = true
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="attack_box"]
-position = Vector2(-6, 5)
+[node name="Sprite2D3" type="Sprite2D" parent="attack_box/left"]
+scale = Vector2(25, 6)
+texture = SubResource("CanvasTexture_6xh5y")
+
+[node name="right" type="CollisionShape2D" parent="attack_box"]
+position = Vector2(-6, 4.5)
 shape = SubResource("RectangleShape2D_nbgrp")
 disabled = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="attack_box/right"]
+scale = Vector2(25, 6)
+texture = SubResource("CanvasTexture_6xh5y")
