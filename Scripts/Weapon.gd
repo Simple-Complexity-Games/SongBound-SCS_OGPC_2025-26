@@ -91,6 +91,101 @@ func _physics_process(_delta: float) -> void:
 		$attack_box/right/Sprite2D2.hide()
 		position.y = -12
 		$attack_box.rotate(PI/2)
-
-# 80 pixels form player for the middle hit boxes right side to the players right side. each box is 25 wide, 8 tall.
-#think of its middle of 12 when possitioning as in minus it by 12 dumbass
+		
+	#these are the diagonals
+	
+	#attack of upper right
+	if Input.is_action_pressed("Attack") and Input.is_action_pressed("Right") and Input.is_action_just_pressed("Up"):
+		$attack_box.rotate(PI/4)
+		position.x = 47.80042
+		position.y = -59.80042
+		$attack_box/left.set_deferred("disabled", false)
+		$attack_box/left/Sprite2D3.show()
+		await get_tree().create_timer(.1666).timeout
+		$attack_box/midle.set_deferred("disabled", false)
+		$attack_box/left.set_deferred("disabled", true)
+		$attack_box/midle/Sprite2D.show()
+		$attack_box/left/Sprite2D3.hide()
+		await get_tree().create_timer(.1666).timeout
+		$attack_box/right.set_deferred("disabled", false)
+		$attack_box/midle.set_deferred("disabled", true)
+		$attack_box/right/Sprite2D2.show()
+		$attack_box/midle/Sprite2D.hide()
+		await get_tree().create_timer(.166).timeout
+		$attack_box/right.set_deferred("disabled", true)
+		$attack_box/right/Sprite2D2.hide()
+		position.x = 0
+		position.y = -12
+		$attack_box.rotate(-PI/4)
+		
+	#attack of down right
+	if Input.is_action_pressed("Attack") and Input.is_action_pressed("Right") and Input.is_action_just_pressed("Down"):
+		$attack_box.rotate(PI/4)
+		position.x = 47.80042
+		position.y = 35.80042
+		$attack_box/left.set_deferred("disabled", false)
+		$attack_box/left/Sprite2D3.show()
+		await get_tree().create_timer(.1666).timeout
+		$attack_box/midle.set_deferred("disabled", false)
+		$attack_box/left.set_deferred("disabled", true)
+		$attack_box/midle/Sprite2D.show()
+		$attack_box/left/Sprite2D3.hide()
+		await get_tree().create_timer(.1666).timeout
+		$attack_box/right.set_deferred("disabled", false)
+		$attack_box/midle.set_deferred("disabled", true)
+		$attack_box/right/Sprite2D2.show()
+		$attack_box/midle/Sprite2D.hide()
+		await get_tree().create_timer(.166).timeout
+		$attack_box/right.set_deferred("disabled", true)
+		$attack_box/right/Sprite2D2.hide()
+		position.x = 0
+		position.y = -12
+		$attack_box.rotate(-PI/4)
+		
+	#attack of left up
+	if Input.is_action_pressed("Attack") and Input.is_action_pressed("Left") and Input.is_action_just_pressed("Up"):
+		$attack_box.rotate(PI/4)
+		position.x = -47.80042
+		position.y = -59.80042
+		$attack_box/left.set_deferred("disabled", false)
+		$attack_box/left/Sprite2D3.show()
+		await get_tree().create_timer(.1666).timeout
+		$attack_box/midle.set_deferred("disabled", false)
+		$attack_box/left.set_deferred("disabled", true)
+		$attack_box/midle/Sprite2D.show()
+		$attack_box/left/Sprite2D3.hide()
+		await get_tree().create_timer(.1666).timeout
+		$attack_box/right.set_deferred("disabled", false)
+		$attack_box/midle.set_deferred("disabled", true)
+		$attack_box/right/Sprite2D2.show()
+		$attack_box/midle/Sprite2D.hide()
+		await get_tree().create_timer(.166).timeout
+		$attack_box/right.set_deferred("disabled", true)
+		$attack_box/right/Sprite2D2.hide()
+		position.x = 0
+		position.y = -12
+		$attack_box.rotate(-PI/4)
+		
+	#attack of left down
+	if Input.is_action_pressed("Attack") and Input.is_action_pressed("Left") and Input.is_action_just_pressed("Down"):
+		$attack_box.rotate(PI/4)
+		position.x = -47.80042
+		position.y = 35.80042
+		$attack_box/left.set_deferred("disabled", false)
+		$attack_box/left/Sprite2D3.show()
+		await get_tree().create_timer(.1666).timeout
+		$attack_box/midle.set_deferred("disabled", false)
+		$attack_box/left.set_deferred("disabled", true)
+		$attack_box/midle/Sprite2D.show()
+		$attack_box/left/Sprite2D3.hide()
+		await get_tree().create_timer(.1666).timeout
+		$attack_box/right.set_deferred("disabled", false)
+		$attack_box/midle.set_deferred("disabled", true)
+		$attack_box/right/Sprite2D2.show()
+		$attack_box/midle/Sprite2D.hide()
+		await get_tree().create_timer(.166).timeout
+		$attack_box/right.set_deferred("disabled", true)
+		$attack_box/right/Sprite2D2.hide()
+		position.x = 0
+		position.y = -12
+		$attack_box.rotate(-PI/4)
