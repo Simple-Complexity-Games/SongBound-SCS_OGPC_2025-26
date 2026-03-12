@@ -7,7 +7,7 @@
 size = Vector2(106.98538, 122.269005)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_j00w6"]
-radius = 917.04926
+radius = 1108.1681
 
 [node name="TestingEnemy" type="CharacterBody2D"]
 position = Vector2(0, -9)
@@ -42,5 +42,8 @@ collision_mask = 2
 position = Vector2(-2.8656807, 2.8656616)
 shape = SubResource("CircleShape2D_j00w6")
 
+[node name="AggroTimer" type="Timer" parent="."]
+
 [connection signal="body_entered" from="AlertingArea" to="." method="_on_alerting_area_body_entered"]
 [connection signal="body_exited" from="AlertingArea" to="." method="_on_alerting_area_body_exited"]
+[connection signal="timeout" from="AggroTimer" to="." method="_on_timer_timeout"]
