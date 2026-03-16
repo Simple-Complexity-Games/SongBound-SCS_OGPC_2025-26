@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://dvrk404vsmxjc" path="res://Assets/Themes/Main_Menu_Theme.tres" id="1_wqme5"]
 [ext_resource type="Script" uid="uid://dxiy5wk0xbjug" path="res://Scripts/main_menu.gd" id="2_jewm6"]
-[ext_resource type="Texture2D" uid="uid://d0fy2swtgvp0l" path="res://Assets/Art/Environment/Bard_Tavern_Concept_Art.JPG" id="3_cejvf"]
+[ext_resource type="Texture2D" uid="uid://d0fy2swtgvp0l" path="res://Assets/Art/Concept Art/Bard_Tavern_Concept_Art.JPG" id="3_cejvf"]
 [ext_resource type="AudioStream" uid="uid://dhg5ekfeuimmw" path="res://Assets/Sound/Music/Game Music Concept Done.wav" id="4_jewm6"]
 [ext_resource type="AudioStream" uid="uid://bhe7lcpnuo6q4" path="res://Assets/Sound/SFX/typing_blip.wav" id="5_ypsd1"]
 [ext_resource type="FontFile" uid="uid://cqj32sh3raorv" path="res://Assets/Fonts/Macondo/MacondoSwashCaps-Regular.ttf" id="6_xp0kt"]

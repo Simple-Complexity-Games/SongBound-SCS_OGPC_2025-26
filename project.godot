@@ -18,6 +18,10 @@ boot_splash/image="uid://ctcpgiopmolp8"
 config/icon="res://Assets/Art/Sprites/icon.svg"
 boot_splash/minimum_display_time=1000
 
+[autoload]
+
+GameManager="*res://Scripts/game manager.gd"
+
 [display]
 
 window/size/viewport_width=1920
@@ -26,10 +30,16 @@ window/size/sharp_corners=true
 window/size/window_width_override=960
 window/size/window_height_override=540
 window/stretch/mode="viewport"
+window/dpi/allow_hidpi=false
+window/delta_smoothing=true
 
 [dotnet]
 
 project/assembly_name="Adventures in Avythera"
+
+[global_group]
+
+Signs="for the game manager global script to be able to easily locate sign nodes"
 
 [input]
 
@@ -152,20 +162,43 @@ Teleport_Right={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":72,"key_label":0,"unicode":104,"location":0,"echo":false,"script":null)
 ]
 }
+Attack={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":69,"key_label":0,"unicode":101,"location":0,"echo":false,"script":null)
+]
+}
 
 [layer_names]
 
+2d_render/layer_1="Background"
+2d_render/layer_2="Midground Terrain"
+2d_render/layer_3="Midground Decorations"
+2d_render/layer_4="Foreground"
+2d_render/layer_5="Entities"
+2d_render/layer_6="Background Occluders"
+2d_render/layer_7="Midground Occluders"
+2d_render/layer_8="Foreground Occluders"
 2d_physics/layer_1="Terrain"
 2d_physics/layer_2="Player"
 2d_physics/layer_3="Perchable Surfaces"
 2d_physics/layer_4="Entities"
+2d_physics/layer_5="Fluids"
 
 [physics]
 
-2d/default_gravity=3000.0
+2d/default_gravity=2000.0
 common/physics_interpolation=true
 
 [rendering]
 
-textures/canvas_textures/default_texture_filter=0
-2d/canvas_textures/default_texture_filter=1
+textures/canvas_textures/default_texture_filter=2
+textures/vram_compression/compress_with_gpu=false
+viewport/hdr_2d=true
+anti_aliasing/quality/msaa_2d=2
+anti_aliasing/quality/msaa_3d=1
+textures/default_filters/texture_mipmap_bias=1.0
+anti_aliasing/quality/screen_space_aa=1
+anti_aliasing/quality/use_taa=true
+anti_aliasing/quality/use_debanding=true
+2d/snap/snap_2d_vertices_to_pixel=true
+2d/canvas_textures/default_texture_filter=4

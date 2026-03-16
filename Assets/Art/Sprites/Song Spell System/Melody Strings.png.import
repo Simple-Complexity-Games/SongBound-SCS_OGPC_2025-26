@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgj8sibfhfxmp"
-path="res://.godot/imported/Avythera_Plains_Tall_Tree_+_Owl_Home_Enterance.png-687cb4b07acd3a3fc1c617e9f75990f5.ctex"
+uid="uid://dbsd6f6t3p2v8"
+path="res://.godot/imported/Melody Strings.png-36ec4f44d836e15097e4535c80951fa3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Environment/Avythera_Plains_Tall_Tree_+_Owl_Home_Enterance.png"
-dest_files=["res://.godot/imported/Avythera_Plains_Tall_Tree_+_Owl_Home_Enterance.png-687cb4b07acd3a3fc1c617e9f75990f5.ctex"]
+source_file="res://Assets/Art/Sprites/Song Spell System/Melody Strings.png"
+dest_files=["res://.godot/imported/Melody Strings.png-36ec4f44d836e15097e4535c80951fa3.ctex"]
 
 [params]
 

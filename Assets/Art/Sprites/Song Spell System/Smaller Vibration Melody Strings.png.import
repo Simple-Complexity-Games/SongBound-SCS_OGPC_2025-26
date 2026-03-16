@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dqua7vldr3xdw"
-path="res://.godot/imported/Bard_Tavern_Concept_Art_Cropped.JPG-1652e7c4937fcf4f81e6d217171d2b1d.ctex"
+uid="uid://b221tyuu01pvq"
+path="res://.godot/imported/Smaller Vibration Melody Strings.png-0f6803b72a78ce7ae51f62e5e84b074d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Environment/Bard_Tavern_Concept_Art_Cropped.JPG"
-dest_files=["res://.godot/imported/Bard_Tavern_Concept_Art_Cropped.JPG-1652e7c4937fcf4f81e6d217171d2b1d.ctex"]
+source_file="res://Assets/Art/Sprites/Song Spell System/Smaller Vibration Melody Strings.png"
+dest_files=["res://.godot/imported/Smaller Vibration Melody Strings.png-0f6803b72a78ce7ae51f62e5e84b074d.ctex"]
 
 [params]
 

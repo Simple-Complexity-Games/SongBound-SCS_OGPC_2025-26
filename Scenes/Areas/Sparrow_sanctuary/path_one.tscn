@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://c2rq8qrx2isq"]
+[gd_scene load_steps=25 format=4 uid="uid://c2rq8qrx2isq"]
 
 [ext_resource type="Script" uid="uid://dltd48sm6e1bk" path="res://Scripts/camera_2d.gd" id="1_8ik8f"]
 [ext_resource type="PackedScene" uid="uid://bdkged5clqdnl" path="res://Scenes/Entities/player.tscn" id="2_eeikq"]
@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://8ydaoyd111dk" path="res://Assets/Art/Sprites/Caravan.png" id="9_p1vo2"]
 [ext_resource type="AudioStream" uid="uid://c624t28jwuwvw" path="res://Assets/Sound/Music/Vulture Boss Music Concept Actually just chill town music concept lol.wav" id="10_tid5k"]
 [ext_resource type="PackedScene" uid="uid://ck25xcff0e7si" path="res://Scenes/travel_sign.tscn" id="11_pvrle"]
+[ext_resource type="PackedScene" uid="uid://dihy0istq3alv" path="res://Scenes/UI/canvas_layer.tscn" id="12_jkig4"]
+[ext_resource type="PackedScene" uid="uid://rq24inwg7cap" path="res://Scenes/Utility/player_location.tscn" id="12_m4v2w"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kykf2"]
 texture = ExtResource("3_bl7ud")
@@ -656,6 +658,8 @@ sources/6 = SubResource("TileSetAtlasSource_vijum")
 
 [node name="World" type="Node2D"]
 
+[node name="CanvasLayer" parent="." instance=ExtResource("12_jkig4")]
+
 [node name="world border" type="StaticBody2D" parent="."]
 position = Vector2(-3, -1)
 rotation = 1.5707964
@@ -705,19 +709,28 @@ tile_set = SubResource("TileSet_5a7ea")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_tid5k")
 
-[node name="travel sign" parent="." instance=ExtResource("11_pvrle")]
+[node name="player_location" parent="." instance=ExtResource("12_m4v2w")]
+
+[node name="travel sign" parent="." groups=["Signs"] instance=ExtResource("11_pvrle")]
 position = Vector2(42, 29)
 travel_sign = {
-0: "heh"
+0: "res://Scenes/Areas/test_world.tscn"
 }
-sign_text = "World one"
+sign_text = "Test World"
+connected_sign_pos_x = 39
+connected_sign_pos_y = 30
 
-[node name="travel sign2" parent="." instance=ExtResource("11_pvrle")]
+[node name="travel sign2" parent="." groups=["Signs"] instance=ExtResource("11_pvrle")]
 position = Vector2(895, 29)
+sign_text = "world"
+connected_sign_pos_x = 43
+connected_sign_pos_y = 29
 
-[node name="travel sign3" parent="." instance=ExtResource("11_pvrle")]
-position = Vector2(410, 30)
+[node name="travel sign3" parent="." groups=["Signs"] instance=ExtResource("11_pvrle")]
+position = Vector2(410, 29)
 travel_sign = {
-0: "res://Scenes/Areas/Sparrow_sanctuary/sparrow_sanctuary_road_2.tscn"
+0: "res://Scenes/Areas/Sparrow_sanctuary/path_two.tscn"
 }
 sign_text = "Road Two"
+connected_sign_pos_x = 683
+connected_sign_pos_y = 29
