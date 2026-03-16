@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://cj6w02wqewygg"]
+[gd_scene load_steps=28 format=4 uid="uid://cj6w02wqewygg"]
 
 [ext_resource type="Script" uid="uid://dltd48sm6e1bk" path="res://Scripts/camera_2d.gd" id="1_67hrm"]
 [ext_resource type="PackedScene" uid="uid://dihy0istq3alv" path="res://Scenes/UI/canvas_layer.tscn" id="1_kykf2"]
@@ -14,6 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://c624t28jwuwvw" path="res://Assets/Sound/Music/Vulture Boss Music Concept Actually just chill town music concept lol.wav" id="10_syva4"]
 [ext_resource type="PackedScene" uid="uid://ck25xcff0e7si" path="res://Scenes/travel_sign.tscn" id="11_wcev2"]
 [ext_resource type="Texture2D" uid="uid://d2jogl53m4xkv" path="res://Assets/Art/Environment/Plains_Ground_Art.png" id="14_enowb"]
+[ext_resource type="Texture2D" uid="uid://cxkuvyjvxxm74" path="res://Assets/Art/Sprites/Untitled_Artwork (3).PNG" id="15_suda1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kykf2"]
 texture = ExtResource("3_2pjc6")
@@ -1059,3 +1060,8 @@ z_index = 1
 position = Vector2(4496, 904)
 scale = Vector2(0.374974, 0.37209305)
 texture = ExtResource("14_enowb")
+
+[node name="UntitledArtwork(3)" type="Sprite2D" parent="."]
+position = Vector2(0.50000024, 34.5)
+scale = Vector2(0.012564103, 0.011923077)
+texture = ExtResource("15_suda1")
