@@ -1,19 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://cawm3msv5iclu"]
+[gd_scene load_steps=5 format=3 uid="uid://c8pr2cxqq8xx5"]
 
-[ext_resource type="Texture2D" uid="uid://c6r4fv54mx5nv" path="res://Assets/Art/Sprites/icon.svg" id="1_h5cgg"]
-[ext_resource type="Script" uid="uid://cnngbyvf3n6sf" path="res://Scripts/enemy.gd" id="1_j00w6"]
+[ext_resource type="Script" uid="uid://cnngbyvf3n6sf" path="res://Scripts/enemy.gd" id="1_t8j6h"]
+[ext_resource type="Texture2D" uid="uid://c6r4fv54mx5nv" path="res://Assets/Art/Sprites/icon.svg" id="2_rrwal"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j00w6"]
-size = Vector2(106.98538, 122.269005)
+size = Vector2(145.19447, 114.62735)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_j00w6"]
-radius = 1108.1681
+radius = 833.4689
 
 [node name="TestingEnemy" type="CharacterBody2D"]
-position = Vector2(0, -9)
+position = Vector2(0, -4.7683716e-07)
 scale = Vector2(0.130859, 0.130859)
 collision_layer = 8
-script = ExtResource("1_j00w6")
+floor_max_angle = 0.9599311
+script = ExtResource("1_t8j6h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(3.871644e-06, 7.6293945e-06)
@@ -21,7 +22,7 @@ scale = Vector2(0.9999998, 0.9999998)
 shape = SubResource("RectangleShape2D_j00w6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_h5cgg")
+texture = ExtResource("2_rrwal")
 
 [node name="RayRight" type="RayCast2D" parent="."]
 position = Vector2(0, 38.20906)
@@ -39,7 +40,7 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="AlertRange" type="CollisionShape2D" parent="AlertingArea"]
-position = Vector2(-2.8656807, 2.8656616)
+position = Vector2(-2.86568, 10.507507)
 shape = SubResource("CircleShape2D_j00w6")
 
 [node name="AggroTimer" type="Timer" parent="."]
