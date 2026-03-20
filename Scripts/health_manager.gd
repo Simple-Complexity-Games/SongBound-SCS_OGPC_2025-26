@@ -29,9 +29,10 @@ func Damage(value, ignore_i_frames = false):
 
 @warning_ignore("unused_parameter")
 func Heal(value, ignore_max_health = false):
-	if (current_health + value)  <=20:
+	if (current_health + value)  <=max_health:
 		current_health += value
 		if CharacterBody2D:
+			get_parent().get_parent().get_node("CanvasLayer").Damage(GameManager.TrueHealth + value)
 			GameManager.TrueHealth += value
-		if current_health > 20:
+		if current_health > max_health:
 			current_health = 20
