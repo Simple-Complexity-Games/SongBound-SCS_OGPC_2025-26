@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://coxgv1rfwx4ii"]
+
+[ext_resource type="Script" uid="uid://cyn4fi70iwm2r" path="res://Scripts/Weapon.gd" id="1_6xh5y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nbgrp"]
+size = Vector2(25, 6)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_6xh5y"]
+
+[node name="Polearm" type="Node2D"]
+script = ExtResource("1_6xh5y")
+
+[node name="attack_box" type="Area2D" parent="."]
+
+[node name="midle" type="CollisionShape2D" parent="attack_box"]
+shape = SubResource("RectangleShape2D_nbgrp")
+disabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="attack_box/midle"]
+scale = Vector2(25, 6)
+texture = SubResource("CanvasTexture_6xh5y")
+
+[node name="left" type="CollisionShape2D" parent="attack_box"]
+position = Vector2(-6, -4.5)
+shape = SubResource("RectangleShape2D_nbgrp")
+disabled = true
+
+[node name="Sprite2D3" type="Sprite2D" parent="attack_box/left"]
+scale = Vector2(25, 6)
+texture = SubResource("CanvasTexture_6xh5y")
+
+[node name="right" type="CollisionShape2D" parent="attack_box"]
+position = Vector2(-6, 4.5)
+shape = SubResource("RectangleShape2D_nbgrp")
+disabled = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="attack_box/right"]
+scale = Vector2(25, 6)
+texture = SubResource("CanvasTexture_6xh5y")
