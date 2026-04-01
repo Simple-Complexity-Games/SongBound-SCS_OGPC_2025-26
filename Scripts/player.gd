@@ -62,9 +62,13 @@ var print_debugging = false
 func _ready() -> void:
 	velocity.x = 0
 	velocity.y = 0
+
 func _process(_delta: float) -> void:
 	Handle_Inputs()
 	Handle_Fullscreening()
+	
+	if Input.is_action_just_pressed("Up") and get_parent().get_node("CanvasLayer").get_node("Dialog_Handler") != null:
+		get_parent().get_node("CanvasLayer").get_node("Dialog_Handler").get_node("Dialog_Box").get_node("Main_Textbox").Play_Line("char1_neutral:This is a test, yay!")
 	
 	#Developer Tools
 	if Input.is_action_just_pressed("Teleport_Up"):

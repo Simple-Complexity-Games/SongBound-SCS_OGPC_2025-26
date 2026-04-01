@@ -29,7 +29,7 @@ func _input(event: InputEvent) -> void:
 		skip_requested = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if index < text_stack.length() and timer.time_left == 0:
 		Print_Text(text_stack[index])
 		audio_player.playing = true
@@ -66,6 +66,7 @@ func Play_Line(line):
 	data[1] = Get_Text_Tags(data[1])
 	data[1] = Add_Newlines(data[1])
 	
+	print(data[0])
 	Update_Icon(data[0])
 	self.clear()
 	text_stack = data[1]
@@ -78,8 +79,8 @@ func Update_Icon(icon_id):
 func Print_Text(text):
 	self.append_text(text)
 
-# Iterate through the given text and find any places where the text will wrap around and insert a newline there so 
-# when printing the text it doesn't start printing on one line then wrap in the middle. 
+# Iterate through the given text and find any places where the text will wrap around and insert a newline 
+# there so when printing the text it doesn't start printing on one line then wrap in the middle. 
 # This code is inspired by (copied from) a comment on this post:
 # https://forum.godotengine.org/t/detect-when-text-wraps-to-add-custom-behaviour/41515/3
 func Add_Newlines(text):

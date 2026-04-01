@@ -1,6 +1,7 @@
-[gd_scene load_steps=25 format=4 uid="uid://c2rq8qrx2isq"]
+[gd_scene load_steps=26 format=4 uid="uid://c2rq8qrx2isq"]
 
 [ext_resource type="Script" uid="uid://dltd48sm6e1bk" path="res://Scripts/camera_2d.gd" id="1_8ik8f"]
+[ext_resource type="PackedScene" uid="uid://c8xav3q6wf8ar" path="res://Scenes/Utility/dialog_handler.tscn" id="2_2e178"]
 [ext_resource type="PackedScene" uid="uid://bdkged5clqdnl" path="res://Scenes/Entities/player.tscn" id="2_eeikq"]
 [ext_resource type="Texture2D" uid="uid://kp53elewnl2e" path="res://Assets/Art/Sprites/Tileset (1).png" id="3_bl7ud"]
 [ext_resource type="Texture2D" uid="uid://dv4aicqdio1r3" path="res://Assets/Art/Sprites/Avythera_Mountain_Tall_Tree.png" id="4_j7hdd"]
@@ -659,6 +660,9 @@ sources/6 = SubResource("TileSetAtlasSource_vijum")
 [node name="World" type="Node2D"]
 
 [node name="CanvasLayer" parent="." instance=ExtResource("12_jkig4")]
+
+[node name="Dialog_Handler" parent="CanvasLayer" instance=ExtResource("2_2e178")]
+position = Vector2(736, 16)
 
 [node name="world border" type="StaticBody2D" parent="."]
 position = Vector2(-3, -1)
