@@ -37,3 +37,5 @@ disabled = true
 [node name="Sprite2D2" type="Sprite2D" parent="attack_box/right"]
 scale = Vector2(25, 6)
 texture = SubResource("CanvasTexture_6xh5y")
+
+[connection signal="body_entered" from="attack_box" to="." method="_on_attack_box_body_entered"]
