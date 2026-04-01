@@ -1,15 +1,15 @@
 [gd_scene load_steps=9 format=3 uid="uid://bdkged5clqdnl"]
 
 [ext_resource type="Script" uid="uid://csxtgnkd7vffc" path="res://Scripts/player.gd" id="1_nqm6o"]
-[ext_resource type="Texture2D" uid="uid://c6r4fv54mx5nv" path="res://Assets/Art/Sprites/icon.svg" id="1_v0iea"]
+[ext_resource type="Texture2D" uid="uid://c6r4fv54mx5nv" path="res://Assets/Art/Sprites/icon.svg" id="2_svftf"]
 [ext_resource type="PackedScene" uid="uid://dcmw2s3k5ngm4" path="res://Scenes/Utility/health_manager.tscn" id="3_qbyki"]
 [ext_resource type="PackedScene" uid="uid://coxgv1rfwx4ii" path="res://Scenes/Items/polearm.tscn" id="4_svftf"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_onrkg"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_qbyki"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_v0iea")
+"texture": ExtResource("2_svftf")
 }],
 "loop": true,
 "name": &"default",
@@ -32,7 +32,7 @@ script = ExtResource("1_nqm6o")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(7.1525574e-07, -11.9672)
 scale = Vector2(0.125, 0.1880125)
-sprite_frames = SubResource("SpriteFrames_onrkg")
+sprite_frames = SubResource("SpriteFrames_qbyki")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -12)
