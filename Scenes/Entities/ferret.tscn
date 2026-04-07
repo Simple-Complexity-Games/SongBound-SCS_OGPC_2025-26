@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://c3hd4qgqqka2a"]
+[gd_scene load_steps=6 format=3 uid="uid://c3hd4qgqqka2a"]
 
 [ext_resource type="Script" uid="uid://bs77vklj73nme" path="res://Scripts/ferret.gd" id="1_igl0n"]
 [ext_resource type="Texture2D" uid="uid://bhx67vj5gk0lf" path="res://Assets/Art/Sprites/Avythera_Ferret.png" id="2_hc2h3"]
+[ext_resource type="PackedScene" uid="uid://dcmw2s3k5ngm4" path="res://Scenes/Utility/health_manager.tscn" id="2_ss7by"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_igl0n"]
 size = Vector2(24.07408, 24.583317)
@@ -14,6 +15,9 @@ scale = Vector2(0.41, 0.5)
 collision_layer = 8
 floor_max_angle = 1.4835298
 script = ExtResource("1_igl0n")
+
+[node name="Health_Manager" parent="." instance=ExtResource("2_ss7by")]
+max_health = 125
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1.3888879, 3.0555491)
