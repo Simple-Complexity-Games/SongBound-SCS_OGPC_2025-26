@@ -1,14 +1,14 @@
 extends RichTextLabel
 
-@onready var character_icon = get_node("/root/Dialog_Handler/Dialog_Box/Character_Icon")
-@onready var audio_player = get_node("/root/Dialog_Handler/Audio_Player")
+@onready var character_icon = get_parent().get_node("Character_Icon")
+@onready var audio_player = get_parent().get_parent().get_node("Audio_Player")
 @onready var test_textbox = get_node("Test_Textbox")
 
 var icon_ids_to_paths = {"char1_neutral":0, "char1_happy":1}
 
 var timer : Timer = Timer.new()
 
-@export var default_text_speed = 150.0
+@export var default_text_speed = 280.0
 
 var index = 0
 var text_stack = ""
@@ -30,10 +30,10 @@ func _input(event: InputEvent) -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+	print(timer.time_left)
 	if index < text_stack.length() and timer.time_left == 0:
-		Print_Text(text_stack[index])
 		audio_player.playing = true
-		
+		Print_Text(text_stack[index])
 		timer.wait_time = (1 / (default_text_speed))
 		
 		if not tags.has(index):
@@ -66,7 +66,6 @@ func Play_Line(line):
 	data[1] = Get_Text_Tags(data[1])
 	data[1] = Add_Newlines(data[1])
 	
-	print(data[0])
 	Update_Icon(data[0])
 	self.clear()
 	text_stack = data[1]
