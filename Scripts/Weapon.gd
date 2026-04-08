@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var pork = 25
+@export var dmg = 25
 
 var attack_delay = false
 # Called when the node enters the scene tree for the first time.
@@ -210,11 +210,8 @@ func _physics_process(_delta: float) -> void:
 		position.y = -12
 		$attack_box.rotate(PI/2)
 	#these are the diagonals
-	
 
 
-func _on_attack_box_body_entered(body: Node2D) -> void:
+func _on_attack_box_body_exited(body: Node2D) -> void:
 	if CharacterBody2D:
-		body.get_node("Health_Manager").Damage(pork)
-	else:
-		pass
+		body.get_node("Health_Manager").Damage(dmg)
