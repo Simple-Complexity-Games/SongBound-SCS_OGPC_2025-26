@@ -25,7 +25,7 @@ func _ready() -> void:
 	timer.one_shot = true
 
 func _input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("Advance Dialogue") and index > 0:
+	if (Input.is_action_just_pressed("Up") or Input.is_action_just_pressed("Jump")) and index > 0:
 		skip_requested = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -73,7 +73,7 @@ func Play_Line(line):
 	skip_requested = false
 
 func Update_Icon(icon_id):
-	character_icon.frame = icon_ids_to_paths[icon_id]
+	character_icon.frame = icon_ids_to_paths[String(icon_id)]
 
 func Print_Text(text):
 	self.append_text(text)

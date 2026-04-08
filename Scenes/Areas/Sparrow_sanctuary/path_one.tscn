@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://c2rq8qrx2isq"]
+[gd_scene load_steps=27 format=4 uid="uid://c2rq8qrx2isq"]
 
 [ext_resource type="Script" uid="uid://dltd48sm6e1bk" path="res://Scripts/camera_2d.gd" id="1_8ik8f"]
 [ext_resource type="PackedScene" uid="uid://c8xav3q6wf8ar" path="res://Scenes/Utility/dialog_handler.tscn" id="2_2e178"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://ck25xcff0e7si" path="res://Scenes/travel_sign.tscn" id="11_pvrle"]
 [ext_resource type="PackedScene" uid="uid://dihy0istq3alv" path="res://Scenes/UI/canvas_layer.tscn" id="12_jkig4"]
 [ext_resource type="PackedScene" uid="uid://rq24inwg7cap" path="res://Scenes/Utility/player_location.tscn" id="12_m4v2w"]
+[ext_resource type="PackedScene" uid="uid://dlppj3l63islr" path="res://Scenes/Utility/dialog_trigger.tscn" id="15_otjly"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kykf2"]
 texture = ExtResource("3_bl7ud")
@@ -738,3 +739,7 @@ travel_sign = {
 sign_text = "Road Two"
 connected_sign_pos_x = 683
 connected_sign_pos_y = 29
+
+[node name="Dialog_Trigger" parent="." instance=ExtResource("15_otjly")]
+position = Vector2(704, 24)
+dialog_file_name = "Test_Dialog.txt"
