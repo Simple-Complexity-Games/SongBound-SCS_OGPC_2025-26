@@ -585,6 +585,9 @@ limit_bottom = 3000
 limit_smoothed = true
 script = ExtResource("1_li37h")
 
+[node name="Ferret" parent="." instance=ExtResource("15_o4wn2")]
+position = Vector2(1008, 149)
+
 [node name="Player" parent="." instance=ExtResource("2_w8vfd")]
 unique_name_in_owner = true
 z_index = 10
@@ -634,9 +637,6 @@ texture = ExtResource("12_bqixu")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hurt_box"]
 position = Vector2(240, 38)
 shape = SubResource("RectangleShape2D_bqixu")
-
-[node name="Ferret" parent="." instance=ExtResource("15_o4wn2")]
-position = Vector2(1008, 149)
 
 [connection signal="body_entered" from="hurt_box2" to="hurt_box2" method="_on_body_entered"]
 [connection signal="body_entered" from="hurt_box" to="hurt_box" method="_on_body_entered"]

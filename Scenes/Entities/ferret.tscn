@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dcmw2s3k5ngm4" path="res://Scenes/Utility/health_manager.tscn" id="2_ss7by"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hc2h3"]
-size = Vector2(19.512196, 32)
+size = Vector2(97.19513, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_igl0n"]
 size = Vector2(24.07408, 24.583317)
@@ -24,12 +24,13 @@ collision_layer = 8
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageBox"]
-position = Vector2(-37, 1)
+position = Vector2(-29.231707, 1)
 scale = Vector2(0.2, 0.5)
 shape = SubResource("RectangleShape2D_hc2h3")
 
 [node name="Health_Manager" parent="." instance=ExtResource("2_ss7by")]
-max_health = 125
+max_health = 180
+I_frame_timer = 0.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1.3888879, 3.0555491)

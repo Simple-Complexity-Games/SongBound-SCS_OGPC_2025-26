@@ -35,7 +35,7 @@ func _physics_process(_delta: float) -> void:
 		$attack_box/midle/Sprite2D.hide()
 		$attack_box/midle.set_deferred("disabled", true)
 		$attack_box/left/Sprite2D3.show()
-		await get_tree().create_timer(.166).timeout
+		await get_tree().create_timer(.1666).timeout
 		$attack_box/left/Sprite2D3.hide()
 		$attack_box/left.set_deferred("disabled", true)
 		position.x = 0
@@ -60,7 +60,7 @@ func _physics_process(_delta: float) -> void:
 		$attack_box/midle/Sprite2D.hide()
 		$attack_box/midle.set_deferred("disabled", true)
 		$attack_box/right/Sprite2D2.show()
-		await get_tree().create_timer(.166).timeout
+		await get_tree().create_timer(.1666).timeout
 		$attack_box/right/Sprite2D2.hide()
 		$attack_box/right.set_deferred("disabled", true)
 		position.x = 0
@@ -85,7 +85,7 @@ func _physics_process(_delta: float) -> void:
 		$attack_box/midle/Sprite2D.hide()
 		$attack_box/midle.set_deferred("disabled", true)
 		$attack_box/right/Sprite2D2.show()
-		await get_tree().create_timer(.166).timeout
+		await get_tree().create_timer(.1666).timeout
 		$attack_box/right/Sprite2D2.hide()
 		$attack_box/right.set_deferred("disabled", true)
 		position.x = 0
@@ -110,7 +110,7 @@ func _physics_process(_delta: float) -> void:
 		$attack_box/midle/Sprite2D.hide()
 		$attack_box/midle.set_deferred("disabled", true)
 		$attack_box/right/Sprite2D2.show()
-		await get_tree().create_timer(.166).timeout
+		await get_tree().create_timer(.1666).timeout
 		$attack_box/right/Sprite2D2.hide()
 		$attack_box/right.set_deferred("disabled", true)
 		position.x = 0
@@ -135,7 +135,7 @@ func _physics_process(_delta: float) -> void:
 		$attack_box/midle.set_deferred("disabled", true)
 		$attack_box/right/Sprite2D2.show()
 
-		await get_tree().create_timer(.166).timeout
+		await get_tree().create_timer(.1666).timeout
 		$attack_box/right/Sprite2D2.hide()
 		$attack_box/right.set_deferred("disabled", true)
 
@@ -158,7 +158,7 @@ func _physics_process(_delta: float) -> void:
 		$attack_box/midle/Sprite2D.hide()
 		$attack_box/midle.set_deferred("disabled", true)
 		$attack_box/right/Sprite2D2.show()
-		await get_tree().create_timer(.166).timeout
+		await get_tree().create_timer(.1666).timeout
 		$attack_box/right/Sprite2D2.hide()
 		$attack_box/right.set_deferred("disabled", true)
 		position.y = -12
@@ -181,7 +181,7 @@ func _physics_process(_delta: float) -> void:
 		$attack_box/midle/Sprite2D.hide()
 		$attack_box/midle.set_deferred("disabled", true)
 		$attack_box/left/Sprite2D3.show()
-		await get_tree().create_timer(.166).timeout
+		await get_tree().create_timer(.1666).timeout
 		$attack_box/left/Sprite2D3.hide()
 		$attack_box/left.set_deferred("disabled", true)
 		position.x = 0
@@ -204,7 +204,7 @@ func _physics_process(_delta: float) -> void:
 		$attack_box/midle/Sprite2D.hide()
 		$attack_box/midle.set_deferred("disabled", true)
 		$attack_box/right/Sprite2D2.show()
-		await get_tree().create_timer(.166).timeout
+		await get_tree().create_timer(.1666).timeout
 		$attack_box/right/Sprite2D2.hide()
 		$attack_box/right.set_deferred("disabled", true)
 		position.y = -12
@@ -213,5 +213,5 @@ func _physics_process(_delta: float) -> void:
 
 
 func _on_attack_box_body_exited(body: Node2D) -> void:
-	if CharacterBody2D:
+	if body.get_node("Health_Manager") != null:
 		body.get_node("Health_Manager").Damage(dmg)

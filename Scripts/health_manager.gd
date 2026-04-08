@@ -7,8 +7,7 @@ var current_health = 1
 var taking_damage = false
 
 func _ready() -> void:
-	if get_parent().name == "Player":
-		current_health = max_health
+	current_health = max_health
 	if get_parent().name == "Player":
 		current_health = GameManager.TrueHealth 
 @warning_ignore("unused_parameter")
@@ -25,7 +24,7 @@ func Damage(value, ignore_i_frames = false):
 			get_tree().reload_current_scene()
 			
 	if not get_parent().name == "Player" and current_health <= 0:
-		queue_free()
+		get_parent().queue_free()
 
 @warning_ignore("unused_parameter")
 func Heal(value, ignore_max_health = false):
