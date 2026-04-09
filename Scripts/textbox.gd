@@ -21,6 +21,10 @@ signal done_printing
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	#for node in get_tree().get_nodes_in_group("Dialog_Triggers"):
+		#print(node)
+		#self.done_printing.connect(node.done_printing().bind())
+	
 	add_child(timer)
 	timer.one_shot = true
 
@@ -30,7 +34,6 @@ func _input(event: InputEvent) -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	print(timer.time_left)
 	if index < text_stack.length() and timer.time_left == 0:
 		audio_player.playing = true
 		Print_Text(text_stack[index])
@@ -39,13 +42,15 @@ func _process(_delta: float) -> void:
 		if not tags.has(index):
 			pass
 		elif "pause" in tags[index]:
-			timer.wait_time = (50 / (default_text_speed))
+			timer.wait_time = (60 / (default_text_speed))
 		
 		timer.start()
 		index += 1
 	elif index >= text_stack.length():
 		done_printing.emit()
+		print("done printing")
 	elif skip_requested:
+		print("SKIP")
 		skip_requested = false
 		
 		timer.stop()
@@ -55,22 +60,28 @@ func _process(_delta: float) -> void:
 		index = stopping_point
 
 func Play_Line(line):
-	var data = ["", ""]
-	var section = 0
-	for char in line:
-		if char == ":" and section == 0:
-			section += 1
-		else:
-			data[section] += char
+	#var data = ["", ""]
+	#var section = 0
+	#for char in line:
+		#if char == ":" and section == 0:
+			#section += 1
+		#else:
+			#data[section] += char
 	
-	data[1] = Get_Text_Tags(data[1])
-	data[1] = Add_Newlines(data[1])
-	
-	Update_Icon(data[0])
-	self.clear()
-	text_stack = data[1]
-	index = 0
-	skip_requested = false
+	if index < text_stack.length():
+		print("skipped")
+		skip_requested = true
+	else:
+		print("playing line")
+		var data = line
+		data = Get_Text_Tags(data)
+		data = Add_Newlines(data)
+		
+		#Update_Icon(data[0])
+		self.clear()
+		text_stack = data
+		index = 0
+		skip_requested = false
 
 func Update_Icon(icon_id):
 	character_icon.frame = icon_ids_to_paths[String(icon_id)]

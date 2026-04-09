@@ -10,6 +10,7 @@ var file_loaded = false
 var line_list = []
 var next_line = 0
 var dialog_box_hidden = true
+var dialog_playing = false
 
 var player_in_area = false
 
@@ -34,20 +35,28 @@ func _ready():
 	
 
 func _process(delta: float) -> void:
-	print(line_list)
 	if (Input.is_action_just_pressed("Up") or Input.is_action_just_pressed("Jump")) and player_in_area and file_loaded:
 		if dialog_box_hidden == true:
-			dialog_box.show()
+			dialog_box.get_parent().show()
 			dialog_box_hidden = false
-		if next_line > line_list.size():
-			dialog_box.hide()
+		
+		if next_line > (line_list.size() - 1) and not dialog_playing:
+			dialog_box.get_parent().hide()
 			dialog_box_hidden = true
-		else:
+			dialog_box.clear()
+			next_line = 0
+		elif not dialog_playing:
+			dialog_playing = true
 			dialog_box.Play_Line(line_list[next_line])
 			next_line += 1
+		else:
+			dialog_box.skip_requested = true
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	player_in_area = true
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	player_in_area = false
+
+func _on_main_textbox_done_printing() -> void:
+	dialog_playing = false

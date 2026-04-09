@@ -740,6 +740,10 @@ sign_text = "Road Two"
 connected_sign_pos_x = 683
 connected_sign_pos_y = 29
 
-[node name="Dialog_Trigger" parent="." instance=ExtResource("15_otjly")]
+[node name="Dialog_Trigger" parent="." groups=["Dialog_Triggers"] instance=ExtResource("15_otjly")]
 position = Vector2(704, 24)
 dialog_file_name = "Test_Dialog.txt"
+
+[connection signal="done_printing" from="CanvasLayer/Dialog_Handler/Dialog_Box/Main_Textbox" to="Dialog_Trigger" method="_on_main_textbox_done_printing"]
+
+[editable path="CanvasLayer/Dialog_Handler"]

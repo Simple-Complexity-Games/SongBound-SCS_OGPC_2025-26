@@ -1,8 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://c8xav3q6wf8ar"]
+[gd_scene load_steps=11 format=3 uid="uid://c8xav3q6wf8ar"]
 
 [ext_resource type="Script" uid="uid://dsn8ntkfwvr5y" path="res://Scripts/textbox.gd" id="1_1ohis"]
+[ext_resource type="FontFile" uid="uid://bvhn1qdmm6q7i" path="res://Assets/Fonts/Macondo/Macondo-Regular.ttf" id="1_igijl"]
 [ext_resource type="Texture2D" uid="uid://c6r4fv54mx5nv" path="res://Assets/Art/Sprites/icon.svg" id="2_igijl"]
 [ext_resource type="AudioStream" uid="uid://bhe7lcpnuo6q4" path="res://Assets/Sound/SFX/typing_blip.wav" id="3_34cjt"]
+
+[sub_resource type="Theme" id="Theme_34cjt"]
+default_font = ExtResource("1_igijl")
+default_font_size = 30
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gomqe"]
 atlas = ExtResource("2_igijl")
@@ -40,7 +45,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Dialog_Handler" type="Node2D"]
+[node name="Dialog_Handler" type="Node2D" groups=["Dialog_Handlers"]]
 
 [node name="Dialog_Box" type="Control" parent="."]
 layout_mode = 3
@@ -49,18 +54,19 @@ offset_right = 448.0
 offset_bottom = 128.0
 
 [node name="Main_Textbox" type="RichTextLabel" parent="Dialog_Box"]
-visible = false
 z_index = 1
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.321
+anchor_left = 0.054
 anchor_top = 0.125
-anchor_right = 0.964
-anchor_bottom = 0.875
-offset_left = 0.192001
-offset_right = 0.127991
+anchor_right = 1.2320001
+anchor_bottom = 1.3750001
+offset_left = -0.19200134
+offset_right = 0.063964844
+offset_bottom = -1.5258789e-05
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_34cjt")
 bbcode_enabled = true
 fit_content = true
 script = ExtResource("1_1ohis")
@@ -81,11 +87,14 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 128.0
+offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_igijl")
 
 [node name="Character_Icon" type="AnimatedSprite2D" parent="Dialog_Box"]
+visible = false
 position = Vector2(72, 64)
 scale = Vector2(1.75, 1.5)
 sprite_frames = SubResource("SpriteFrames_lvjv6")
