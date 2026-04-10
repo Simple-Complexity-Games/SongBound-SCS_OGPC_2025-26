@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://x0rw23gb6qgb"]
+
+[ext_resource type="Texture2D" uid="uid://dqfmr8oisgyhm" path="res://Assets/Art/Sprites/Owl Home Placeholder.png" id="1_p04ek"]
+[ext_resource type="PackedScene" uid="uid://bdkged5clqdnl" path="res://Scenes/Entities/player.tscn" id="2_8ifch"]
+
+[node name="Owl_Home" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(120.95, 77.74)
+scale = Vector2(0.096757844, 0.09490886)
+texture = ExtResource("1_p04ek")
+
+[node name="Player" parent="." instance=ExtResource("2_8ifch")]
+position = Vector2(44, 155)
+
+[node name="world border" type="StaticBody2D" parent="."]
+light_mask = 0
+visibility_layer = 0
+position = Vector2(41, 154)
+rotation = 1.5707964
+collision_layer = 3
+collision_mask = 3
+collision_priority = 100.0
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="world border"]
+light_mask = 0
+visibility_layer = 0
+position = Vector2(2, 7)
+build_mode = 1
+polygon = PackedVector2Array(-1.0000153, -207, -1, 34, -156, 34.000008, -156.00002, -207)
