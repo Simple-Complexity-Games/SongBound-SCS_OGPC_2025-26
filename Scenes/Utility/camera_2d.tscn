@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://cornjst30aymf"]
+
+[ext_resource type="Script" uid="uid://dltd48sm6e1bk" path="res://Scripts/camera_2d.gd" id="1_owuy3"]
+
+[node name="Camera2D" type="Camera2D"]
+light_mask = 0
+visibility_layer = 0
+zoom = Vector2(4, 4)
+limit_left = 0
+limit_top = -3232
+limit_right = 8992
+limit_bottom = 1376
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 70.0
+script = ExtResource("1_owuy3")
