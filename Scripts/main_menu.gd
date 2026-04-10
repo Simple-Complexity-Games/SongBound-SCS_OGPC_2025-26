@@ -1148,6 +1148,7 @@ func Apply_Config(config_file):
 	Window_Mode_Button.selected = Button_To_WindowMode_Index_Dict.find_key(ProjectSettings.get_setting_with_override("display/window/size/mode"))
 	DisplayServer.window_set_size(Vector2(float(ProjectSettings.get_setting_with_override("display/window/size/window_width_override")), float(ProjectSettings.get_setting_with_override("display/window/size/window_height_override"))))
 	#endregion
+
 # Save settings upon quitting application at window manager request
 func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:

@@ -48,6 +48,7 @@ animations = [{
 [node name="Dialog_Handler" type="Node2D" groups=["Dialog_Handlers"]]
 
 [node name="Dialog_Box" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 448.0
