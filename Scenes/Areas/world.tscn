@@ -478,6 +478,15 @@ travel_sign = {
 }
 sign_text = "World Two"
 
+[node name="travel sign3" parent="." groups=["Signs"] instance=ExtResource("11_wcev2")]
+position = Vector2(4381, 1134)
+travel_sign = {
+0: "res://Scenes/Areas/owl_home.tscn"
+}
+sign_text = "Owl \"Home\""
+connected_sign_pos_x = 53
+connected_sign_pos_y = 136
+
 [node name="PlainsGroundArt" type="Sprite2D" parent="."]
 light_mask = 2
 visibility_layer = 2
