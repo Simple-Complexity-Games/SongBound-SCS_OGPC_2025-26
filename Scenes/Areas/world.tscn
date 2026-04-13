@@ -365,6 +365,7 @@ light_mode = 1
 
 [node name="World" type="Node2D"]
 texture_filter = 4
+metadata/_edit_horizontal_guides_ = [1055.0]
 
 [node name="CanvasLayer" parent="." instance=ExtResource("1_kykf2")]
 
@@ -434,7 +435,7 @@ z_index = 1
 texture_filter = 4
 position = Vector2(0, 5)
 scale = Vector2(0.2, 0.2)
-tile_map_data = PackedByteArray("AADwAJEAAQAAAAEAAACPADcAAAAAAAEAAABqA04BAAAAAAEAABDqAkABAAABAAAAAAB5AboAAQAAAAAAAAC7AiYBAQABAAEAABDAAGkAAAAAAAAAAAAFBk4BAgABAAEAAAB0BUYBAgABAAAAAABMBlIBAgAAAAAAAAATBUcBAQAAAAEAAADzA1kBAQABAAEAAAA+BFwBAwABAAEAAADcBFQBAgAAAAAAABDkB2EBAgABAAAAAADKCF0BAgAAAAEAAABeCG8BAgAAAAAAAABkClMBAgAAAAEAAAAJCGwBAQAAAAEAAAAiCl0BAQABAAEAAADZClUBAwABAAEAAAA0B3kBAgAAAAEAAAB+AhQBAAAAAAEAAABSAg4BAAABAAEAAAAVAgwBAQAAAAEAAAB1AiABAwAAAAAAAACRAdEAAwABAAAAAAAJAaUAAwAAAAAAAAA7AAQAAQABAAAAAADjBVwBAwABAAEAAACNBUoBAAABAAAAAACMB3MBAAABAAAAABA=")
+tile_map_data = PackedByteArray("AADwAJEAAQAAAAEAAACPADcAAAAAAAEAAABqA04BAAAAAAEAABDqAkABAAABAAAAAAB5AboAAQAAAAAAAAC7AiYBAQABAAEAABDAAGkAAAAAAAAAAAB0BUYBAgABAAAAAABMBlIBAgAAAAAAAAATBUcBAQAAAAEAAADzA1kBAQABAAEAAAA+BFwBAwABAAEAAADcBFQBAgAAAAAAABDkB2EBAgABAAAAAADKCF0BAgAAAAEAAABeCG8BAgAAAAAAAABkClMBAgAAAAEAAAAJCGwBAQAAAAEAAAAiCl0BAQABAAEAAADZClUBAwABAAEAAAA0B3kBAgAAAAEAAAB+AhQBAAAAAAEAAABSAg4BAAABAAEAAAAVAgwBAQAAAAEAAAB1AiABAwAAAAAAAACRAdEAAwABAAAAAAAJAaUAAwAAAAAAAAA7AAQAAQABAAAAAACNBUoBAAABAAAAAACMB3MBAAABAAAAABA=")
 tile_set = SubResource("TileSet_5a7ea")
 
 [node name="Water" type="TileMapLayer" parent="."]
@@ -479,13 +480,18 @@ travel_sign = {
 sign_text = "World Two"
 
 [node name="travel sign3" parent="." groups=["Signs"] instance=ExtResource("11_wcev2")]
-position = Vector2(4381, 1134)
+position = Vector2(4931, 1181)
 travel_sign = {
 0: "res://Scenes/Areas/owl_home.tscn"
 }
 sign_text = "Owl \"Home\""
 connected_sign_pos_x = 53
 connected_sign_pos_y = 136
+
+[node name="Sprite2D" parent="travel sign3" index="0"]
+position = Vector2(-4, -76)
+scale = Vector2(0.18339144, 0.18339144)
+region_rect = Rect2(1235, 170, 1300, 1100)
 
 [node name="PlainsGroundArt" type="Sprite2D" parent="."]
 light_mask = 2
@@ -542,3 +548,5 @@ rotation = 0.011432998
 
 [node name="TestingEnemy" parent="." instance=ExtResource("16_bwcnv")]
 position = Vector2(2595, 1177)
+
+[editable path="travel sign3"]
