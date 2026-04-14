@@ -6,6 +6,7 @@ extends Node2D
 var current_health = 1
 var taking_damage = false
 
+
 func _ready() -> void:
 	current_health = max_health
 	if get_parent().name == "Player":

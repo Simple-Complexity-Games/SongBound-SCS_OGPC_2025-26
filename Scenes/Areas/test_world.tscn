@@ -604,8 +604,8 @@ position = Vector2(39, 30)
 travel_sign = {
 0: "res://Scenes/Areas/Sparrow_sanctuary/path_one.tscn"
 }
-connected_sign_pos_x = 42
-connected_sign_pos_y = 29
+connected_sign_pos_x = -665
+connected_sign_pos_y = 14
 
 [node name="hurt_box2" type="Area2D" parent="."]
 position = Vector2(51, 0)
