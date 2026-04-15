@@ -549,7 +549,7 @@ scale = Vector2(0.15, 0.15)
 texture = SubResource("CompressedTexture2D_enowb")
 
 [node name="Ferret" parent="." instance=ExtResource("16_w7ne4")]
-position = Vector2(1789.0001, 985)
+position = Vector2(1789, 983.00006)
 rotation = 0.011432998
 
 [node name="TestingEnemy" parent="." instance=ExtResource("16_bwcnv")]
