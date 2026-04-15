@@ -1,14 +1,14 @@
 extends RichTextLabel
 
-@onready var character_icon = get_node("/root/Dialog_Handler/Dialog_Box/Character_Icon")
-@onready var audio_player = get_node("/root/Dialog_Handler/Audio_Player")
+@onready var character_icon = get_parent().get_node("Character_Icon")
+@onready var audio_player = get_parent().get_parent().get_node("Audio_Player")
 @onready var test_textbox = get_node("Test_Textbox")
 
 var icon_ids_to_paths = {"char1_neutral":0, "char1_happy":1}
 
 var timer : Timer = Timer.new()
 
-@export var default_text_speed = 150.0
+@export var default_text_speed = 280.0
 
 var index = 0
 var text_stack = ""
@@ -21,31 +21,36 @@ signal done_printing
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	#for node in get_tree().get_nodes_in_group("Dialog_Triggers"):
+		#print(node)
+		#self.done_printing.connect(node.done_printing().bind())
+	
 	add_child(timer)
 	timer.one_shot = true
 
 func _input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("Advance Dialogue") and index > 0:
+	if (Input.is_action_just_pressed("Up") or Input.is_action_just_pressed("Jump")) and index > 0:
 		skip_requested = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if index < text_stack.length() and timer.time_left == 0:
-		Print_Text(text_stack[index])
 		audio_player.playing = true
-		
+		Print_Text(text_stack[index])
 		timer.wait_time = (1 / (default_text_speed))
 		
 		if not tags.has(index):
 			pass
 		elif "pause" in tags[index]:
-			timer.wait_time = (50 / (default_text_speed))
+			timer.wait_time = (60 / (default_text_speed))
 		
 		timer.start()
 		index += 1
 	elif index >= text_stack.length():
 		done_printing.emit()
+		print("done printing")
 	elif skip_requested:
+		print("SKIP")
 		skip_requested = false
 		
 		timer.stop()
@@ -55,26 +60,31 @@ func _process(_delta: float) -> void:
 		index = stopping_point
 
 func Play_Line(line):
-	var data = ["", ""]
-	var section = 0
-	for char in line:
-		if char == ":" and section == 0:
-			section += 1
-		else:
-			data[section] += char
+	#var data = ["", ""]
+	#var section = 0
+	#for char in line:
+		#if char == ":" and section == 0:
+			#section += 1
+		#else:
+			#data[section] += char
 	
-	data[1] = Get_Text_Tags(data[1])
-	data[1] = Add_Newlines(data[1])
-	
-	print(data[0])
-	Update_Icon(data[0])
-	self.clear()
-	text_stack = data[1]
-	index = 0
-	skip_requested = false
+	if index < text_stack.length():
+		print("skipped")
+		skip_requested = true
+	else:
+		print("playing line")
+		var data = line
+		data = Get_Text_Tags(data)
+		data = Add_Newlines(data)
+		
+		#Update_Icon(data[0])
+		self.clear()
+		text_stack = data
+		index = 0
+		skip_requested = false
 
 func Update_Icon(icon_id):
-	character_icon.frame = icon_ids_to_paths[icon_id]
+	character_icon.frame = icon_ids_to_paths[String(icon_id)]
 
 func Print_Text(text):
 	self.append_text(text)

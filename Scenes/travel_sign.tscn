@@ -1,25 +1,28 @@
 [gd_scene load_steps=4 format=3 uid="uid://ck25xcff0e7si"]
 
 [ext_resource type="Script" uid="uid://wb8f6p7bp5se" path="res://Scripts/travel_sign.gd" id="1_1l5yg"]
-[ext_resource type="Texture2D" uid="uid://4yi2cfq10kuf" path="res://Assets/Art/Sprites/mine Tile Design Template (1).png" id="2_qjge1"]
+[ext_resource type="Texture2D" uid="uid://de33hyrlfe23u" path="res://Assets/Art/Sprites/Owl_Home_Enterence + Signposts (2).png" id="2_qjge1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1l5yg"]
-size = Vector2(53, 50.75)
+size = Vector2(58.51463, 32.692375)
 
 [node name="travel sign" type="Node2D"]
+scale = Vector2(1.333, 1.333)
 script = ExtResource("1_1l5yg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -21)
-scale = Vector2(0.55999917, 0.55999917)
+position = Vector2(0, -12.000001)
+scale = Vector2(0.060070023, 0.060070023)
 texture = ExtResource("2_qjge1")
+region_enabled = true
+region_rect = Rect2(35, 160, 520, 1100)
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, -6)
+position = Vector2(-8.495786e-07, 3.1586885)
 shape = SubResource("RectangleShape2D_1l5yg")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
