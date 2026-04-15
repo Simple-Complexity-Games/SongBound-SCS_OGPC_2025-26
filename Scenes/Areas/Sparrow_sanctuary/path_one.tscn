@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://c2rq8qrx2isq"]
+[gd_scene load_steps=15 format=4 uid="uid://c2rq8qrx2isq"]
 
 [ext_resource type="Script" uid="uid://dltd48sm6e1bk" path="res://Scripts/camera_2d.gd" id="1_8ik8f"]
 [ext_resource type="Texture2D" uid="uid://ctkmi7csnsqo7" path="res://Assets/Art/Sprites/Avythera_Sparrow_Sanctuary (4) (1).png" id="1_vhd3l"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bdkged5clqdnl" path="res://Scenes/Entities/player.tscn" id="2_eeikq"]
 [ext_resource type="Texture2D" uid="uid://dhgsdwmg2j1x7" path="res://Assets/Art/Sprites/Avythera_Sparrow_Sanctuary (3) (1).png" id="2_jkig4"]
 [ext_resource type="Texture2D" uid="uid://kp53elewnl2e" path="res://Assets/Art/Sprites/Tileset (1).png" id="3_bl7ud"]
+[ext_resource type="Texture2D" uid="uid://bjjian54lch0q" path="res://Assets/Art/Sprites/Avythera Textbox (1).png" id="5_jkig4"]
 [ext_resource type="AudioStream" uid="uid://c624t28jwuwvw" path="res://Assets/Sound/Music/Vulture Boss Music Concept Actually just chill town music concept lol.wav" id="10_tid5k"]
 [ext_resource type="PackedScene" uid="uid://ck25xcff0e7si" path="res://Scenes/travel_sign.tscn" id="11_pvrle"]
 [ext_resource type="PackedScene" uid="uid://dihy0istq3alv" path="res://Scenes/UI/canvas_layer.tscn" id="12_jkig4"]
@@ -124,6 +125,9 @@ polygon = PackedVector2Array(-1250, 1028, -1250, 1250, 1250, 1250, 1250, 1059, 1
 [node name="Dialog_Handler" parent="CanvasLayer" instance=ExtResource("2_2e178")]
 position = Vector2(736, 16)
 
+[node name="Background" parent="CanvasLayer/Dialog_Handler/Dialog_Box" index="1"]
+texture = ExtResource("5_jkig4")
+
 [node name="world border" type="StaticBody2D" parent="."]
 position = Vector2(-3, -1)
 rotation = 1.5707964
@@ -182,8 +186,8 @@ connected_sign_pos_x = 43
 connected_sign_pos_y = 29
 
 [node name="Dialog_Trigger" parent="." groups=["Dialog_Triggers"] instance=ExtResource("15_otjly")]
-position = Vector2(704, 24)
-dialog_file_name = "Test_Dialog.txt"
+position = Vector2(700, 26)
+dialog_file_name = "Letter_From_Home.txt"
 
 [connection signal="done_printing" from="CanvasLayer/Dialog_Handler/Dialog_Box/Main_Textbox" to="Dialog_Trigger" method="_on_main_textbox_done_printing"]
 

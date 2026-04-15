@@ -38,7 +38,6 @@ func _physics_process(delta: float) -> void:
 	if Combined_Position <= 64:
 		Dash = false
 		$DashTimer.start()
-		print(Dash)
 	
 	if Alert and not Dash: #Chasing player whenever Alert or Chase equals true
 		if Combined_Position < 0: #Positive
@@ -49,7 +48,6 @@ func _physics_process(delta: float) -> void:
 			sprite_2d.flip_h = false
 
 	if Dash and Alert:
-		print(Combined_Position)
 		if Combined_Position < 64: #Dash, Positive
 			velocity.x = move_toward(velocity.x, Speed*7,150)
 			sprite_2d.flip_h = true
