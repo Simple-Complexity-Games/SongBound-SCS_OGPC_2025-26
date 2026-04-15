@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://c8xav3q6wf8ar"]
+[gd_scene load_steps=12 format=3 uid="uid://c8xav3q6wf8ar"]
 
 [ext_resource type="Script" uid="uid://dsn8ntkfwvr5y" path="res://Scripts/textbox.gd" id="1_1ohis"]
 [ext_resource type="FontFile" uid="uid://bvhn1qdmm6q7i" path="res://Assets/Fonts/Macondo/Macondo-Regular.ttf" id="1_igijl"]
 [ext_resource type="Texture2D" uid="uid://c6r4fv54mx5nv" path="res://Assets/Art/Sprites/icon.svg" id="2_igijl"]
 [ext_resource type="AudioStream" uid="uid://bhe7lcpnuo6q4" path="res://Assets/Sound/SFX/typing_blip.wav" id="3_34cjt"]
+[ext_resource type="Texture2D" uid="uid://bjjian54lch0q" path="res://Assets/Art/Sprites/Avythera Textbox (1).png" id="3_sq72s"]
 
 [sub_resource type="Theme" id="Theme_34cjt"]
 default_font = ExtResource("1_igijl")
@@ -60,10 +61,10 @@ layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.054
 anchor_top = 0.125
-anchor_right = 1.2320001
+anchor_right = 1.6430001
 anchor_bottom = 1.3750001
-offset_left = -0.19200134
-offset_right = 0.063964844
+offset_left = 15.807999
+offset_right = -8.064087
 offset_bottom = -1.5258789e-05
 grow_horizontal = 2
 grow_vertical = 2
@@ -78,6 +79,8 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 16.0
+offset_right = -8.0
 grow_horizontal = 2
 grow_vertical = 2
 bbcode_enabled = true
@@ -88,11 +91,11 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 128.0
+offset_right = 320.0
 offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_igijl")
+texture = ExtResource("3_sq72s")
 
 [node name="Character_Icon" type="AnimatedSprite2D" parent="Dialog_Box"]
 visible = false

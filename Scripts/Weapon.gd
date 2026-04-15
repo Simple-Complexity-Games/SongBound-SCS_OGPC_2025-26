@@ -286,3 +286,4 @@ func _physics_process(_delta: float) -> void:
 func _on_attack_box_body_exited(body: Node2D) -> void:
 	if body.get_node("Health_Manager") != null:
 		body.get_node("Health_Manager").Damage(dmg)
+		print(dmg)
