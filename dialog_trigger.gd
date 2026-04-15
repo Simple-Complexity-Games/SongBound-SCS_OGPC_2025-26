@@ -34,28 +34,33 @@ func _ready():
 				line += char
 	
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
+	print(player_in_area)
 	if (Input.is_action_just_pressed("Up") or Input.is_action_just_pressed("Jump")) and player_in_area and file_loaded:
+		print("sdfgdfhh")
 		if dialog_box_hidden == true:
+			print("show")
 			dialog_box.get_parent().show()
 			dialog_box_hidden = false
 		
 		if next_line > (line_list.size() - 1) and not dialog_playing:
+			print("hide")
 			dialog_box.get_parent().hide()
 			dialog_box_hidden = true
 			dialog_box.clear()
 			next_line = 0
 		elif not dialog_playing:
+			print("playing")
 			dialog_playing = true
 			dialog_box.Play_Line(line_list[next_line])
 			next_line += 1
 		else:
 			dialog_box.skip_requested = true
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
+func _on_area_2d_body_entered(_body: Node2D) -> void:
 	player_in_area = true
 
-func _on_area_2d_body_exited(body: Node2D) -> void:
+func _on_area_2d_body_exited(_body: Node2D) -> void:
 	player_in_area = false
 
 func _on_main_textbox_done_printing() -> void:
