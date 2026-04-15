@@ -1,17 +1,17 @@
 [gd_scene load_steps=6 format=3 uid="uid://c3hd4qgqqka2a"]
 
 [ext_resource type="Script" uid="uid://bs77vklj73nme" path="res://Scripts/ferret.gd" id="1_igl0n"]
-[ext_resource type="Texture2D" uid="uid://bhx67vj5gk0lf" path="res://Assets/Art/Sprites/Avythera_Ferret.png" id="2_hc2h3"]
 [ext_resource type="PackedScene" uid="uid://dcmw2s3k5ngm4" path="res://Scenes/Utility/health_manager.tscn" id="2_ss7by"]
+[ext_resource type="Texture2D" uid="uid://c6reo3osx2vaa" path="res://Assets/Art/Sprites/Avythera_Fox.png" id="3_hc2h3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_igl0n"]
-size = Vector2(24.07408, 24.583317)
+size = Vector2(21.793133, 19.499964)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_774bn"]
 radius = 250.7367
 
 [node name="Ferret" type="CharacterBody2D"]
-scale = Vector2(0.41, 0.5)
+scale = Vector2(0.668, 0.76)
 collision_layer = 8
 floor_max_angle = 1.4835298
 script = ExtResource("1_igl0n")
@@ -20,23 +20,23 @@ script = ExtResource("1_igl0n")
 max_health = 125
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1.3888879, 3.0555491)
+position = Vector2(-1.7107108, -0.9999999)
 scale = Vector2(1.5000006, 1.3333358)
 shape = SubResource("RectangleShape2D_igl0n")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1.3888897, 2.7777781)
-scale = Vector2(0.28211823, 0.2604168)
-texture = ExtResource("2_hc2h3")
+position = Vector2(1.7329416, 0.97222805)
+scale = Vector2(0.14798206, 0.13368064)
+texture = ExtResource("3_hc2h3")
 region_enabled = true
-region_rect = Rect2(75.305664, 243.169, 349.35242, 232.40466)
+region_rect = Rect2(93.70001, 243.169, 503.4466, 178.05042)
 
 [node name="RayRight" type="RayCast2D" parent="."]
-position = Vector2(0, 16.666676)
+position = Vector2(0, 12)
 target_position = Vector2(30.555573, 0)
 
 [node name="RayLeft" type="RayCast2D" parent="."]
-position = Vector2(0, 16.666676)
+position = Vector2(0, 12)
 target_position = Vector2(-27.777794, 0)
 
 [node name="AlertingArea" type="Area2D" parent="."]

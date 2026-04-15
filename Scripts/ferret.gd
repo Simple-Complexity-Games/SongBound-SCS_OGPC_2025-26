@@ -1,15 +1,18 @@
 extends CharacterBody2D
 
-var Direction = 1
-var Player_Position
-var Enemy_Position = self.position.x #Getting enemy position
-var Combined_Position
+var Health = 100
+var Direction = 1 #Changes the direction of enemy while moving
 var Speed = 50
-var Alert = false #Becomes true once the player comes into the sphere. Will chase the player when true
+var Jump_Power = -400
+var Player_Position
+var Combined_Position #Subtracting the enmey position to the player position
+var Alert = false #Will chase the player when true
 var Aggro_Timer = 0  #Timer for how long the enemy will chase the player till it gives up and stops.
 var Chase = false 
 var Dash = true
 var Dash_Timer = 0 #Cooldown for Dash Ability
+var Retreat = false
+
 
 @onready var ray_right: RayCast2D = $RayRight
 @onready var ray_left: RayCast2D = $RayLeft
@@ -17,42 +20,66 @@ var Dash_Timer = 0 #Cooldown for Dash Ability
 
 #EnemyScountingMovement
 func _physics_process(delta: float) -> void:
-	velocity += get_gravity() * delta 
+	var gravity = 1500
+	velocity.y += gravity * delta 
 
 	Player_Position = get_parent().get_node("Player").position.x
-	Enemy_Position = self.position.x
-	Combined_Position = Enemy_Position - Player_Position
+	Combined_Position = self.position.x - Player_Position
 
 	if ray_right.is_colliding() and Alert == false : #If wall on right turn around
 		Direction = -1
+		sprite_2d.flip_h = true
 	if ray_left.is_colliding() and Alert == false: #If wall on left turn around
 		Direction = 1
+		sprite_2d.flip_h = false
 	
 	
 	if !Alert: #Patroling when player is out of view
 		position.x += Direction * Speed * delta
 		
-	if Combined_Position <= 64:
+
+	if Combined_Position < 64 and Combined_Position > -64:
 		Dash = false
 		$DashTimer.start()
-		print(Dash)
+	
+	
+	#if Health < 144 and Health > 90 and Alert and is_on_floor() or Health < 90 and Alert and is_on_floor():
+		#Retreat = true
+	#if Retreat: #Disable the Retreat once you get back onto the floor. 
+		#velocity.y = Jump_Power
+		
+		
+	#if !is_on_floor():
+		#Retreat = false
 	
 	if Alert and not Dash: #Chasing player whenever Alert or Chase equals true
-		if Combined_Position < 0: #Positive
-			velocity.x = move_toward(velocity.x, Speed, 5)
+		#if Combined_Position < 0 and Retreat: #Causes the player to move the opposite direction than supposed to when in Retreat
+			#velocity.x = move_toward(velocity.x, -Speed, 5)
+		#if Combined_Position > 0 and Retreat:
+			#velocity.x = move_toward(velocity.x, Speed, 5)
+		
+		if Combined_Position < 0 and not Retreat: #Positive
+			velocity.x = move_toward(velocity.x, Speed, 5) #Regular movement for the enemy
 			sprite_2d.flip_h = true
-		if Combined_Position > 0: #Negative
+		if Combined_Position > 0 and not Retreat: #Negative
 			velocity.x = move_toward(velocity.x, -Speed, 5)
 			sprite_2d.flip_h = false
-
-	if Dash and Alert:
-		print(Combined_Position)
-		if Combined_Position < 64: #Dash, Positive
-			velocity.x = move_toward(velocity.x, Speed*7,150)
+	
+	
+	if Dash and Alert: #Enemy's dash ability
+		#print("Combinded Position", Combined_Position)
+		if Combined_Position > 64: #Dash, Positive
+			velocity.x = move_toward(velocity.x, -Speed*7,150)
 			sprite_2d.flip_h = true
-		if Combined_Position > 64: #Dash, Negative
-			velocity.x = move_toward(velocity.x, -Speed*7, 150)
+		if Combined_Position < -64: #Dash, Negative
+			velocity.x = move_toward(velocity.x, Speed*7, 150)
 			sprite_2d.flip_h = false
+	
+	if abs(self.velocity.x) > Speed: #Decleration for Dash
+		if self.velocity.x > 0:
+			velocity.x = move_toward(velocity.x, Speed, 5)
+		elif self.velocity.x < 0:
+			velocity.x = move_toward(velocity.x, -Speed, 5)
 	
 	move_and_slide()
 
@@ -65,17 +92,21 @@ func _on_alerting_area_body_exited(_body: Node2D) -> void: #Player is not in vie
 	Chase = true
 	Aggro_Timer = 0 #Restarting the Aggro_Timer if not in range
 
+
 func _on_timer_timeout() -> void: #three second timer
 	if Aggro_Timer <= 9 and Chase == true: #Plusing it once each time the timer goes off
 		Aggro_Timer += 1
 		$AggroTimer.start()
-		print(Aggro_Timer)
 	if Aggro_Timer == 10: #If the Agrro_Timer reaches 10 than we reset the timer and unalert the enemy
 		Alert = false
 
-func _on_dash_timer_timeout() -> void:
-	Dash_Timer += 1 
-	if Dash_Timer <= 5:
-		Dash = true
+
+func _on_dash_timer_timeout() -> void: #Dash Timer
+	if Dash == false:
+		Dash_Timer += 1
+		$DashTimer.start()
+		#print(Dash_Timer)
+	if Dash_Timer >= 5:
+		#Dash = true #Dash timer currently disabled
 		Dash_Timer = 0
-	$DashTimer.start()
+		#print(Dash)
