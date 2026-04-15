@@ -367,6 +367,8 @@ light_mode = 1
 texture_filter = 4
 metadata/_edit_horizontal_guides_ = [1055.0]
 
+[node name="player_location" parent="." instance=ExtResource("16_6kq0q")]
+
 [node name="CanvasLayer" parent="." instance=ExtResource("1_kykf2")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -456,8 +458,6 @@ tile_set = SubResource("TileSet_5a7ea")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_syva4")
-
-[node name="player_location" parent="." instance=ExtResource("16_6kq0q")]
 
 [node name="travel sign" parent="." groups=["Signs"] instance=ExtResource("11_wcev2")]
 light_mask = 4

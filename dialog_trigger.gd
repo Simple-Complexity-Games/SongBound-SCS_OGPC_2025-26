@@ -35,7 +35,7 @@ func _ready():
 	
 
 func _process(_delta: float) -> void:
-	print(player_in_area)
+	print("in area:",player_in_area)
 	if (Input.is_action_just_pressed("Up") or Input.is_action_just_pressed("Jump")) and player_in_area and file_loaded:
 		print("sdfgdfhh")
 		if dialog_box_hidden == true:
