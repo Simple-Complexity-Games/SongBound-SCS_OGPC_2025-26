@@ -15,7 +15,7 @@ position = Vector2(0, -12.000001)
 scale = Vector2(0.060070023, 0.060070023)
 texture = ExtResource("2_qjge1")
 region_enabled = true
-region_rect = Rect2(35, 160, 520, 1100)
+region_rect = Rect2(665, 160, 520, 1100)
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0
