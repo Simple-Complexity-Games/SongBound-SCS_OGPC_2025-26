@@ -72,18 +72,17 @@ func _physics_process(delta: float) -> void:
 		if Combined_Position > 0 and not Retreat: #Negative
 			velocity.x = move_toward(velocity.x, -Speed, 5)
 			sprite_2d.flip_h = false
-<<<<<<< HEAD:Scripts/Fox.gd
+
 	
 	
 	if Dash and Alert: #Enemy's dash ability
 		if Combined_Position > 64: #Dash, Positive
 			velocity.x = move_toward(velocity.x, -Speed*4,150)
-=======
+
 
 	if Dash and Alert:
 		if Combined_Position < 64: #Dash, Positive
 			velocity.x = move_toward(velocity.x, Speed*7,150)
->>>>>>> fe0053bdf6f149ef4fc638a18c39cd2da3cb371f:Scripts/ferret.gd
 			sprite_2d.flip_h = true
 		if Combined_Position < -64: #Dash, Negative
 			velocity.x = move_toward(velocity.x, Speed*4, 150)
