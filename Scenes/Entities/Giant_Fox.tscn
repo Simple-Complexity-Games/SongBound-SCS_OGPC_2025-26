@@ -13,7 +13,7 @@ size = Vector2(21.793133, 19.499964)
 [sub_resource type="CircleShape2D" id="CircleShape2D_774bn"]
 radius = 250.7367
 
-[node name="Fox" type="CharacterBody2D"]
+[node name="GiantFox" type="CharacterBody2D"]
 scale = Vector2(0.668, 0.76)
 collision_layer = 8
 motion_mode = 1
@@ -53,12 +53,15 @@ collision_mask = 2
 [node name="AlertRange" type="CollisionShape2D" parent="AlertingArea"]
 shape = SubResource("CircleShape2D_774bn")
 
-[node name="AggroTimer" type="Timer" parent="."]
-
 [node name="DashTimer" type="Timer" parent="."]
+wait_time = 10.0
+
+[node name="AggroTimer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
 
 [connection signal="body_shape_entered" from="DamageBox" to="." method="_on_damage_box_body_shape_entered"]
 [connection signal="body_entered" from="AlertingArea" to="." method="_on_alerting_area_body_entered"]
 [connection signal="body_exited" from="AlertingArea" to="." method="_on_alerting_area_body_exited"]
-[connection signal="timeout" from="AggroTimer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
+[connection signal="timeout" from="AggroTimer" to="." method="_on_timer_timeout"]

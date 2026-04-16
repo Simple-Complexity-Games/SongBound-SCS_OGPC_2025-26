@@ -22,7 +22,7 @@ var Health = 180
 @onready var sprite_2d: Sprite2D = $Sprite2D #Used to flip fox's image
 
 
-@export var dmg = 3
+var dmg = 3
 
 #EnemyScountingMovement
 func _physics_process(delta: float) -> void:
@@ -106,21 +106,11 @@ func _on_alerting_area_body_exited(_body: Node2D) -> void: #Player is not in vie
 
 
 func _on_timer_timeout() -> void: #three second timer
-	if Aggro_Timer <= 9 and Chase == true: #Plusing it once each time the timer goes off
-		Aggro_Timer += 1
-		$AggroTimer.start()
-	if Aggro_Timer == 10: #If the Agrro_Timer reaches 10 than we reset the timer and unalert the enemy
-		Alert = false
-
-
+	Alert = false
+	print("Fox", Alert)
+	
 func _on_dash_timer_timeout() -> void: #Dash Timer
-	if Dash == false:
-		Dash_Timer += 1
-		$DashTimer.start()
-	if Dash_Timer >= 5:
-		Dash = true #Dash timer currently disabled
-		Dash_Timer = 0
-	$DashTimer.start()
+	Dash = true
 
 func _on_damage_box_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
 	body.get_node("Health_Manager").Damage(dmg)

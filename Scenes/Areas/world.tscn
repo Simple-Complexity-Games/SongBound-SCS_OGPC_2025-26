@@ -583,7 +583,6 @@ metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="PlainsGroundArt"]
-visible = false
 show_behind_parent = true
 light_mask = 2
 visibility_layer = 0
@@ -622,7 +621,6 @@ texture = SubResource("CompressedTexture2D_enowb")
 
 [node name="Fox" parent="." instance=ExtResource("16_w7ne4")]
 position = Vector2(1790, 981)
-dmg = null
 
 [node name="Music_Player" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_w7ne4")

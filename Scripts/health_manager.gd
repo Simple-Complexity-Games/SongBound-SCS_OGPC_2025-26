@@ -12,12 +12,10 @@ func _ready() -> void:
 	if get_parent().name == "Player":
 		current_health = GameManager.TrueHealth 
 @warning_ignore("unused_parameter")
-func Damage(value, ignore_i_frames = false):
+func Damage(value, ignore_i_frames = false): 
 	taking_damage = true
-	if current_health > 0:
-		current_health -= value
-	get_tree().create_timer(I_frame_timer)
 	current_health -= value
+	get_tree().create_timer(I_frame_timer)
 	if get_tree() != null:
 		get_tree().create_timer(I_frame_timer)
 	taking_damage = false

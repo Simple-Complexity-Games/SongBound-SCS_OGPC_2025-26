@@ -49,7 +49,7 @@ func _process(_delta: float) -> void:
 		index += 1
 	elif index >= text_stack.length():
 		done_printing.emit()
-		print("done printing")
+		#print("done printing")
 	elif skip_requested:
 		print("SKIP")
 		skip_requested = false
