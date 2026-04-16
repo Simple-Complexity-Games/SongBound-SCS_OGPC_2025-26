@@ -17,8 +17,6 @@ var RetreatBackward #How much they move backward from Retreat ability
 var Health = 500
 
 
-@onready var ray_right: RayCast2D = $RayRight #Both Rays used for idle state
-@onready var ray_left: RayCast2D = $RayLeft
 @onready var sprite_2d: Sprite2D = $Sprite2D #Used to flip fox's image
 
 
@@ -40,13 +38,6 @@ func _physics_process(delta: float) -> void:
 		RetreatBackward = -300
 	if Combined_Position > 0:
 		RetreatBackward = 300
-
-	if ray_right.is_colliding() and Alert == false : #If wall on right turn around
-		Direction = -1
-		sprite_2d.flip_h = true
-	if ray_left.is_colliding() and Alert == false: #If wall on left turn around
-		Direction = 1
-		sprite_2d.flip_h = false
 
 
 	if !Alert: #Patroling when player is out of view

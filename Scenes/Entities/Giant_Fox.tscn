@@ -45,14 +45,6 @@ texture = ExtResource("3_gyv3k")
 region_enabled = true
 region_rect = Rect2(93.70001, 243.169, 503.4466, 178.05042)
 
-[node name="RayRight" type="RayCast2D" parent="."]
-position = Vector2(0, 12)
-target_position = Vector2(101.881, 0)
-
-[node name="RayLeft" type="RayCast2D" parent="."]
-position = Vector2(0, 12)
-target_position = Vector2(-106.833, 0)
-
 [node name="AlertingArea" type="Area2D" parent="."]
 scale = Vector2(2, 2)
 collision_layer = 2
