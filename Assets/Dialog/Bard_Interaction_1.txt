@@ -1,0 +1,8 @@
+Hello! What can a humble bard do for you?|
+...|
+Your village is under attack? Well I've never heard of the vultures, but you it sounds like you're in quite some distress!|
+Unfortunately, I only know fellow bards for the most part, so there's little I can help you with there. But what's stopping you from fighting them off yourself?|
+You seem equipped, youthful and strong as well! Surely they'd be no match for you.|
+...|
+Sound like they're quite the threat, then. It would make a good tale... Well. how about this?|
+I'm a bard, so connecting with people is my specialty. We can journey towards you village, and on the way, I can help you recruit strong adventurers to help us!|

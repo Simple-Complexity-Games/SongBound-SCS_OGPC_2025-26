@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://c2rq8qrx2isq"]
+[gd_scene load_steps=17 format=4 uid="uid://c2rq8qrx2isq"]
 
 [ext_resource type="Script" uid="uid://dltd48sm6e1bk" path="res://Scripts/camera_2d.gd" id="1_8ik8f"]
 [ext_resource type="Texture2D" uid="uid://ctkmi7csnsqo7" path="res://Assets/Art/Sprites/Avythera_Sparrow_Sanctuary (4) (1).png" id="1_vhd3l"]
@@ -8,9 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://kp53elewnl2e" path="res://Assets/Art/Sprites/Tileset (1).png" id="3_bl7ud"]
 [ext_resource type="AudioStream" uid="uid://c624t28jwuwvw" path="res://Assets/Sound/Music/Vulture Boss Music Concept Actually just chill town music concept lol.wav" id="10_tid5k"]
 [ext_resource type="PackedScene" uid="uid://ck25xcff0e7si" path="res://Scenes/travel_sign.tscn" id="11_pvrle"]
-[ext_resource type="AudioStream" uid="uid://dwjsu5tmdglmt" path="res://Assets/Sound/Music/Adventuring_Music.wav" id="12_2e178"]
+[ext_resource type="Texture2D" uid="uid://c6r4fv54mx5nv" path="res://Assets/Art/Sprites/icon.svg" id="12_2e178"]
 [ext_resource type="PackedScene" uid="uid://dihy0istq3alv" path="res://Scenes/UI/canvas_layer.tscn" id="12_jkig4"]
 [ext_resource type="PackedScene" uid="uid://rq24inwg7cap" path="res://Scenes/Utility/player_location.tscn" id="12_m4v2w"]
+[ext_resource type="AudioStream" uid="uid://dwjsu5tmdglmt" path="res://Assets/Sound/Music/Adventuring_Music.wav" id="13_m4v2w"]
 [ext_resource type="PackedScene" uid="uid://dlppj3l63islr" path="res://Scenes/Utility/dialog_trigger.tscn" id="15_otjly"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kykf2"]
@@ -100,6 +101,8 @@ texture = ExtResource("3_bl7ud")
 [sub_resource type="TileSet" id="TileSet_enowb"]
 sources/0 = SubResource("TileSetAtlasSource_kykf2")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_vhd3l"]
+
 [node name="World" type="Node2D"]
 
 [node name="Buildings" type="Sprite2D" parent="."]
@@ -187,71 +190,96 @@ connected_sign_pos_y = 29
 position = Vector2(700, 26)
 dialog_file_name = "Letter_From_Home.txt"
 
-[node name="stair+" type="StaticBody2D" parent="."]
+[node name="Dialog_Trigger2" parent="." groups=["Dialog_Triggers"] instance=ExtResource("15_otjly")]
+position = Vector2(471, 51)
+dialog_file_name = "Bard_Interaction_1.txt"
+
+[node name="stair 1" type="StaticBody2D" parent="."]
 collision_mask = 2
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="stair+"]
+[node name="stair+#CollisionPolygon2D" type="CollisionPolygon2D" parent="stair 1"]
 polygon = PackedVector2Array(790, 46, 765, 46, 727, 10, 657, 10, 562, -68, 585, -68, 657, -11, 728, -11)
 one_way_collision = true
 
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="stair+"]
+[node name="stair+#CollisionPolygon2D2" type="CollisionPolygon2D" parent="stair 1"]
 position = Vector2(-1086, 24)
 polygon = PackedVector2Array(684, 64, 665, 64, 463, -129, 481, -129)
 one_way_collision = true
 
-[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="stair+"]
+[node name="stair+#CollisionPolygon2D3" type="CollisionPolygon2D" parent="stair 1"]
 position = Vector2(-543, 12)
 polygon = PackedVector2Array(625, 74, 607, 74, 809, -119, 829, -119)
 one_way_collision = true
 
-[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="stair+"]
+[node name="stair+#CollisionPolygon2D4" type="CollisionPolygon2D" parent="stair 1"]
 polygon = PackedVector2Array(717, -12, 700, -12, 809, -119, 829, -119)
 one_way_collision = true
 
-[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="stair+"]
+[node name="stair+#CollisionPolygon2D5" type="CollisionPolygon2D" parent="stair 1"]
 position = Vector2(471, -35)
 polygon = PackedVector2Array(22, -34, 37, -40, -29, -40, -42, -35)
 one_way_collision = true
 
-[node name="Polygon2D" type="CollisionPolygon2D" parent="stair+"]
+[node name="stair+#StandOnTree" type="CollisionShape2D" parent="stair 1"]
+position = Vector2(541, -321.99997)
+scale = Vector2(1, 0.235)
+shape = SubResource("CircleShape2D_vhd3l")
+one_way_collision = true
+
+[node name="stair+#Polygon2D" type="CollisionPolygon2D" parent="stair 1"]
 polygon = PackedVector2Array(753, -209, 869, -209, 871, -207, 757, -207)
 one_way_collision = true
 
-[node name="Polygon2D2" type="CollisionPolygon2D" parent="stair+"]
+[node name="stair+#Polygon2D2" type="CollisionPolygon2D" parent="stair 1"]
 polygon = PackedVector2Array(844, -202, 880, -202, 882, -200, 847, -200)
 one_way_collision = true
 
-[node name="Polygon2D3" type="CollisionPolygon2D" parent="stair+"]
+[node name="stair+#Polygon2D3" type="CollisionPolygon2D" parent="stair 1"]
 position = Vector2(-370, 13)
 polygon = PackedVector2Array(830, -202, 927, -202, 921, -200, 825, -200)
 one_way_collision = true
 
-[node name="Polygon2D4" type="CollisionPolygon2D" parent="stair+"]
+[node name="stair+#Polygon2D4" type="CollisionPolygon2D" parent="stair 1"]
 position = Vector2(-360, 9)
 polygon = PackedVector2Array(830, -202, 927, -202, 921, -200, 825, -200)
 one_way_collision = true
 
-[node name="Polygon2D5" type="CollisionPolygon2D" parent="stair+"]
+[node name="stair+#Polygon2D5" type="CollisionPolygon2D" parent="stair 1"]
 position = Vector2(-350, 5)
 polygon = PackedVector2Array(830, -202, 927, -202, 921, -200, 825, -200)
 one_way_collision = true
 
-[node name="Polygon2D6" type="CollisionPolygon2D" parent="stair+"]
+[node name="stair+#Polygon2D6" type="CollisionPolygon2D" parent="stair 1"]
 position = Vector2(-583, -13)
 polygon = PackedVector2Array(830, -202, 954, -202, 949, -200, 825, -200)
 one_way_collision = true
 
-[node name="Polygon2D7" type="CollisionPolygon2D" parent="stair+"]
+[node name="stair+#Polygon2D7" type="CollisionPolygon2D" parent="stair 1"]
 position = Vector2(-597, -23)
 polygon = PackedVector2Array(-77, -201, 14, -201, 32, -205, -86, -205)
 one_way_collision = true
 
+[node name="Bard Placeholder" type="Sprite2D" parent="."]
+position = Vector2(471, 49.25)
+scale = Vector2(0.12500018, 0.19140624)
+texture = ExtResource("12_2e178")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Bard Placeholder"]
+offset_left = -64.0
+offset_top = -100.57144
+offset_right = 191.99951
+offset_bottom = -27.428467
+scale = Vector2(0.5, 0.5)
+theme_override_font_sizes/normal_font_size = 52
+text = "arysigano"
+
 [node name="Music_Player" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("12_2e178")
+stream = ExtResource("13_m4v2w")
 volume_db = 3.081
 autoplay = true
 bus = &"Music"
 
 [connection signal="done_printing" from="CanvasLayer/Dialog_Handler/Dialog_Box/Main_Textbox" to="Dialog_Trigger" method="_on_main_textbox_done_printing"]
+[connection signal="done_printing" from="CanvasLayer/Dialog_Handler/Dialog_Box/Main_Textbox" to="Dialog_Trigger2" method="_on_main_textbox_done_printing"]
 
 [editable path="CanvasLayer/Dialog_Handler"]

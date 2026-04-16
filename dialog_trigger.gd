@@ -4,6 +4,7 @@ extends Node2D
 @onready var dialog_box = get_parent().get_node("CanvasLayer").get_node("Dialog_Handler").get_node("Dialog_Box").get_node("Main_Textbox")
 
 @export var dialog_file_name = ""
+@export var is_special = false
 
 var dialog_folder_path = "res://Assets/Dialog/"
 var file_loaded = false
@@ -14,6 +15,7 @@ var dialog_playing = false
 
 var player_in_area = false
 
+signal dialog_finished
 
 func _ready():
 	var file_text = ""
@@ -30,12 +32,12 @@ func _ready():
 			line = ""
 		else:
 			# Skip recording newlines at the beginning of new dialog lines because they are a common result of dialog file formatting for legibility but break the character icon name recognition dictionary. This is preferable to preprocessing the file and removing all \n characters because it preserves the ability to add stylistic newlines to dialog
-			if not (line == "" and char == "\n"):
+			if not (line == "" and (char == "\n" or char == "\r")):
 				line += char
-	
+			
+	print(line_list)
 
 func _process(_delta: float) -> void:
-	print("in area:",player_in_area)
 	if (Input.is_action_just_pressed("Up") or Input.is_action_just_pressed("Jump")) and player_in_area and file_loaded:
 		print("sdfgdfhh")
 		if dialog_box_hidden == true:
@@ -43,8 +45,11 @@ func _process(_delta: float) -> void:
 			dialog_box.get_parent().show()
 			dialog_box_hidden = false
 		
+		print(dialog_playing)
+		print(next_line)
 		if next_line > (line_list.size() - 1) and not dialog_playing:
 			print("hide")
+			dialog_finished.emit()
 			dialog_box.get_parent().hide()
 			dialog_box_hidden = true
 			dialog_box.clear()

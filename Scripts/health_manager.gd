@@ -14,8 +14,12 @@ func _ready() -> void:
 @warning_ignore("unused_parameter")
 func Damage(value, ignore_i_frames = false):
 	taking_damage = true
-	current_health -= value
+	if current_health > 0:
+		current_health -= value
 	get_tree().create_timer(I_frame_timer)
+	current_health -= value
+	if get_tree() != null:
+		get_tree().create_timer(I_frame_timer)
 	taking_damage = false
 	if get_parent().name == "Player":
 		get_parent().get_parent().get_node("CanvasLayer").Damage(GameManager.TrueHealth - value)

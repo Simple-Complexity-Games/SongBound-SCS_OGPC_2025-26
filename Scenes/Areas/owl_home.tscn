@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://x0rw23gb6qgb"]
+[gd_scene load_steps=12 format=3 uid="uid://x0rw23gb6qgb"]
 
 [ext_resource type="PackedScene" uid="uid://cornjst30aymf" path="res://Scenes/Utility/camera_2d.tscn" id="1_8ifch"]
 [ext_resource type="PackedScene" uid="uid://dihy0istq3alv" path="res://Scenes/UI/canvas_layer.tscn" id="1_55ctx"]
@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://bdkged5clqdnl" path="res://Scenes/Entities/player.tscn" id="2_8ifch"]
 [ext_resource type="PackedScene" uid="uid://ck25xcff0e7si" path="res://Scenes/travel_sign.tscn" id="4_psj3b"]
 [ext_resource type="PackedScene" uid="uid://rq24inwg7cap" path="res://Scenes/Utility/player_location.tscn" id="5_xi7iu"]
+[ext_resource type="Texture2D" uid="uid://c6r4fv54mx5nv" path="res://Assets/Art/Sprites/icon.svg" id="7_1gdd6"]
+[ext_resource type="PackedScene" uid="uid://dlppj3l63islr" path="res://Scenes/Utility/dialog_trigger.tscn" id="8_5xhl1"]
+[ext_resource type="PackedScene" uid="uid://c8xav3q6wf8ar" path="res://Scenes/Utility/dialog_handler.tscn" id="9_67mx2"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_55ctx"]
 
@@ -15,6 +18,9 @@ size = Vector2(30, 3)
 [node name="Owl_Home" type="Node2D"]
 
 [node name="CanvasLayer" parent="." instance=ExtResource("1_55ctx")]
+
+[node name="Dialog_Handler" parent="CanvasLayer" instance=ExtResource("9_67mx2")]
+position = Vector2(552, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(120.95, 77.74)
@@ -41,7 +47,8 @@ position = Vector2(94, 142)
 
 [node name="travel sign" parent="." groups=["Signs"] instance=ExtResource("4_psj3b")]
 visible = false
-position = Vector2(53, 136)
+position = Vector2(55, 122)
+scale = Vector2(0.713, 1.968)
 connected_sign_pos_x = 4931
 connected_sign_pos_y = 1181
 
@@ -56,6 +63,7 @@ polygon = PackedVector2Array(0, 0, 57, 0, 14.42, 37.97, 14.42, 135.7, 21.46, 155
 position = Vector2(103, 154.77)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+visible = false
 position = Vector2(0, 0.8)
 shape = SubResource("WorldBoundaryShape2D_55ctx")
 
@@ -69,3 +77,27 @@ one_way_collision = true
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D3"]
 position = Vector2(242, 0)
 polygon = PackedVector2Array(-0.1, 0, -135.47, 0, -113.9, 21.1, -78.3, 21.1, -9.19, 62, -27.5, 155.47, -0.1, 155.47)
+
+[node name="Bard Placeholder" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.93333334)
+position = Vector2(180, 139.5)
+scale = Vector2(0.12500018, 0.1796875)
+texture = ExtResource("7_1gdd6")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Bard Placeholder"]
+offset_left = -64.0
+offset_top = -95.858
+offset_right = 191.99951
+offset_bottom = -22.715027
+scale = Vector2(0.5, 0.5)
+theme_override_font_sizes/normal_font_size = 52
+text = "   kanosi"
+metadata/_edit_use_anchors_ = true
+
+[node name="Dialog_Trigger_Owl" parent="." groups=["Dialog_Triggers"] instance=ExtResource("8_5xhl1")]
+position = Vector2(180, 142)
+dialog_file_name = "Owl_Dialogue_1.txt"
+
+[connection signal="done_printing" from="CanvasLayer/Dialog_Handler/Dialog_Box/Main_Textbox" to="Dialog_Trigger_Owl" method="_on_main_textbox_done_printing"]
+
+[editable path="CanvasLayer/Dialog_Handler"]
