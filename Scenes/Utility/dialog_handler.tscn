@@ -74,6 +74,7 @@ fit_content = true
 script = ExtResource("1_1ohis")
 
 [node name="Test_Textbox" type="RichTextLabel" parent="Dialog_Box/Main_Textbox"]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
