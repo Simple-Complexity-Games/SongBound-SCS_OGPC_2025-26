@@ -37,7 +37,7 @@ func _physics_process(delta: float) -> void:
 	if Combined_Position < 0: #Which direction Retreat goes
 		RetreatBackward = -400
 	if Combined_Position > 0:
-		RetreatBackward = 400
+		RetreatBackward = 300
 
 
 	if !Alert: #Patroling when player is out of view
