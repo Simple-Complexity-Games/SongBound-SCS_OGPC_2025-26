@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://c2rq8qrx2isq"]
+[gd_scene load_steps=15 format=4 uid="uid://c2rq8qrx2isq"]
 
 [ext_resource type="Script" uid="uid://dltd48sm6e1bk" path="res://Scripts/camera_2d.gd" id="1_8ik8f"]
 [ext_resource type="Texture2D" uid="uid://ctkmi7csnsqo7" path="res://Assets/Art/Sprites/Avythera_Sparrow_Sanctuary (4) (1).png" id="1_vhd3l"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://kp53elewnl2e" path="res://Assets/Art/Sprites/Tileset (1).png" id="3_bl7ud"]
 [ext_resource type="AudioStream" uid="uid://c624t28jwuwvw" path="res://Assets/Sound/Music/Vulture Boss Music Concept Actually just chill town music concept lol.wav" id="10_tid5k"]
 [ext_resource type="PackedScene" uid="uid://ck25xcff0e7si" path="res://Scenes/travel_sign.tscn" id="11_pvrle"]
+[ext_resource type="Texture2D" uid="uid://c6r4fv54mx5nv" path="res://Assets/Art/Sprites/icon.svg" id="12_2e178"]
 [ext_resource type="PackedScene" uid="uid://dihy0istq3alv" path="res://Scenes/UI/canvas_layer.tscn" id="12_jkig4"]
 [ext_resource type="PackedScene" uid="uid://rq24inwg7cap" path="res://Scenes/Utility/player_location.tscn" id="12_m4v2w"]
 [ext_resource type="PackedScene" uid="uid://dlppj3l63islr" path="res://Scenes/Utility/dialog_trigger.tscn" id="15_otjly"]
@@ -184,6 +185,10 @@ connected_sign_pos_y = 29
 position = Vector2(700, 26)
 dialog_file_name = "Letter_From_Home.txt"
 
+[node name="Dialog_Trigger2" parent="." groups=["Dialog_Triggers"] instance=ExtResource("15_otjly")]
+position = Vector2(471, 51)
+dialog_file_name = "Bard_Interaction_1.txt"
+
 [node name="stair 1" type="StaticBody2D" parent="."]
 collision_mask = 2
 
@@ -210,6 +215,29 @@ position = Vector2(471, -35)
 polygon = PackedVector2Array(22, -34, 37, -40, -29, -40, -42, -35)
 one_way_collision = true
 
+[node name="Bard_Placeholder" type="Sprite2D" parent="."]
+position = Vector2(470.99997, 49.25)
+scale = Vector2(0.12499965, 0.19140626)
+texture = ExtResource("12_2e178")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Bard_Placeholder"]
+self_modulate = Color(0, 0, 0, 1)
+offset_left = -136.00015
+offset_top = -137.14285
+offset_right = 392.0018
+offset_bottom = -9.614914
+scale = Vector2(0.5, 0.5)
+theme_override_font_sizes/normal_font_size = 100
+text = "arysiganor"
+
+[node name="ColorRect" type="ColorRect" parent="Bard_Placeholder"]
+self_modulate = Color(0.6, 0.8039216, 0.9372549, 1)
+offset_left = 120.00046
+offset_top = -137.14284
+offset_right = 184.00046
+offset_bottom = -58.775505
+
 [connection signal="done_printing" from="CanvasLayer/Dialog_Handler/Dialog_Box/Main_Textbox" to="Dialog_Trigger" method="_on_main_textbox_done_printing"]
+[connection signal="done_printing" from="CanvasLayer/Dialog_Handler/Dialog_Box/Main_Textbox" to="Dialog_Trigger2" method="_on_main_textbox_done_printing"]
 
 [editable path="CanvasLayer/Dialog_Handler"]
