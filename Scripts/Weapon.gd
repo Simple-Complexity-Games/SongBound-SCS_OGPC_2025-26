@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var dmg = 25
-
+var last_used = 0
 var attack_delay = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -140,7 +140,7 @@ func _physics_process(_delta: float) -> void:
 		$attack_box/right.set_deferred("disabled", true)
 
 		position.x = 0
-		
+
 	#attack to the Up
 	if Input.is_action_pressed("Attack") and Input.is_action_pressed("Up") and attack_delay == false:
 		attack_delay = true
@@ -163,7 +163,7 @@ func _physics_process(_delta: float) -> void:
 		$attack_box/right.set_deferred("disabled", true)
 		position.y = -12
 		$attack_box.rotate(-PI/2)
-		
+
 	#attack to the left
 	if Input.is_action_pressed("Attack") and Input.is_action_pressed("Left") and attack_delay == false:
 		attack_delay = true
@@ -187,6 +187,7 @@ func _physics_process(_delta: float) -> void:
 		position.x = 0
 		$attack_box.rotate(-PI)
 
+	
 	#attack to the Down
 	if Input.is_action_pressed("Attack") and Input.is_action_pressed("Down") and attack_delay == false:
 		attack_delay = true
@@ -209,9 +210,80 @@ func _physics_process(_delta: float) -> void:
 		$attack_box/right.set_deferred("disabled", true)
 		position.y = -12
 		$attack_box.rotate(PI/2)
-	#these are the diagonals
-
+	if Input.is_action_pressed("Right"):
+		last_used = 1
+	
+	if Input.is_action_pressed("Left"):
+		last_used = 2
+	
+	if Input.is_action_pressed("Up"):
+		last_used = -1
+	
+	if Input.is_action_pressed("Attack") and last_used == 1 and attack_delay == false:
+		attack_delay = true
+		position.x = 67.5
+		$attack_box/left.set_deferred("disabled", false)
+		$attack_box/left/Sprite2D3.show()
+		await get_tree().create_timer(.1666).timeout
+		$attack_box/midle.set_deferred("disabled", false)
+		$attack_box/left/Sprite2D3.hide()
+		$attack_box/left.set_deferred("disabled", true)
+		$attack_box/midle/Sprite2D.show()
+		await get_tree().create_timer(.1666).timeout
+		$attack_box/right.set_deferred("disabled", false)
+		$attack_box/midle/Sprite2D.hide()
+		$attack_box/midle.set_deferred("disabled", true)
+		$attack_box/right/Sprite2D2.show()
+		await get_tree().create_timer(.1666).timeout
+		$attack_box/right/Sprite2D2.hide()
+		$attack_box/right.set_deferred("disabled", true)
+		position.x = 0
+	
+	if Input.is_action_pressed("Attack") and last_used == 2 and attack_delay == false:
+		attack_delay = true
+		$attack_box.rotate(PI)
+		position.x = -67.5
+		$attack_box/right.set_deferred("disabled", false)
+		$attack_box/right/Sprite2D2.show()
+		await get_tree().create_timer(.1666).timeout
+		$attack_box/midle.set_deferred("disabled", false)
+		$attack_box/right/Sprite2D2.hide()
+		$attack_box/right.set_deferred("disabled", true)
+		$attack_box/midle/Sprite2D.show()
+		await get_tree().create_timer(.1666).timeout
+		$attack_box/left.set_deferred("disabled", false)
+		$attack_box/midle/Sprite2D.hide()
+		$attack_box/midle.set_deferred("disabled", true)
+		$attack_box/left/Sprite2D3.show()
+		await get_tree().create_timer(.1666).timeout
+		$attack_box/left/Sprite2D3.hide()
+		$attack_box/left.set_deferred("disabled", true)
+		position.x = 0
+		$attack_box.rotate(-PI)
+	
+	if Input.is_action_pressed("Attack") and last_used == -1 and attack_delay == false:
+		attack_delay = true
+		$attack_box.rotate(PI/2)
+		position.y = -79.5
+		$attack_box/left.set_deferred("disabled", false)
+		$attack_box/left/Sprite2D3.show()
+		await get_tree().create_timer(.1666).timeout
+		$attack_box/midle.set_deferred("disabled", false)
+		$attack_box/left/Sprite2D3.hide()
+		$attack_box/left.set_deferred("disabled", true)
+		$attack_box/midle/Sprite2D.show()
+		await get_tree().create_timer(.1666).timeout
+		$attack_box/right.set_deferred("disabled", false)
+		$attack_box/midle/Sprite2D.hide()
+		$attack_box/midle.set_deferred("disabled", true)
+		$attack_box/right/Sprite2D2.show()
+		await get_tree().create_timer(.1666).timeout
+		$attack_box/right/Sprite2D2.hide()
+		$attack_box/right.set_deferred("disabled", true)
+		position.y = -12
+		$attack_box.rotate(-PI/2)
 
 func _on_attack_box_body_exited(body: Node2D) -> void:
 	if body.get_node("Health_Manager") != null:
 		body.get_node("Health_Manager").Damage(dmg)
+		print(dmg)
