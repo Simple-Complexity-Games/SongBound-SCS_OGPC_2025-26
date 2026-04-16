@@ -87,7 +87,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"left_walk",
-"speed": 5.0
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -113,11 +113,12 @@ animations = [{
 }],
 "loop": true,
 "name": &"right_walk",
-"speed": 5.0
+"speed": 15.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_i3pqv"]
-size = Vector2(10, 33)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_svftf"]
+radius = 4.0
+height = 34.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nqm6o"]
 size = Vector2(8, 2)
@@ -134,10 +135,12 @@ position = Vector2(0, -16.99)
 scale = Vector2(0.03, 0.03)
 sprite_frames = SubResource("SpriteFrames_qbyki")
 animation = &"left_walk"
+frame_progress = 0.9020816
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -16.5)
-shape = SubResource("RectangleShape2D_i3pqv")
+position = Vector2(1, -17)
+shape = SubResource("CapsuleShape2D_svftf")
+debug_color = Color(0.6464233, 0.38354158, 0.8993014, 0.41960785)
 
 [node name="Perch_Collision_Area" type="Area2D" parent="."]
 collision_layer = 0
@@ -152,7 +155,6 @@ max_health = 20
 I_frame_timer = 1
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
-visible = false
 light_mask = 22
 visibility_layer = 16
 z_index = 1
