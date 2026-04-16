@@ -31,51 +31,50 @@ func _physics_process(delta: float) -> void:
 	
 	var gravity = 1500 
 	velocity.y += gravity * delta 
-
-
+	
+	
 	Player_Position = get_parent().get_node("Player").position.x
 	Combined_Position = self.position.x - Player_Position
-
+	
 	if Combined_Position < 0: #Which direction Retreat goes
-		RetreatBackward = -300
+		RetreatBackward = -400
 	if Combined_Position > 0:
-		RetreatBackward = 300
-
+		RetreatBackward = 400
+	
 	if ray_right.is_colliding() and Alert == false : #If wall on right turn around
 		Direction = -1
 		sprite_2d.flip_h = true
 	if ray_left.is_colliding() and Alert == false: #If wall on left turn around
 		Direction = 1
 		sprite_2d.flip_h = false
-
-
+	
+	
 	if !Alert: #Patroling when player is out of view
 		position.x += Direction * Speed * delta
-
-
+	
+	
 	if Combined_Position < 64 and Combined_Position > -64:
 		Dash = false
 		$DashTimer.start()
-
-	if Health < 90 and RetreatTime:
-		RetreatTime = true
-		print(RetreatTime)
-
-	if Health < 144 and Health > 90 and Alert and is_on_floor() or Health < 90 and Alert and is_on_floor():
+	
+	
+	
+	if Health < 144 and Health > 90 and Alert and is_on_floor()or Health < 90 and Alert and is_on_floor():
 		Retreat = true
-		#print(RetreatTime)
-
-	if Retreat and RetreatTime: #Disable the Retreat once you get back onto the floor. 
-		velocity = Vector2(300,Jump_Power)
+		#print(Retreat)
+	
+	
+	if Retreat and RetreatTime: #Disable the Retreat once you get back onto the floor.
+		print(Retreat) 
+		velocity = Vector2(RetreatBackward,Jump_Power)
 		RetreatTime = false
-
-
+	
+	
 	if Alert and not Dash: #Chasing player whenever Alert or Chase equals true
-		
-		if Combined_Position < 0 and not Retreat: #Positive
+		if Combined_Position < 0: #Positive
 			velocity.x = move_toward(velocity.x, Speed, 5) #Regular movement for the enemy
 			sprite_2d.flip_h = true
-		if Combined_Position > 0 and not Retreat: #Negative
+		if Combined_Position > 0: #Negative
 			velocity.x = move_toward(velocity.x, -Speed, 5)
 			sprite_2d.flip_h = false
 	

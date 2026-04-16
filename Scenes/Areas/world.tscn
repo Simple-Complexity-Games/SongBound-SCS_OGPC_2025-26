@@ -615,5 +615,6 @@ texture = SubResource("CompressedTexture2D_enowb")
 
 [node name="Fox" parent="." instance=ExtResource("16_w7ne4")]
 position = Vector2(1790, 981)
+dmg = null
 
 [editable path="travel sign3"]
