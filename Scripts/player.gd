@@ -243,12 +243,11 @@ func Handle_Glide():
 
 func Handle_Perch():
 	if Input.is_action_pressed("Up"):
-		print("1")
-		if hovering and not perching:
-			if velocity.x > 10:
-				velocity.x = move_toward(velocity.x, 10, HOVERING_DECELERATION * (velocity.x / 10))
-			if velocity.x < -10:
-				velocity.x = move_toward(velocity.x, -10, HOVERING_DECELERATION * (-velocity.x / 10))
+		#if hovering and not perching:
+			#if velocity.x > 10:
+				#velocity.x = move_toward(velocity.x, 10, HOVERING_DECELERATION * (velocity.x / 10))
+			#if velocity.x < -10:
+				#velocity.x = move_toward(velocity.x, -10, HOVERING_DECELERATION * (-velocity.x / 10))
 		
 		if velocity.y > HOVER_SPEED and hover_queued and not perching and not jumping:
 			if print_debugging: print("start hover")

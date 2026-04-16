@@ -1,0 +1,4 @@
+this is a test!|
+Pause in 3... 2.... 1....* there is demonstrated the pause functionality, for changing the cadence of dialog delivery|
+you can also theoretically skip the printing animation by pressing up or jump again while a line of dialog is printing.|
+yayyy!!!! we.* can.* add.* dialog.* now!!!!!|
