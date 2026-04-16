@@ -12,6 +12,9 @@
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_55ctx"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_55ctx"]
+size = Vector2(30, 3)
+
 [node name="Owl_Home" type="Node2D"]
 
 [node name="CanvasLayer" parent="." instance=ExtResource("1_55ctx")]
@@ -59,7 +62,13 @@ polygon = PackedVector2Array(0, 0, 57, 0, 14.42, 37.97, 14.42, 135.7, 21.46, 155
 position = Vector2(103, 154.77)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(0, 0.8)
 shape = SubResource("WorldBoundaryShape2D_55ctx")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(100.8, -18.375)
+shape = SubResource("RectangleShape2D_55ctx")
+one_way_collision = true
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="."]
 

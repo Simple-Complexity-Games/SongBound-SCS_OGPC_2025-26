@@ -81,10 +81,12 @@ func _process(_delta: float) -> void:
 		position.x += 1500
 	
 	if direction > 0:
-		pass
+		$AnimatedSprite2D.play("right_walk")
 	if direction < 0:
-		pass
-
+		$AnimatedSprite2D.play("left_walk")
+	if direction == 0:
+		$AnimatedSprite2D.stop()
+		$AnimatedSprite2D.frame = 0
 func _physics_process(delta: float) -> void:
 	if soft_gravity_timer != null:
 		if velocity.y < 0 and abs(velocity.y) > 5:
