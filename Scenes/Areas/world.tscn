@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dihy0istq3alv" path="res://Scenes/UI/canvas_layer.tscn" id="1_kykf2"]
 [ext_resource type="PackedScene" uid="uid://bdkged5clqdnl" path="res://Scenes/Entities/player.tscn" id="2_gwl6k"]
-[ext_resource type="PackedScene" uid="uid://cornjst30aymf" path="res://Scenes/Utility/camera_2d.tscn" id="2_w7ne4"]
+[ext_resource type="PackedScene" path="res://Scenes/Utility/camera_2d.tscn" id="2_w7ne4"]
 [ext_resource type="Texture2D" uid="uid://b13mnu32vlol0" path="res://Assets/Art/Environment/Midground/[32 Px Outline] (No Lighting) Avythera_Mountain_Tree.png" id="5_bwcnv"]
 [ext_resource type="Texture2D" uid="uid://bj7aiywx237qf" path="res://Assets/Art/Environment/Midground/[Averaged Outline] (No Lighting) Avythera_Plains_Tall_Tree (1).png" id="6_enowb"]
 [ext_resource type="Texture2D" uid="uid://dw3eesmuvpmey" path="res://Assets/Art/Environment/Midground/[Averaged Outline] (No Lighting) Avythera_Mountain_Tall_Tree.png" id="7_kykf2"]
@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://d2jogl53m4xkv" path="res://Assets/Art/Environment/Midground/Plains_Ground_Art.png" id="14_enowb"]
 [ext_resource type="PackedScene" uid="uid://rq24inwg7cap" path="res://Scenes/Utility/player_location.tscn" id="16_6kq0q"]
 [ext_resource type="PackedScene" uid="uid://c8pr2cxqq8xx5" path="res://Scenes/Entities/testing_enemy.tscn" id="16_bwcnv"]
-[ext_resource type="PackedScene" uid="uid://c3hd4qgqqka2a" path="res://Scenes/Entities/ferret.tscn" id="16_w7ne4"]
+[ext_resource type="PackedScene" uid="uid://c3hd4qgqqka2a" path="res://Scenes/Entities/Fox.tscn" id="16_w7ne4"]
 [ext_resource type="Texture2D" uid="uid://bj3jav3awka52" path="res://Assets/Art/Environment/Background/SKY.png" id="18_6kq0q"]
 
 [sub_resource type="Environment" id="Environment_bwcnv"]
@@ -344,7 +344,7 @@ occlusion_layer_0/light_mask = 64
 occlusion_layer_0/sdf_collision = true
 physics_layer_0/collision_layer = 16
 physics_layer_0/collision_mask = 0
-physics_layer_1/collision_layer = 16
+physics_layer_1/collision_layer = 4
 physics_layer_1/collision_mask = 0
 custom_data_layer_0/name = "Height1"
 custom_data_layer_0/type = 2
@@ -364,9 +364,11 @@ light_mode = 1
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_enowb"]
 
-[node name="World" type="Node2D"]
+[node name="World2" type="Node2D"]
 texture_filter = 4
 metadata/_edit_horizontal_guides_ = [1055.0]
+
+[node name="player_location" parent="." instance=ExtResource("16_6kq0q")]
 
 [node name="CanvasLayer" parent="." instance=ExtResource("1_kykf2")]
 
@@ -457,8 +459,6 @@ tile_set = SubResource("TileSet_5a7ea")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_syva4")
-
-[node name="player_location" parent="." instance=ExtResource("16_6kq0q")]
 
 [node name="travel sign" parent="." groups=["Signs"] instance=ExtResource("11_wcev2")]
 light_mask = 4

@@ -12,6 +12,7 @@ func _ready() -> void:
 	print(is_in_area)
 	print(get_parent().get_node("player_location"))
 	get_parent().get_node("player_location").change_location()
+
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("Up") and is_in_area:
 		get_tree().change_scene_to_file(travel_sign.get(0))

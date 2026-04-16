@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://ck25xcff0e7si" path="res://Scenes/travel_sign.tscn" id="10_w8vfd"]
 [ext_resource type="Script" uid="uid://cqnc6oolwpqnh" path="res://Scripts/health_test.gd" id="11_50hgc"]
 [ext_resource type="Texture2D" uid="uid://c6r4fv54mx5nv" path="res://Assets/Art/Sprites/icon.svg" id="12_bqixu"]
-[ext_resource type="PackedScene" uid="uid://c3hd4qgqqka2a" path="res://Scenes/Entities/ferret.tscn" id="15_o4wn2"]
+[ext_resource type="PackedScene" uid="uid://c3hd4qgqqka2a" path="res://Scenes/Entities/Fox.tscn" id="15_o4wn2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fd3mm"]
 texture = ExtResource("3_50hgc")
