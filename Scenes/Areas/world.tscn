@@ -646,8 +646,17 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(8703, 1188)
 dialog_file_name = "Swallow_Dialogue_1.txt"
 
-[node name="Fox2" parent="." instance=ExtResource("19_x68yl")]
-position = Vector2(2622, 1154)
+[node name="Giant_Fox" parent="." instance=ExtResource("19_x68yl")]
+position = Vector2(4536, -760)
+
+[node name="Fox2" parent="." instance=ExtResource("16_w7ne4")]
+position = Vector2(4739, 1173)
+
+[node name="Fox3" parent="." instance=ExtResource("16_w7ne4")]
+position = Vector2(7143.0005, 1223)
+
+[node name="Fox4" parent="." instance=ExtResource("16_w7ne4")]
+position = Vector2(6726.0005, 1239)
 
 [editable path="CanvasLayer/Dialog_Handler"]
 [editable path="travel sign3"]
