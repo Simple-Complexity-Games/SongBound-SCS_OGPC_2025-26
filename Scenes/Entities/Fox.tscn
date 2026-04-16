@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c3hd4qgqqka2a"]
+[gd_scene load_steps=7 format=3 uid="uid://ch3r5mhsjvajy"]
 
 [ext_resource type="Script" uid="uid://bs77vklj73nme" path="res://Scripts/Fox.gd" id="1_igl0n"]
 [ext_resource type="PackedScene" uid="uid://dcmw2s3k5ngm4" path="res://Scenes/Utility/health_manager.tscn" id="2_ss7by"]
@@ -7,8 +7,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hc2h3"]
 size = Vector2(97.19513, 32)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_igl0n"]
-size = Vector2(21.793133, 19.499964)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cng8g"]
+radius = 5.929822
+height = 40.09853
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_774bn"]
 radius = 250.7367
@@ -33,9 +34,10 @@ max_health = 180
 I_frame_timer = 0.55
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1.7107108, -0.9999999)
+position = Vector2(-3, 3)
+rotation = 1.5707964
 scale = Vector2(1.5000006, 1.3333358)
-shape = SubResource("RectangleShape2D_igl0n")
+shape = SubResource("CapsuleShape2D_cng8g")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1.7329416, 0.97222805)
