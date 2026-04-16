@@ -30,6 +30,7 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if (Input.is_action_just_pressed("Up") or Input.is_action_just_pressed("Jump")) and index > 0:
+		print("queued skip")
 		skip_requested = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
