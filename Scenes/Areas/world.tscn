@@ -18,7 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://c6r4fv54mx5nv" path="res://Assets/Art/Sprites/icon.svg" id="17_x68yl"]
 [ext_resource type="Texture2D" uid="uid://bj3jav3awka52" path="res://Assets/Art/Environment/Background/SKY.png" id="18_6kq0q"]
 [ext_resource type="PackedScene" uid="uid://dlppj3l63islr" path="res://Scenes/Utility/dialog_trigger.tscn" id="18_vijum"]
-[ext_resource type="PackedScene" path="res://Scenes/Entities/Giant_Fox.tscn" id="19_x68yl"]
+[ext_resource type="PackedScene" uid="uid://e78cxssi4r3r" path="res://Scenes/Entities/Giant_Fox.tscn" id="19_x68yl"]
 
 [sub_resource type="Environment" id="Environment_bwcnv"]
 tonemap_mode = 1
@@ -450,7 +450,6 @@ visibility_layer = 0
 color = Color(0.94278115, 0.9390485, 0.92225814, 1)
 
 [node name="The_Sun" type="PointLight2D" parent="."]
-visible = false
 light_mask = 0
 position = Vector2(9533, -3115.9998)
 scale = Vector2(100, 100)
@@ -586,7 +585,6 @@ metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="PlainsGroundArt"]
-visible = false
 show_behind_parent = true
 light_mask = 2
 visibility_layer = 0
@@ -625,7 +623,6 @@ texture = SubResource("CompressedTexture2D_enowb")
 
 [node name="Fox" parent="." instance=ExtResource("16_w7ne4")]
 position = Vector2(1790, 981)
-dmg = null
 
 [node name="Bard Placeholder" type="Sprite2D" parent="."]
 self_modulate = Color(1, 1, 1, 0.93333334)
@@ -650,7 +647,7 @@ position = Vector2(8703, 1188)
 dialog_file_name = "Swallow_Dialogue_1.txt"
 
 [node name="Fox2" parent="." instance=ExtResource("19_x68yl")]
-position = Vector2(1905, 951)
+position = Vector2(2622, 1154)
 
 [editable path="CanvasLayer/Dialog_Handler"]
 [editable path="travel sign3"]
