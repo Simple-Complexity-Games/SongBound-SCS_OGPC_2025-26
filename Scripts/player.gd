@@ -79,7 +79,14 @@ func _process(_delta: float) -> void:
 		
 	if Input.is_action_just_pressed("Teleport_Right"):
 		position.x += 1500
-
+	
+	if direction > 0:
+		$AnimatedSprite2D.play("right_walk")
+	if direction < 0:
+		$AnimatedSprite2D.play("left_walk")
+	if direction == 0:
+		$AnimatedSprite2D.stop()
+		$AnimatedSprite2D.frame = 0
 func _physics_process(delta: float) -> void:
 	if soft_gravity_timer != null:
 		if velocity.y < 0 and abs(velocity.y) > 5:
@@ -236,6 +243,7 @@ func Handle_Glide():
 
 func Handle_Perch():
 	if Input.is_action_pressed("Up"):
+		print("1")
 		if hovering and not perching:
 			if velocity.x > 10:
 				velocity.x = move_toward(velocity.x, 10, HOVERING_DECELERATION * (velocity.x / 10))
@@ -244,17 +252,20 @@ func Handle_Perch():
 		
 		if velocity.y > HOVER_SPEED and hover_queued and not perching and not jumping:
 			if print_debugging: print("start hover")
+			print("1a")
 			hover_queued = false
 			hovering = true
 			hover_velocity_tween = create_tween().set_ease(Tween.EASE_OUT)
 			hover_velocity_tween.tween_property(self, "velocity:y", HOVER_SPEED, 0.8)
 	if Input.is_action_just_pressed("Up"):
+		print("2")
 		jumping = false
 		hover_queued = true
 		get_tree().create_timer(0.2).timeout.connect(Perch_Buffer_Over)
 		perch_buffer = true
 		
 		if perching:
+			print("2a")
 			if perch_velocity_tween != null and perch_position_tween != null:
 				perch_velocity_tween.kill()
 				perch_position_tween.kill()
