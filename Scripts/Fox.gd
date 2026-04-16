@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
-var Health = 100
+#var Health = 100
 var Direction = 1 #Changes the direction of enemy while moving
-var Speed = 50
+var Speed = 120
 var Jump_Power = -400
 var Player_Position
 var Combined_Position #Subtracting the enmey position to the player position
@@ -12,6 +12,7 @@ var Chase = false
 var Dash = true
 var Dash_Timer = 0 #Cooldown for Dash Ability
 var Retreat = false
+var RetreatBackward
 
 
 @onready var ray_right: RayCast2D = $RayRight
@@ -28,6 +29,11 @@ func _physics_process(delta: float) -> void:
 
 	Player_Position = get_parent().get_node("Player").position.x
 	Combined_Position = self.position.x - Player_Position
+	
+	if Combined_Position < 0: 
+		RetreatBackward = -200
+	if Combined_Position > 0:
+		RetreatBackward = 200
 
 	if ray_right.is_colliding() and Alert == false : #If wall on right turn around
 		Direction = -1
@@ -49,11 +55,10 @@ func _physics_process(delta: float) -> void:
 	#if Health < 144 and Health > 90 and Alert and is_on_floor() or Health < 90 and Alert and is_on_floor():
 		#Retreat = true
 	#if Retreat: #Disable the Retreat once you get back onto the floor. 
-		#velocity.y = Jump_Power
+		#velocity = Vector2(300,Jump_Power)
 		
-		
-	#if !is_on_floor():
-		#Retreat = false
+	if !is_on_floor():
+		Retreat = false
 	
 	if Alert and not Dash: #Chasing player whenever Alert or Chase equals true
 		#if Combined_Position < 0 and Retreat: #Causes the player to move the opposite direction than supposed to when in Retreat
@@ -70,12 +75,11 @@ func _physics_process(delta: float) -> void:
 	
 	
 	if Dash and Alert: #Enemy's dash ability
-		#print("Combinded Position", Combined_Position)
 		if Combined_Position > 64: #Dash, Positive
-			velocity.x = move_toward(velocity.x, -Speed*7,150)
+			velocity.x = move_toward(velocity.x, -Speed*4,150)
 			sprite_2d.flip_h = true
 		if Combined_Position < -64: #Dash, Negative
-			velocity.x = move_toward(velocity.x, Speed*7, 150)
+			velocity.x = move_toward(velocity.x, Speed*4, 150)
 			sprite_2d.flip_h = false
 	
 	if abs(self.velocity.x) > Speed: #Decleration for Dash
@@ -108,15 +112,10 @@ func _on_dash_timer_timeout() -> void: #Dash Timer
 	if Dash == false:
 		Dash_Timer += 1
 		$DashTimer.start()
-		#print(Dash_Timer)
 	if Dash_Timer >= 5:
-		#Dash = true #Dash timer currently disabled
+		Dash = true #Dash timer currently disabled
 		Dash_Timer = 0
-<<<<<<< HEAD
-		#print(Dash)
-=======
 	$DashTimer.start()
 
 func _on_damage_box_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
 	body.get_node("Health_Manager").Damage(dmg)
->>>>>>> f97807a445eb9410814ab10afa8d3f138ff98773

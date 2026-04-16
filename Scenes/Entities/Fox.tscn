@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://c3hd4qgqqka2a"]
 
-[ext_resource type="Script" uid="uid://bs77vklj73nme" path="res://Scripts/ferret.gd" id="1_igl0n"]
+[ext_resource type="Script" uid="uid://bs77vklj73nme" path="res://Scripts/Fox.gd" id="1_igl0n"]
 [ext_resource type="PackedScene" uid="uid://dcmw2s3k5ngm4" path="res://Scenes/Utility/health_manager.tscn" id="2_ss7by"]
 [ext_resource type="Texture2D" uid="uid://c6reo3osx2vaa" path="res://Assets/Art/Sprites/Avythera_Fox.png" id="3_hc2h3"]
 
@@ -13,7 +13,7 @@ size = Vector2(21.793133, 19.499964)
 [sub_resource type="CircleShape2D" id="CircleShape2D_774bn"]
 radius = 250.7367
 
-[node name="Ferret" type="CharacterBody2D"]
+[node name="Fox" type="CharacterBody2D"]
 scale = Vector2(0.668, 0.76)
 collision_layer = 8
 floor_max_angle = 1.4835298

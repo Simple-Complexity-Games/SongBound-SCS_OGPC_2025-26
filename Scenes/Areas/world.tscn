@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dihy0istq3alv" path="res://Scenes/UI/canvas_layer.tscn" id="1_kykf2"]
 [ext_resource type="PackedScene" uid="uid://bdkged5clqdnl" path="res://Scenes/Entities/player.tscn" id="2_gwl6k"]
-[ext_resource type="PackedScene" uid="uid://cornjst30aymf" path="res://Scenes/Utility/camera_2d.tscn" id="2_w7ne4"]
+[ext_resource type="PackedScene" path="res://Scenes/Utility/camera_2d.tscn" id="2_w7ne4"]
 [ext_resource type="Texture2D" uid="uid://b13mnu32vlol0" path="res://Assets/Art/Environment/Midground/[32 Px Outline] (No Lighting) Avythera_Mountain_Tree.png" id="5_bwcnv"]
 [ext_resource type="Texture2D" uid="uid://bj7aiywx237qf" path="res://Assets/Art/Environment/Midground/[Averaged Outline] (No Lighting) Avythera_Plains_Tall_Tree (1).png" id="6_enowb"]
 [ext_resource type="Texture2D" uid="uid://dw3eesmuvpmey" path="res://Assets/Art/Environment/Midground/[Averaged Outline] (No Lighting) Avythera_Mountain_Tall_Tree.png" id="7_kykf2"]
@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://d2jogl53m4xkv" path="res://Assets/Art/Environment/Midground/Plains_Ground_Art.png" id="14_enowb"]
 [ext_resource type="PackedScene" uid="uid://rq24inwg7cap" path="res://Scenes/Utility/player_location.tscn" id="16_6kq0q"]
 [ext_resource type="PackedScene" uid="uid://c8pr2cxqq8xx5" path="res://Scenes/Entities/testing_enemy.tscn" id="16_bwcnv"]
-[ext_resource type="PackedScene" uid="uid://c3hd4qgqqka2a" path="res://Scenes/Entities/ferret.tscn" id="16_w7ne4"]
+[ext_resource type="PackedScene" uid="uid://c3hd4qgqqka2a" path="res://Scenes/Entities/Fox.tscn" id="16_w7ne4"]
 [ext_resource type="Texture2D" uid="uid://bj3jav3awka52" path="res://Assets/Art/Environment/Background/SKY.png" id="18_6kq0q"]
 
 [sub_resource type="Environment" id="Environment_bwcnv"]
