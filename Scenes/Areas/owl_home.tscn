@@ -47,7 +47,8 @@ position = Vector2(94, 142)
 
 [node name="travel sign" parent="." groups=["Signs"] instance=ExtResource("4_psj3b")]
 visible = false
-position = Vector2(53, 136)
+position = Vector2(55, 122)
+scale = Vector2(0.713, 1.968)
 connected_sign_pos_x = 4931
 connected_sign_pos_y = 1181
 
@@ -62,6 +63,7 @@ polygon = PackedVector2Array(0, 0, 57, 0, 14.42, 37.97, 14.42, 135.7, 21.46, 155
 position = Vector2(103, 154.77)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+visible = false
 position = Vector2(0, 0.8)
 shape = SubResource("WorldBoundaryShape2D_55ctx")
 
@@ -78,18 +80,19 @@ polygon = PackedVector2Array(-0.1, 0, -135.47, 0, -113.9, 21.1, -78.3, 21.1, -9.
 
 [node name="Bard Placeholder" type="Sprite2D" parent="."]
 self_modulate = Color(1, 1, 1, 0.93333334)
-position = Vector2(180.00002, 139.99998)
-scale = Vector2(0.12500018, 0.19140624)
+position = Vector2(180, 139.5)
+scale = Vector2(0.12500018, 0.1796875)
 texture = ExtResource("7_1gdd6")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Bard Placeholder"]
 offset_left = -64.0
-offset_top = -100.57144
+offset_top = -95.858
 offset_right = 191.99951
-offset_bottom = -27.428467
+offset_bottom = -22.715027
 scale = Vector2(0.5, 0.5)
 theme_override_font_sizes/normal_font_size = 52
-text = "arysigano"
+text = "   kanosi"
+metadata/_edit_use_anchors_ = true
 
 [node name="Dialog_Trigger_Owl" parent="." groups=["Dialog_Triggers"] instance=ExtResource("8_5xhl1")]
 position = Vector2(180, 142)

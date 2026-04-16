@@ -1,0 +1,71 @@
+[gd_scene load_steps=7 format=3 uid="uid://c4w5ag8ojg46w"]
+
+[ext_resource type="Script" uid="uid://dljf1t0xrj8sx" path="res://Scenes/Entities/giant_fox.gd" id="1_hbkeb"]
+[ext_resource type="PackedScene" uid="uid://dcmw2s3k5ngm4" path="res://Scenes/Utility/health_manager.tscn" id="2_m661j"]
+[ext_resource type="Texture2D" uid="uid://c6reo3osx2vaa" path="res://Assets/Art/Sprites/Avythera_Fox.png" id="3_gyv3k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hc2h3"]
+size = Vector2(194.3552, 62.736843)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_igl0n"]
+size = Vector2(21.793133, 19.499964)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_774bn"]
+radius = 250.7367
+
+[node name="Fox" type="CharacterBody2D"]
+scale = Vector2(0.668, 0.76)
+collision_layer = 8
+floor_max_angle = 1.4835298
+script = ExtResource("1_hbkeb")
+
+[node name="DamageBox" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageBox"]
+position = Vector2(-91.342926, -6.6842103)
+scale = Vector2(0.19999999, 0.5)
+shape = SubResource("RectangleShape2D_hc2h3")
+
+[node name="Health_Manager" parent="." instance=ExtResource("2_m661j")]
+max_health = 500
+I_frame_timer = 0.55
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.7107108, 9.526312)
+scale = Vector2(7.46, 2.5)
+shape = SubResource("RectangleShape2D_igl0n")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1.7329416, 0.97222805)
+scale = Vector2(0.438, 0.397)
+texture = ExtResource("3_gyv3k")
+region_enabled = true
+region_rect = Rect2(93.70001, 243.169, 503.4466, 178.05042)
+
+[node name="RayRight" type="RayCast2D" parent="."]
+position = Vector2(0, 12)
+target_position = Vector2(101.881, 0)
+
+[node name="RayLeft" type="RayCast2D" parent="."]
+position = Vector2(0, 12)
+target_position = Vector2(-106.833, 0)
+
+[node name="AlertingArea" type="Area2D" parent="."]
+scale = Vector2(2, 2)
+collision_layer = 2
+collision_mask = 2
+
+[node name="AlertRange" type="CollisionShape2D" parent="AlertingArea"]
+shape = SubResource("CircleShape2D_774bn")
+
+[node name="AggroTimer" type="Timer" parent="."]
+
+[node name="DashTimer" type="Timer" parent="."]
+
+[connection signal="body_shape_entered" from="DamageBox" to="." method="_on_damage_box_body_shape_entered"]
+[connection signal="body_entered" from="AlertingArea" to="." method="_on_alerting_area_body_entered"]
+[connection signal="body_exited" from="AlertingArea" to="." method="_on_alerting_area_body_exited"]
+[connection signal="timeout" from="AggroTimer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
