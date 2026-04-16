@@ -1,11 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://c4w5ag8ojg46w"]
+[gd_scene load_steps=7 format=3 uid="uid://e78cxssi4r3r"]
 
 [ext_resource type="Script" uid="uid://dljf1t0xrj8sx" path="res://Scenes/Entities/giant_fox.gd" id="1_hbkeb"]
 [ext_resource type="PackedScene" uid="uid://dcmw2s3k5ngm4" path="res://Scenes/Utility/health_manager.tscn" id="2_m661j"]
 [ext_resource type="Texture2D" uid="uid://c6reo3osx2vaa" path="res://Assets/Art/Sprites/Avythera_Fox.png" id="3_gyv3k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hc2h3"]
-size = Vector2(194.3552, 62.736843)
+size = Vector2(194.3552, 97.36842)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_igl0n"]
 size = Vector2(21.793133, 19.499964)
@@ -24,8 +24,8 @@ collision_layer = 8
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageBox"]
-position = Vector2(-91.342926, -6.6842103)
-scale = Vector2(0.19999999, 0.5)
+position = Vector2(-91.342926, 1.9736855)
+scale = Vector2(0.19999997, 0.5)
 shape = SubResource("RectangleShape2D_hc2h3")
 
 [node name="Health_Manager" parent="." instance=ExtResource("2_m661j")]
@@ -43,14 +43,6 @@ scale = Vector2(0.438, 0.397)
 texture = ExtResource("3_gyv3k")
 region_enabled = true
 region_rect = Rect2(93.70001, 243.169, 503.4466, 178.05042)
-
-[node name="RayRight" type="RayCast2D" parent="."]
-position = Vector2(0, 12)
-target_position = Vector2(101.881, 0)
-
-[node name="RayLeft" type="RayCast2D" parent="."]
-position = Vector2(0, 12)
-target_position = Vector2(-106.833, 0)
 
 [node name="AlertingArea" type="Area2D" parent="."]
 scale = Vector2(2, 2)

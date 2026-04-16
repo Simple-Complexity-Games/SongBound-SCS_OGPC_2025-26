@@ -17,8 +17,6 @@ var RetreatBackward #How much they move backward from Retreat ability
 var Health = 500
 
 
-@onready var ray_right: RayCast2D = $RayRight #Both Rays used for idle state
-@onready var ray_left: RayCast2D = $RayLeft
 @onready var sprite_2d: Sprite2D = $Sprite2D #Used to flip fox's image
 
 
@@ -37,16 +35,9 @@ func _physics_process(delta: float) -> void:
 	Combined_Position = self.position.x - Player_Position
 
 	if Combined_Position < 0: #Which direction Retreat goes
-		RetreatBackward = -300
+		RetreatBackward = -400
 	if Combined_Position > 0:
-		RetreatBackward = 300
-
-	if ray_right.is_colliding() and Alert == false : #If wall on right turn around
-		Direction = -1
-		sprite_2d.flip_h = true
-	if ray_left.is_colliding() and Alert == false: #If wall on left turn around
-		Direction = 1
-		sprite_2d.flip_h = false
+		RetreatBackward = 400
 
 
 	if !Alert: #Patroling when player is out of view
@@ -57,9 +48,6 @@ func _physics_process(delta: float) -> void:
 		Dash = false
 		$DashTimer.start()
 
-	if Health < 90 and RetreatTime:
-		RetreatTime = true
-		print(RetreatTime)
 
 	if Health < 144 and Health > 90 and Alert and is_on_floor() or Health < 90 and Alert and is_on_floor():
 		Retreat = true
@@ -72,10 +60,10 @@ func _physics_process(delta: float) -> void:
 
 	if Alert and not Dash: #Chasing player whenever Alert or Chase equals true
 		
-		if Combined_Position < 0 and not Retreat: #Positive
+		if Combined_Position < 0: #Positive
 			velocity.x = move_toward(velocity.x, Speed, 5) #Regular movement for the enemy
 			sprite_2d.flip_h = true
-		if Combined_Position > 0 and not Retreat: #Negative
+		if Combined_Position > 0: #Negative
 			velocity.x = move_toward(velocity.x, -Speed, 5)
 			sprite_2d.flip_h = false
 	
