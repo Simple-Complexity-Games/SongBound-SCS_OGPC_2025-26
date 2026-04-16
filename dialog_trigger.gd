@@ -4,6 +4,7 @@ extends Node2D
 @onready var dialog_box = get_parent().get_node("CanvasLayer").get_node("Dialog_Handler").get_node("Dialog_Box").get_node("Main_Textbox")
 
 @export var dialog_file_name = ""
+@export var is_special = false
 
 var dialog_folder_path = "res://Assets/Dialog/"
 var file_loaded = false
@@ -14,6 +15,7 @@ var dialog_playing = false
 
 var player_in_area = false
 
+signal dialog_finished
 
 func _ready():
 	var file_text = ""
@@ -47,6 +49,8 @@ func _process(_delta: float) -> void:
 		print(next_line)
 		if next_line > (line_list.size() - 1) and not dialog_playing:
 			print("hide")
+			if is_special:
+				dialog_finished.emit()
 			dialog_box.get_parent().hide()
 			dialog_box_hidden = true
 			dialog_box.clear()

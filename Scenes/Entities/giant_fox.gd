@@ -16,16 +16,20 @@ var Retreat = false
 var RetreatBackward #How much they move backward from Retreat ability
 var Health = 500
 
-
 @onready var sprite_2d: Sprite2D = $Sprite2D #Used to flip fox's image
 
-
 var dmg = 7
+
+signal slain
+
 
 #EnemyScountingMovement
 func _physics_process(delta: float) -> void:
 	Health = $Health_Manager.current_health #Health of Fox
 	#print(Health)
+	
+	if Health == 0:
+		slain.emit()
 	
 	var gravity = 1500 
 	velocity.y += gravity * delta 

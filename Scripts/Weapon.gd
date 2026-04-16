@@ -16,7 +16,6 @@ func _process(_delta: float) -> void:
 		attack_delay = false
 
 func _physics_process(_delta: float) -> void:
-
 	#attack of upper right
 	if Input.is_action_pressed("Attack") and Input.is_action_pressed("Right") and Input.is_action_just_pressed("Up") and attack_delay == false:
 		attack_delay = true

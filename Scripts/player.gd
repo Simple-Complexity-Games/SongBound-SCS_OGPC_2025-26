@@ -87,6 +87,7 @@ func _process(_delta: float) -> void:
 	if direction == 0:
 		$AnimatedSprite2D.stop()
 		$AnimatedSprite2D.frame = 0
+
 func _physics_process(delta: float) -> void:
 	if soft_gravity_timer != null:
 		if velocity.y < 0 and abs(velocity.y) > 5:

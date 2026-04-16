@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://jiguml3x3dmd"]
+[gd_scene load_steps=34 format=4 uid="uid://jiguml3x3dmd"]
 
 [ext_resource type="PackedScene" uid="uid://dihy0istq3alv" path="res://Scenes/UI/canvas_layer.tscn" id="1_kykf2"]
 [ext_resource type="PackedScene" uid="uid://c8xav3q6wf8ar" path="res://Scenes/Utility/dialog_handler.tscn" id="2_6kq0q"]
@@ -10,15 +10,16 @@
 [ext_resource type="Texture2D" uid="uid://ycwvph6bweep" path="res://Assets/Art/Environment/Midground/Tileset (6).png" id="8_suda1"]
 [ext_resource type="Texture2D" uid="uid://cjwywe8jbg7p7" path="res://Assets/Art/Environment/Midground/[32 Px Outline] (No Lighting) Avythera_Plains_Tree.png" id="8_x68yl"]
 [ext_resource type="Texture2D" uid="uid://8ydaoyd111dk" path="res://Assets/Art/Sprites/Caravan.png" id="9_sghl5"]
-[ext_resource type="AudioStream" uid="uid://c624t28jwuwvw" path="res://Assets/Sound/Music/Vulture Boss Music Concept Actually just chill town music concept lol.wav" id="10_syva4"]
 [ext_resource type="PackedScene" uid="uid://ck25xcff0e7si" path="res://Scenes/travel_sign.tscn" id="11_wcev2"]
 [ext_resource type="Texture2D" uid="uid://d2jogl53m4xkv" path="res://Assets/Art/Environment/Midground/Plains_Ground_Art.png" id="14_enowb"]
+[ext_resource type="AudioStream" uid="uid://dwjsu5tmdglmt" path="res://Assets/Sound/Music/Adventuring_Music.wav" id="15_w7ne4"]
 [ext_resource type="PackedScene" uid="uid://rq24inwg7cap" path="res://Scenes/Utility/player_location.tscn" id="16_6kq0q"]
-[ext_resource type="PackedScene" uid="uid://c3hd4qgqqka2a" path="res://Scenes/Entities/Fox.tscn" id="16_w7ne4"]
+[ext_resource type="PackedScene" path="res://Scenes/Entities/ferret.tscn" id="16_w7ne4"]
 [ext_resource type="Texture2D" uid="uid://c6r4fv54mx5nv" path="res://Assets/Art/Sprites/icon.svg" id="17_x68yl"]
 [ext_resource type="Texture2D" uid="uid://bj3jav3awka52" path="res://Assets/Art/Environment/Background/SKY.png" id="18_6kq0q"]
 [ext_resource type="PackedScene" uid="uid://dlppj3l63islr" path="res://Scenes/Utility/dialog_trigger.tscn" id="18_vijum"]
-[ext_resource type="PackedScene" uid="uid://e78cxssi4r3r" path="res://Scenes/Entities/Giant_Fox.tscn" id="19_x68yl"]
+[ext_resource type="PackedScene" path="res://Scenes/Entities/Giant_Fox.tscn" id="19_x68yl"]
+[ext_resource type="Script" uid="uid://bsfykqb2jbcro" path="res://Scenes/Areas/special_dialog_handler.gd" id="20_vijum"]
 
 [sub_resource type="Environment" id="Environment_bwcnv"]
 tonemap_mode = 1
@@ -526,9 +527,6 @@ z_index = -1
 tile_map_data = PackedByteArray("AABaAVIABAAIAAkAAABbAVIABAAIAAkAAABcAVIABAAIAAkAAABdAVIABAAIAAkAAABeAVIABAAIAAkAAABZAVIABAAIAAkAAABaAVMABAAIAAkAAABbAVMABAAIAAkAAABcAVMABAAIAAkAAABdAVMABAAIAAkAAABZAVMABAAIAAkAAABbAVQABAAIAAkAAABcAVQABAAIAAkAAABYAVIABAAIAAkAAABfAVIABAAIAAkAAAB0AVQABAAIAAkAAAB1AVQABAAIAAkAAAB2AVQABAAIAAkAAAB3AVQABAAIAAkAAAB4AVQABAAIAAkAAAB1AVUABAAIAAkAAAB2AVUABAAIAAkAAAB3AVUABAAIAAkAAAB4AVUABAAIAAkAAAD/AU4ABAAIAAkAAAAAAk4ABAAIAAkAAAABAk4ABAAIAAkAAAACAk4ABAAIAAkAAAADAk4ABAAIAAkAAAAEAk4ABAAIAAkAAAAFAk4ABAAIAAkAAAAGAk4ABAAIAAkAAAAAAk8ABAAIAAkAAAABAk8ABAAIAAkAAAACAk8ABAAIAAkAAAADAk8ABAAIAAkAAAAEAk8ABAAIAAkAAAAFAk8ABAAIAAkAAAAGAk8ABAAIAAkAAAAAAlAABAAIAAkAAAABAlAABAAIAAkAAAACAlAABAAIAAkAAAADAlAABAAIAAkAAAAEAlAABAAIAAkAAAAFAlAABAAIAAkAAADfAE8ABAAIAAkAAADgAE8ABAAIAAkAAADhAE8ABAAIAAkAAADiAE8ABAAIAAkAAADjAE8ABAAIAAkAAADeAE4ABAAIAAkAAADfAE4ABAAIAAkAAADgAE4ABAAIAAkAAADhAE4ABAAIAAkAAADiAE4ABAAIAAkAAADjAE4ABAAIAAkAAADkAE4ABAAIAAkAAADcAE4ABAAIAAkAAADdAE4ABAAIAAkAAADmAE0ABAABAAsAAABzAVQABAAIAAkAAABaAVQABAAIAAkAAABYAVEABAABAAsAAABZAVEABAABAAsAAABaAVEABAABAAsAAABbAVEABAABAAsAAABcAVEABAABAAsAAABdAVEABAABAAsAAABeAVEABAABAAsAAABfAVEABAABAAsAAABgAVEABAABAAsAAADbAE0ABAAIAAkAAADcAE0ABAAIAAkAAADdAE0ABAAIAAkAAADeAE0ABAAIAAkAAADfAE0ABAAIAAkAAADgAE0ABAAIAAkAAADhAE0ABAAIAAkAAADiAE0ABAAIAAkAAADjAE0ABAAIAAkAAADkAE0ABAAIAAkAAADlAE0ABAAIAAkAAAD9AU0ABAABAAsAAAD+AU0ABAABAAsAAAD/AU0ABAABAAsAAAAAAk0ABAABAAsAAAABAk0ABAABAAsAAAACAk0ABAABAAsAAAADAk0ABAABAAsAAAAEAk0ABAABAAsAAAAFAk0ABAABAAsAAAAGAk0ABAABAAsAAAAHAk0ABAABAAsAAAA=")
 tile_set = SubResource("TileSet_5a7ea")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("10_syva4")
-
 [node name="travel sign" parent="." groups=["Signs"] instance=ExtResource("11_wcev2")]
 light_mask = 4
 visibility_layer = 4
@@ -624,6 +622,12 @@ texture = SubResource("CompressedTexture2D_enowb")
 [node name="Fox" parent="." instance=ExtResource("16_w7ne4")]
 position = Vector2(1790, 981)
 
+[node name="Music_Player" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_w7ne4")
+volume_db = 3.081
+autoplay = true
+bus = &"Music"
+
 [node name="Bard Placeholder" type="Sprite2D" parent="."]
 self_modulate = Color(1, 1, 1, 0.93333334)
 z_index = 1
@@ -647,7 +651,8 @@ position = Vector2(8703, 1188)
 dialog_file_name = "Swallow_Dialogue_1.txt"
 
 [node name="Giant_Fox" parent="." instance=ExtResource("19_x68yl")]
-position = Vector2(4536, -760)
+position = Vector2(4536, 100)
+motion_mode = 0
 
 [node name="Fox2" parent="." instance=ExtResource("16_w7ne4")]
 position = Vector2(4739, 1173)
@@ -657,6 +662,25 @@ position = Vector2(7143.0005, 1223)
 
 [node name="Fox4" parent="." instance=ExtResource("16_w7ne4")]
 position = Vector2(6726.0005, 1239)
+
+[node name="Dialog_Trigger_Swallow_1" parent="." groups=["Dialog_Triggers"] instance=ExtResource("18_vijum")]
+position = Vector2(8703, 1188)
+dialog_file_name = "Swallow_Dialogue_1.txt"
+is_special = true
+
+[node name="Dialog_Trigger_Swallow_2" parent="." groups=["Dialog_Triggers"] instance=ExtResource("18_vijum")]
+position = Vector2(8704, 1184)
+dialog_file_name = "Swallow_Dialogue_2.txt"
+is_special = true
+
+[node name="Special_Dialog_Handler" type="Node2D" parent="."]
+script = ExtResource("20_vijum")
+
+[connection signal="done_printing" from="CanvasLayer/Dialog_Handler/Dialog_Box/Main_Textbox" to="Dialog_Trigger_Swallow_1" method="_on_main_textbox_done_printing"]
+[connection signal="done_printing" from="CanvasLayer/Dialog_Handler/Dialog_Box/Main_Textbox" to="Dialog_Trigger_Swallow_2" method="_on_main_textbox_done_printing"]
+[connection signal="slain" from="Giant_Fox" to="Special_Dialog_Handler" method="_on_giant_fox_slain"]
+[connection signal="dialog_finished" from="Dialog_Trigger_Swallow_1" to="Special_Dialog_Handler" method="_on_dialog_trigger_swallow_1_dialog_finished"]
+[connection signal="dialog_finished" from="Dialog_Trigger_Swallow_2" to="Special_Dialog_Handler" method="_on_dialog_trigger_swallow_2_dialog_finished"]
 
 [editable path="CanvasLayer/Dialog_Handler"]
 [editable path="travel sign3"]
