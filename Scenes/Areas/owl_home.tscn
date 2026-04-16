@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://x0rw23gb6qgb"]
+[gd_scene load_steps=12 format=3 uid="uid://x0rw23gb6qgb"]
 
 [ext_resource type="PackedScene" uid="uid://cornjst30aymf" path="res://Scenes/Utility/camera_2d.tscn" id="1_8ifch"]
 [ext_resource type="PackedScene" uid="uid://dihy0istq3alv" path="res://Scenes/UI/canvas_layer.tscn" id="1_55ctx"]
@@ -93,7 +93,7 @@ text = "arysigano"
 
 [node name="Dialog_Trigger_Owl" parent="." groups=["Dialog_Triggers"] instance=ExtResource("8_5xhl1")]
 position = Vector2(180, 142)
-dialog_file_name = "Test_Dialog.txt"
+dialog_file_name = "Owl_Dialogue_1.txt"
 
 [connection signal="done_printing" from="CanvasLayer/Dialog_Handler/Dialog_Box/Main_Textbox" to="Dialog_Trigger_Owl" method="_on_main_textbox_done_printing"]
 

@@ -563,7 +563,7 @@ region_rect = Rect2(1235, 170, 1300, 1100)
 position = Vector2(-1, 6)
 
 [node name="CollisionShape2D" parent="travel sign3/Area2D" index="0"]
-position = Vector2(0, 0)
+position = Vector2(4.0007324, -0.07745361)
 
 [node name="PlainsGroundArt" type="Sprite2D" parent="."]
 light_mask = 2

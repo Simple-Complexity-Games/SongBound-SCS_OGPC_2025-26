@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://de33hyrlfe23u" path="res://Assets/Art/Sprites/Owl_Home_Enterence + Signposts (2).png" id="2_qjge1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1l5yg"]
-size = Vector2(58.51463, 32.692375)
+size = Vector2(58.51463, 28.349178)
 
 [node name="travel sign" type="Node2D"]
 scale = Vector2(1.333, 1.333)
