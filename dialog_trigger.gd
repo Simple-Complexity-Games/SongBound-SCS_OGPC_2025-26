@@ -45,9 +45,6 @@ func _process(_delta: float) -> void:
 			dialog_box.skip_requested = false
 			dialog_box.get_parent().show()
 			dialog_box_hidden = false
-		
-		print(dialog_playing)
-		print(next_line)
 		if next_line > (line_list.size() - 1) and not dialog_playing:
 			print("hide")
 			if is_special:

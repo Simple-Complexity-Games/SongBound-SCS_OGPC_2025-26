@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://c2rq8qrx2isq"]
+[gd_scene load_steps=21 format=4 uid="uid://c2rq8qrx2isq"]
 
 [ext_resource type="Script" uid="uid://dltd48sm6e1bk" path="res://Scripts/camera_2d.gd" id="1_8ik8f"]
 [ext_resource type="Texture2D" uid="uid://ctkmi7csnsqo7" path="res://Assets/Art/Sprites/Avythera_Sparrow_Sanctuary (4) (1).png" id="1_vhd3l"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dihy0istq3alv" path="res://Scenes/UI/canvas_layer.tscn" id="12_jkig4"]
 [ext_resource type="PackedScene" uid="uid://rq24inwg7cap" path="res://Scenes/Utility/player_location.tscn" id="12_m4v2w"]
 [ext_resource type="AudioStream" uid="uid://dwjsu5tmdglmt" path="res://Assets/Sound/Music/Adventuring_Music.wav" id="13_m4v2w"]
+[ext_resource type="Texture2D" uid="uid://bj3jav3awka52" path="res://Assets/Art/Environment/Background/SKY.png" id="14_2e178"]
 [ext_resource type="PackedScene" uid="uid://dlppj3l63islr" path="res://Scenes/Utility/dialog_trigger.tscn" id="15_otjly"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kykf2"]
@@ -102,6 +103,18 @@ texture = ExtResource("3_bl7ud")
 sources/0 = SubResource("TileSetAtlasSource_kykf2")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vhd3l"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_otjly"]
+light_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_bwcnv"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2e178"]
+gradient = SubResource("Gradient_bwcnv")
+width = 1024
+height = 1024
+use_hdr = true
 
 [node name="World" type="Node2D"]
 
@@ -278,6 +291,35 @@ stream = ExtResource("13_m4v2w")
 volume_db = 3.081
 autoplay = true
 bus = &"Music"
+
+[node name="Sky" type="Parallax2D" parent="."]
+z_index = -2
+z_as_relative = false
+scroll_scale = Vector2(0.6, 0.6)
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Sky"]
+material = SubResource("CanvasItemMaterial_otjly")
+position = Vector2(4496.0005, 315.99997)
+scale = Vector2(0.5864583, 0.7520834)
+texture = ExtResource("14_2e178")
+
+[node name="The_Sun" type="PointLight2D" parent="."]
+light_mask = 0
+position = Vector2(9723.999, -3115.9998)
+scale = Vector2(100, 100)
+color = Color(0.97795826, 0.9680864, 0.7630433, 1)
+range_z_min = 0
+range_layer_max = 3
+range_item_cull_mask = 22
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 0.99607843)
+shadow_filter = 2
+shadow_filter_smooth = 0.6
+shadow_item_cull_mask = 230
+texture = SubResource("GradientTexture2D_2e178")
+height = 0.7
 
 [connection signal="done_printing" from="CanvasLayer/Dialog_Handler/Dialog_Box/Main_Textbox" to="Dialog_Trigger" method="_on_main_textbox_done_printing"]
 [connection signal="done_printing" from="CanvasLayer/Dialog_Handler/Dialog_Box/Main_Textbox" to="Dialog_Trigger2" method="_on_main_textbox_done_printing"]

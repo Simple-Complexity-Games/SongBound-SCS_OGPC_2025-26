@@ -72,17 +72,17 @@ func _process(_delta: float) -> void:
 	Handle_Fullscreening()
 	
 	#Developer Tools
-	if Input.is_action_just_pressed("Teleport_Up"):
-		position.y -= 200
-		
-	if Input.is_action_just_pressed("Teleport_Down"):
-		position.y += 200
-		
-	if Input.is_action_just_pressed("Teleport_Left"):
-		position.x -= 1500
-		
-	if Input.is_action_just_pressed("Teleport_Right"):
-		position.x += 1500
+	#if Input.is_action_just_pressed("Teleport_Up"):
+		#position.y -= 200
+		#
+	#if Input.is_action_just_pressed("Teleport_Down"):
+		#position.y += 200
+		#
+	#if Input.is_action_just_pressed("Teleport_Left"):
+		#position.x -= 1500
+		#
+	#if Input.is_action_just_pressed("Teleport_Right"):
+		#position.x += 1500
 	
 	if direction > 0:
 		$AnimatedSprite2D.play("right_walk")
@@ -142,6 +142,9 @@ func Update_Status_Vars():
 			soft_gravity_timer = get_tree().create_timer(SOFT_GRAVITY_SECONDS, false, true)
 
 func Handle_Inputs():
+	if Input.is_action_just_pressed("Escape"):
+		get_tree().change_scene_to_file("res://Scenes/UI/main_menu.tscn")
+	
 	if not perching:
 		if print_debugging: print("moving again")
 		direction = Input.get_axis("Left", "Right") # For left and right movement. 

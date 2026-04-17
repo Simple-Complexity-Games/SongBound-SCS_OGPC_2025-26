@@ -28,6 +28,11 @@ func _physics_process(delta: float) -> void:
 	Health = $Health_Manager.current_health #Health of Fox
 	#print(Health)
 	
+	if Dash:
+		dmg = 5
+	else:
+		dmg = 7
+
 	if Health == 0:
 		slain.emit()
 	
@@ -60,12 +65,20 @@ func _physics_process(delta: float) -> void:
 	
 	
 	if Alert and not Dash: #Chasing player whenever Alert or Chase equals true
-		if Combined_Position < 0: #Positive
-			velocity.x = move_toward(velocity.x, Speed, 5) #Regular movement for the enemy
-			sprite_2d.flip_h = true
-		if Combined_Position > 0: #Negative
-			velocity.x = move_toward(velocity.x, -Speed, 5)
-			sprite_2d.flip_h = false
+		if Combined_Position < 0:
+			if Health == 180 or Health < 90:
+				velocity.x = move_toward(velocity.x, Speed, 5) #Normal Positive movement
+				sprite_2d.flip_h = true
+			if Health < 180 and Health > 90:
+				velocity.x = move_toward(velocity.x, Speed*2.5, 10) #Faster Positive movement
+				sprite_2d.flip_h = true
+		if Combined_Position > 0:
+			if Health == 180 or Health < 90:
+				velocity.x = move_toward(velocity.x, -Speed, 5) #Normal Negative movement
+				sprite_2d.flip_h = false
+			if Health < 180 and Health > 90:
+				velocity.x = move_toward(velocity.x, -Speed*2.5, 10) #Faster Negative movement
+				sprite_2d.flip_h = false
 	
 	
 	if Dash and Alert: #Enemy's dash ability
