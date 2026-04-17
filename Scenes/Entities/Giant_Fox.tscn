@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://e78cxssi4r3r"]
+[gd_scene load_steps=8 format=3 uid="uid://d32wbehu67eys"]
 
 [ext_resource type="Script" uid="uid://dljf1t0xrj8sx" path="res://Scenes/Entities/giant_fox.gd" id="1_hbkeb"]
 [ext_resource type="PackedScene" uid="uid://dcmw2s3k5ngm4" path="res://Scenes/Utility/health_manager.tscn" id="2_m661j"]
 [ext_resource type="Texture2D" uid="uid://c6reo3osx2vaa" path="res://Assets/Art/Sprites/Avythera_Fox.png" id="3_gyv3k"]
+[ext_resource type="AudioStream" uid="uid://hn5emoytmctv" path="res://Assets/Sound/SFX/Damage Sound 5.wav" id="4_m661j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hc2h3"]
 size = Vector2(194.3552, 97.36842)
@@ -59,6 +60,10 @@ wait_time = 10.0
 [node name="AggroTimer" type="Timer" parent="."]
 wait_time = 10.0
 autostart = true
+
+[node name="Damage_SFX_Player" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_m661j")
+volume_db = 3.0
 
 [connection signal="body_shape_entered" from="DamageBox" to="." method="_on_damage_box_body_shape_entered"]
 [connection signal="body_entered" from="AlertingArea" to="." method="_on_alerting_area_body_entered"]

@@ -15,6 +15,8 @@ func _ready() -> void:
 func Damage(value, ignore_i_frames = false): 
 	taking_damage = true
 	current_health -= value
+	if get_parent().get_node("Damage_SFX_Player") != null:
+		get_parent().get_node("Damage_SFX_Player").playing = true
 	get_tree().create_timer(I_frame_timer)
 	if get_tree() != null:
 		get_tree().create_timer(I_frame_timer)

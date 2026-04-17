@@ -60,6 +60,10 @@ var perch_position_tween
 var print_debugging = false
 
 func _ready() -> void:
+	var event = InputEventKey.new()
+	event.set_keycode(88)
+	event.pressed = true
+	InputMap.action_add_event("Attack", event)
 	velocity.x = 0
 	velocity.y = 0
 

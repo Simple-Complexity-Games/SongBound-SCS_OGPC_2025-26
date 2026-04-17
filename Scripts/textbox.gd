@@ -29,7 +29,7 @@ func _ready() -> void:
 	timer.one_shot = true
 
 func _input(event: InputEvent) -> void:
-	if (Input.is_action_just_pressed("Up") or Input.is_action_just_pressed("Jump")) and index > 0:
+	if (Input.is_action_just_pressed("Up")) and index > 0:
 		print("queued skip")
 		skip_requested = true
 
