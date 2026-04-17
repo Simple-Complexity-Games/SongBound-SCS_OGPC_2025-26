@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://ch3r5mhsjvajy"]
+[gd_scene load_steps=7 format=3 uid="uid://c3hd4qgqqka2a"]
 
 [ext_resource type="Script" uid="uid://bs77vklj73nme" path="res://Scripts/Fox.gd" id="1_igl0n"]
 [ext_resource type="PackedScene" uid="uid://dcmw2s3k5ngm4" path="res://Scenes/Utility/health_manager.tscn" id="2_ss7by"]
