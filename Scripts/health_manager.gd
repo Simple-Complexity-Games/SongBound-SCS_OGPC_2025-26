@@ -17,7 +17,6 @@ func Damage(value):
 	current_health -= value
 	if get_parent().get_node("Damage_SFX_Player") != null:
 		get_parent().get_node("Damage_SFX_Player").playing = true
-	get_tree().create_timer(I_frame_timer)
 	if get_tree() != null:
 		get_tree().create_timer(I_frame_timer)
 	taking_damage = false

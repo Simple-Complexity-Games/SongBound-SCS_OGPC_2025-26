@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://8ydaoyd111dk" path="res://Assets/Art/Sprites/Caravan.png" id="9_sghl5"]
 [ext_resource type="PackedScene" uid="uid://ck25xcff0e7si" path="res://Scenes/travel_sign.tscn" id="11_wcev2"]
 [ext_resource type="Texture2D" uid="uid://d2jogl53m4xkv" path="res://Assets/Art/Environment/Midground/Plains_Ground_Art.png" id="14_enowb"]
-[ext_resource type="PackedScene" path="res://Scenes/Entities/Fox.tscn" id="15_suda1"]
+[ext_resource type="PackedScene" uid="uid://ch3r5mhsjvajy" path="res://Scenes/Entities/Fox.tscn" id="15_suda1"]
 [ext_resource type="AudioStream" uid="uid://dwjsu5tmdglmt" path="res://Assets/Sound/Music/Adventuring_Music.wav" id="15_w7ne4"]
 [ext_resource type="PackedScene" uid="uid://rq24inwg7cap" path="res://Scenes/Utility/player_location.tscn" id="16_6kq0q"]
 [ext_resource type="Texture2D" uid="uid://c6r4fv54mx5nv" path="res://Assets/Art/Sprites/icon.svg" id="17_x68yl"]
