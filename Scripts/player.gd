@@ -72,17 +72,17 @@ func _process(_delta: float) -> void:
 	Handle_Fullscreening()
 	
 	#Developer Tools
-	#if Input.is_action_just_pressed("Teleport_Up"):
-		#position.y -= 200
-		#
-	#if Input.is_action_just_pressed("Teleport_Down"):
-		#position.y += 200
-		#
-	#if Input.is_action_just_pressed("Teleport_Left"):
-		#position.x -= 1500
-		#
-	#if Input.is_action_just_pressed("Teleport_Right"):
-		#position.x += 1500
+	if Input.is_action_just_pressed("Teleport_Up"):
+		position.y -= 200
+		
+	if Input.is_action_just_pressed("Teleport_Down"):
+		position.y += 200
+		
+	if Input.is_action_just_pressed("Teleport_Left"):
+		position.x -= 1500
+		
+	if Input.is_action_just_pressed("Teleport_Right"):
+		position.x += 1500
 	
 	if direction > 0:
 		$AnimatedSprite2D.play("right_walk")

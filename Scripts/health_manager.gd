@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var max_health = 1
-@export var I_frame_timer = .1
+@export var I_frame_timer = 1
 
 var current_health = 1
 var taking_damage = false
@@ -12,7 +12,7 @@ func _ready() -> void:
 	if get_parent().name == "Player":
 		current_health = GameManager.TrueHealth 
 @warning_ignore("unused_parameter")
-func Damage(value, ignore_i_frames = false): 
+func Damage(value): 
 	taking_damage = true
 	current_health -= value
 	if get_parent().get_node("Damage_SFX_Player") != null:
@@ -31,8 +31,9 @@ func Damage(value, ignore_i_frames = false):
 	if not get_parent().name == "Player" and current_health <= 0:
 		get_parent().queue_free()
 
+
 @warning_ignore("unused_parameter")
-func Heal(value, ignore_max_health = false):
+func Heal(value):
 	if (current_health + value)  <=max_health:
 		current_health += value
 		if get_parent().name == "Player":

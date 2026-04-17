@@ -20,3 +20,6 @@ func _on_area_2d_body_entered(_body: Node2D) -> void:
 func _on_area_2d_body_exited(_body: Node2D) -> void:
 	is_in_area = false
 	get_parent().get_node("CanvasLayer").Hide_Text()
+	await get_tree().create_timer(3).timeout
+	GameManager.pos_x = position.x
+	GameManager.pos_y = position.y
