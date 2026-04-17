@@ -28,6 +28,11 @@ func _physics_process(delta: float) -> void:
 	Health = $Health_Manager.current_health #Health of Fox
 	#print(Health)
 	
+	if Dash:
+		dmg = 5
+	else:
+		dmg = 7
+
 	if Health == 0:
 		slain.emit()
 	

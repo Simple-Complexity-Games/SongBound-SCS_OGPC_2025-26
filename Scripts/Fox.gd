@@ -29,6 +29,10 @@ func _physics_process(delta: float) -> void:
 	Health = $Health_Manager.current_health #Health of Fox
 	#print(Health)
 	
+	if Dash:
+		dmg = 2
+	else:
+		dmg = 3
 	var gravity = 1500 
 	velocity.y += gravity * delta 
 	
