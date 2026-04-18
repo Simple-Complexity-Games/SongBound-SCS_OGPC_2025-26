@@ -31,6 +31,7 @@ func _process(delta: float) -> void:
 
 func _on_dialog_trigger_swallow_1_dialog_finished() -> void:
 	stage = 1
+	Giant_Fox.Alert = false
 
 func _on_dialog_trigger_swallow_2_dialog_finished() -> void:
 	var dir_access = DirAccess.open("user://")

@@ -66,14 +66,14 @@ func _physics_process(delta: float) -> void:
 	
 	if Alert and not Dash: #Chasing player whenever Alert or Chase equals true
 		if Combined_Position < 0:
-			if Health == 180 or Health < 90:
+			if Health > 180 or Health < 90:
 				velocity.x = move_toward(velocity.x, Speed, 5) #Normal Positive movement
 				sprite_2d.flip_h = true
 			if Health < 180 and Health > 90:
 				velocity.x = move_toward(velocity.x, Speed*2.5, 10) #Faster Positive movement
 				sprite_2d.flip_h = true
 		if Combined_Position > 0:
-			if Health == 180 or Health < 90:
+			if Health > 180 or Health < 90:
 				velocity.x = move_toward(velocity.x, -Speed, 5) #Normal Negative movement
 				sprite_2d.flip_h = false
 			if Health < 180 and Health > 90:
@@ -107,9 +107,9 @@ func _on_alerting_area_body_exited(_body: Node2D) -> void: #Player is not in vie
 	Aggro_Timer = 0 #Restarting the Aggro_Timer if not in range
 
 
-func _on_timer_timeout() -> void: #three second timer
-	Alert = false
-	print("Giant Fox", Alert)
+#func _on_timer_timeout() -> void: #three second timer
+	#Alert = false
+	#print("Giant Fox", Alert)
 
 
 func _on_dash_timer_timeout() -> void: #Dash Timer

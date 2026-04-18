@@ -170,7 +170,7 @@ script = ExtResource("1_8ik8f")
 [node name="Player" parent="." instance=ExtResource("2_eeikq")]
 unique_name_in_owner = true
 z_index = 10
-position = Vector2(916, 15)
+position = Vector2(650, 15)
 
 [node name="sky" type="TileMapLayer" parent="."]
 visible = false
@@ -183,6 +183,7 @@ tile_set = SubResource("TileSet_enowb")
 stream = ExtResource("10_tid5k")
 
 [node name="player_location" parent="." instance=ExtResource("12_m4v2w")]
+position = Vector2(650, 0)
 
 [node name="travel sign" parent="." groups=["Signs"] instance=ExtResource("11_pvrle")]
 position = Vector2(-665, 14)
@@ -195,7 +196,7 @@ connected_sign_pos_y = 30
 
 [node name="travel sign2" parent="." groups=["Signs"] instance=ExtResource("11_pvrle")]
 position = Vector2(895.00006, 21.000002)
-sign_text = "world"
+sign_text = "To Swallow Caravan"
 connected_sign_pos_x = 43
 connected_sign_pos_y = 29
 
@@ -307,7 +308,7 @@ texture = ExtResource("14_2e178")
 
 [node name="The_Sun" type="PointLight2D" parent="."]
 light_mask = 0
-position = Vector2(9723.999, -3115.9998)
+position = Vector2(9778, -3102)
 scale = Vector2(100, 100)
 color = Color(0.97795826, 0.9680864, 0.7630433, 1)
 range_z_min = 0
@@ -320,6 +321,31 @@ shadow_filter_smooth = 0.6
 shadow_item_cull_mask = 230
 texture = SubResource("GradientTexture2D_2e178")
 height = 0.7
+
+[node name="mailbox" type="Sprite2D" parent="."]
+position = Vector2(699, 35)
+scale = Vector2(0.12500018, 0.19140624)
+texture = ExtResource("12_2e178")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="mailbox"]
+offset_left = -64.0
+offset_top = -100.57144
+offset_right = 191.99951
+offset_bottom = -27.428467
+scale = Vector2(0.5, 0.5)
+theme_override_font_sizes/normal_font_size = 52
+text = "Mailbox"
+
+[node name="Subtle Hint" type="RichTextLabel" parent="."]
+modulate = Color(0, 0, 0, 1)
+offset_left = 786.0
+offset_top = -58.0
+offset_right = 1132.0
+offset_bottom = 14.0
+scale = Vector2(0.5, 0.5)
+theme_override_font_sizes/normal_font_size = 26
+text = "Press up to travel at signs
+"
 
 [connection signal="done_printing" from="CanvasLayer/Dialog_Handler/Dialog_Box/Main_Textbox" to="Dialog_Trigger" method="_on_main_textbox_done_printing"]
 [connection signal="done_printing" from="CanvasLayer/Dialog_Handler/Dialog_Box/Main_Textbox" to="Dialog_Trigger2" method="_on_main_textbox_done_printing"]
