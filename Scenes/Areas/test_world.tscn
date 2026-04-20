@@ -15,9 +15,9 @@
 [ext_resource type="PackedScene" uid="uid://ck25xcff0e7si" path="res://Scenes/travel_sign.tscn" id="10_w8vfd"]
 [ext_resource type="Script" uid="uid://cqnc6oolwpqnh" path="res://Scripts/health_test.gd" id="11_50hgc"]
 [ext_resource type="Texture2D" uid="uid://c6r4fv54mx5nv" path="res://Assets/Art/Sprites/icon.svg" id="12_bqixu"]
-[ext_resource type="PackedScene" uid="uid://c3hd4qgqqka2a" path="res://Scenes/Entities/Fox.tscn" id="15_o4wn2"]
+[ext_resource type="PackedScene" uid="uid://ch3r5mhsjvajy" path="res://Scenes/Entities/Fox.tscn" id="15_o4wn2"]
 [ext_resource type="PackedScene" uid="uid://c8pr2cxqq8xx5" path="res://Scenes/Entities/testing_enemy.tscn" id="17_1ksjn"]
-[ext_resource type="PackedScene" uid="uid://c4w5ag8ojg46w" path="res://Scenes/Entities/Giant_Fox.tscn" id="18_231qs"]
+[ext_resource type="PackedScene" uid="uid://d32wbehu67eys" path="res://Scenes/Entities/Giant_Fox.tscn" id="18_231qs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fd3mm"]
 texture = ExtResource("3_50hgc")
@@ -616,6 +616,7 @@ position = Vector2(39, 30)
 travel_sign = {
 0: "res://Scenes/Areas/Sparrow_sanctuary/path_one.tscn"
 }
+sign_text = "To Sparrow Sanctuary"
 connected_sign_pos_x = -665
 connected_sign_pos_y = 14
 

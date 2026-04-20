@@ -534,7 +534,7 @@ position = Vector2(27.999996, 22.000002)
 travel_sign = {
 0: "res://Scenes/Areas/Sparrow_sanctuary/path_one.tscn"
 }
-sign_text = "Sparrow Sanctuary"
+sign_text = "To Sparrow Sanctuary"
 connected_sign_pos_x = 800
 connected_sign_pos_y = 29
 
@@ -548,7 +548,7 @@ position = Vector2(8957, 1175)
 travel_sign = {
 0: "res://Scenes/Areas/world2.tscn"
 }
-sign_text = "World Two not for you"
+sign_text = "To World Two not for you"
 
 [node name="travel sign3" parent="." groups=["Signs"] instance=ExtResource("11_wcev2")]
 position = Vector2(4931, 1181)
