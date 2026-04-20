@@ -6,19 +6,19 @@
 [ext_resource type="AudioStream" uid="uid://hn5emoytmctv" path="res://Assets/Sound/SFX/Damage Sound 5.wav" id="4_m661j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hc2h3"]
-size = Vector2(194.3552, 97.36842)
+size = Vector2(194.355, 97.3684)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_igl0n"]
-size = Vector2(21.793133, 19.499964)
+size = Vector2(21.7931, 19.5)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_774bn"]
-radius = 250.7367
+radius = 250.737
 
 [node name="GiantFox" type="CharacterBody2D"]
 scale = Vector2(0.668, 0.76)
 collision_layer = 8
 motion_mode = 1
-floor_max_angle = 1.4835298
+floor_max_angle = 1.48353
 script = ExtResource("1_hbkeb")
 
 [node name="DamageBox" type="Area2D" parent="."]
@@ -26,8 +26,8 @@ collision_layer = 8
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageBox"]
-position = Vector2(-91.342926, 1.9736855)
-scale = Vector2(0.19999997, 0.5)
+position = Vector2(-91.3429, 1.97369)
+scale = Vector2(0.2, 0.5)
 shape = SubResource("RectangleShape2D_hc2h3")
 
 [node name="Health_Manager" parent="." instance=ExtResource("2_m661j")]
@@ -35,16 +35,16 @@ max_health = 500
 I_frame_timer = 0.55
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1.7107108, 9.526312)
+position = Vector2(-1.71071, 9.52631)
 scale = Vector2(7.46, 2.5)
 shape = SubResource("RectangleShape2D_igl0n")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1.7329416, 0.97222805)
+position = Vector2(1.73294, 0.972228)
 scale = Vector2(0.438, 0.397)
 texture = ExtResource("3_gyv3k")
 region_enabled = true
-region_rect = Rect2(93.70001, 243.169, 503.4466, 178.05042)
+region_rect = Rect2(93.7, 243.169, 503.447, 178.05)
 
 [node name="AlertingArea" type="Area2D" parent="."]
 scale = Vector2(2, 2)

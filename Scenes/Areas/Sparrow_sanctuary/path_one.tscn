@@ -134,7 +134,7 @@ metadata/_edit_lock_ = true
 collision_mask = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ground/StaticBody2D"]
-polygon = PackedVector2Array(-1250, 1028, -1250, 1250, 1250, 1250, 1250, 1059, 1225.3999, 1059, 1206.4563, 1051.051, 1186.7, 1051, 1167, 1038, 611.5, 1038, 581.1, 1058, 483.7, 1059, 449, 1076.8, 227.47748, 1078.078, 192, 1096.8, -291.5, 1098, -325.5, 1078, -428.5, 1078, -472, 1100.8, -836.1, 1101, -847, 1090.2, -859.60956, 1088.5885, -871, 1077, -991.3, 1077, -1005, 1066, -1027.5, 1066, -1052.4, 1051, -1079.5, 1051, -1125.3, 1028)
+polygon = PackedVector2Array(-1250, 1028, -1250, 1250, 1250, 1250, 1250, 1059, 1225.4, 1059, 1206.46, 1051.05, 1186.7, 1051, 1167, 1038, 611.5, 1038, 581.1, 1058, 483.7, 1059, 449, 1076.8, 227.477, 1078.08, 192, 1096.8, -291.5, 1098, -325.5, 1078, -428.5, 1078, -472, 1100.8, -836.1, 1101, -847, 1090.2, -859.61, 1088.59, -871, 1077, -991.3, 1077, -1005, 1066, -1027.5, 1066, -1052.4, 1051, -1079.5, 1051, -1125.3, 1028)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("12_jkig4")]
 
@@ -144,15 +144,15 @@ position = Vector2(552, 0)
 [node name="world border" type="StaticBody2D" parent="."]
 visible = false
 position = Vector2(-3, -1)
-rotation = 1.5707964
+rotation = 1.5708
 collision_layer = 3
 collision_mask = 3
 collision_priority = 100.0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="world border"]
-position = Vector2(2.0000005, 7)
+position = Vector2(2, 7)
 build_mode = 1
-polygon = PackedVector2Array(254.99995, -970, 255.00003, 694, -592.99994, 694, -593.00006, -970)
+polygon = PackedVector2Array(255, -970, 255, 694, -593, 694, -593, -970)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(916, 16)
@@ -194,7 +194,7 @@ connected_sign_pos_x = 39
 connected_sign_pos_y = 30
 
 [node name="travel sign2" parent="." groups=["Signs"] instance=ExtResource("11_pvrle")]
-position = Vector2(895.00006, 21.000002)
+position = Vector2(895, 21)
 sign_text = "world"
 connected_sign_pos_x = 43
 connected_sign_pos_y = 29
@@ -234,7 +234,7 @@ polygon = PackedVector2Array(22, -34, 37, -40, -29, -40, -42, -35)
 one_way_collision = true
 
 [node name="stair+#StandOnTree" type="CollisionShape2D" parent="stair 1"]
-position = Vector2(541, -321.99997)
+position = Vector2(541, -322)
 scale = Vector2(1, 0.235)
 shape = SubResource("CircleShape2D_vhd3l")
 one_way_collision = true
@@ -274,14 +274,14 @@ one_way_collision = true
 
 [node name="Bard Placeholder" type="Sprite2D" parent="."]
 position = Vector2(471, 49.25)
-scale = Vector2(0.12500018, 0.19140624)
+scale = Vector2(0.125, 0.191406)
 texture = ExtResource("12_2e178")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Bard Placeholder"]
 offset_left = -64.0
-offset_top = -100.57144
-offset_right = 191.99951
-offset_bottom = -27.428467
+offset_top = -100.571
+offset_right = 192.0
+offset_bottom = -27.4285
 scale = Vector2(0.5, 0.5)
 theme_override_font_sizes/normal_font_size = 52
 text = "arysigano"
@@ -301,20 +301,20 @@ metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Sky"]
 material = SubResource("CanvasItemMaterial_otjly")
-position = Vector2(4496.0005, 315.99997)
-scale = Vector2(0.5864583, 0.7520834)
+position = Vector2(4496, 316)
+scale = Vector2(0.586458, 0.752083)
 texture = ExtResource("14_2e178")
 
 [node name="The_Sun" type="PointLight2D" parent="."]
 light_mask = 0
-position = Vector2(9723.999, -3115.9998)
+position = Vector2(9724, -3116)
 scale = Vector2(100, 100)
-color = Color(0.97795826, 0.9680864, 0.7630433, 1)
+color = Color(0.977958, 0.968086, 0.763043, 1)
 range_z_min = 0
 range_layer_max = 3
 range_item_cull_mask = 22
 shadow_enabled = true
-shadow_color = Color(0, 0, 0, 0.99607843)
+shadow_color = Color(0, 0, 0, 0.996078)
 shadow_filter = 2
 shadow_filter_smooth = 0.6
 shadow_item_cull_mask = 230
