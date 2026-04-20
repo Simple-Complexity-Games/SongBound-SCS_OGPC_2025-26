@@ -42,6 +42,7 @@ func _process(_delta: float) -> void:
 		print("sdfgdfhh")
 		if dialog_box_hidden == true:
 			print("show")
+			dialog_box.clear()
 			dialog_box.skip_requested = false
 			dialog_box.get_parent().show()
 			dialog_box_hidden = false
