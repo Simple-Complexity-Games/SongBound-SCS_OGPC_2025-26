@@ -617,6 +617,7 @@ position = Vector2(39, 30)
 travel_sign = {
 0: "res://Scenes/Areas/Sparrow_sanctuary/path_one.tscn"
 }
+sign_text = "To Sparrow Sanctuary"
 connected_sign_pos_x = -665
 connected_sign_pos_y = 14
 
