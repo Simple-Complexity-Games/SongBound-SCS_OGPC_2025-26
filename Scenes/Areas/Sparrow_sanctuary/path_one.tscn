@@ -190,7 +190,7 @@ position = Vector2(-665, 14)
 travel_sign = {
 0: "res://Scenes/Areas/test_world.tscn"
 }
-sign_text = "Forbidden"
+sign_text = "To Forbidden"
 connected_sign_pos_x = 39
 connected_sign_pos_y = 30
 
@@ -201,7 +201,7 @@ connected_sign_pos_x = 43
 connected_sign_pos_y = 29
 
 [node name="Dialog_Trigger" parent="." groups=["Dialog_Triggers"] instance=ExtResource("15_otjly")]
-position = Vector2(700, 26)
+position = Vector2(700, 31)
 dialog_file_name = "Letter_From_Home.txt"
 
 [node name="Dialog_Trigger2" parent="." groups=["Dialog_Triggers"] instance=ExtResource("15_otjly")]
@@ -209,24 +209,23 @@ position = Vector2(471, 51)
 dialog_file_name = "Bard_Interaction_1.txt"
 
 [node name="stair 1" type="StaticBody2D" parent="."]
-collision_mask = 2
 
 [node name="stair+#CollisionPolygon2D" type="CollisionPolygon2D" parent="stair 1"]
-polygon = PackedVector2Array(790, 46, 765, 46, 727, 10, 657, 10, 562, -68, 585, -68, 657, -11, 728, -11)
+polygon = PackedVector2Array(786, 42, 761, 42, 727, 10, 657, 10, 562, -68, 585, -68, 657, -11, 728, -11)
 one_way_collision = true
 
 [node name="stair+#CollisionPolygon2D2" type="CollisionPolygon2D" parent="stair 1"]
 position = Vector2(-1086, 24)
-polygon = PackedVector2Array(684, 64, 665, 64, 463, -129, 481, -129)
+polygon = PackedVector2Array(679, 59, 660, 59, 463, -129, 481, -129)
 one_way_collision = true
 
 [node name="stair+#CollisionPolygon2D3" type="CollisionPolygon2D" parent="stair 1"]
 position = Vector2(-543, 12)
-polygon = PackedVector2Array(625, 74, 607, 74, 809, -119, 829, -119)
+polygon = PackedVector2Array(629, 70, 611, 70, 809, -119, 829, -119)
 one_way_collision = true
 
 [node name="stair+#CollisionPolygon2D4" type="CollisionPolygon2D" parent="stair 1"]
-polygon = PackedVector2Array(717, -12, 700, -12, 809, -119, 829, -119)
+polygon = PackedVector2Array(722, -17, 705, -17, 809, -119, 829, -119)
 one_way_collision = true
 
 [node name="stair+#CollisionPolygon2D5" type="CollisionPolygon2D" parent="stair 1"]
@@ -307,6 +306,7 @@ scale = Vector2(0.586458, 0.752083)
 texture = ExtResource("14_2e178")
 
 [node name="The_Sun" type="PointLight2D" parent="."]
+visible = false
 light_mask = 0
 position = Vector2(9724, -3116)
 scale = Vector2(100, 100)
@@ -335,17 +335,6 @@ offset_bottom = -27.428467
 scale = Vector2(0.5, 0.5)
 theme_override_font_sizes/normal_font_size = 52
 text = "Mailbox"
-
-[node name="Subtle Hint" type="RichTextLabel" parent="."]
-modulate = Color(0, 0, 0, 1)
-offset_left = 786.0
-offset_top = -58.0
-offset_right = 1132.0
-offset_bottom = 14.0
-scale = Vector2(0.5, 0.5)
-theme_override_font_sizes/normal_font_size = 26
-text = "Press up to travel at signs
-"
 
 [connection signal="done_printing" from="CanvasLayer/Dialog_Handler/Dialog_Box/Main_Textbox" to="Dialog_Trigger" method="_on_main_textbox_done_printing"]
 [connection signal="done_printing" from="CanvasLayer/Dialog_Handler/Dialog_Box/Main_Textbox" to="Dialog_Trigger2" method="_on_main_textbox_done_printing"]

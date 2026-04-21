@@ -38,7 +38,8 @@ func _ready():
 	print(line_list)
 
 func _process(_delta: float) -> void:
-	if (Input.is_action_just_pressed("Up")) and player_in_area and file_loaded:
+	print(dialog_playing)
+	if Input.is_action_just_pressed("Up") and (player_in_area or dialog_box_hidden == false) and file_loaded:
 		print("sdfgdfhh")
 		if dialog_box_hidden == true:
 			print("show")

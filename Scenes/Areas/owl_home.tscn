@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://x0rw23gb6qgb"]
+[gd_scene load_steps=13 format=3 uid="uid://x0rw23gb6qgb"]
 
 [ext_resource type="PackedScene" uid="uid://cornjst30aymf" path="res://Scenes/Utility/camera_2d.tscn" id="1_8ifch"]
 [ext_resource type="PackedScene" uid="uid://dihy0istq3alv" path="res://Scenes/UI/canvas_layer.tscn" id="1_55ctx"]
@@ -14,6 +14,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_55ctx"]
 size = Vector2(30, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5xhl1"]
+size = Vector2(51, 2)
 
 [node name="Owl_Home" type="Node2D"]
 
@@ -63,7 +66,6 @@ polygon = PackedVector2Array(0, 0, 57, 0, 14.42, 37.97, 14.42, 135.7, 21.46, 155
 position = Vector2(103, 154.77)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-visible = false
 position = Vector2(0, 0.8)
 shape = SubResource("WorldBoundaryShape2D_55ctx")
 
@@ -71,6 +73,10 @@ shape = SubResource("WorldBoundaryShape2D_55ctx")
 position = Vector2(100.8, -18.375)
 shape = SubResource("RectangleShape2D_55ctx")
 one_way_collision = true
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(-21.5, -155.77)
+shape = SubResource("RectangleShape2D_5xhl1")
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="."]
 
