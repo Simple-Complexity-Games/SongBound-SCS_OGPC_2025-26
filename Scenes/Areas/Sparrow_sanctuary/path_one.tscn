@@ -186,7 +186,7 @@ connected_sign_pos_x = 43
 connected_sign_pos_y = 29
 
 [node name="Dialog_Trigger" parent="." groups=["Dialog_Triggers"] instance=ExtResource("15_otjly")]
-position = Vector2(700, 26)
+position = Vector2(700, 31)
 dialog_file_name = "Letter_From_Home.txt"
 
 [node name="Dialog_Trigger2" parent="." groups=["Dialog_Triggers"] instance=ExtResource("15_otjly")]
@@ -271,6 +271,20 @@ offset_bottom = -27.428467
 scale = Vector2(0.5, 0.5)
 theme_override_font_sizes/normal_font_size = 52
 text = "arysigano"
+
+[node name="Mailbox" type="Sprite2D" parent="."]
+position = Vector2(700, 34.999992)
+scale = Vector2(0.12500018, 0.19140624)
+texture = ExtResource("12_2e178")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Mailbox"]
+offset_left = -64.0
+offset_top = -100.57144
+offset_right = 191.99951
+offset_bottom = -27.428467
+scale = Vector2(0.5, 0.5)
+theme_override_font_sizes/normal_font_size = 52
+text = "  Mailbox"
 
 [connection signal="done_printing" from="CanvasLayer/Dialog_Handler/Dialog_Box/Main_Textbox" to="Dialog_Trigger" method="_on_main_textbox_done_printing"]
 [connection signal="done_printing" from="CanvasLayer/Dialog_Handler/Dialog_Box/Main_Textbox" to="Dialog_Trigger2" method="_on_main_textbox_done_printing"]
