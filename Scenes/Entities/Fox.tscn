@@ -6,19 +6,19 @@
 [ext_resource type="AudioStream" uid="uid://hn5emoytmctv" path="res://Assets/Sound/SFX/Damage Sound 5.wav" id="4_okwo4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hc2h3"]
-size = Vector2(97.19513, 32)
+size = Vector2(97.1951, 32)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cng8g"]
-radius = 5.929822
-height = 40.09853
+radius = 5.92982
+height = 40.0985
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_774bn"]
-radius = 250.7367
+radius = 250.737
 
 [node name="Fox" type="CharacterBody2D"]
 scale = Vector2(0.668, 0.76)
 collision_layer = 8
-floor_max_angle = 1.4835298
+floor_max_angle = 1.48353
 script = ExtResource("1_igl0n")
 
 [node name="DamageBox" type="Area2D" parent="."]
@@ -26,7 +26,7 @@ collision_layer = 8
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageBox"]
-position = Vector2(-29.231707, 1)
+position = Vector2(-29.2317, 1)
 scale = Vector2(0.2, 0.5)
 shape = SubResource("RectangleShape2D_hc2h3")
 
@@ -36,24 +36,24 @@ I_frame_timer = 0.55
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-3, 3)
-rotation = 1.5707964
-scale = Vector2(1.5000006, 1.3333358)
+rotation = 1.5708
+scale = Vector2(1.5, 1.33334)
 shape = SubResource("CapsuleShape2D_cng8g")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1.7329416, 0.97222805)
-scale = Vector2(0.14798206, 0.13368064)
+position = Vector2(1.73294, 0.972228)
+scale = Vector2(0.147982, 0.133681)
 texture = ExtResource("3_hc2h3")
 region_enabled = true
-region_rect = Rect2(93.70001, 243.169, 503.4466, 178.05042)
+region_rect = Rect2(93.7, 243.169, 503.447, 178.05)
 
 [node name="RayRight" type="RayCast2D" parent="."]
 position = Vector2(0, 12)
-target_position = Vector2(30.555573, 0)
+target_position = Vector2(25.4491, -0.15789509)
 
 [node name="RayLeft" type="RayCast2D" parent="."]
 position = Vector2(0, 12)
-target_position = Vector2(-27.777794, 0)
+target_position = Vector2(-26.946106, -0.15789509)
 
 [node name="AlertingArea" type="Area2D" parent="."]
 collision_layer = 2

@@ -1,6 +1,4 @@
-Hello Kertho!|
-You have just received a letter.* That letter reads:|
-Kertho, it is urgent that you stay far from home for longer than you had anticipated.* The vultures have attacked once again, and this time with no intention of yielding, regardless of our offers.*|
-It is not safe to return, but please, find any help you can. You’re at the Sanctuary, right? Perhaps someone there can find help.*|
-with love,*
-Your parents|
+You find a letter addressed to you:|
+Kertho, it is urgent that you stay far from home for longer than you had anticipated.* The vultures are bearing down on the village once again, and no offerings have appeased them.*|
+If you receive this, please, find any aid you can. If you're reading this, that means you're at the Sanctuary, right? Perhaps one of the sparrows there can help.*|
+	   with love,* Your parents|

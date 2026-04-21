@@ -72,16 +72,16 @@ func _process(_delta: float) -> void:
 	Handle_Fullscreening()
 	
 	#Developer Tools
-	if Input.is_action_just_pressed("Teleport_Up"):
+	if Input.is_action_just_pressed("Teleport") and Input.is_action_pressed("Up"):
 		position.y -= 200
 		
-	if Input.is_action_just_pressed("Teleport_Down"):
+	if Input.is_action_just_pressed("Teleport") and Input.is_action_pressed("Down"):
 		position.y += 200
 		
-	if Input.is_action_just_pressed("Teleport_Left"):
+	if Input.is_action_just_pressed("Teleport") and Input.is_action_pressed("Left"):
 		position.x -= 1500
 		
-	if Input.is_action_just_pressed("Teleport_Right"):
+	if Input.is_action_just_pressed("Teleport") and Input.is_action_pressed("Right"):
 		position.x += 1500
 	
 	if direction > 0:
