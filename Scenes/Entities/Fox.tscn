@@ -49,11 +49,11 @@ region_rect = Rect2(93.7, 243.169, 503.447, 178.05)
 
 [node name="RayRight" type="RayCast2D" parent="."]
 position = Vector2(0, 12)
-target_position = Vector2(30.5556, 0)
+target_position = Vector2(25.4491, -0.15789509)
 
 [node name="RayLeft" type="RayCast2D" parent="."]
 position = Vector2(0, 12)
-target_position = Vector2(-27.7778, 0)
+target_position = Vector2(-26.946106, -0.15789509)
 
 [node name="AlertingArea" type="Area2D" parent="."]
 collision_layer = 2
