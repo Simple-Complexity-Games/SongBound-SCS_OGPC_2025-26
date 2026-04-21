@@ -1,9 +1,10 @@
-[gd_scene load_steps=23 format=3 uid="uid://bdkged5clqdnl"]
+[gd_scene load_steps=24 format=3 uid="uid://bdkged5clqdnl"]
 
 [ext_resource type="Script" uid="uid://csxtgnkd7vffc" path="res://Scripts/player.gd" id="1_nqm6o"]
 [ext_resource type="Texture2D" uid="uid://bodi6dugkpmii" path="res://Assets/Art/Sprites/Player.png" id="2_svftf"]
 [ext_resource type="PackedScene" uid="uid://dcmw2s3k5ngm4" path="res://Scenes/Utility/health_manager.tscn" id="3_qbyki"]
 [ext_resource type="PackedScene" uid="uid://coxgv1rfwx4ii" path="res://Scenes/Items/polearm.tscn" id="4_svftf"]
+[ext_resource type="AudioStream" uid="uid://p2tyegy2s727" path="res://Assets/Sound/SFX/Damage Sound 5 (1).wav" id="5_a1rq5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_svftf"]
 atlas = ExtResource("2_svftf")
@@ -152,7 +153,6 @@ shape = SubResource("RectangleShape2D_nqm6o")
 
 [node name="Health_Manager" parent="." instance=ExtResource("3_qbyki")]
 max_health = 20
-I_frame_timer = 1
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 light_mask = 22
@@ -162,6 +162,9 @@ occluder = SubResource("OccluderPolygon2D_qbyki")
 occluder_light_mask = 23
 
 [node name="Polearm" parent="." instance=ExtResource("4_svftf")]
+
+[node name="Damage_SFX_Player" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_a1rq5")
 
 [connection signal="body_entered" from="Perch_Collision_Area" to="." method="_on_perch_collision_area_body_entered"]
 [connection signal="body_exited" from="Perch_Collision_Area" to="." method="_on_perch_collision_area_body_exited"]

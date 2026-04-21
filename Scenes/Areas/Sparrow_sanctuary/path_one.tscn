@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://c2rq8qrx2isq"]
+[gd_scene load_steps=21 format=4 uid="uid://c2rq8qrx2isq"]
 
 [ext_resource type="Script" uid="uid://dltd48sm6e1bk" path="res://Scripts/camera_2d.gd" id="1_8ik8f"]
 [ext_resource type="Texture2D" uid="uid://ctkmi7csnsqo7" path="res://Assets/Art/Sprites/Avythera_Sparrow_Sanctuary (4) (1).png" id="1_vhd3l"]
@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://c6r4fv54mx5nv" path="res://Assets/Art/Sprites/icon.svg" id="12_2e178"]
 [ext_resource type="PackedScene" uid="uid://dihy0istq3alv" path="res://Scenes/UI/canvas_layer.tscn" id="12_jkig4"]
 [ext_resource type="PackedScene" uid="uid://rq24inwg7cap" path="res://Scenes/Utility/player_location.tscn" id="12_m4v2w"]
+[ext_resource type="AudioStream" uid="uid://dwjsu5tmdglmt" path="res://Assets/Sound/Music/Adventuring_Music.wav" id="13_m4v2w"]
+[ext_resource type="Texture2D" uid="uid://bj3jav3awka52" path="res://Assets/Art/Environment/Background/SKY.png" id="14_2e178"]
 [ext_resource type="PackedScene" uid="uid://dlppj3l63islr" path="res://Scenes/Utility/dialog_trigger.tscn" id="15_otjly"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kykf2"]
@@ -102,6 +104,18 @@ sources/0 = SubResource("TileSetAtlasSource_kykf2")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vhd3l"]
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_otjly"]
+light_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_bwcnv"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2e178"]
+gradient = SubResource("Gradient_bwcnv")
+width = 1024
+height = 1024
+use_hdr = true
+
 [node name="World" type="Node2D"]
 
 [node name="Buildings" type="Sprite2D" parent="."]
@@ -156,7 +170,7 @@ script = ExtResource("1_8ik8f")
 [node name="Player" parent="." instance=ExtResource("2_eeikq")]
 unique_name_in_owner = true
 z_index = 10
-position = Vector2(916, 15)
+position = Vector2(650, 15)
 
 [node name="sky" type="TileMapLayer" parent="."]
 visible = false
@@ -169,19 +183,20 @@ tile_set = SubResource("TileSet_enowb")
 stream = ExtResource("10_tid5k")
 
 [node name="player_location" parent="." instance=ExtResource("12_m4v2w")]
+position = Vector2(650, 0)
 
 [node name="travel sign" parent="." groups=["Signs"] instance=ExtResource("11_pvrle")]
 position = Vector2(-665, 14)
 travel_sign = {
 0: "res://Scenes/Areas/test_world.tscn"
 }
-sign_text = "Forbidden"
+sign_text = "To Forbidden"
 connected_sign_pos_x = 39
 connected_sign_pos_y = 30
 
 [node name="travel sign2" parent="." groups=["Signs"] instance=ExtResource("11_pvrle")]
 position = Vector2(895.00006, 21.000002)
-sign_text = "world"
+sign_text = "To Swallow Caravan"
 connected_sign_pos_x = 43
 connected_sign_pos_y = 29
 
@@ -194,24 +209,23 @@ position = Vector2(471, 51)
 dialog_file_name = "Bard_Interaction_1.txt"
 
 [node name="stair 1" type="StaticBody2D" parent="."]
-collision_mask = 2
 
 [node name="stair+#CollisionPolygon2D" type="CollisionPolygon2D" parent="stair 1"]
-polygon = PackedVector2Array(790, 46, 765, 46, 727, 10, 657, 10, 562, -68, 585, -68, 657, -11, 728, -11)
+polygon = PackedVector2Array(786, 42, 761, 42, 727, 10, 657, 10, 562, -68, 585, -68, 657, -11, 728, -11)
 one_way_collision = true
 
 [node name="stair+#CollisionPolygon2D2" type="CollisionPolygon2D" parent="stair 1"]
 position = Vector2(-1086, 24)
-polygon = PackedVector2Array(684, 64, 665, 64, 463, -129, 481, -129)
+polygon = PackedVector2Array(679, 59, 660, 59, 463, -129, 481, -129)
 one_way_collision = true
 
 [node name="stair+#CollisionPolygon2D3" type="CollisionPolygon2D" parent="stair 1"]
 position = Vector2(-543, 12)
-polygon = PackedVector2Array(625, 74, 607, 74, 809, -119, 829, -119)
+polygon = PackedVector2Array(629, 70, 611, 70, 809, -119, 829, -119)
 one_way_collision = true
 
 [node name="stair+#CollisionPolygon2D4" type="CollisionPolygon2D" parent="stair 1"]
-polygon = PackedVector2Array(717, -12, 700, -12, 809, -119, 829, -119)
+polygon = PackedVector2Array(722, -17, 705, -17, 809, -119, 829, -119)
 one_way_collision = true
 
 [node name="stair+#CollisionPolygon2D5" type="CollisionPolygon2D" parent="stair 1"]
@@ -272,19 +286,66 @@ scale = Vector2(0.5, 0.5)
 theme_override_font_sizes/normal_font_size = 52
 text = "arysigano"
 
-[node name="Mailbox" type="Sprite2D" parent="."]
-position = Vector2(700, 34.999992)
+[node name="Music_Player" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_m4v2w")
+volume_db = 3.081
+autoplay = true
+bus = &"Music"
+
+[node name="Sky" type="Parallax2D" parent="."]
+z_index = -2
+z_as_relative = false
+scroll_scale = Vector2(0.6, 0.6)
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Sky"]
+material = SubResource("CanvasItemMaterial_otjly")
+position = Vector2(4496.0005, 315.99997)
+scale = Vector2(0.5864583, 0.7520834)
+texture = ExtResource("14_2e178")
+
+[node name="The_Sun" type="PointLight2D" parent="."]
+visible = false
+light_mask = 0
+position = Vector2(9778, -3102)
+scale = Vector2(100, 100)
+color = Color(0.97795826, 0.9680864, 0.7630433, 1)
+range_z_min = 0
+range_layer_max = 3
+range_item_cull_mask = 22
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 0.99607843)
+shadow_filter = 2
+shadow_filter_smooth = 0.6
+shadow_item_cull_mask = 230
+texture = SubResource("GradientTexture2D_2e178")
+height = 0.7
+
+[node name="mailbox" type="Sprite2D" parent="."]
+position = Vector2(699, 35)
 scale = Vector2(0.12500018, 0.19140624)
 texture = ExtResource("12_2e178")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Mailbox"]
+[node name="RichTextLabel" type="RichTextLabel" parent="mailbox"]
 offset_left = -64.0
 offset_top = -100.57144
 offset_right = 191.99951
 offset_bottom = -27.428467
 scale = Vector2(0.5, 0.5)
 theme_override_font_sizes/normal_font_size = 52
-text = "  Mailbox"
+text = "Mailbox"
+
+[node name="Subtle Hint" type="RichTextLabel" parent="."]
+modulate = Color(0, 0, 0, 1)
+offset_left = 786.0
+offset_top = -58.0
+offset_right = 1132.0
+offset_bottom = 14.0
+scale = Vector2(0.5, 0.5)
+theme_override_font_sizes/normal_font_size = 26
+text = "Press up to travel at signs
+"
 
 [connection signal="done_printing" from="CanvasLayer/Dialog_Handler/Dialog_Box/Main_Textbox" to="Dialog_Trigger" method="_on_main_textbox_done_printing"]
 [connection signal="done_printing" from="CanvasLayer/Dialog_Handler/Dialog_Box/Main_Textbox" to="Dialog_Trigger2" method="_on_main_textbox_done_printing"]

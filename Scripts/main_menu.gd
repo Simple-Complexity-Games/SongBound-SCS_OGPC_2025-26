@@ -937,7 +937,9 @@ func Save_Window_Position(x = null, y = null):
 
 #region ------Navigation Functions------
 func Start_Game():
-	get_tree().change_scene_to_file("res://Scenes/Areas/world.tscn")
+	GameManager.pos_x = 650
+	GameManager.pos_y = 22
+	get_tree().change_scene_to_file("res://Scenes/Areas/Sparrow_sanctuary/path_one.tscn")
 
 func Load_Main_Menu():
 	Start_Button.grab_focus()

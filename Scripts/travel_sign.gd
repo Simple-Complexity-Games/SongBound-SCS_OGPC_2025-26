@@ -16,7 +16,12 @@ func _on_area_2d_body_entered(_body: Node2D) -> void:
 	GameManager.pos_x = connected_sign_pos_x
 	GameManager.pos_y = connected_sign_pos_y
 	get_parent().get_node("CanvasLayer").Show_Text(sign_text)
+	$Notification.show()
 
 func _on_area_2d_body_exited(_body: Node2D) -> void:
 	is_in_area = false
+	$Notification.hide()
 	get_parent().get_node("CanvasLayer").Hide_Text()
+	await get_tree().create_timer(.001).timeout
+	GameManager.pos_x = position.x
+	GameManager.pos_y = position.y

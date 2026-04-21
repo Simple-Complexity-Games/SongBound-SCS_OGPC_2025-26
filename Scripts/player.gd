@@ -60,6 +60,10 @@ var perch_position_tween
 var print_debugging = false
 
 func _ready() -> void:
+	var event = InputEventKey.new()
+	event.set_keycode(88)
+	event.pressed = true
+	InputMap.action_add_event("Attack", event)
 	velocity.x = 0
 	velocity.y = 0
 
@@ -87,6 +91,7 @@ func _process(_delta: float) -> void:
 	if direction == 0:
 		$AnimatedSprite2D.stop()
 		$AnimatedSprite2D.frame = 0
+
 func _physics_process(delta: float) -> void:
 	if soft_gravity_timer != null:
 		if velocity.y < 0 and abs(velocity.y) > 5:
@@ -137,6 +142,9 @@ func Update_Status_Vars():
 			soft_gravity_timer = get_tree().create_timer(SOFT_GRAVITY_SECONDS, false, true)
 
 func Handle_Inputs():
+	if Input.is_action_just_pressed("Escape"):
+		get_tree().change_scene_to_file("res://Scenes/UI/main_menu.tscn")
+	
 	if not perching:
 		if print_debugging: print("moving again")
 		direction = Input.get_axis("Left", "Right") # For left and right movement. 
