@@ -29,15 +29,18 @@ position = Vector2(-8.495786e-07, 3.1586885)
 shape = SubResource("RectangleShape2D_1l5yg")
 
 [node name="Notification" type="Label" parent="."]
-offset_left = -61.42
-offset_top = -69.017
-offset_right = 757.58
-offset_bottom = 49.983
+visible = false
+offset_left = -61.51538
+offset_top = -78.76969
+offset_right = 757.4846
+offset_bottom = 162.23032
 scale = Vector2(0.15, 0.15)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_qsn6w")
 theme_override_font_sizes/font_size = 100
-text = "Press \"Up\" to Travel"
+text = "Press \"Up\"
+to Travel"
+horizontal_alignment = 1
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
