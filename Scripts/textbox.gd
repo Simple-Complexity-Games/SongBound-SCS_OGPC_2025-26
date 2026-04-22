@@ -10,7 +10,7 @@ var timer : Timer = Timer.new()
 
 @export var default_text_speed = 280.0
 
-var index = 0
+var char_index = 0
 var text_stack = ""
 var tags = {}
 
@@ -29,25 +29,27 @@ func _ready() -> void:
 	timer.one_shot = true
 
 func _input(event: InputEvent) -> void:
-	if (Input.is_action_just_pressed("Up")) and index > 0:
-		print("queued skip")
-		skip_requested = true
+	pass
+	#if (Input.is_action_just_pressed("Up")) and char_index > 0:
+		#print("queued skip")
+		#skip_requested = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if index < text_stack.length() and timer.time_left == 0:
+	if char_index < text_stack.length() and timer.time_left == 0:
 		audio_player.playing = true
-		Print_Text(text_stack[index])
+		Print_Text(text_stack[char_index])
 		timer.wait_time = (1 / (default_text_speed))
 		
-		if not tags.has(index):
+		if not tags.has(char_index):
 			pass
-		elif "pause" in tags[index]:
+		elif "pause" in tags[char_index]:
 			timer.wait_time = (60 / (default_text_speed))
 		
 		timer.start()
-		index += 1
-	elif index >= text_stack.length():
+		char_index += 1
+	elif char_index >= text_stack.length() and text_stack.length() > 0:
+		print("dooonee")
 		done_printing.emit()
 		#print("done printing")
 	elif skip_requested:
@@ -57,8 +59,8 @@ func _process(_delta: float) -> void:
 		timer.stop()
 		var stopping_point = text_stack.length() + 1
 		
-		self.append_text(text_stack.substr(index, stopping_point + 1))
-		index = stopping_point
+		self.append_text(text_stack.substr(char_index, stopping_point + 1))
+		char_index = stopping_point
 
 func Play_Line(line):
 	#var data = ["", ""]
@@ -69,10 +71,10 @@ func Play_Line(line):
 		#else:
 			#data[section] += char
 	
-	if index < text_stack.length():
-		print("skipped")
-		skip_requested = true
-	else:
+	#if index < text_stack.length():
+		#print("skipped")
+		#skip_requested = true
+	if char_index > text_stack.length() or char_index == 0:
 		print("playing line")
 		var data = line
 		data = Get_Text_Tags(data)
@@ -81,8 +83,9 @@ func Play_Line(line):
 		#Update_Icon(data[0])
 		self.clear()
 		text_stack = data
-		index = 0
+		char_index = 0
 		skip_requested = false
+	print("text_stack",text_stack)
 
 func Update_Icon(icon_id):
 	character_icon.frame = icon_ids_to_paths[String(icon_id)]
@@ -124,7 +127,7 @@ func Get_Text_Tags(text):
 	
 	var char_tags = ""
 	
-	index = 0
+	var index = 0
 	for char in text:
 		if index == text.length():
 			break
