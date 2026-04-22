@@ -1,44 +1,53 @@
 [gd_scene load_steps=4 format=3 uid="uid://coxgv1rfwx4ii"]
 
 [ext_resource type="Script" uid="uid://cyn4fi70iwm2r" path="res://Scripts/Weapon.gd" id="1_6xh5y"]
+[ext_resource type="Texture2D" uid="uid://bpfke4343kxrh" path="res://Assets/Art/Sprites/Untitled drawing.png" id="2_nbgrp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nbgrp"]
 size = Vector2(25, 6)
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_6xh5y"]
-
 [node name="Polearm" type="Node2D"]
 script = ExtResource("1_6xh5y")
 dmg = 50
+
+[node name="weaponsprite" type="Node2D" parent="."]
+
+[node name="Sprite2D6" type="Sprite2D" parent="weaponsprite"]
+position = Vector2(15.999997, 0)
+scale = Vector2(0.17021276, 0.034)
+texture = ExtResource("2_nbgrp")
+region_enabled = true
+region_rect = Rect2(9, 424.5, 470, 115)
+region_filter_clip_enabled = true
+
+[node name="Sprite2D5" type="Sprite2D" parent="weaponsprite"]
+position = Vector2(64, 0)
+scale = Vector2(0.07251915, 0.034)
+texture = ExtResource("2_nbgrp")
+region_enabled = true
+region_rect = Rect2(623, 425.9, 340, 115)
+region_filter_clip_enabled = true
 
 [node name="attack_box" type="Area2D" parent="."]
 collision_layer = 8
 collision_mask = 8
 
 [node name="midle" type="CollisionShape2D" parent="attack_box"]
+modulate = Color(0.14044744, 0.14044744, 0.14044744, 1)
 shape = SubResource("RectangleShape2D_nbgrp")
 disabled = true
 
-[node name="Sprite2D" type="Sprite2D" parent="attack_box/midle"]
-scale = Vector2(25, 6)
-texture = SubResource("CanvasTexture_6xh5y")
-
 [node name="left" type="CollisionShape2D" parent="attack_box"]
+modulate = Color(0.14117648, 0.14117648, 0.14117648, 1)
 position = Vector2(-6, -4.5)
 shape = SubResource("RectangleShape2D_nbgrp")
 disabled = true
 
-[node name="Sprite2D3" type="Sprite2D" parent="attack_box/left"]
-scale = Vector2(25, 6)
-texture = SubResource("CanvasTexture_6xh5y")
-
 [node name="right" type="CollisionShape2D" parent="attack_box"]
+modulate = Color(0.14117648, 0.14117648, 0.14117648, 1)
+visibility_layer = 3
 position = Vector2(-6, 4.5)
 shape = SubResource("RectangleShape2D_nbgrp")
 disabled = true
-
-[node name="Sprite2D2" type="Sprite2D" parent="attack_box/right"]
-scale = Vector2(25, 6)
-texture = SubResource("CanvasTexture_6xh5y")
 
 [connection signal="body_exited" from="attack_box" to="." method="_on_attack_box_body_exited"]
