@@ -31,10 +31,9 @@ func _ready():
 			line_list.append(line)
 			line = ""
 		else:
-			pass
 			# Skip recording newlines at the beginning of new dialog lines because they are a common result of dialog file formatting for legibility but break the character icon name recognition dictionary. This is preferable to preprocessing the file and removing all \n characters because it preserves the ability to add stylistic newlines to dialog
-			#if not (line == "" and (char == "\n" or char == "\r")):
-			line += char
+			if not (line == "" and (char == "\n" or char == "\r")):
+				line += char
 
 func _process(_delta: float) -> void:
 	print(dialog_playing)
@@ -54,7 +53,7 @@ func _process(_delta: float) -> void:
 			dialog_box.clear()
 			next_line = 0
 		elif not dialog_playing:
-			print("playing")
+			print("playing: ",line_list[next_line])
 			dialog_playing = true
 			dialog_box.Play_Line(line_list[next_line])
 			next_line += 1

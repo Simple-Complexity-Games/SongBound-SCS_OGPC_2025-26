@@ -15,6 +15,7 @@ var text_stack = ""
 var tags = {}
 
 var skip_requested = false
+var waiting = true
 
 signal done_printing
 
@@ -74,7 +75,7 @@ func Play_Line(line):
 	#if index < text_stack.length():
 		#print("skipped")
 		#skip_requested = true
-	if char_index > text_stack.length() or char_index == 0:
+	if char_index >= text_stack.length() or char_index == 0:
 		print("playing line")
 		var data = line
 		data = Get_Text_Tags(data)
@@ -101,11 +102,11 @@ func Add_Newlines(text):
 	test_textbox.clear()
 	
 	var current_line_count = test_textbox.get_line_count()
-	
+	print("current count: ",current_line_count)
 	var loaded_text = 0
 	for i in text.length():
-		if current_line_count < test_textbox.get_line_count():
-			var current_text = text.substr(0, loaded_text)
+		var current_text = text.substr(0, loaded_text)
+		if current_line_count < test_textbox.get_line_count() and text[i - 2] != " ":
 			
 			var word_start_offset = current_text.reverse().find(" ")
 			
@@ -114,12 +115,16 @@ func Add_Newlines(text):
 			text = text.erase(newline_index)
 			text = text.insert(newline_index, "\n")
 			
-			current_line_count = test_textbox.get_line_count()
+			current_line_count += 1
 			loaded_text += 1
 		
+		print("prev_text: ",text.substr(max(0, loaded_text - 60), loaded_text))
 		loaded_text += 1
+		print("new_text: ",text.substr(max(0, loaded_text - 60), loaded_text))
 		test_textbox.append_text(text[i])
+		print("new count: ",test_textbox.get_line_count())
 	
+	print("processed_text:", text)
 	return text
 
 func Get_Text_Tags(text):
