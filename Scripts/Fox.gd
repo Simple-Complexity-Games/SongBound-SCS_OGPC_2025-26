@@ -75,14 +75,14 @@ func _physics_process(delta: float) -> void:
 	
 	
 	if Alert and not Dash: #Chasing player whenever Alert or Chase equals true
-		if Combined_Position > -60:
+		if Combined_Position < -60:
 			if Health == 180 or Health < 90:
 				velocity.x = move_toward(velocity.x, Speed, 5) #Normal Positive movement
 				sprite_2d.flip_h = true
 			if Health < 180 and Health > 90:
 				velocity.x = move_toward(velocity.x, Speed*2.5, 10) #Faster Positive movement
 				sprite_2d.flip_h = true
-		if Combined_Position < 60:
+		if Combined_Position > 60:
 			if Health == 180 or Health < 90:
 				velocity.x = move_toward(velocity.x, -Speed, 5) #Normal Negative movement
 				sprite_2d.flip_h = false
