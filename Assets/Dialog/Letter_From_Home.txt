@@ -1,4 +1,5 @@
 You find a letter addressed to you:|
 Kertho, it is urgent that you stay far from home for longer than you had anticipated.* The vultures are bearing down on the village once again, and no offerings have appeased them.*|
 If you receive this, please, find any aid you can. If you're still at the Sanctuary, perhaps one of the sparrows there can help?*|
-	   with love,* Your parents|
+With Love,*
+Your parents|

@@ -50,11 +50,11 @@ func _process(_delta: float) -> void:
 		timer.start()
 		char_index += 1
 	elif char_index >= text_stack.length() and text_stack.length() > 0:
-		print("dooonee")
+		#print("dooonee")
 		done_printing.emit()
 		#print("done printing")
 	elif skip_requested:
-		print("SKIP")
+		#print("SKIP")
 		skip_requested = false
 		
 		timer.stop()
@@ -76,17 +76,17 @@ func Play_Line(line):
 		#print("skipped")
 		#skip_requested = true
 	if char_index >= text_stack.length() or char_index == 0:
-		print("playing line")
+		#print("playing line")
 		var data = line
-		data = Get_Text_Tags(data)
 		data = Add_Newlines(data)
+		data = Get_Text_Tags(data)
 		
 		#Update_Icon(data[0])
 		self.clear()
 		text_stack = data
 		char_index = 0
 		skip_requested = false
-	print("text_stack",text_stack)
+	#print("text_stack",text_stack)
 
 func Update_Icon(icon_id):
 	character_icon.frame = icon_ids_to_paths[String(icon_id)]
@@ -102,27 +102,29 @@ func Add_Newlines(text):
 	test_textbox.clear()
 	
 	var current_line_count = test_textbox.get_line_count()
-	print("current count: ",current_line_count)
+	#print("current count: ",current_line_count)
 	var loaded_text = 0
 	for i in text.length():
 		var current_text = text.substr(0, loaded_text)
-		if current_line_count < test_textbox.get_line_count() and text[i - 2] != " ":
+		if test_textbox.get_line_count() > current_line_count:
+			var word_start_offset = 0
+			if text[i] != " ":
+				word_start_offset = current_text.reverse().find(" ")
 			
-			var word_start_offset = current_text.reverse().find(" ")
+			var newline_index = (loaded_text - word_start_offset)
 			
-			var newline_index = (loaded_text - word_start_offset - 1)
+			print("/n? ",current_text.substr(newline_index, loaded_text).find("\n"))
+			if current_text.substr(newline_index, loaded_text).find("\n") == -1:
+				#text = text.erase(newline_index)
+				text = text.insert(newline_index, "\n")
 			
-			text = text.erase(newline_index)
-			text = text.insert(newline_index, "\n")
-			
-			current_line_count += 1
-			loaded_text += 1
+			current_line_count = test_textbox.get_line_count()
 		
-		print("prev_text: ",text.substr(max(0, loaded_text - 60), loaded_text))
-		loaded_text += 1
-		print("new_text: ",text.substr(max(0, loaded_text - 60), loaded_text))
-		test_textbox.append_text(text[i])
+		#print("prev_text: ",text.substr(max(0, loaded_text - 60), loaded_text))
+		print("new_text: ",text.substr(0, loaded_text))
 		print("new count: ",test_textbox.get_line_count())
+		test_textbox.append_text(text[i])
+		loaded_text += 1
 	
 	print("processed_text:", text)
 	return text
