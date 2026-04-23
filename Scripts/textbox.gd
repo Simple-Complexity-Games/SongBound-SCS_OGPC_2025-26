@@ -121,12 +121,12 @@ func Add_Newlines(text):
 			current_line_count = test_textbox.get_line_count()
 		
 		#print("prev_text: ",text.substr(max(0, loaded_text - 60), loaded_text))
-		print("new_text: ",text.substr(0, loaded_text))
-		print("new count: ",test_textbox.get_line_count())
+		#print("new_text: ",text.substr(0, loaded_text))
+		#print("new count: ",test_textbox.get_line_count())
 		test_textbox.append_text(text[i])
 		loaded_text += 1
 	
-	print("processed_text:", text)
+	#print("processed_text:", text)
 	return text
 
 func Get_Text_Tags(text):
