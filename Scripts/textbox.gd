@@ -50,11 +50,11 @@ func _process(_delta: float) -> void:
 		timer.start()
 		char_index += 1
 	elif char_index >= text_stack.length() and text_stack.length() > 0:
-		print("dooonee")
+		#print("dooonee")
 		done_printing.emit()
 		#print("done printing")
 	elif skip_requested:
-		print("SKIP")
+		#print("SKIP")
 		skip_requested = false
 		
 		timer.stop()
@@ -76,7 +76,7 @@ func Play_Line(line):
 		#print("skipped")
 		#skip_requested = true
 	if char_index >= text_stack.length() or char_index == 0:
-		print("playing line")
+		#print("playing line")
 		var data = line
 		data = Get_Text_Tags(data)
 		data = Add_Newlines(data)
@@ -86,7 +86,7 @@ func Play_Line(line):
 		text_stack = data
 		char_index = 0
 		skip_requested = false
-	print("text_stack",text_stack)
+	#print("text_stack",text_stack)
 
 func Update_Icon(icon_id):
 	character_icon.frame = icon_ids_to_paths[String(icon_id)]
@@ -102,7 +102,7 @@ func Add_Newlines(text):
 	test_textbox.clear()
 	
 	var current_line_count = test_textbox.get_line_count()
-	print("current count: ",current_line_count)
+	#print("current count: ",current_line_count)
 	var loaded_text = 0
 	for i in text.length():
 		var current_text = text.substr(0, loaded_text)
@@ -118,13 +118,13 @@ func Add_Newlines(text):
 			current_line_count += 1
 			loaded_text += 1
 		
-		print("prev_text: ",text.substr(max(0, loaded_text - 60), loaded_text))
+		#print("prev_text: ",text.substr(max(0, loaded_text - 60), loaded_text))
 		loaded_text += 1
-		print("new_text: ",text.substr(max(0, loaded_text - 60), loaded_text))
+		#print("new_text: ",text.substr(max(0, loaded_text - 60), loaded_text))
 		test_textbox.append_text(text[i])
-		print("new count: ",test_textbox.get_line_count())
+		#print("new count: ",test_textbox.get_line_count())
 	
-	print("processed_text:", text)
+	#print("processed_text:", text)
 	return text
 
 func Get_Text_Tags(text):
