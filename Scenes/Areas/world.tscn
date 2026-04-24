@@ -650,7 +650,6 @@ dialog_file_name = "Swallow_Dialogue_1.txt"
 
 [node name="Giant_Fox" parent="." instance=ExtResource("19_x68yl")]
 position = Vector2(4536, 100)
-motion_mode = 0
 
 [node name="Dialog_Trigger_Swallow_1" parent="." groups=["Dialog_Triggers"] instance=ExtResource("18_vijum")]
 position = Vector2(8703, 1188)
@@ -674,8 +673,8 @@ position = Vector2(4741, 1157)
 [node name="Fox4" parent="." instance=ExtResource("15_suda1")]
 position = Vector2(6742, 1214)
 
-[node name="Fox3" parent="." instance=ExtResource("15_suda1")]
-position = Vector2(7256, 1197)
+[node name="Fox6" parent="." instance=ExtResource("15_suda1")]
+position = Vector2(7016, 1233)
 
 [connection signal="done_printing" from="CanvasLayer/Dialog_Handler/Dialog_Box/Main_Textbox" to="Dialog_Trigger_Swallow_1" method="_on_main_textbox_done_printing"]
 [connection signal="done_printing" from="CanvasLayer/Dialog_Handler/Dialog_Box/Main_Textbox" to="Dialog_Trigger_Swallow_2" method="_on_main_textbox_done_printing"]

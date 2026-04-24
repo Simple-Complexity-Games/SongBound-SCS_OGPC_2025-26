@@ -16,7 +16,8 @@ var Retreat = false
 var RetreatBackward #How much they move backward from Retreat ability
 var Health = 500
 
-@onready var sprite_2d: Sprite2D = $Sprite2D #Used to flip fox's image
+@onready var Animated_Sprite: AnimatedSprite2D = $Sprite2D
+
 
 var dmg = 7
 
@@ -30,7 +31,7 @@ func _physics_process(delta: float) -> void:
 	
 	if Dash:
 		dmg = 5
-	else:
+	elif !Dash:
 		dmg = 7
 
 	if Health == 0:
@@ -50,9 +51,9 @@ func _physics_process(delta: float) -> void:
 	
 	
 	
-	if Combined_Position < 64 and Combined_Position > -64:
-		Dash = false
-		$DashTimer.start()
+	#if Combined_Position < 64 and Combined_Position > -64:
+		#Dash = false
+		#$DashTimer.start()
 	
 	
 	if Health < 144 and Health > 90 and Alert and is_on_floor() or Health < 90 and Alert and is_on_floor():
@@ -68,26 +69,30 @@ func _physics_process(delta: float) -> void:
 		if Combined_Position < 0:
 			if Health > 180 or Health < 90:
 				velocity.x = move_toward(velocity.x, Speed, 5) #Normal Positive movement
-				sprite_2d.flip_h = true
+				Animated_Sprite.flip_h = true
+				Animated_Sprite.play("Run")
 			if Health < 180 and Health > 90:
 				velocity.x = move_toward(velocity.x, Speed*2.5, 10) #Faster Positive movement
-				sprite_2d.flip_h = true
+				Animated_Sprite.flip_h = true
+				Animated_Sprite.play("Run")
 		if Combined_Position > 0:
 			if Health > 180 or Health < 90:
 				velocity.x = move_toward(velocity.x, -Speed, 5) #Normal Negative movement
-				sprite_2d.flip_h = false
+				Animated_Sprite.flip_h = false
+				Animated_Sprite.play("Run")
 			if Health < 180 and Health > 90:
 				velocity.x = move_toward(velocity.x, -Speed*2.5, 10) #Faster Negative movement
-				sprite_2d.flip_h = false
+				Animated_Sprite.flip_h = false
+				Animated_Sprite.play("Run")
 	
 	
 	if Dash and Alert: #Enemy's dash ability
 		if Combined_Position > 64: #Dash, Positive
 			velocity.x = move_toward(velocity.x, -Speed*4,150)
-			sprite_2d.flip_h = true
+			Animated_Sprite.flip_h = true
 		if Combined_Position < -64: #Dash, Negative
 			velocity.x = move_toward(velocity.x, Speed*4, 150)
-			sprite_2d.flip_h = false
+			Animated_Sprite.flip_h = false
 	
 	if abs(self.velocity.x) > Speed: #Decleration for Dash
 		if self.velocity.x > 0:
@@ -107,8 +112,8 @@ func _on_alerting_area_body_exited(_body: Node2D) -> void: #Player is not in vie
 	Aggro_Timer = 0 #Restarting the Aggro_Timer if not in range
 
 
-#func _on_timer_timeout() -> void: #three second timer
-	#Alert = false
+func _on_timer_timeout() -> void: #three second timer
+	Alert = false
 	#print("Giant Fox", Alert)
 
 
