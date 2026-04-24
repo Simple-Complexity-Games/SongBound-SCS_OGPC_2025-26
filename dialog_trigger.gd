@@ -36,8 +36,8 @@ func _ready():
 				line += char
 
 func _process(_delta: float) -> void:
-	print(dialog_playing)
-	print("next_line: ",next_line)
+	#print(dialog_playing)
+	#print("next_line: ",next_line)
 	if Input.is_action_just_pressed("Up") and (player_in_area or (dialog_container.visible == true and next_line > 0)) and file_loaded:
 		print("sdfgdfhh")
 		if dialog_container.visible == false:

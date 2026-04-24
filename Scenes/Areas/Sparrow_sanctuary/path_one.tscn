@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://rq24inwg7cap" path="res://Scenes/Utility/player_location.tscn" id="12_m4v2w"]
 [ext_resource type="AudioStream" uid="uid://dwjsu5tmdglmt" path="res://Assets/Sound/Music/Adventuring_Music.wav" id="13_m4v2w"]
 [ext_resource type="Texture2D" uid="uid://bj3jav3awka52" path="res://Assets/Art/Environment/Background/SKY.png" id="14_2e178"]
-[ext_resource type="PackedScene" uid="uid://d32wbehu67eys" path="res://Scenes/Entities/Giant_Fox.tscn" id="15_cscmn"]
+[ext_resource type="Texture2D" uid="uid://c4xs3ph87t5de" path="res://Assets/Art/Sprites/Avythera_Mailbox.png" id="15_cscmn"]
 [ext_resource type="PackedScene" uid="uid://dlppj3l63islr" path="res://Scenes/Utility/dialog_trigger.tscn" id="15_otjly"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kykf2"]
@@ -120,6 +120,7 @@ use_hdr = true
 [node name="World" type="Node2D"]
 
 [node name="Buildings" type="Sprite2D" parent="."]
+z_index = -1
 position = Vector2(124.5, -648)
 scale = Vector2(0.666, 0.666)
 texture = ExtResource("1_vhd3l")
@@ -171,7 +172,7 @@ script = ExtResource("1_8ik8f")
 [node name="Player" parent="." instance=ExtResource("2_eeikq")]
 unique_name_in_owner = true
 z_index = 10
-position = Vector2(650, 15)
+position = Vector2(720, 45)
 
 [node name="sky" type="TileMapLayer" parent="."]
 visible = false
@@ -202,7 +203,7 @@ connected_sign_pos_x = 43
 connected_sign_pos_y = 29
 
 [node name="Dialog_Trigger" parent="." groups=["Dialog_Triggers"] instance=ExtResource("15_otjly")]
-position = Vector2(700, 31)
+position = Vector2(699, 31)
 dialog_file_name = "Letter_From_Home.txt"
 
 [node name="Dialog_Trigger2" parent="." groups=["Dialog_Triggers"] instance=ExtResource("15_otjly")]
@@ -241,7 +242,7 @@ shape = SubResource("CircleShape2D_vhd3l")
 one_way_collision = true
 
 [node name="stair+#Polygon2D" type="CollisionPolygon2D" parent="stair 1"]
-polygon = PackedVector2Array(753, -209, 869, -209, 871, -207, 757, -207)
+polygon = PackedVector2Array(753, -209, 869, -209, 880, -202, 844, -202, 836.2059, -207, 757, -207)
 one_way_collision = true
 
 [node name="stair+#Polygon2D2" type="CollisionPolygon2D" parent="stair 1"]
@@ -255,12 +256,12 @@ one_way_collision = true
 
 [node name="stair+#Polygon2D4" type="CollisionPolygon2D" parent="stair 1"]
 position = Vector2(-360, 9)
-polygon = PackedVector2Array(830, -202, 927, -202, 921, -200, 825, -200)
+polygon = PackedVector2Array(830, -202, 927, -202, 917, -198, 820, -198)
 one_way_collision = true
 
 [node name="stair+#Polygon2D5" type="CollisionPolygon2D" parent="stair 1"]
 position = Vector2(-350, 5)
-polygon = PackedVector2Array(830, -202, 927, -202, 921, -200, 825, -200)
+polygon = PackedVector2Array(830, -202, 927, -202, 917, -198, 820, -198)
 one_way_collision = true
 
 [node name="stair+#Polygon2D6" type="CollisionPolygon2D" parent="stair 1"]
@@ -307,7 +308,6 @@ scale = Vector2(0.586458, 0.752083)
 texture = ExtResource("14_2e178")
 
 [node name="The_Sun" type="PointLight2D" parent="."]
-visible = false
 light_mask = 0
 position = Vector2(9724, -3116)
 scale = Vector2(100, 100)
@@ -324,18 +324,10 @@ texture = SubResource("GradientTexture2D_2e178")
 height = 0.7
 
 [node name="mailbox" type="Sprite2D" parent="."]
-position = Vector2(699, 35)
-scale = Vector2(0.12500018, 0.19140624)
-texture = ExtResource("12_2e178")
-
-[node name="RichTextLabel" type="RichTextLabel" parent="mailbox"]
-offset_left = -64.0
-offset_top = -100.57144
-offset_right = 191.99951
-offset_bottom = -27.428467
-scale = Vector2(0.5, 0.5)
-theme_override_font_sizes/normal_font_size = 52
-text = "Mailbox"
+z_index = -1
+position = Vector2(698.99994, 25)
+scale = Vector2(0.02762504, 0.028595645)
+texture = ExtResource("15_cscmn")
 
 [node name="GiantFox" parent="." instance=ExtResource("15_cscmn")]
 position = Vector2(40, 34)

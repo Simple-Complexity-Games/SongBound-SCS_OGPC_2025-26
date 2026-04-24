@@ -8,128 +8,24 @@ func _ready() -> void:
 	position.y = -12
 
 func _delay():
-	await get_tree().create_timer(.6666666).timeout
+	await get_tree().create_timer(.5555555).timeout
 	attack_delay = false
 
 func _physics_process(_delta: float) -> void:
-	#attack of upper right
-	if Input.is_action_pressed("Attack") and Input.is_action_pressed("Right") and Input.is_action_just_pressed("Up") and attack_delay == false:
-		attack_delay = true
-		rotate(PI/4)
-		$attack_box.position.x = 47.80042
-		$attack_box.position.y = -59.80042
-		$attack_box/right.set_deferred("disabled", false)
-		await get_tree().create_timer(.1666).timeout
-		$attack_box/midle.set_deferred("disabled", false)
-		$attack_box/right.set_deferred("disabled", true)
-		await get_tree().create_timer(.1666).timeout
-		$attack_box/left.set_deferred("disabled", false)
-		$attack_box/midle.set_deferred("disabled", true)
-		await get_tree().create_timer(.1666).timeout
-		$attack_box/left.set_deferred("disabled", true)
-		$attack_box.position.x = 0
-		$attack_box.position.y = -12
-		rotate(-PI/4)
-		print("work")
-	if attack_delay == true:
-		_delay()
-		
-	#attack of down right
-	if Input.is_action_pressed("Attack") and Input.is_action_pressed("Right") and Input.is_action_just_pressed("Down") and attack_delay == false:
-		attack_delay = true
-		rotate(PI/4)
-		$attack_box.position.x = 47.80042
-		$attack_box.position.y = 35.80042
-		$attack_box/left.set_deferred("disabled", false)
-		await get_tree().create_timer(.1666).timeout
-		$attack_box/midle.set_deferred("disabled", false)
-		$attack_box/left.set_deferred("disabled", true)
-		await get_tree().create_timer(.1666).timeout
-		$attack_box/right.set_deferred("disabled", false)
-		$attack_box/midle.set_deferred("disabled", true)
-		await get_tree().create_timer(.1666).timeout
-		$attack_box/right.set_deferred("disabled", true)
-		$attack_box.position.x = 0
-		$attack_box.position.y = -12
-		rotate(-PI/4)
-		print("work")
-	if attack_delay == true:
-		_delay()
-		
-	#attack of left up
-	if Input.is_action_pressed("Attack") and Input.is_action_pressed("Left") and Input.is_action_just_pressed("Up") and attack_delay == false:
-		attack_delay = true
-		rotate(PI/4)
-		$attack_box.position.x = -47.80042
-		$attack_box.position.y = -59.80042
-		$attack_box/left.set_deferred("disabled", false)
-		await get_tree().create_timer(.1666).timeout
-		$attack_box/midle.set_deferred("disabled", false)
-		$attack_box/left.set_deferred("disabled", true)
-		await get_tree().create_timer(.1666).timeout
-		$attack_box/right.set_deferred("disabled", false)
-		$attack_box/midle.set_deferred("disabled", true)
-		await get_tree().create_timer(.1666).timeout
-		$attack_box/right.set_deferred("disabled", true)
-		$attack_box.position.x = 0
-		$attack_box.position.y = -12
-		rotate(-PI/4)
-		print("work")
-	if attack_delay == true:
-		_delay()
-		
-	#attack of left down
-	if Input.is_action_pressed("Attack") and Input.is_action_pressed("Left") and Input.is_action_just_pressed("Down") and attack_delay == false:
-		attack_delay = true
-		rotate(PI/4)
-		$attack_box.position.x = -47.80042
-		$attack_box.position.y = 35.80042
-		$attack_box/left.set_deferred("disabled", false)
-		await get_tree().create_timer(.1666).timeout
-		$attack_box/midle.set_deferred("disabled", false)
-		$attack_box/left.set_deferred("disabled", true)
-		await get_tree().create_timer(.1666).timeout
-		$attack_box/right.set_deferred("disabled", false)
-		$attack_box/midle.set_deferred("disabled", true)
-		await get_tree().create_timer(.1666).timeout
-		$attack_box/right.set_deferred("disabled", true)
-		$attack_box.position.x = 0
-		$attack_box.position.y = -12
-		rotate(-PI/4)
-		print("work")
-	if attack_delay == true:
-		_delay()
-	
-	#attack to the Down
-	if Input.is_action_pressed("Attack") and Input.is_action_pressed("Down") and attack_delay == false:
-		attack_delay = true
-		rotate(-PI/2)
-		$attack_box.position.y = 79.5
-		$attack_box/left.set_deferred("disabled", false)
-		await get_tree().create_timer(.1666).timeout
-		$attack_box/midle.set_deferred("disabled", false)
-		$attack_box/left.set_deferred("disabled", true)
-		await get_tree().create_timer(.1666).timeout
-		$attack_box/right.set_deferred("disabled", false)
-		$attack_box/midle.set_deferred("disabled", true)
-		await get_tree().create_timer(.1666).timeout
-		$attack_box/right.set_deferred("disabled", true)
-		$attack_box.position.y = -12
-		rotate(PI/2)
-		print("work")
-	if attack_delay == true:
-		_delay()
 	
 	if Input.is_action_pressed("Right"):
 		last_used = 1
 	
 	if Input.is_action_pressed("Left"):
 		last_used = 2
-		_delay()
 	
 	if Input.is_action_pressed("Up"):
 		last_used = -1
 	
+	if Input.is_action_pressed("Down"):
+		last_used = -2
+	
+	#attack right
 	if Input.is_action_pressed("Attack") and last_used == 1 and attack_delay == false:
 		attack_delay = true
 		$attack_box.position.x = 67.5
@@ -142,15 +38,16 @@ func _physics_process(_delta: float) -> void:
 		$attack_box/midle.set_deferred("disabled", true)
 		await get_tree().create_timer(.1666).timeout
 		$attack_box/right.set_deferred("disabled", true)
-		position.x = 0
-		print("work")
-	if attack_delay == true:
+		$attack_box.position.x = 0
+		#print("Right")
 		_delay()
 	
 	if Input.is_action_pressed("Attack") and last_used == 2 and attack_delay == false:
 		attack_delay = true
-		rotate(PI)
-		$attack_box.position.x = -67.5
+		rotation -= (PI)
+		$weaponsprite/Sprite2D5.flip_v = 1
+		$weaponsprite/Sprite2D6.flip_v = 1
+		$attack_box.position.x = 67.5
 		$attack_box/right.set_deferred("disabled", false)
 		await get_tree().create_timer(.1666).timeout
 		$attack_box/midle.set_deferred("disabled", false)
@@ -160,16 +57,17 @@ func _physics_process(_delta: float) -> void:
 		$attack_box/midle.set_deferred("disabled", true)
 		await get_tree().create_timer(.1666).timeout
 		$attack_box/left.set_deferred("disabled", true)
-		position.x = 0
-		$attack_box.rotate(-PI)
-		print("work")
-	if attack_delay == true:
+		$attack_box.position.x = 0
+		$weaponsprite/Sprite2D5.flip_v = 0
+		$weaponsprite/Sprite2D6.flip_v = 0
+		rotation += (PI)
+		#print("Left")
 		_delay()
 	
 	if Input.is_action_pressed("Attack") and last_used == -1 and attack_delay == false:
 		attack_delay = true
-		rotate(PI/2)
-		$attack_box.position.y = -79.5
+		$attack_box.position = Vector2(79.5,0)
+		rotation -= (PI/2)
 		$attack_box/left.set_deferred("disabled", false)
 		await get_tree().create_timer(.1666).timeout
 		$attack_box/midle.set_deferred("disabled", false)
@@ -179,10 +77,28 @@ func _physics_process(_delta: float) -> void:
 		$attack_box/midle.set_deferred("disabled", true)
 		await get_tree().create_timer(.1666).timeout
 		$attack_box/right.set_deferred("disabled", true)
-		position.y = -12
-		$attack_box.rotate(-PI/2)
-		print("work")
-	if attack_delay == true:
+		rotation += (PI/2)
+		$attack_box.position = Vector2(12,0)
+		#print("Up")
+		_delay()
+		
+	#attack down
+	if Input.is_action_pressed("Attack") and last_used == -2 and attack_delay == false:
+		attack_delay = true
+		rotation += (PI/2)
+		$attack_box.position = Vector2(79.5,0)
+		$attack_box/left.set_deferred("disabled", false)
+		await get_tree().create_timer(.1666).timeout
+		$attack_box/midle.set_deferred("disabled", false)
+		$attack_box/left.set_deferred("disabled", true)
+		await get_tree().create_timer(.1666).timeout
+		$attack_box/right.set_deferred("disabled", false)
+		$attack_box/midle.set_deferred("disabled", true)
+		await get_tree().create_timer(.1666).timeout
+		$attack_box/right.set_deferred("disabled", true)
+		$attack_box.position = Vector2(12,0)
+		rotation -= (PI/2)
+		#print("Down")
 		_delay()
 
 func _on_attack_box_body_exited(body: Node2D) -> void:
