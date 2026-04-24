@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://c2rq8qrx2isq"]
+[gd_scene load_steps=22 format=4 uid="uid://c2rq8qrx2isq"]
 
 [ext_resource type="Script" uid="uid://dltd48sm6e1bk" path="res://Scripts/camera_2d.gd" id="1_8ik8f"]
 [ext_resource type="Texture2D" uid="uid://ctkmi7csnsqo7" path="res://Assets/Art/Sprites/Avythera_Sparrow_Sanctuary (4) (1).png" id="1_vhd3l"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://rq24inwg7cap" path="res://Scenes/Utility/player_location.tscn" id="12_m4v2w"]
 [ext_resource type="AudioStream" uid="uid://dwjsu5tmdglmt" path="res://Assets/Sound/Music/Adventuring_Music.wav" id="13_m4v2w"]
 [ext_resource type="Texture2D" uid="uid://bj3jav3awka52" path="res://Assets/Art/Environment/Background/SKY.png" id="14_2e178"]
+[ext_resource type="PackedScene" uid="uid://d32wbehu67eys" path="res://Scenes/Entities/Giant_Fox.tscn" id="15_cscmn"]
 [ext_resource type="PackedScene" uid="uid://dlppj3l63islr" path="res://Scenes/Utility/dialog_trigger.tscn" id="15_otjly"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kykf2"]
@@ -134,7 +135,7 @@ metadata/_edit_lock_ = true
 collision_mask = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ground/StaticBody2D"]
-polygon = PackedVector2Array(-1250, 1028, -1250, 1250, 1250, 1250, 1250, 1059, 1225.4, 1059, 1206.46, 1051.05, 1186.7, 1051, 1167, 1038, 611.5, 1038, 581.1, 1058, 483.7, 1059, 449, 1076.8, 227.477, 1078.08, 192, 1096.8, -291.5, 1098, -325.5, 1078, -428.5, 1078, -472, 1100.8, -836.1, 1101, -847, 1090.2, -859.61, 1088.59, -871, 1077, -991.3, 1077, -1005, 1066, -1027.5, 1066, -1052.4, 1051, -1079.5, 1051, -1125.3, 1028)
+polygon = PackedVector2Array(-1250, 1028, -1250, 1250, 1250, 1250, 1250, 1059, 1225.4, 1059, 1206.46, 1051.05, 1186.7, 1051, 1167, 1038, 611.8618, 1039.039, 583.3333, 1058.5585, 484.2342, 1060.06, 449.6997, 1078.078, 227.47748, 1079.5796, 194.44443, 1097.5975, -292.04202, 1099.099, -326.57654, 1079.5796, -428.67865, 1079.5796, -472, 1100.8, -836.1, 1101, -847, 1090.2, -859.61, 1088.59, -871, 1077, -991.3, 1077, -1005, 1066, -1027.5, 1066, -1052.4, 1051, -1079.5, 1051, -1125.3, 1028)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("12_jkig4")]
 
@@ -335,6 +336,9 @@ offset_bottom = -27.428467
 scale = Vector2(0.5, 0.5)
 theme_override_font_sizes/normal_font_size = 52
 text = "Mailbox"
+
+[node name="GiantFox" parent="." instance=ExtResource("15_cscmn")]
+position = Vector2(40, 34)
 
 [connection signal="done_printing" from="CanvasLayer/Dialog_Handler/Dialog_Box/Main_Textbox" to="Dialog_Trigger" method="_on_main_textbox_done_printing"]
 [connection signal="done_printing" from="CanvasLayer/Dialog_Handler/Dialog_Box/Main_Textbox" to="Dialog_Trigger2" method="_on_main_textbox_done_printing"]
