@@ -107,22 +107,28 @@ func Add_Newlines(text):
 	for i in text.length():
 		var current_text = text.substr(0, loaded_text)
 		if test_textbox.get_line_count() > current_line_count:
-			var word_start_offset = 0
-			if text[i] != " ":
+			var word_start_offset = 2
+			print("text[i - 1]: ",text[i - 1])
+			print("text[i]: ",text[i])
+			print("text[i + 1]: ",text[i + 1])
+			if text[i - 2] != " ":
+				print("start_offset")
 				word_start_offset = current_text.reverse().find(" ")
 			
 			var newline_index = (loaded_text - word_start_offset)
 			
 			print("/n? ",current_text.substr(newline_index, loaded_text).find("\n"))
 			if current_text.substr(newline_index, loaded_text).find("\n") == -1:
-				#text = text.erase(newline_index)
+				print("inserting at: ",text[newline_index])
 				text = text.insert(newline_index, "\n")
+				if text[newline_index + 1] == " ":
+					text = text.erase(newline_index + 1)
 			
 			current_line_count = test_textbox.get_line_count()
 		
 		#print("prev_text: ",text.substr(max(0, loaded_text - 60), loaded_text))
-		#print("new_text: ",text.substr(0, loaded_text))
-		#print("new count: ",test_textbox.get_line_count())
+		print("new_text: ",text.substr(0, loaded_text))
+		print("new count: ",test_textbox.get_line_count())
 		test_textbox.append_text(text[i])
 		loaded_text += 1
 	
