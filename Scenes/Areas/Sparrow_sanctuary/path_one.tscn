@@ -240,7 +240,7 @@ shape = SubResource("CircleShape2D_vhd3l")
 one_way_collision = true
 
 [node name="stair+#Polygon2D" type="CollisionPolygon2D" parent="stair 1"]
-polygon = PackedVector2Array(753, -209, 869, -209, 871, -207, 757, -207)
+polygon = PackedVector2Array(753, -209, 869, -209, 880, -202, 844, -202, 836.2059, -207, 757, -207)
 one_way_collision = true
 
 [node name="stair+#Polygon2D2" type="CollisionPolygon2D" parent="stair 1"]
@@ -254,12 +254,12 @@ one_way_collision = true
 
 [node name="stair+#Polygon2D4" type="CollisionPolygon2D" parent="stair 1"]
 position = Vector2(-360, 9)
-polygon = PackedVector2Array(830, -202, 927, -202, 921, -200, 825, -200)
+polygon = PackedVector2Array(830, -202, 927, -202, 917, -198, 820, -198)
 one_way_collision = true
 
 [node name="stair+#Polygon2D5" type="CollisionPolygon2D" parent="stair 1"]
 position = Vector2(-350, 5)
-polygon = PackedVector2Array(830, -202, 927, -202, 921, -200, 825, -200)
+polygon = PackedVector2Array(830, -202, 927, -202, 917, -198, 820, -198)
 one_way_collision = true
 
 [node name="stair+#Polygon2D6" type="CollisionPolygon2D" parent="stair 1"]
