@@ -16,7 +16,6 @@ var Retreat = false
 var RetreatBackward #How much they move backward from Retreat ability
 var Health = 180
 
-
 @onready var ray_right: RayCast2D = $RayRight #Both Rays used for idle state
 @onready var ray_left: RayCast2D = $RayLeft
 @onready var sprite_2d: Sprite2D = $Sprite2D #Used to flip fox's image
@@ -123,6 +122,7 @@ func _on_timer_timeout() -> void: #three second timer
 	
 func _on_dash_timer_timeout() -> void: #Dash Timer
 	Dash = true
+
 
 func _on_damage_box_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
 	body.get_node("Health_Manager").Damage(dmg)
