@@ -237,7 +237,10 @@ func Handle_Glide():
 	if not gliding:
 		if direction:
 			if is_on_floor():
-				velocity.x = move_toward(velocity.x, direction * GROUND_SPEED, ACCELERATION_GROUND)
+				if Input.is_action_pressed("Speed") == true:
+					velocity.x = move_toward(velocity.x, direction * GROUND_SPEED * 5, ACCELERATION_GROUND * 5)
+				else:
+					velocity.x = move_toward(velocity.x, direction * GROUND_SPEED, ACCELERATION_GROUND)
 			else:
 				if not perching:
 					velocity.x = move_toward(velocity.x, direction * AIR_SPEED, ACCELERATION_AIR)

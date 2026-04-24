@@ -46,7 +46,7 @@ limit_bottom = 156
 
 [node name="Player" parent="." instance=ExtResource("2_8ifch")]
 unique_name_in_owner = true
-position = Vector2(94, 142)
+position = Vector2(78, 152)
 
 [node name="travel sign" parent="." groups=["Signs"] instance=ExtResource("4_psj3b")]
 visible = false

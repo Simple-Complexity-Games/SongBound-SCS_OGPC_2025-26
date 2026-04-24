@@ -1,15 +1,154 @@
-[gd_scene load_steps=8 format=3 uid="uid://d32wbehu67eys"]
+[gd_scene load_steps=27 format=3 uid="uid://d32wbehu67eys"]
 
 [ext_resource type="Script" uid="uid://dljf1t0xrj8sx" path="res://Scenes/Entities/giant_fox.gd" id="1_hbkeb"]
 [ext_resource type="PackedScene" uid="uid://dcmw2s3k5ngm4" path="res://Scenes/Utility/health_manager.tscn" id="2_m661j"]
 [ext_resource type="Texture2D" uid="uid://c6reo3osx2vaa" path="res://Assets/Art/Sprites/Avythera_Fox.png" id="3_gyv3k"]
+[ext_resource type="Texture2D" uid="uid://b0m3eahyykrf5" path="res://Assets/Art/Sprites/Avythera_Fox_DEATH.png" id="4_gyv3k"]
 [ext_resource type="AudioStream" uid="uid://hn5emoytmctv" path="res://Assets/Sound/SFX/Damage Sound 5.wav" id="4_m661j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hc2h3"]
-size = Vector2(194.355, 97.3684)
+size = Vector2(134.73048, 97.3684)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_igl0n"]
-size = Vector2(21.7931, 19.5)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m661j"]
+radius = 3.880345
+height = 68.092514
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3xm5o"]
+atlas = ExtResource("3_gyv3k")
+region = Rect2(0, 1250, 625, 625)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nhvrf"]
+atlas = ExtResource("3_gyv3k")
+region = Rect2(1250, 1250, 625, 625)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k6mg0"]
+atlas = ExtResource("3_gyv3k")
+region = Rect2(625, 1250, 625, 625)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cmb8q"]
+atlas = ExtResource("4_gyv3k")
+region = Rect2(0, 0, 625, 625)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_81nan"]
+atlas = ExtResource("4_gyv3k")
+region = Rect2(625, 0, 625, 625)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v0s02"]
+atlas = ExtResource("4_gyv3k")
+region = Rect2(1250, 0, 625, 625)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y8fbf"]
+atlas = ExtResource("4_gyv3k")
+region = Rect2(1875, 0, 625, 625)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ejqhy"]
+atlas = ExtResource("4_gyv3k")
+region = Rect2(0, 625, 625, 625)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2316"]
+atlas = ExtResource("4_gyv3k")
+region = Rect2(625, 625, 625, 625)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1qlg7"]
+atlas = ExtResource("4_gyv3k")
+region = Rect2(1250, 625, 625, 625)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m661j"]
+atlas = ExtResource("3_gyv3k")
+region = Rect2(0, 0, 625, 625)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gyv3k"]
+atlas = ExtResource("3_gyv3k")
+region = Rect2(625, 0, 625, 625)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_55kyd"]
+atlas = ExtResource("3_gyv3k")
+region = Rect2(1250, 0, 625, 625)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nl7dj"]
+atlas = ExtResource("3_gyv3k")
+region = Rect2(1875, 0, 625, 625)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ynpay"]
+atlas = ExtResource("3_gyv3k")
+region = Rect2(0, 625, 625, 625)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jpmf6"]
+atlas = ExtResource("3_gyv3k")
+region = Rect2(625, 625, 625, 625)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lv4vs"]
+atlas = ExtResource("3_gyv3k")
+region = Rect2(1250, 625, 625, 625)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3xm5o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3xm5o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nhvrf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k6mg0")
+}],
+"loop": false,
+"name": &"Dash",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cmb8q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_81nan")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v0s02")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y8fbf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ejqhy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g2316")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1qlg7")
+}],
+"loop": false,
+"name": &"Death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m661j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gyv3k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_55kyd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nl7dj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ynpay")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jpmf6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lv4vs")
+}],
+"loop": false,
+"name": &"Run",
+"speed": 15.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_774bn"]
 radius = 250.737
@@ -17,7 +156,6 @@ radius = 250.737
 [node name="GiantFox" type="CharacterBody2D"]
 scale = Vector2(0.668, 0.76)
 collision_layer = 8
-motion_mode = 1
 floor_max_angle = 1.48353
 script = ExtResource("1_hbkeb")
 
@@ -26,8 +164,8 @@ collision_layer = 8
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageBox"]
-position = Vector2(-91.3429, 1.97369)
-scale = Vector2(0.2, 0.5)
+position = Vector2(-95.80837, 1.97369)
+scale = Vector2(0.19999997, 0.5)
 shape = SubResource("RectangleShape2D_hc2h3")
 
 [node name="Health_Manager" parent="." instance=ExtResource("2_m661j")]
@@ -35,16 +173,16 @@ max_health = 500
 I_frame_timer = 0.55
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1.71071, 9.52631)
-scale = Vector2(7.46, 2.5)
-shape = SubResource("RectangleShape2D_igl0n")
+position = Vector2(-1.4970059, 13.157895)
+rotation = 1.5707964
+scale = Vector2(7.459999, 2.5)
+shape = SubResource("CapsuleShape2D_m661j")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1.73294, 0.972228)
 scale = Vector2(0.438, 0.397)
-texture = ExtResource("3_gyv3k")
-region_enabled = true
-region_rect = Rect2(93.7, 243.169, 503.447, 178.05)
+sprite_frames = SubResource("SpriteFrames_3xm5o")
+animation = &"Run"
 
 [node name="AlertingArea" type="Area2D" parent="."]
 scale = Vector2(2, 2)
@@ -55,7 +193,7 @@ collision_mask = 2
 shape = SubResource("CircleShape2D_774bn")
 
 [node name="DashTimer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 5.0
 
 [node name="AggroTimer" type="Timer" parent="."]
 wait_time = 10.0
