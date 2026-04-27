@@ -19,7 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://bj3jav3awka52" path="res://Assets/Art/Environment/Background/SKY.png" id="18_6kq0q"]
 [ext_resource type="PackedScene" uid="uid://dlppj3l63islr" path="res://Scenes/Utility/dialog_trigger.tscn" id="18_vijum"]
 [ext_resource type="PackedScene" uid="uid://d32wbehu67eys" path="res://Scenes/Entities/Giant_Fox.tscn" id="19_x68yl"]
-[ext_resource type="Script" path="res://Scenes/Areas/special_dialog_handler.gd" id="20_vijum"]
+[ext_resource type="Script" uid="uid://bsfykqb2jbcro" path="res://Scenes/Areas/special_dialog_handler.gd" id="20_vijum"]
 
 [sub_resource type="Environment" id="Environment_bwcnv"]
 tonemap_mode = 1

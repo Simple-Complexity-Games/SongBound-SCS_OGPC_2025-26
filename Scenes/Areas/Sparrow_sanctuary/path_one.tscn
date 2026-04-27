@@ -143,8 +143,10 @@ polygon = PackedVector2Array(-1250, 1028, -1250, 1250, 1250, 1250, 1250, 1059, 1
 [node name="Dialog_Handler" parent="CanvasLayer" instance=ExtResource("2_2e178")]
 position = Vector2(552, 0)
 
+[node name="Dialog_Box" parent="CanvasLayer/Dialog_Handler" index="0"]
+visible = true
+
 [node name="world border" type="StaticBody2D" parent="."]
-visible = false
 position = Vector2(-3, -1)
 rotation = 1.5708
 collision_layer = 3
@@ -154,7 +156,7 @@ collision_priority = 100.0
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="world border"]
 position = Vector2(2, 7)
 build_mode = 1
-polygon = PackedVector2Array(255, -970, 255, 694, -593, 694, -593, -970)
+polygon = PackedVector2Array(187.003, -970.001, 187.00253, 693.9993, -593, 694, -593, -970)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(916, 16)
@@ -328,9 +330,6 @@ z_index = -1
 position = Vector2(698.99994, 25)
 scale = Vector2(0.02762504, 0.028595645)
 texture = ExtResource("15_cscmn")
-
-[node name="GiantFox" parent="." instance=ExtResource("15_cscmn")]
-position = Vector2(40, 34)
 
 [connection signal="done_printing" from="CanvasLayer/Dialog_Handler/Dialog_Box/Main_Textbox" to="Dialog_Trigger" method="_on_main_textbox_done_printing"]
 [connection signal="done_printing" from="CanvasLayer/Dialog_Handler/Dialog_Box/Main_Textbox" to="Dialog_Trigger2" method="_on_main_textbox_done_printing"]

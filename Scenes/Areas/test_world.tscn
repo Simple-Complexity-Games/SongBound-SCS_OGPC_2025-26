@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://bdiftdnufsasm"]
+[gd_scene load_steps=30 format=4 uid="uid://bdiftdnufsasm"]
 
 [ext_resource type="Script" uid="uid://dltd48sm6e1bk" path="res://Scripts/camera_2d.gd" id="1_li37h"]
 [ext_resource type="PackedScene" uid="uid://dihy0istq3alv" path="res://Scenes/UI/canvas_layer.tscn" id="1_o4wn2"]
@@ -16,7 +16,6 @@
 [ext_resource type="Script" uid="uid://cqnc6oolwpqnh" path="res://Scripts/health_test.gd" id="11_50hgc"]
 [ext_resource type="Texture2D" uid="uid://c6r4fv54mx5nv" path="res://Assets/Art/Sprites/icon.svg" id="12_bqixu"]
 [ext_resource type="PackedScene" uid="uid://ch3r5mhsjvajy" path="res://Scenes/Entities/Fox.tscn" id="15_o4wn2"]
-[ext_resource type="PackedScene" uid="uid://c8pr2cxqq8xx5" path="res://Scenes/Entities/testing_enemy.tscn" id="17_1ksjn"]
 [ext_resource type="PackedScene" uid="uid://d32wbehu67eys" path="res://Scenes/Entities/Giant_Fox.tscn" id="18_231qs"]
 [ext_resource type="Texture2D" uid="uid://c6reo3osx2vaa" path="res://Assets/Art/Sprites/Avythera_Fox.png" id="19_oktj6"]
 
@@ -629,11 +628,6 @@ collision_mask = 2
 script = ExtResource("11_50hgc")
 hem = 3
 
-[node name="Sprite2D" type="Sprite2D" parent="hurt_box2"]
-position = Vector2(240, 38)
-scale = Vector2(0.156, 0.156)
-texture = ExtResource("12_bqixu")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hurt_box2"]
 position = Vector2(240, 38)
 shape = SubResource("RectangleShape2D_bqixu")
@@ -665,21 +659,6 @@ position = Vector2(1121, 150)
 [node name="Fox4" parent="." instance=ExtResource("15_o4wn2")]
 position = Vector2(1175, 149)
 
-[node name="TestingEnemy2" parent="." instance=ExtResource("17_1ksjn")]
-position = Vector2(986, 146)
-
-[node name="TestingEnemy3" parent="." instance=ExtResource("17_1ksjn")]
-position = Vector2(1038, 149)
-
-[node name="TestingEnemy4" parent="." instance=ExtResource("17_1ksjn")]
-position = Vector2(1143, 150)
-
-[node name="TestingEnemy5" parent="." instance=ExtResource("17_1ksjn")]
-position = Vector2(1093, 147)
-
-[node name="TestingEnemy6" parent="." instance=ExtResource("17_1ksjn")]
-position = Vector2(1065, 145)
-
 [node name="Fox5" parent="." instance=ExtResource("15_o4wn2")]
 position = Vector2(955, 147)
 
@@ -704,14 +683,11 @@ position = Vector2(-102.5, -155.27)
 shape = SubResource("RectangleShape2D_iipbt")
 one_way_collision = true
 
-[node name="TestingEnemy" parent="." instance=ExtResource("17_1ksjn")]
-position = Vector2(527, 88)
-
 [node name="GiantFox" parent="." instance=ExtResource("18_231qs")]
 position = Vector2(1790, 196)
 
 [node name="AvytheraFox" type="Sprite2D" parent="."]
-position = Vector2(366.47903, 34.584965)
+position = Vector2(300, 37)
 scale = Vector2(0.041401286, 0.041401275)
 texture = ExtResource("19_oktj6")
 region_enabled = true
