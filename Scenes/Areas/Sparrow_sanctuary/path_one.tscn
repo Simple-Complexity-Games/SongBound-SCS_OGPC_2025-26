@@ -1,23 +1,23 @@
 [gd_scene load_steps=22 format=4 uid="uid://c2rq8qrx2isq"]
 
-[ext_resource type="Script" uid="uid://dltd48sm6e1bk" path="res://Scripts/camera_2d.gd" id="1_8ik8f"]
-[ext_resource type="Texture2D" uid="uid://ctkmi7csnsqo7" path="res://Assets/Art/Sprites/Avythera_Sparrow_Sanctuary (4) (1).png" id="1_vhd3l"]
-[ext_resource type="PackedScene" uid="uid://c8xav3q6wf8ar" path="res://Scenes/Utility/dialog_handler.tscn" id="2_2e178"]
-[ext_resource type="PackedScene" uid="uid://bdkged5clqdnl" path="res://Scenes/Entities/player.tscn" id="2_eeikq"]
-[ext_resource type="Texture2D" uid="uid://dhgsdwmg2j1x7" path="res://Assets/Art/Sprites/Avythera_Sparrow_Sanctuary (3) (1).png" id="2_jkig4"]
-[ext_resource type="Texture2D" uid="uid://kp53elewnl2e" path="res://Assets/Art/Sprites/Tileset (1).png" id="3_bl7ud"]
-[ext_resource type="AudioStream" uid="uid://c624t28jwuwvw" path="res://Assets/Sound/Music/Vulture Boss Music Concept Actually just chill town music concept lol.wav" id="10_tid5k"]
-[ext_resource type="PackedScene" uid="uid://ck25xcff0e7si" path="res://Scenes/travel_sign.tscn" id="11_pvrle"]
-[ext_resource type="Texture2D" uid="uid://c6r4fv54mx5nv" path="res://Assets/Art/Sprites/icon.svg" id="12_2e178"]
-[ext_resource type="PackedScene" uid="uid://dihy0istq3alv" path="res://Scenes/UI/canvas_layer.tscn" id="12_jkig4"]
-[ext_resource type="PackedScene" uid="uid://rq24inwg7cap" path="res://Scenes/Utility/player_location.tscn" id="12_m4v2w"]
-[ext_resource type="AudioStream" uid="uid://dwjsu5tmdglmt" path="res://Assets/Sound/Music/Adventuring_Music.wav" id="13_m4v2w"]
-[ext_resource type="Texture2D" uid="uid://bj3jav3awka52" path="res://Assets/Art/Environment/Background/SKY.png" id="14_2e178"]
-[ext_resource type="Texture2D" uid="uid://c4xs3ph87t5de" path="res://Assets/Art/Sprites/Avythera_Mailbox.png" id="15_cscmn"]
-[ext_resource type="PackedScene" uid="uid://dlppj3l63islr" path="res://Scenes/Utility/dialog_trigger.tscn" id="15_otjly"]
+[ext_resource type="Texture2D" uid="uid://ctkmi7csnsqo7" path="res://Assets/Art/Sprites/Avythera_Sparrow_Sanctuary (4) (1).png" id="1_mhavc"]
+[ext_resource type="Texture2D" uid="uid://dhgsdwmg2j1x7" path="res://Assets/Art/Sprites/Avythera_Sparrow_Sanctuary (3) (1).png" id="2_hyt5w"]
+[ext_resource type="PackedScene" uid="uid://dihy0istq3alv" path="res://Scenes/UI/canvas_layer.tscn" id="3_0dchm"]
+[ext_resource type="PackedScene" uid="uid://c8xav3q6wf8ar" path="res://Scenes/Utility/dialog_handler.tscn" id="4_c45mu"]
+[ext_resource type="Script" uid="uid://dltd48sm6e1bk" path="res://Scripts/camera_2d.gd" id="5_mu4do"]
+[ext_resource type="PackedScene" uid="uid://bdkged5clqdnl" path="res://Scenes/Entities/player.tscn" id="6_pj12g"]
+[ext_resource type="Texture2D" uid="uid://kp53elewnl2e" path="res://Assets/Art/Sprites/Tileset (1).png" id="7_c1sg1"]
+[ext_resource type="AudioStream" uid="uid://c624t28jwuwvw" path="res://Assets/Sound/Music/Vulture Boss Music Concept Actually just chill town music concept lol.wav" id="8_8qm62"]
+[ext_resource type="PackedScene" uid="uid://rq24inwg7cap" path="res://Scenes/Utility/player_location.tscn" id="9_n701t"]
+[ext_resource type="PackedScene" uid="uid://ck25xcff0e7si" path="res://Scenes/travel_sign.tscn" id="10_oqhsa"]
+[ext_resource type="PackedScene" uid="uid://dlppj3l63islr" path="res://Scenes/Utility/dialog_trigger.tscn" id="11_qewqv"]
+[ext_resource type="Texture2D" uid="uid://c6r4fv54mx5nv" path="res://Assets/Art/Sprites/icon.svg" id="12_ffrfl"]
+[ext_resource type="AudioStream" uid="uid://dwjsu5tmdglmt" path="res://Assets/Sound/Music/Adventuring_Music.wav" id="13_jrika"]
+[ext_resource type="Texture2D" uid="uid://bj3jav3awka52" path="res://Assets/Art/Environment/Background/SKY.png" id="14_bgkpi"]
+[ext_resource type="Texture2D" uid="uid://c4xs3ph87t5de" path="res://Assets/Art/Sprites/Avythera_Mailbox.png" id="15_b5tfy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kykf2"]
-texture = ExtResource("3_bl7ud")
+texture = ExtResource("7_c1sg1")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -123,13 +123,13 @@ use_hdr = true
 z_index = -1
 position = Vector2(124.5, -648)
 scale = Vector2(0.666, 0.666)
-texture = ExtResource("1_vhd3l")
+texture = ExtResource("1_mhavc")
 metadata/_edit_lock_ = true
 
 [node name="Ground" type="Sprite2D" parent="."]
 position = Vector2(128.5, -644)
 scale = Vector2(0.666, 0.666)
-texture = ExtResource("2_jkig4")
+texture = ExtResource("2_hyt5w")
 metadata/_edit_lock_ = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Ground"]
@@ -138,9 +138,9 @@ collision_mask = 2
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ground/StaticBody2D"]
 polygon = PackedVector2Array(-1250, 1028, -1250, 1250, 1250, 1250, 1250, 1059, 1225.4, 1059, 1206.46, 1051.05, 1186.7, 1051, 1167, 1038, 611.8618, 1039.039, 583.3333, 1058.5585, 484.2342, 1060.06, 449.6997, 1078.078, 227.47748, 1079.5796, 194.44443, 1097.5975, -292.04202, 1099.099, -326.57654, 1079.5796, -428.67865, 1079.5796, -472, 1100.8, -836.1, 1101, -847, 1090.2, -859.61, 1088.59, -871, 1077, -991.3, 1077, -1005, 1066, -1027.5, 1066, -1052.4, 1051, -1079.5, 1051, -1125.3, 1028)
 
-[node name="CanvasLayer" parent="." instance=ExtResource("12_jkig4")]
+[node name="CanvasLayer" parent="." instance=ExtResource("3_0dchm")]
 
-[node name="Dialog_Handler" parent="CanvasLayer" instance=ExtResource("2_2e178")]
+[node name="Dialog_Handler" parent="CanvasLayer" instance=ExtResource("4_c45mu")]
 position = Vector2(552, 0)
 
 [node name="world border" type="StaticBody2D" parent="."]
@@ -167,9 +167,9 @@ limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 70.0
 editor_draw_limits = true
-script = ExtResource("1_8ik8f")
+script = ExtResource("5_mu4do")
 
-[node name="Player" parent="." instance=ExtResource("2_eeikq")]
+[node name="Player" parent="." instance=ExtResource("6_pj12g")]
 unique_name_in_owner = true
 z_index = 10
 position = Vector2(720, 45)
@@ -182,12 +182,12 @@ tile_map_data = PackedByteArray("AAAAANv/AAAIAAAAAAAAANz/AAAIAAAAAAAAAN3/AAAIAAA
 tile_set = SubResource("TileSet_enowb")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("10_tid5k")
+stream = ExtResource("8_8qm62")
 
-[node name="player_location" parent="." instance=ExtResource("12_m4v2w")]
+[node name="player_location" parent="." instance=ExtResource("9_n701t")]
 position = Vector2(650, 0)
 
-[node name="travel sign" parent="." groups=["Signs"] instance=ExtResource("11_pvrle")]
+[node name="travel sign" parent="." groups=["Signs"] instance=ExtResource("10_oqhsa")]
 position = Vector2(-665, 14)
 travel_sign = {
 0: "res://Scenes/Areas/test_world.tscn"
@@ -196,17 +196,17 @@ sign_text = "To Forbidden"
 connected_sign_pos_x = 39
 connected_sign_pos_y = 30
 
-[node name="travel sign2" parent="." groups=["Signs"] instance=ExtResource("11_pvrle")]
+[node name="travel sign2" parent="." groups=["Signs"] instance=ExtResource("10_oqhsa")]
 position = Vector2(895, 21)
 sign_text = "world"
 connected_sign_pos_x = 43
 connected_sign_pos_y = 29
 
-[node name="Dialog_Trigger" parent="." groups=["Dialog_Triggers"] instance=ExtResource("15_otjly")]
+[node name="Dialog_Trigger" parent="." groups=["Dialog_Triggers"] instance=ExtResource("11_qewqv")]
 position = Vector2(699, 31)
 dialog_file_name = "Letter_From_Home.txt"
 
-[node name="Dialog_Trigger2" parent="." groups=["Dialog_Triggers"] instance=ExtResource("15_otjly")]
+[node name="Dialog_Trigger2" parent="." groups=["Dialog_Triggers"] instance=ExtResource("11_qewqv")]
 position = Vector2(471, 51)
 dialog_file_name = "Bard_Interaction_1.txt"
 
@@ -277,7 +277,7 @@ one_way_collision = true
 [node name="Bard Placeholder" type="Sprite2D" parent="."]
 position = Vector2(471, 49.25)
 scale = Vector2(0.125, 0.191406)
-texture = ExtResource("12_2e178")
+texture = ExtResource("12_ffrfl")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Bard Placeholder"]
 offset_left = -64.0
@@ -289,7 +289,7 @@ theme_override_font_sizes/normal_font_size = 52
 text = "arysigano"
 
 [node name="Music_Player" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("13_m4v2w")
+stream = ExtResource("13_jrika")
 volume_db = 3.081
 autoplay = true
 bus = &"Music"
@@ -305,7 +305,7 @@ metadata/_edit_group_ = true
 material = SubResource("CanvasItemMaterial_otjly")
 position = Vector2(4496, 316)
 scale = Vector2(0.586458, 0.752083)
-texture = ExtResource("14_2e178")
+texture = ExtResource("14_bgkpi")
 
 [node name="The_Sun" type="PointLight2D" parent="."]
 light_mask = 0
@@ -327,10 +327,7 @@ height = 0.7
 z_index = -1
 position = Vector2(698.99994, 25)
 scale = Vector2(0.02762504, 0.028595645)
-texture = ExtResource("15_cscmn")
-
-[node name="GiantFox" parent="." instance=ExtResource("15_cscmn")]
-position = Vector2(40, 34)
+texture = ExtResource("15_b5tfy")
 
 [connection signal="done_printing" from="CanvasLayer/Dialog_Handler/Dialog_Box/Main_Textbox" to="Dialog_Trigger" method="_on_main_textbox_done_printing"]
 [connection signal="done_printing" from="CanvasLayer/Dialog_Handler/Dialog_Box/Main_Textbox" to="Dialog_Trigger2" method="_on_main_textbox_done_printing"]
