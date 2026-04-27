@@ -179,6 +179,7 @@ scale = Vector2(7.459999, 2.5)
 shape = SubResource("CapsuleShape2D_m661j")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(0, 1, 0, 1)
 position = Vector2(1.73294, 0.972228)
 scale = Vector2(0.438, 0.397)
 sprite_frames = SubResource("SpriteFrames_3xm5o")
