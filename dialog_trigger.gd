@@ -53,10 +53,16 @@ func _process(_delta: float) -> void:
 			dialog_box.clear()
 			next_line = 0
 		elif not dialog_playing:
-			print("playing: ",line_list[next_line])
-			dialog_playing = true
-			dialog_box.Play_Line(line_list[next_line])
-			next_line += 1
+			if (next_line == 0 and dialog_box.text != "") and dialog_container.visible:
+				for dialog_trigger in get_tree().get_nodes_in_group("Dialog_Triggers"):
+					dialog_trigger.next_line = dialog_trigger.line_list.size()
+				dialog_container.hide()
+				dialog_box.clear()
+			else:
+				print("playing: ",line_list[next_line])
+				dialog_playing = true
+				dialog_box.Play_Line(line_list[next_line])
+				next_line += 1
 		else:
 			dialog_box.skip_requested = true
 
