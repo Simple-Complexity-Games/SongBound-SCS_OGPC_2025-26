@@ -145,8 +145,8 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_8a7qv")
 }],
-"loop": true,
-"name": &"Walking",
+"loop": false,
+"name": &"Run",
 "speed": 15.0
 }]
 
@@ -182,8 +182,7 @@ z_index = 2
 position = Vector2(1.73294, 0.972228)
 scale = Vector2(0.147982, 0.133681)
 sprite_frames = SubResource("SpriteFrames_gdo8c")
-animation = &"Dash"
-autoplay = "Walking"
+animation = &"Run"
 
 [node name="RayRight" type="RayCast2D" parent="."]
 position = Vector2(0, 12)

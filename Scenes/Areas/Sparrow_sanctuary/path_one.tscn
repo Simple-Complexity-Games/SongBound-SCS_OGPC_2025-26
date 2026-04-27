@@ -329,9 +329,6 @@ position = Vector2(698.99994, 25)
 scale = Vector2(0.02762504, 0.028595645)
 texture = ExtResource("15_cscmn")
 
-[node name="GiantFox" parent="." instance=ExtResource("15_cscmn")]
-position = Vector2(40, 34)
-
 [connection signal="done_printing" from="CanvasLayer/Dialog_Handler/Dialog_Box/Main_Textbox" to="Dialog_Trigger" method="_on_main_textbox_done_printing"]
 [connection signal="done_printing" from="CanvasLayer/Dialog_Handler/Dialog_Box/Main_Textbox" to="Dialog_Trigger2" method="_on_main_textbox_done_printing"]
 

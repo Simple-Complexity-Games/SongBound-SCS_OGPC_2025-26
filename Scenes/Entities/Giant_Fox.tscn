@@ -170,7 +170,6 @@ shape = SubResource("RectangleShape2D_hc2h3")
 
 [node name="Health_Manager" parent="." instance=ExtResource("2_m661j")]
 max_health = 500
-I_frame_timer = 0.55
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1.4970059, 13.157895)

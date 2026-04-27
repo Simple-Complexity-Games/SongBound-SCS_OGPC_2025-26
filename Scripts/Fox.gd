@@ -71,36 +71,45 @@ func _physics_process(delta: float) -> void:
 	
 	
 	if Alert and not Dash: #Chasing player whenever Alert or Chase equals true
-		Animated_Sprite.play("Run")
+		Animated_Sprite.speed_scale = 1
 		if Combined_Position < -100:
 			if Health == 180 or Health < 90:
 				velocity.x = move_toward(velocity.x, Speed, 5) #Normal Positive movement
 				Animated_Sprite.flip_h = true
+				Animated_Sprite.play("Run")
 			if Health < 180 and Health > 90:
 				velocity.x = move_toward(velocity.x, Speed*2.5, 10) #Faster Positive movement
 				Animated_Sprite.flip_h = true
+				Animated_Sprite.play("Run")
 		if Combined_Position > 100:
 			if Health == 180 or Health < 90:
 				velocity.x = move_toward(velocity.x, -Speed, 5) #Normal Negative movement
 				Animated_Sprite.flip_h = false
+				Animated_Sprite.play("Run")
 			if Health < 180 and Health > 90:
 				velocity.x = move_toward(velocity.x, -Speed*2.5, 10) #Faster Negative movement
 				Animated_Sprite.flip_h = false
+				Animated_Sprite.play("Run")
 	
 	
 	if Dash and Alert: #Enemy's dash ability
-		if Combined_Position > 64: #Dash, Positive
+		Animated_Sprite.speed_scale = 0.5
+		Animated_Sprite.play("Dash")
+		await get_tree().create_timer(1).timeout
+		if Combined_Position > 100: #Dash, Positive
 			velocity.x = move_toward(velocity.x, -Speed*3,150)
 			Animated_Sprite.flip_h = false
-		if Combined_Position < -64: #Dash, Negative
+			Dash = false
+		if Combined_Position < -100: #Dash, Negative
 			velocity.x = move_toward(velocity.x, Speed*3, 150)
 			Animated_Sprite.flip_h = true
+			Dash = false
 	
 	if abs(self.velocity.x) > Speed: #Decleration for Dash
 		if self.velocity.x > 0:
-			velocity.x = move_toward(velocity.x, Speed, 5)
+			velocity.x = move_toward(velocity.x, Speed, 10)
 		elif self.velocity.x < 0:
-			velocity.x = move_toward(velocity.x, -Speed, 5)
+			velocity.x = move_toward(velocity.x, -Speed, 10)
 	
 	move_and_slide()
 
