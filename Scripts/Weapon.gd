@@ -103,5 +103,9 @@ func _physics_process(_delta: float) -> void:
 
 func _on_attack_box_body_exited(body: Node2D) -> void:
 	if body.get_node("Health_Manager") != null:
-		body.get_node("Health_Manager").Damage(dmg)
-		print(dmg)
+		if Input.is_action_pressed("Kill") == true:
+			body.get_node("Health_Manager").Damage(dmg * 1000)
+			print("OVERKILL")
+		else:
+			body.get_node("Health_Manager").Damage(dmg)
+			print(dmg)
