@@ -29,15 +29,33 @@ func _physics_process(_delta: float) -> void:
 	if Input.is_action_pressed("Attack") and last_used == 1 and attack_delay == false:
 		attack_delay = true
 		$attack_box.position.x = 67.5
+		
+		$weaponsprite/Shaft1.show()
+		$weaponsprite/Blade1.show()
+		await get_tree().create_timer(.03333).timeout
 		$attack_box/left.set_deferred("disabled", false)
+		$weaponsprite/Shaft2.show()
+		$weaponsprite/Blade2.show()
+		$weaponsprite/Shaft1.hide()
+		$weaponsprite/Blade1.hide()
 		await get_tree().create_timer(.1666).timeout
 		$attack_box/midle.set_deferred("disabled", false)
+		$weaponsprite/Shaft1.show()
+		$weaponsprite/Blade1.show()
+		$weaponsprite/Shaft2.hide()
+		$weaponsprite/Blade2.hide()
 		$attack_box/left.set_deferred("disabled", true)
 		await get_tree().create_timer(.1666).timeout
 		$attack_box/right.set_deferred("disabled", false)
+		$weaponsprite/Shaft3.show()
+		$weaponsprite/Blade3.show()
+		$weaponsprite/Shaft1.hide()
+		$weaponsprite/Blade1.hide()
 		$attack_box/midle.set_deferred("disabled", true)
 		await get_tree().create_timer(.1666).timeout
 		$attack_box/right.set_deferred("disabled", true)
+		$weaponsprite/Shaft3.hide()
+		$weaponsprite/Blade3.hide()
 		$attack_box.position.x = 0
 		#print("Right")
 		_delay()
