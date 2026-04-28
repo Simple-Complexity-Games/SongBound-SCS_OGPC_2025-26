@@ -12,7 +12,8 @@ dmg = 50
 
 [node name="weaponsprite" type="Node2D" parent="."]
 
-[node name="Sprite2D6" type="Sprite2D" parent="weaponsprite"]
+[node name="Shaft1" type="Sprite2D" parent="weaponsprite"]
+visible = false
 position = Vector2(-16, 0)
 scale = Vector2(0.17021276, 0.034)
 texture = ExtResource("2_nbgrp")
@@ -21,13 +22,60 @@ region_enabled = true
 region_rect = Rect2(9, 424.5, 470, 115)
 region_filter_clip_enabled = true
 
-[node name="Sprite2D5" type="Sprite2D" parent="weaponsprite"]
+[node name="Blade1" type="Sprite2D" parent="weaponsprite"]
+visible = false
 position = Vector2(36, 0)
 scale = Vector2(0.07251915, 0.034)
 texture = ExtResource("2_nbgrp")
 region_enabled = true
 region_rect = Rect2(623, 425.9, 340, 115)
 region_filter_clip_enabled = true
+
+[node name="Shaft2" type="Sprite2D" parent="weaponsprite"]
+visible = false
+position = Vector2(-16, 0)
+rotation = -0.041374836
+scale = Vector2(0.17021276, 0.034)
+texture = ExtResource("2_nbgrp")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(9, 424.5, 470, 115)
+region_filter_clip_enabled = true
+
+[node name="Blade2" type="Sprite2D" parent="weaponsprite"]
+visible = false
+position = Vector2(36, -2.2)
+rotation = -0.0418879
+scale = Vector2(0.07251915, 0.034)
+texture = ExtResource("2_nbgrp")
+region_enabled = true
+region_rect = Rect2(623, 425.9, 340, 115)
+region_filter_clip_enabled = true
+
+[node name="Shaft3" type="Sprite2D" parent="weaponsprite"]
+visible = false
+position = Vector2(-16, 0)
+rotation = 0.0418879
+scale = Vector2(0.17021276, 0.034)
+texture = ExtResource("2_nbgrp")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(9, 424.5, 470, 115)
+region_filter_clip_enabled = true
+
+[node name="Blade3" type="Sprite2D" parent="weaponsprite"]
+visible = false
+position = Vector2(36, 2.2)
+rotation = 0.0418879
+scale = Vector2(0.07251915, 0.034)
+texture = ExtResource("2_nbgrp")
+region_enabled = true
+region_rect = Rect2(623, 425.9, 340, 115)
+region_filter_clip_enabled = true
+
+[node name="Node2D" type="Node2D" parent="weaponsprite"]
+
+[node name="Node2D2" type="Node2D" parent="weaponsprite"]
 
 [node name="attack_box" type="Area2D" parent="."]
 collision_layer = 8
