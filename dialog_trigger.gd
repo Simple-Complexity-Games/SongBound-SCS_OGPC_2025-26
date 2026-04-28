@@ -53,12 +53,19 @@ func _process(_delta: float) -> void:
 			dialog_box.clear()
 			next_line = 0
 		elif not dialog_playing:
-			if (next_line == 0 and dialog_box.text != "") and dialog_container.visible:
-				for dialog_trigger in get_tree().get_nodes_in_group("Dialog_Triggers"):
-					dialog_trigger.next_line = dialog_trigger.line_list.size()
-				dialog_container.hide()
-				dialog_box.clear()
-			else:
+			print("next_line", next_line, line_list.size())
+			print(dialog_box.get_parsed_text())
+			var other_dialog_playing = 0
+			for dialog_player in get_tree().get_nodes_in_group("Dialog_Triggers"):
+				if ((next_line == 0 or next_line >= line_list.size()) and dialog_player.next_line > 0 and dialog_player.next_line < dialog_player.line_list.size()):
+					other_dialog_playing = true
+					for dialog_trigger in get_tree().get_nodes_in_group("Dialog_Triggers"):
+						dialog_trigger.next_line = dialog_trigger.line_list.size()
+					print("next_line: ",next_line, line_list.size())
+					next_line = 0
+					dialog_container.hide()
+					dialog_box.clear()
+			if not other_dialog_playing:
 				print("playing: ",line_list[next_line])
 				dialog_playing = true
 				dialog_box.Play_Line(line_list[next_line])
