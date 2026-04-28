@@ -1,47 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://coxgv1rfwx4ii"]
+[gd_scene load_steps=4 format=3 uid="uid://coxgv1rfwx4ii"]
 
 [ext_resource type="Script" uid="uid://cyn4fi70iwm2r" path="res://Scripts/Weapon.gd" id="1_6xh5y"]
 [ext_resource type="Texture2D" uid="uid://bpfke4343kxrh" path="res://Assets/Art/Sprites/Untitled drawing.png" id="2_nbgrp"]
-[ext_resource type="Texture2D" uid="uid://curh3fo0no3q8" path="res://Assets/Art/Sprites/Untitled drawing (1).png" id="3_3qatx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nbgrp"]
 size = Vector2(25, 6)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_27lx6"]
-atlas = ExtResource("3_3qatx")
-region = Rect2(0, 0, 833, 833)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5xe3i"]
-atlas = ExtResource("3_3qatx")
-region = Rect2(833, 0, 833, 833)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_45yun"]
-atlas = ExtResource("3_3qatx")
-region = Rect2(1666, 0, 833, 833)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qgrmk"]
-atlas = ExtResource("3_3qatx")
-region = Rect2(0, 833, 833, 833)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_q8o17"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_27lx6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5xe3i")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_45yun")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qgrmk")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [node name="Polearm" type="Node2D"]
 script = ExtResource("1_6xh5y")
@@ -49,7 +12,8 @@ dmg = 50
 
 [node name="weaponsprite" type="Node2D" parent="."]
 
-[node name="Sprite2D6" type="Sprite2D" parent="weaponsprite"]
+[node name="Shaft1" type="Sprite2D" parent="weaponsprite"]
+visible = false
 position = Vector2(-16, 0)
 scale = Vector2(0.17021276, 0.034)
 texture = ExtResource("2_nbgrp")
@@ -58,13 +22,60 @@ region_enabled = true
 region_rect = Rect2(9, 424.5, 470, 115)
 region_filter_clip_enabled = true
 
-[node name="Sprite2D5" type="Sprite2D" parent="weaponsprite"]
+[node name="Blade1" type="Sprite2D" parent="weaponsprite"]
+visible = false
 position = Vector2(36, 0)
 scale = Vector2(0.07251915, 0.034)
 texture = ExtResource("2_nbgrp")
 region_enabled = true
 region_rect = Rect2(623, 425.9, 340, 115)
 region_filter_clip_enabled = true
+
+[node name="Shaft2" type="Sprite2D" parent="weaponsprite"]
+visible = false
+position = Vector2(-16, 0)
+rotation = -0.041374836
+scale = Vector2(0.17021276, 0.034)
+texture = ExtResource("2_nbgrp")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(9, 424.5, 470, 115)
+region_filter_clip_enabled = true
+
+[node name="Blade2" type="Sprite2D" parent="weaponsprite"]
+visible = false
+position = Vector2(36, -2.2)
+rotation = -0.0418879
+scale = Vector2(0.07251915, 0.034)
+texture = ExtResource("2_nbgrp")
+region_enabled = true
+region_rect = Rect2(623, 425.9, 340, 115)
+region_filter_clip_enabled = true
+
+[node name="Shaft3" type="Sprite2D" parent="weaponsprite"]
+visible = false
+position = Vector2(-16, 0)
+rotation = 0.0418879
+scale = Vector2(0.17021276, 0.034)
+texture = ExtResource("2_nbgrp")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(9, 424.5, 470, 115)
+region_filter_clip_enabled = true
+
+[node name="Blade3" type="Sprite2D" parent="weaponsprite"]
+visible = false
+position = Vector2(36, 2.2)
+rotation = 0.0418879
+scale = Vector2(0.07251915, 0.034)
+texture = ExtResource("2_nbgrp")
+region_enabled = true
+region_rect = Rect2(623, 425.9, 340, 115)
+region_filter_clip_enabled = true
+
+[node name="Node2D" type="Node2D" parent="weaponsprite"]
+
+[node name="Node2D2" type="Node2D" parent="weaponsprite"]
 
 [node name="attack_box" type="Area2D" parent="."]
 collision_layer = 8
@@ -87,11 +98,5 @@ visibility_layer = 3
 position = Vector2(-6, 4.5)
 shape = SubResource("RectangleShape2D_nbgrp")
 disabled = true
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-4.0000033, 0)
-scale = Vector2(0.12484993, 0.034)
-sprite_frames = SubResource("SpriteFrames_q8o17")
-frame_progress = 0.90310913
 
 [connection signal="body_exited" from="attack_box" to="." method="_on_attack_box_body_exited"]
