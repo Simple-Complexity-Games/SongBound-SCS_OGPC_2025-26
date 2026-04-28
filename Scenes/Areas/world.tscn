@@ -451,7 +451,6 @@ visibility_layer = 0
 color = Color(0.942781, 0.939049, 0.922258, 1)
 
 [node name="The_Sun" type="PointLight2D" parent="."]
-visible = false
 light_mask = 0
 position = Vector2(9689, -3117.9998)
 scale = Vector2(100, 100)
