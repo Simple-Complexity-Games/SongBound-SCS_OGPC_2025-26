@@ -11,7 +11,8 @@ func _ready() -> void:
 		current_health = GameManager.TrueHealth 
 		
 func _delay():
-	await get_tree().create_timer(.55555).timeout
+	if get_tree():
+		await get_tree().create_timer(.55555).timeout
 	delay = false
 
 @warning_ignore("unused_parameter")
