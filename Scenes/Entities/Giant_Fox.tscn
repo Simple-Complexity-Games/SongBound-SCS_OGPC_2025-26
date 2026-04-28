@@ -170,7 +170,6 @@ shape = SubResource("RectangleShape2D_hc2h3")
 
 [node name="Health_Manager" parent="." instance=ExtResource("2_m661j")]
 max_health = 500
-I_frame_timer = 0.55
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1.4970059, 13.157895)
@@ -179,6 +178,7 @@ scale = Vector2(7.459999, 2.5)
 shape = SubResource("CapsuleShape2D_m661j")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(0, 1, 0, 1)
 position = Vector2(1.73294, 0.972228)
 scale = Vector2(0.438, 0.397)
 sprite_frames = SubResource("SpriteFrames_3xm5o")

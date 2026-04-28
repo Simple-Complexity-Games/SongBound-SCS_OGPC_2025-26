@@ -51,9 +51,9 @@ func _physics_process(delta: float) -> void:
 	
 	
 	
-	#if Combined_Position < 64 and Combined_Position > -64:
-		#Dash = false
-		#$DashTimer.start()
+	if Combined_Position < 64 and Combined_Position > -64:
+		Dash = false
+		$DashTimer.start()
 	
 	
 	if Health < 144 and Health > 90 and Alert and is_on_floor() or Health < 90 and Alert and is_on_floor():
@@ -67,6 +67,7 @@ func _physics_process(delta: float) -> void:
 	
 	if Alert and not Dash: #Chasing player whenever Alert or Chase equals true
 		if Combined_Position < 0:
+			Animated_Sprite.speed_scale = 1
 			if Health > 180 or Health < 90:
 				velocity.x = move_toward(velocity.x, Speed, 5) #Normal Positive movement
 				Animated_Sprite.flip_h = true
@@ -87,10 +88,13 @@ func _physics_process(delta: float) -> void:
 	
 	
 	if Dash and Alert: #Enemy's dash ability
-		if Combined_Position > 64: #Dash, Positive
+		Animated_Sprite.speed_scale = 0.5
+		Animated_Sprite.play("Dash")
+		await get_tree().create_timer(1).timeout
+		if Combined_Position > 100: #Dash, Positive
 			velocity.x = move_toward(velocity.x, -Speed*4,150)
 			Animated_Sprite.flip_h = true
-		if Combined_Position < -64: #Dash, Negative
+		if Combined_Position < -100: #Dash, Negative
 			velocity.x = move_toward(velocity.x, Speed*4, 150)
 			Animated_Sprite.flip_h = false
 	
@@ -114,7 +118,6 @@ func _on_alerting_area_body_exited(_body: Node2D) -> void: #Player is not in vie
 
 func _on_timer_timeout() -> void: #three second timer
 	Alert = false
-	#print("Giant Fox", Alert)
 
 
 func _on_dash_timer_timeout() -> void: #Dash Timer
