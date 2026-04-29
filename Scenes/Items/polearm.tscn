@@ -10,73 +10,6 @@ size = Vector2(25, 6)
 script = ExtResource("1_6xh5y")
 dmg = 50
 
-[node name="weaponsprite" type="Node2D" parent="."]
-
-[node name="Shaft1" type="Sprite2D" parent="weaponsprite"]
-visible = false
-position = Vector2(-16, 0)
-scale = Vector2(0.17021276, 0.034)
-texture = ExtResource("2_nbgrp")
-flip_h = true
-region_enabled = true
-region_rect = Rect2(9, 424.5, 470, 115)
-region_filter_clip_enabled = true
-
-[node name="Blade1" type="Sprite2D" parent="weaponsprite"]
-visible = false
-position = Vector2(36, 0)
-scale = Vector2(0.07251915, 0.034)
-texture = ExtResource("2_nbgrp")
-region_enabled = true
-region_rect = Rect2(623, 425.9, 340, 115)
-region_filter_clip_enabled = true
-
-[node name="Shaft2" type="Sprite2D" parent="weaponsprite"]
-visible = false
-position = Vector2(-16, 0)
-rotation = -0.041374836
-scale = Vector2(0.17021276, 0.034)
-texture = ExtResource("2_nbgrp")
-flip_h = true
-region_enabled = true
-region_rect = Rect2(9, 424.5, 470, 115)
-region_filter_clip_enabled = true
-
-[node name="Blade2" type="Sprite2D" parent="weaponsprite"]
-visible = false
-position = Vector2(36, -2.2)
-rotation = -0.0418879
-scale = Vector2(0.07251915, 0.034)
-texture = ExtResource("2_nbgrp")
-region_enabled = true
-region_rect = Rect2(623, 425.9, 340, 115)
-region_filter_clip_enabled = true
-
-[node name="Shaft3" type="Sprite2D" parent="weaponsprite"]
-visible = false
-position = Vector2(-16, 0)
-rotation = 0.0418879
-scale = Vector2(0.17021276, 0.034)
-texture = ExtResource("2_nbgrp")
-flip_h = true
-region_enabled = true
-region_rect = Rect2(9, 424.5, 470, 115)
-region_filter_clip_enabled = true
-
-[node name="Blade3" type="Sprite2D" parent="weaponsprite"]
-visible = false
-position = Vector2(36, 2.2)
-rotation = 0.0418879
-scale = Vector2(0.07251915, 0.034)
-texture = ExtResource("2_nbgrp")
-region_enabled = true
-region_rect = Rect2(623, 425.9, 340, 115)
-region_filter_clip_enabled = true
-
-[node name="Node2D" type="Node2D" parent="weaponsprite"]
-
-[node name="Node2D2" type="Node2D" parent="weaponsprite"]
-
 [node name="attack_box" type="Area2D" parent="."]
 collision_layer = 8
 collision_mask = 8
@@ -98,5 +31,61 @@ visibility_layer = 3
 position = Vector2(-6, 4.5)
 shape = SubResource("RectangleShape2D_nbgrp")
 disabled = true
+
+[node name="Shaft2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-16, 0)
+rotation = -0.0837758
+scale = Vector2(0.17021276, 0.034)
+texture = ExtResource("2_nbgrp")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(9, 424.5, 470, 115)
+region_filter_clip_enabled = true
+
+[node name="Blade2" type="Sprite2D" parent="Shaft2"]
+position = Vector2(306.57196, 0.19231796)
+scale = Vector2(0.42605, 1)
+texture = ExtResource("2_nbgrp")
+region_enabled = true
+region_rect = Rect2(623, 425.9, 340, 115)
+region_filter_clip_enabled = true
+
+[node name="Shaft3" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-16, 0)
+rotation = 0.0837758
+scale = Vector2(0.17021276, 0.034)
+texture = ExtResource("2_nbgrp")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(9, 424.5, 470, 115)
+region_filter_clip_enabled = true
+
+[node name="Blade3" type="Sprite2D" parent="Shaft3"]
+position = Vector2(306.57196, -0.19231796)
+scale = Vector2(0.42605, 1)
+texture = ExtResource("2_nbgrp")
+region_enabled = true
+region_rect = Rect2(623, 425.9, 340, 115)
+region_filter_clip_enabled = true
+
+[node name="Shaft" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-16, 0)
+scale = Vector2(0.17021276, 0.034)
+texture = ExtResource("2_nbgrp")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(9, 424.5, 470, 115)
+region_filter_clip_enabled = true
+
+[node name="Blade" type="Sprite2D" parent="Shaft"]
+position = Vector2(305.5, 0)
+scale = Vector2(0.42605004, 1)
+texture = ExtResource("2_nbgrp")
+region_enabled = true
+region_rect = Rect2(623, 425.9, 340, 115)
+region_filter_clip_enabled = true
 
 [connection signal="body_exited" from="attack_box" to="." method="_on_attack_box_body_exited"]
