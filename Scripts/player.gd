@@ -262,20 +262,20 @@ func Handle_Perch():
 		
 		if velocity.y > HOVER_SPEED and hover_queued and not perching and not jumping:
 			if print_debugging: print("start hover")
-			print("1a")
+			if print_debugging: print("1a")
 			hover_queued = false
 			hovering = true
 			hover_velocity_tween = create_tween().set_ease(Tween.EASE_OUT)
 			hover_velocity_tween.tween_property(self, "velocity:y", HOVER_SPEED, 0.8)
 	if Input.is_action_just_pressed("Up"):
-		print("2")
+		if print_debugging: print("2")
 		jumping = false
 		hover_queued = true
 		get_tree().create_timer(0.2).timeout.connect(Perch_Buffer_Over)
 		perch_buffer = true
 		
 		if perching:
-			print("2a")
+			if print_debugging: print("2a")
 			if perch_velocity_tween != null and perch_position_tween != null:
 				perch_velocity_tween.kill()
 				perch_position_tween.kill()
@@ -307,7 +307,7 @@ func Handle_Perch():
 			total_jumps = 0
 	
 	if Input.is_action_just_released("Up"):
-		if print_debug: print("hover release")
+		if print_debugging: print("hover release")
 		hover_queued = false
 		hovering = false
 		if hover_velocity_tween != null:

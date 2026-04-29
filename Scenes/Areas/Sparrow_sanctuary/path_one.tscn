@@ -143,9 +143,6 @@ polygon = PackedVector2Array(-1250, 1028, -1250, 1250, 1250, 1250, 1250, 1059, 1
 [node name="Dialog_Handler" parent="CanvasLayer" instance=ExtResource("4_c45mu")]
 position = Vector2(552, 0)
 
-[node name="Dialog_Box" parent="CanvasLayer/Dialog_Handler" index="0"]
-visible = true
-
 [node name="world border" type="StaticBody2D" parent="."]
 position = Vector2(-3, -1)
 rotation = 1.5708
@@ -324,6 +321,7 @@ shadow_filter_smooth = 0.6
 shadow_item_cull_mask = 230
 texture = SubResource("GradientTexture2D_2e178")
 height = 0.7
+metadata/_edit_lock_ = true
 
 [node name="mailbox" type="Sprite2D" parent="."]
 z_index = -1
