@@ -1,16 +1,21 @@
 extends Node2D
 
 @export var dmg = 25
+
+var ATTACK_DELAY_TIME = 0.37
+
 var last_used = 0
 var attack_delay = false
 var no_angle_change = false
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$Shaft.hide()
 	position.y = -12
 
 func _delay():
-	await get_tree().create_timer(.5555555).timeout
+	await get_tree().create_timer(ATTACK_DELAY_TIME).timeout
 	attack_delay = false
 
 func _physics_process(_delta: float) -> void:
@@ -41,18 +46,19 @@ func _physics_process(_delta: float) -> void:
 		$Shaft.rotation = deg_to_rad(-4.8)
 		$Shaft.position.x = 11
 		var tween = get_tree().create_tween()
-		tween.tween_property($Shaft,"rotation",deg_to_rad(4.8),.12495)
-		tween.tween_property($Shaft,"position:x",-3,.12495)
+		tween.tween_property($Shaft,"rotation",deg_to_rad(4.8),.2)
+		tween.tween_property($Shaft,"position:x",-3,.2)
 		$attack_box.position.x = 67.5
 		$attack_box/left.set_deferred("disabled", false)
-		await get_tree().create_timer(.12495).timeout
+		await get_tree().create_timer(0.2/3).timeout
 		$attack_box/midle.set_deferred("disabled", false)
 		$attack_box/left.set_deferred("disabled", true)
-		await get_tree().create_timer(.12495).timeout
+		await get_tree().create_timer(0.2/3).timeout
 		$attack_box/right.set_deferred("disabled", false)
 		$attack_box/midle.set_deferred("disabled", true)
-		await get_tree().create_timer(.12495).timeout
+		await get_tree().create_timer(0.2/3).timeout
 		$attack_box/right.set_deferred("disabled", true)
+		await get_tree().create_timer(0.08).timeout
 		$Shaft.hide()
 		no_angle_change = false
 		$Shaft.position.x = 0
