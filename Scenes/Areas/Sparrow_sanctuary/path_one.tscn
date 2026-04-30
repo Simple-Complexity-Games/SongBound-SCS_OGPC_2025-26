@@ -145,7 +145,6 @@ polygon = PackedVector2Array(-1250, 1028, -1250, 1250, 1250, 1250, 1250, 1059, 1
 position = Vector2(552, 0)
 
 [node name="world border" type="StaticBody2D" parent="."]
-visible = false
 position = Vector2(-3, -1)
 rotation = 1.5708
 collision_layer = 3
@@ -155,7 +154,7 @@ collision_priority = 100.0
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="world border"]
 position = Vector2(2, 7)
 build_mode = 1
-polygon = PackedVector2Array(255, -970, 255, 694, -593, 694, -593, -970)
+polygon = PackedVector2Array(187.003, -970.001, 187.00253, 693.9993, -593, 694, -593, -970)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(916, 16)
@@ -323,6 +322,7 @@ shadow_filter_smooth = 0.6
 shadow_item_cull_mask = 230
 texture = SubResource("GradientTexture2D_2e178")
 height = 0.7
+metadata/_edit_lock_ = true
 
 [node name="mailbox" type="Sprite2D" parent="."]
 z_index = -1

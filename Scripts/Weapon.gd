@@ -3,8 +3,10 @@ extends Node2D
 @export var dmg = 25
 var last_used = 0
 var attack_delay = false
+var no_angle_change = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$Shaft.hide()
 	position.y = -12
 
 func _delay():
@@ -14,39 +16,63 @@ func _delay():
 func _physics_process(_delta: float) -> void:
 	
 	if Input.is_action_pressed("Right"):
-		last_used = 1
-	
+		if no_angle_change == false:
+			last_used = 1
+			rotation = 0
 	if Input.is_action_pressed("Left"):
-		last_used = 2
-	
+		if no_angle_change == false:
+			last_used = 2
+			rotation = -(PI)
 	if Input.is_action_pressed("Up"):
-		last_used = -1
-	
+		if no_angle_change == false:
+			last_used = -1
+			rotation = -(PI/2)
 	if Input.is_action_pressed("Down"):
-		last_used = -2
-	
+		if no_angle_change == false:
+			last_used = -2
+			rotation = (PI/2)
 	#attack right
 	if Input.is_action_pressed("Attack") and last_used == 1 and attack_delay == false:
 		attack_delay = true
+		no_angle_change = true
+		$Shaft.show()
+		$Shaft.position.x -= 5
+		await get_tree().create_timer(.03333).timeout
+		$Shaft.rotation = deg_to_rad(-4.8)
+		$Shaft.position.x = 11
+		var tween = get_tree().create_tween()
+		tween.tween_property($Shaft,"rotation",deg_to_rad(4.8),.12495)
+		tween.tween_property($Shaft,"position:x",-3,.12495)
 		$attack_box.position.x = 67.5
 		$attack_box/left.set_deferred("disabled", false)
-		await get_tree().create_timer(.1666).timeout
+		await get_tree().create_timer(.12495).timeout
 		$attack_box/midle.set_deferred("disabled", false)
 		$attack_box/left.set_deferred("disabled", true)
-		await get_tree().create_timer(.1666).timeout
+		await get_tree().create_timer(.12495).timeout
 		$attack_box/right.set_deferred("disabled", false)
 		$attack_box/midle.set_deferred("disabled", true)
-		await get_tree().create_timer(.1666).timeout
+		await get_tree().create_timer(.12495).timeout
 		$attack_box/right.set_deferred("disabled", true)
+		$Shaft.hide()
+		no_angle_change = false
+		$Shaft.position.x = 0
+		$Shaft.rotation = 0
 		$attack_box.position.x = 0
 		#print("Right")
 		_delay()
 	
 	if Input.is_action_pressed("Attack") and last_used == 2 and attack_delay == false:
 		attack_delay = true
-		rotation -= (PI)
-		$weaponsprite/Sprite2D5.flip_v = 1
-		$weaponsprite/Sprite2D6.flip_v = 1
+		no_angle_change = true
+		$Shaft/Blade.flip_v = -1
+		$Shaft.show()
+		$Shaft.position.x -= 5
+		await get_tree().create_timer(.03333).timeout
+		$Shaft.rotation = deg_to_rad(4.8)
+		$Shaft.position.x = 11
+		var tween = get_tree().create_tween()
+		tween.tween_property($Shaft,"rotation",deg_to_rad(-4.8),.12495)
+		tween.tween_property($Shaft,"position:x",3,.12495)
 		$attack_box.position.x = 67.5
 		$attack_box/right.set_deferred("disabled", false)
 		await get_tree().create_timer(.1666).timeout
@@ -57,17 +83,27 @@ func _physics_process(_delta: float) -> void:
 		$attack_box/midle.set_deferred("disabled", true)
 		await get_tree().create_timer(.1666).timeout
 		$attack_box/left.set_deferred("disabled", true)
+		$Shaft.hide()
+		no_angle_change = false
 		$attack_box.position.x = 0
-		$weaponsprite/Sprite2D5.flip_v = 0
-		$weaponsprite/Sprite2D6.flip_v = 0
-		rotation += (PI)
+		$Shaft.position.x = 0
+		$Shaft.rotation = 0
+		$Shaft/Blade.flip_v = 0
 		#print("Left")
 		_delay()
 	
 	if Input.is_action_pressed("Attack") and last_used == -1 and attack_delay == false:
 		attack_delay = true
-		$attack_box.position = Vector2(79.5,0)
-		rotation -= (PI/2)
+		no_angle_change = true
+		$attack_box.position = Vector2(67.5,0)
+		$Shaft.show()
+		$Shaft.position.x -= 5
+		await get_tree().create_timer(.03333).timeout
+		$Shaft.rotation = deg_to_rad(-4.8)
+		$Shaft.position.x = 11
+		var tween = get_tree().create_tween()
+		tween.tween_property($Shaft,"rotation",deg_to_rad(4.8),.12495)
+		tween.tween_property($Shaft,"position:x",-3,.12495)
 		$attack_box/left.set_deferred("disabled", false)
 		await get_tree().create_timer(.1666).timeout
 		$attack_box/midle.set_deferred("disabled", false)
@@ -77,7 +113,10 @@ func _physics_process(_delta: float) -> void:
 		$attack_box/midle.set_deferred("disabled", true)
 		await get_tree().create_timer(.1666).timeout
 		$attack_box/right.set_deferred("disabled", true)
-		rotation += (PI/2)
+		$Shaft.hide()
+		no_angle_change = false
+		$Shaft.position.x = 0
+		$Shaft.rotation = 0
 		$attack_box.position = Vector2(12,0)
 		#print("Up")
 		_delay()
@@ -85,8 +124,16 @@ func _physics_process(_delta: float) -> void:
 	#attack down
 	if Input.is_action_pressed("Attack") and last_used == -2 and attack_delay == false:
 		attack_delay = true
-		rotation += (PI/2)
-		$attack_box.position = Vector2(79.5,0)
+		no_angle_change = true
+		$Shaft.show()
+		$Shaft.position.x -= 5
+		await get_tree().create_timer(.03333).timeout
+		$Shaft.rotation = deg_to_rad(-4.8)
+		$Shaft.position.x = 11
+		var tween = get_tree().create_tween()
+		tween.tween_property($Shaft,"rotation",deg_to_rad(4.8),.12495)
+		tween.tween_property($Shaft,"position:x",-3,.12495)
+		$attack_box.position = Vector2(67.5,0)
 		$attack_box/left.set_deferred("disabled", false)
 		await get_tree().create_timer(.1666).timeout
 		$attack_box/midle.set_deferred("disabled", false)
@@ -97,7 +144,10 @@ func _physics_process(_delta: float) -> void:
 		await get_tree().create_timer(.1666).timeout
 		$attack_box/right.set_deferred("disabled", true)
 		$attack_box.position = Vector2(12,0)
-		rotation -= (PI/2)
+		$Shaft.hide()
+		no_angle_change = false
+		$Shaft.position.x = 0
+		$Shaft.rotation = 0
 		#print("Down")
 		_delay()
 
