@@ -91,10 +91,10 @@ func _physics_process(delta: float) -> void:
 		Animated_Sprite.speed_scale = 0.5
 		Animated_Sprite.play("Dash")
 		await get_tree().create_timer(1).timeout
-		if Combined_Position > 100: #Dash, Positive
+		if Combined_Position > 200: #Dash, Positive
 			velocity.x = move_toward(velocity.x, -Speed*4,150)
 			Animated_Sprite.flip_h = true
-		if Combined_Position < -100: #Dash, Negative
+		if Combined_Position < -200: #Dash, Negative
 			velocity.x = move_toward(velocity.x, Speed*4, 150)
 			Animated_Sprite.flip_h = false
 	
@@ -104,6 +104,12 @@ func _physics_process(delta: float) -> void:
 		elif self.velocity.x < 0:
 			velocity.x = move_toward(velocity.x, -Speed, 5)
 	
+	
+	if Health <= 0:
+		#Animated_Sprite.speed_scale = 1
+		#Animated_Sprite.play("Death")
+		#await get_tree().create_timer(1).timeout
+		self.queue_free()
 	move_and_slide()
 
 

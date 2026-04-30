@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://d32wbehu67eys"]
+[gd_scene load_steps=28 format=3 uid="uid://d32wbehu67eys"]
 
 [ext_resource type="Script" uid="uid://dljf1t0xrj8sx" path="res://Scenes/Entities/giant_fox.gd" id="1_hbkeb"]
 [ext_resource type="PackedScene" uid="uid://dcmw2s3k5ngm4" path="res://Scenes/Utility/health_manager.tscn" id="2_m661j"]
@@ -81,6 +81,10 @@ region = Rect2(625, 625, 625, 625)
 atlas = ExtResource("3_gyv3k")
 region = Rect2(1250, 625, 625, 625)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_mo7he"]
+atlas = ExtResource("3_gyv3k")
+region = Rect2(0, 0, 625, 625)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_3xm5o"]
 animations = [{
 "frames": [{
@@ -121,7 +125,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"Death",
-"speed": 5.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -148,6 +152,14 @@ animations = [{
 "loop": false,
 "name": &"Run",
 "speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mo7he")
+}],
+"loop": false,
+"name": &"Starting",
+"speed": 5.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_774bn"]
@@ -178,11 +190,12 @@ scale = Vector2(7.459999, 2.5)
 shape = SubResource("CapsuleShape2D_m661j")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
-modulate = Color(0, 1, 0, 1)
+z_index = 3
 position = Vector2(1.73294, 0.972228)
 scale = Vector2(0.438, 0.397)
 sprite_frames = SubResource("SpriteFrames_3xm5o")
-animation = &"Run"
+animation = &"Death"
+autoplay = "Starting"
 
 [node name="AlertingArea" type="Area2D" parent="."]
 scale = Vector2(2, 2)
