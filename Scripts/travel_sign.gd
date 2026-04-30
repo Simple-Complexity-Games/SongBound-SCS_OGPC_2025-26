@@ -22,6 +22,6 @@ func _on_area_2d_body_exited(_body: Node2D) -> void:
 	is_in_area = false
 	$Notification.hide()
 	get_parent().get_node("CanvasLayer").Hide_Text()
-	await get_tree().create_timer(.001).timeout
+	await get_tree().create_timer(.002).timeout
 	GameManager.pos_x = position.x
 	GameManager.pos_y = position.y
