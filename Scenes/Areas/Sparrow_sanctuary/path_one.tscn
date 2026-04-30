@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://c2rq8qrx2isq"]
+[gd_scene load_steps=22 format=4 uid="uid://c2rq8qrx2isq"]
 
 [ext_resource type="Texture2D" uid="uid://ctkmi7csnsqo7" path="res://Assets/Art/Sprites/Avythera_Sparrow_Sanctuary (4) (1).png" id="1_mhavc"]
 [ext_resource type="Texture2D" uid="uid://dhgsdwmg2j1x7" path="res://Assets/Art/Sprites/Avythera_Sparrow_Sanctuary (3) (1).png" id="2_hyt5w"]
@@ -15,7 +15,6 @@
 [ext_resource type="AudioStream" uid="uid://dwjsu5tmdglmt" path="res://Assets/Sound/Music/Adventuring_Music.wav" id="13_jrika"]
 [ext_resource type="Texture2D" uid="uid://bj3jav3awka52" path="res://Assets/Art/Environment/Background/SKY.png" id="14_bgkpi"]
 [ext_resource type="Texture2D" uid="uid://c4xs3ph87t5de" path="res://Assets/Art/Sprites/Avythera_Mailbox.png" id="15_b5tfy"]
-[ext_resource type="PackedScene" uid="uid://d32wbehu67eys" path="res://Scenes/Entities/Giant_Fox.tscn" id="16_cscmn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kykf2"]
 texture = ExtResource("7_c1sg1")
@@ -329,9 +328,6 @@ z_index = -1
 position = Vector2(698.99994, 25)
 scale = Vector2(0.02762504, 0.028595645)
 texture = ExtResource("15_b5tfy")
-
-[node name="GiantFox" parent="." instance=ExtResource("16_cscmn")]
-position = Vector2(639, 16.999998)
 
 [connection signal="done_printing" from="CanvasLayer/Dialog_Handler/Dialog_Box/Main_Textbox" to="Dialog_Trigger" method="_on_main_textbox_done_printing"]
 [connection signal="done_printing" from="CanvasLayer/Dialog_Handler/Dialog_Box/Main_Textbox" to="Dialog_Trigger2" method="_on_main_textbox_done_printing"]

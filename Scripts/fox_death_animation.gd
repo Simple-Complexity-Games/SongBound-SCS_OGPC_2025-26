@@ -4,7 +4,6 @@ extends Node2D
 
 func _ready() -> void:
 	Animated_Sprite.play("Death")
-	print("SPAWNED")
 
 func _on_sprite_2d_animation_finished() -> void:
 	self.queue_free()
