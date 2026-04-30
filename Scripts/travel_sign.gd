@@ -9,6 +9,8 @@ var is_in_area = false
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("Up") and is_in_area == true:
+		GameManager.pos_x = connected_sign_pos_x
+		GameManager.pos_y = connected_sign_pos_y
 		get_tree().change_scene_to_file(travel_sign.get(0))
 
 func _on_area_2d_body_entered(_body: Node2D) -> void:
