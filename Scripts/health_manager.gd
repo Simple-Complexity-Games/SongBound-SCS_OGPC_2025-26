@@ -30,7 +30,7 @@ func Damage(value):
 			if current_health <= 0:
 				GameManager.TrueHealth = 20
 				get_tree().reload_current_scene()
-		if not get_parent().name == "Player" and current_health <= 0:
+		if not get_parent().name in ["Player", "Fox", "GiantFox"] and current_health <= 0:
 			get_parent().queue_free()
 		_delay()
 

@@ -15,6 +15,8 @@ var Retreat = false
 var RetreatBackward #How much they move backward from Retreat ability
 var Health = 180
 
+var death_animation_node = preload("res://Scenes/Entities/Spawnable_Objects/fox_death_animation.tscn")
+
 @onready var ray_right: RayCast2D = $RayRight #Both Rays used for idle state
 @onready var ray_left: RayCast2D = $RayLeft
 @onready var Animated_Sprite: AnimatedSprite2D = $Sprite2D
@@ -117,6 +119,9 @@ func _physics_process(delta: float) -> void:
 		#print(Animated_Sprite.speed_scale)
 		#Animated_Sprite.play("Death")
 		#await get_tree().create_timer(0.9).timeout
+		var instance = death_animation_node.instantiate()
+		get_parent().add_child(instance)
+		instance.position = self.position
 		self.queue_free()
 	move_and_slide()
 
