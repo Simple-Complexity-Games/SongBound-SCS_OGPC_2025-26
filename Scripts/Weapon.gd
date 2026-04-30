@@ -47,7 +47,7 @@ func _physics_process(_delta: float) -> void:
 		$Shaft.position.x = 11
 		var tween = get_tree().create_tween()
 		tween.tween_property($Shaft,"rotation",deg_to_rad(4.8),.2)
-		tween.tween_property($Shaft,"position:x",-3,.2)
+		tween.tween_property($Shaft,"position:x",-15,.2)
 		$attack_box.position.x = 67.5
 		$attack_box/left.set_deferred("disabled", false)
 		await get_tree().create_timer(0.2/3).timeout
@@ -78,16 +78,16 @@ func _physics_process(_delta: float) -> void:
 		$Shaft.position.x = 11
 		var tween = get_tree().create_tween()
 		tween.tween_property($Shaft,"rotation",deg_to_rad(-4.8),.12495)
-		tween.tween_property($Shaft,"position:x",3,.12495)
+		tween.tween_property($Shaft,"position:x",-15,.2)
 		$attack_box.position.x = 67.5
 		$attack_box/right.set_deferred("disabled", false)
-		await get_tree().create_timer(.1666).timeout
+		await get_tree().create_timer(0.2/3).timeout
 		$attack_box/midle.set_deferred("disabled", false)
 		$attack_box/right.set_deferred("disabled", true)
-		await get_tree().create_timer(.1666).timeout
+		await get_tree().create_timer(0.2/3).timeout
 		$attack_box/left.set_deferred("disabled", false)
 		$attack_box/midle.set_deferred("disabled", true)
-		await get_tree().create_timer(.1666).timeout
+		await get_tree().create_timer(0.2/3).timeout
 		$attack_box/left.set_deferred("disabled", true)
 		$Shaft.hide()
 		no_angle_change = false
@@ -109,15 +109,15 @@ func _physics_process(_delta: float) -> void:
 		$Shaft.position.x = 11
 		var tween = get_tree().create_tween()
 		tween.tween_property($Shaft,"rotation",deg_to_rad(4.8),.12495)
-		tween.tween_property($Shaft,"position:x",-3,.12495)
+		tween.tween_property($Shaft,"position:x",-15,.2)
 		$attack_box/left.set_deferred("disabled", false)
-		await get_tree().create_timer(.1666).timeout
+		await get_tree().create_timer(0.2/3).timeout
 		$attack_box/midle.set_deferred("disabled", false)
 		$attack_box/left.set_deferred("disabled", true)
-		await get_tree().create_timer(.1666).timeout
+		await get_tree().create_timer(0.2/3).timeout
 		$attack_box/right.set_deferred("disabled", false)
 		$attack_box/midle.set_deferred("disabled", true)
-		await get_tree().create_timer(.1666).timeout
+		await get_tree().create_timer(0.2/3).timeout
 		$attack_box/right.set_deferred("disabled", true)
 		$Shaft.hide()
 		no_angle_change = false
@@ -138,16 +138,16 @@ func _physics_process(_delta: float) -> void:
 		$Shaft.position.x = 11
 		var tween = get_tree().create_tween()
 		tween.tween_property($Shaft,"rotation",deg_to_rad(4.8),.12495)
-		tween.tween_property($Shaft,"position:x",-3,.12495)
+		tween.tween_property($Shaft,"position:x",-15,.2)
 		$attack_box.position = Vector2(67.5,0)
 		$attack_box/left.set_deferred("disabled", false)
-		await get_tree().create_timer(.1666).timeout
+		await get_tree().create_timer(0.2/3).timeout
 		$attack_box/midle.set_deferred("disabled", false)
 		$attack_box/left.set_deferred("disabled", true)
-		await get_tree().create_timer(.1666).timeout
+		await get_tree().create_timer(0.2/3).timeout
 		$attack_box/right.set_deferred("disabled", false)
 		$attack_box/midle.set_deferred("disabled", true)
-		await get_tree().create_timer(.1666).timeout
+		await get_tree().create_timer(0.2/3).timeout
 		$attack_box/right.set_deferred("disabled", true)
 		$attack_box.position = Vector2(12,0)
 		$Shaft.hide()
@@ -164,4 +164,4 @@ func _on_attack_box_body_exited(body: Node2D) -> void:
 			print("OVERKILL")
 		else:
 			body.get_node("Health_Manager").Damage(dmg)
-			print(dmg)
+			#print(dmg)

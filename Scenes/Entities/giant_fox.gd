@@ -110,10 +110,12 @@ func _physics_process(delta: float) -> void:
 	if Health <= 0:
 		#Animated_Sprite.speed_scale = 1
 		#Animated_Sprite.play("Death")
-		#await get_tree().create_timer(1).timeout
+		await get_tree().create_timer(0.2).timeout
 		var instance = death_animation_node.instantiate()
-		get_parent().add_child(instance)
 		instance.position = self.position
+		get_parent().add_child(instance)
+		if Animated_Sprite.flip_h == true:
+			instance.get_node("Sprite2D").flip_h = true
 		self.queue_free()
 	move_and_slide()
 

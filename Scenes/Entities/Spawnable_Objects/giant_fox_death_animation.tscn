@@ -94,10 +94,10 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 2.5,
 "texture": SubResource("AtlasTexture_4kglh")
 }, {
-"duration": 1.0,
+"duration": 1.5,
 "texture": SubResource("AtlasTexture_fqfpd")
 }, {
 "duration": 1.0,
@@ -117,7 +117,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"Death",
-"speed": 7.0
+"speed": 30.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -162,7 +162,7 @@ script = ExtResource("1_dcese")
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 z_index = 2
 position = Vector2(1.7329398, 0.972228)
-scale = Vector2(0.14798199, 0.133681)
+scale = Vector2(0.438, 0.397)
 sprite_frames = SubResource("SpriteFrames_gdo8c")
 animation = &"Death"
 autoplay = "Starting"
