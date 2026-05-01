@@ -156,6 +156,7 @@ build_mode = 1
 polygon = PackedVector2Array(187.003, -970.001, 187.00253, 693.9993, -593, 694, -593, -970)
 
 [node name="Camera2D" type="Camera2D" parent="."]
+physics_interpolation_mode = 1
 position = Vector2(916, 16)
 zoom = Vector2(3, 3)
 limit_left = -704
@@ -163,7 +164,6 @@ limit_top = -592
 limit_right = 960
 limit_bottom = 188
 limit_smoothed = true
-position_smoothing_enabled = true
 position_smoothing_speed = 70.0
 editor_draw_limits = true
 script = ExtResource("5_mu4do")

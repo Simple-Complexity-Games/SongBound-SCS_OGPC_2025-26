@@ -124,6 +124,8 @@ func _physics_process(delta: float) -> void:
 		get_parent().add_child(instance)
 		if Animated_Sprite.flip_h == true:
 			instance.get_node("Sprite2D").flip_h = true
+		print(instance)
+		print(instance.position, self.position)
 		self.queue_free()
 	move_and_slide()
 

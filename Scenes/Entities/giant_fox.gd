@@ -32,9 +32,9 @@ func _physics_process(delta: float) -> void:
 	#print(Health)
 	
 	if Dash:
-		dmg = 5
+		dmg = 3
 	elif !Dash:
-		dmg = 7
+		dmg = 5
 
 	if Health == 0:
 		slain.emit()
@@ -116,11 +116,14 @@ func _physics_process(delta: float) -> void:
 		get_parent().add_child(instance)
 		if Animated_Sprite.flip_h == true:
 			instance.get_node("Sprite2D").flip_h = true
+		print(instance)
+		print(instance.position, self.position)
 		self.queue_free()
 	move_and_slide()
 
 
 func _on_alerting_area_body_entered(_body: Node2D) -> void: #Player is in view
+	print("Giant Fox Alerted")
 	Alert = true
 	Chase = false
 func _on_alerting_area_body_exited(_body: Node2D) -> void: #Player is not in view
