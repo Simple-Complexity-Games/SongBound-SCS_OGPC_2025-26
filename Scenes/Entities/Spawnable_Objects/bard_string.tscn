@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bbb2ji3hkluq6"]
 
-[ext_resource type="Texture2D" uid="uid://b221tyuu01pvq" path="res://Assets/Art/Sprites/Song Spell System/Smaller Vibration Melody Strings.png" id="1_siqwn"]
+[ext_resource type="Texture2D" uid="uid://cpgsret4kt6k" path="res://Assets/Art/Sprites/Song Spell System/Smaller Vibration Melody Strings.png" id="1_siqwn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1i2tt"]
 atlas = ExtResource("1_siqwn")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwwonubgw3i8"
-path="res://.godot/imported/Gesture_Hold.png-8598a7b817861a0161045fde1c08f18b.ctex"
+uid="uid://b7ihwyyqnclh8"
+path="res://.godot/imported/Gesture_Hold.png-ae20c1858a5f9fec872217c01b069934.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Others/Gestures/Gesture_Hold.png"
-dest_files=["res://.godot/imported/Gesture_Hold.png-8598a7b817861a0161045fde1c08f18b.ctex"]
+source_file="res://assets/Art/Button_Icons/Others/Gestures/Gesture_Hold.png"
+dest_files=["res://.godot/imported/Gesture_Hold.png-ae20c1858a5f9fec872217c01b069934.ctex"]
 
 [params]
 

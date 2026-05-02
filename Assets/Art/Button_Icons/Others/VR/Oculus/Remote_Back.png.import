@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bn0i68vcta1on"
-path="res://.godot/imported/Remote_Back.png-528c5054cd75af05bd794552790c3dc5.ctex"
+uid="uid://cx6voo56r23su"
+path="res://.godot/imported/Remote_Back.png-bdcd10877ceb4376639c7dff8dbc6075.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Others/VR/Oculus/Remote_Back.png"
-dest_files=["res://.godot/imported/Remote_Back.png-528c5054cd75af05bd794552790c3dc5.ctex"]
+source_file="res://assets/Art/Button_Icons/Others/VR/Oculus/Remote_Back.png"
+dest_files=["res://.godot/imported/Remote_Back.png-bdcd10877ceb4376639c7dff8dbc6075.ctex"]
 
 [params]
 

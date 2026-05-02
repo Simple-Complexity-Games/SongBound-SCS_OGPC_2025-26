@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8mbkbr4w70yk"
-path="res://.godot/imported/SteamDeck_R5.png-218fbdd3ea5c47bb05e90993c0683e9c.ctex"
+uid="uid://camqkh2x6w3xc"
+path="res://.godot/imported/SteamDeck_R5.png-e6f8bc989cdfff6bac9c342124909dfb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Steam Deck/SteamDeck_R5.png"
-dest_files=["res://.godot/imported/SteamDeck_R5.png-218fbdd3ea5c47bb05e90993c0683e9c.ctex"]
+source_file="res://assets/Art/Button_Icons/Steam Deck/SteamDeck_R5.png"
+dest_files=["res://.godot/imported/SteamDeck_R5.png-e6f8bc989cdfff6bac9c342124909dfb.ctex"]
 
 [params]
 

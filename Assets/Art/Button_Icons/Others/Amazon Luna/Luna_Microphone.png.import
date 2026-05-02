@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmwoskrig0cu5"
-path="res://.godot/imported/Luna_Microphone.png-2cb95a87e2c646bcecc9de5a68ab79d5.ctex"
+uid="uid://cchptga85nx0y"
+path="res://.godot/imported/Luna_Microphone.png-0a20d2e979bbfcbe38f22eb7c361d3e4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Others/Amazon Luna/Luna_Microphone.png"
-dest_files=["res://.godot/imported/Luna_Microphone.png-2cb95a87e2c646bcecc9de5a68ab79d5.ctex"]
+source_file="res://assets/Art/Button_Icons/Others/Amazon Luna/Luna_Microphone.png"
+dest_files=["res://.godot/imported/Luna_Microphone.png-0a20d2e979bbfcbe38f22eb7c361d3e4.ctex"]
 
 [params]
 

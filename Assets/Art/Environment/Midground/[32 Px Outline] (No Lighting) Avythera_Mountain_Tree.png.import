@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b13mnu32vlol0"
-path="res://.godot/imported/[32 Px Outline] (No Lighting) Avythera_Mountain_Tree.png-7ec9fd574ea82c8d908a7ed525e793b5.ctex"
+uid="uid://551hy7r6jxjv"
+path="res://.godot/imported/[32 Px Outline] (No Lighting) Avythera_Mountain_Tree.png-58f8ca611dc775379dc3ad8611670fc6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Environment/Midground/[32 Px Outline] (No Lighting) Avythera_Mountain_Tree.png"
-dest_files=["res://.godot/imported/[32 Px Outline] (No Lighting) Avythera_Mountain_Tree.png-7ec9fd574ea82c8d908a7ed525e793b5.ctex"]
+source_file="res://assets/Art/Environment/Midground/[32 Px Outline] (No Lighting) Avythera_Mountain_Tree.png"
+dest_files=["res://.godot/imported/[32 Px Outline] (No Lighting) Avythera_Mountain_Tree.png-58f8ca611dc775379dc3ad8611670fc6.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://glm5hj46kg24"
-path="res://.godot/imported/Vita_Cross.png-1c7a14519838ce23509b6880dc6318e9.ctex"
+uid="uid://cg1vqbj48d06t"
+path="res://.godot/imported/Vita_Cross.png-34915c61a0c7baf90bb21f2672ba8472.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Others/PS Vita/Vita_Cross.png"
-dest_files=["res://.godot/imported/Vita_Cross.png-1c7a14519838ce23509b6880dc6318e9.ctex"]
+source_file="res://assets/Art/Button_Icons/Others/PS Vita/Vita_Cross.png"
+dest_files=["res://.godot/imported/Vita_Cross.png-34915c61a0c7baf90bb21f2672ba8472.ctex"]
 
 [params]
 

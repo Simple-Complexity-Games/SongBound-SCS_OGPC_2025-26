@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0m3eahyykrf5"
-path="res://.godot/imported/Avythera_Fox_DEATH.png-f7f76653f6e3d00fa5e76ba808e3714a.ctex"
+uid="uid://cjm23tky2iy8p"
+path="res://.godot/imported/Avythera_Fox_DEATH.png-a05b6c42819e189506a3c9d3c2a13d3b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Sprites/Avythera_Fox_DEATH.png"
-dest_files=["res://.godot/imported/Avythera_Fox_DEATH.png-f7f76653f6e3d00fa5e76ba808e3714a.ctex"]
+source_file="res://assets/Art/Sprites/Avythera_Fox_DEATH.png"
+dest_files=["res://.godot/imported/Avythera_Fox_DEATH.png-a05b6c42819e189506a3c9d3c2a13d3b.ctex"]
 
 [params]
 

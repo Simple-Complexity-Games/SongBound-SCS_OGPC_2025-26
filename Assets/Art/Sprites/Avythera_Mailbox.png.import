@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4xs3ph87t5de"
-path="res://.godot/imported/Avythera_Mailbox.png-5684c3b4da51fce7994fda09d8ba4241.ctex"
+uid="uid://bt1ae5h0v7yuf"
+path="res://.godot/imported/Avythera_Mailbox.png-8e99ed4c7f952e7c7b8cd92434c33cc5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Sprites/Avythera_Mailbox.png"
-dest_files=["res://.godot/imported/Avythera_Mailbox.png-5684c3b4da51fce7994fda09d8ba4241.ctex"]
+source_file="res://assets/Art/Sprites/Avythera_Mailbox.png"
+dest_files=["res://.godot/imported/Avythera_Mailbox.png-8e99ed4c7f952e7c7b8cd92434c33cc5.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d31u7kwmbdoaj"
-path="res://.godot/imported/360_Left_Stick_Click.png-2a0113e9acf164f7c3f53fc11a98868d.ctex"
+uid="uid://bqar27kvhw6qo"
+path="res://.godot/imported/360_Left_Stick_Click.png-acd00912c4232b651875b42f1dd38085.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Others/Xbox 360/360_Left_Stick_Click.png"
-dest_files=["res://.godot/imported/360_Left_Stick_Click.png-2a0113e9acf164f7c3f53fc11a98868d.ctex"]
+source_file="res://assets/Art/Button_Icons/Others/Xbox 360/360_Left_Stick_Click.png"
+dest_files=["res://.godot/imported/360_Left_Stick_Click.png-acd00912c4232b651875b42f1dd38085.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dk8o8siewco7j"
-path="res://.godot/imported/Steam_Y.png-51ea9d3fb6719964498e940adcdd580b.ctex"
+uid="uid://c5pd8vqwei5cn"
+path="res://.godot/imported/Steam_Y.png-b6d6ec04221dbb5a63a78779c72f7a31.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Others/Steam/Steam_Y.png"
-dest_files=["res://.godot/imported/Steam_Y.png-51ea9d3fb6719964498e940adcdd580b.ctex"]
+source_file="res://assets/Art/Button_Icons/Others/Steam/Steam_Y.png"
+dest_files=["res://.godot/imported/Steam_Y.png-b6d6ec04221dbb5a63a78779c72f7a31.ctex"]
 
 [params]
 

@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://c78rcyt2f010b"
-path="res://.godot/imported/DMG Sound 1.wav-539d37919237796d98af0c4590738c4e.sample"
+uid="uid://bl3r82aig3a13"
+path="res://.godot/imported/DMG Sound 1.wav-a494089f0f8dd19c4d6e5df860b2fb39.sample"
 
 [deps]
 
-source_file="res://Assets/Sound/SFX/DMG Sound 1.wav"
-dest_files=["res://.godot/imported/DMG Sound 1.wav-539d37919237796d98af0c4590738c4e.sample"]
+source_file="res://assets/Sound/SFX/DMG Sound 1.wav"
+dest_files=["res://.godot/imported/DMG Sound 1.wav-a494089f0f8dd19c4d6e5df860b2fb39.sample"]
 
 [params]
 

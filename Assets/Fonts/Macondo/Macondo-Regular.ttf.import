@@ -2,19 +2,19 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://bvhn1qdmm6q7i"
-path="res://.godot/imported/Macondo-Regular.ttf-98dad1de4f0f83275cd8e79b37a2f27d.fontdata"
+uid="uid://bn0wyk6g8rciv"
+path="res://.godot/imported/Macondo-Regular.ttf-49bad6e906fb2deb9e6701615dc198b2.fontdata"
 
 [deps]
 
-source_file="res://Assets/Fonts/Macondo/Macondo-Regular.ttf"
-dest_files=["res://.godot/imported/Macondo-Regular.ttf-98dad1de4f0f83275cd8e79b37a2f27d.fontdata"]
+source_file="res://assets/Fonts/Macondo/Macondo-Regular.ttf"
+dest_files=["res://.godot/imported/Macondo-Regular.ttf-49bad6e906fb2deb9e6701615dc198b2.fontdata"]
 
 [params]
 
 Rendering=null
 antialiasing=1
-generate_mipmaps=true
+generate_mipmaps=false
 disable_embedded_bitmaps=true
 multichannel_signed_distance_field=false
 msdf_pixel_range=8

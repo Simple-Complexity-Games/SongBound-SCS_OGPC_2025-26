@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dxjqtm0evcw1u"
-path="res://.godot/imported/Directional_Arrow_Vertical.png-003528ba5ce45b3e966d998be7cb384e.ctex"
+uid="uid://cf8u65c02y4u4"
+path="res://.godot/imported/Directional_Arrow_Vertical.png-2d9c45bd63f82204e93a4a9605bebdf7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Others/Arrows/Directional_Arrow_Vertical.png"
-dest_files=["res://.godot/imported/Directional_Arrow_Vertical.png-003528ba5ce45b3e966d998be7cb384e.ctex"]
+source_file="res://assets/Art/Button_Icons/Others/Arrows/Directional_Arrow_Vertical.png"
+dest_files=["res://.godot/imported/Directional_Arrow_Vertical.png-2d9c45bd63f82204e93a4a9605bebdf7.ctex"]
 
 [params]
 

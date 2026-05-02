@@ -116,8 +116,6 @@ func _physics_process(delta: float) -> void:
 		get_parent().add_child(instance)
 		if Animated_Sprite.flip_h == true:
 			instance.get_node("Sprite2D").flip_h = true
-		print(instance)
-		print(instance.position, self.position)
 		self.queue_free()
 	move_and_slide()
 
@@ -133,7 +131,8 @@ func _on_alerting_area_body_exited(_body: Node2D) -> void: #Player is not in vie
 
 
 func _on_timer_timeout() -> void: #three second timer
-	Alert = false
+	#Alert = false
+	pass
 
 
 func _on_dash_timer_timeout() -> void: #Dash Timer

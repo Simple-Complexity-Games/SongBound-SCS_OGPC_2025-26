@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://buhvkyov3jphd"
-path="res://.godot/imported/PS3_R1.png-261ad808235998c4bc4013392715c1a1.ctex"
+uid="uid://d2rht08ak1ukm"
+path="res://.godot/imported/PS3_R1.png-3481ac30a459119ba37fbcfe7acc032b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Others/PS3/PS3_R1.png"
-dest_files=["res://.godot/imported/PS3_R1.png-261ad808235998c4bc4013392715c1a1.ctex"]
+source_file="res://assets/Art/Button_Icons/Others/PS3/PS3_R1.png"
+dest_files=["res://.godot/imported/PS3_R1.png-3481ac30a459119ba37fbcfe7acc032b.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cbppphdgos5w6"
-path="res://.godot/imported/Directional_Arrow_Half_Circle.png-dfd7512af5426bef7a5a86407f52b13c.ctex"
+uid="uid://l0s11vp8tkle"
+path="res://.godot/imported/Directional_Arrow_Half_Circle.png-52812e73183a87a0a76124f486f7ea5e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Others/Arrows/Directional_Arrow_Half_Circle.png"
-dest_files=["res://.godot/imported/Directional_Arrow_Half_Circle.png-dfd7512af5426bef7a5a86407f52b13c.ctex"]
+source_file="res://assets/Art/Button_Icons/Others/Arrows/Directional_Arrow_Half_Circle.png"
+dest_files=["res://.godot/imported/Directional_Arrow_Half_Circle.png-52812e73183a87a0a76124f486f7ea5e.ctex"]
 
 [params]
 

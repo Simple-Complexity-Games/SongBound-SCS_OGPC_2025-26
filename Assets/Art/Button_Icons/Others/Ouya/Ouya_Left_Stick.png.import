@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5wif3e4crn4m"
-path="res://.godot/imported/Ouya_Left_Stick.png-7cb4d1731aa327d75176e8c238af182b.ctex"
+uid="uid://o637kc5php3s"
+path="res://.godot/imported/Ouya_Left_Stick.png-95629803dc9967d1931d40cb71ac5acf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Others/Ouya/Ouya_Left_Stick.png"
-dest_files=["res://.godot/imported/Ouya_Left_Stick.png-7cb4d1731aa327d75176e8c238af182b.ctex"]
+source_file="res://assets/Art/Button_Icons/Others/Ouya/Ouya_Left_Stick.png"
+dest_files=["res://.godot/imported/Ouya_Left_Stick.png-95629803dc9967d1931d40cb71ac5acf.ctex"]
 
 [params]
 

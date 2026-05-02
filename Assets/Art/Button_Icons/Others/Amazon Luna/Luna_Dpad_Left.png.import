@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cr7dmhpdwjt5h"
-path="res://.godot/imported/Luna_Dpad_Left.png-b324e80ddc07c58d7df0836ef498af4e.ctex"
+uid="uid://s1a4pcg2fphy"
+path="res://.godot/imported/Luna_Dpad_Left.png-bfacea4b99a2d61ed6c94a0e1a6fa222.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Others/Amazon Luna/Luna_Dpad_Left.png"
-dest_files=["res://.godot/imported/Luna_Dpad_Left.png-b324e80ddc07c58d7df0836ef498af4e.ctex"]
+source_file="res://assets/Art/Button_Icons/Others/Amazon Luna/Luna_Dpad_Left.png"
+dest_files=["res://.godot/imported/Luna_Dpad_Left.png-bfacea4b99a2d61ed6c94a0e1a6fa222.ctex"]
 
 [params]
 

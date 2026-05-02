@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dgxeyjrn3tjj1"
-path="res://.godot/imported/Luna_Y.png-dd870b0971cf70ad7c3f9331a36dd8e5.ctex"
+uid="uid://cta8271s0k5hj"
+path="res://.godot/imported/Luna_Y.png-b7c56f0f5551cd38c27fa42bc9a46e13.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Others/Amazon Luna/Luna_Y.png"
-dest_files=["res://.godot/imported/Luna_Y.png-dd870b0971cf70ad7c3f9331a36dd8e5.ctex"]
+source_file="res://assets/Art/Button_Icons/Others/Amazon Luna/Luna_Y.png"
+dest_files=["res://.godot/imported/Luna_Y.png-b7c56f0f5551cd38c27fa42bc9a46e13.ctex"]
 
 [params]
 

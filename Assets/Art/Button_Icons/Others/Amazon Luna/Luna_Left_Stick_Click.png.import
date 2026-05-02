@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxffbtvjgbfeg"
-path="res://.godot/imported/Luna_Left_Stick_Click.png-08e3d11cf50b6fde941fa438b9099cfa.ctex"
+uid="uid://c4luja0ik01n1"
+path="res://.godot/imported/Luna_Left_Stick_Click.png-b6ee28af7ac05fda75942481fb7380f2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Others/Amazon Luna/Luna_Left_Stick_Click.png"
-dest_files=["res://.godot/imported/Luna_Left_Stick_Click.png-08e3d11cf50b6fde941fa438b9099cfa.ctex"]
+source_file="res://assets/Art/Button_Icons/Others/Amazon Luna/Luna_Left_Stick_Click.png"
+dest_files=["res://.godot/imported/Luna_Left_Stick_Click.png-b6ee28af7ac05fda75942481fb7380f2.ctex"]
 
 [params]
 

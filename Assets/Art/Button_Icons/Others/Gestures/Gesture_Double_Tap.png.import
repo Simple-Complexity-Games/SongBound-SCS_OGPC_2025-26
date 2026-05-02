@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmvxwf3k4y66c"
-path="res://.godot/imported/Gesture_Double_Tap.png-7491d70da01599ee52f71404258b74cc.ctex"
+uid="uid://t8whb4sf7kfj"
+path="res://.godot/imported/Gesture_Double_Tap.png-67a23b8cd075b958cbfc7562a60cca5b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Others/Gestures/Gesture_Double_Tap.png"
-dest_files=["res://.godot/imported/Gesture_Double_Tap.png-7491d70da01599ee52f71404258b74cc.ctex"]
+source_file="res://assets/Art/Button_Icons/Others/Gestures/Gesture_Double_Tap.png"
+dest_files=["res://.godot/imported/Gesture_Double_Tap.png-67a23b8cd075b958cbfc7562a60cca5b.ctex"]
 
 [params]
 

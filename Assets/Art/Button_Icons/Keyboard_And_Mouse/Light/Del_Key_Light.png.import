@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cj25o5tygs2nk"
-path="res://.godot/imported/Del_Key_Light.png-f8f166e4f75210d0149b620939f5babc.ctex"
+uid="uid://cvwov20xy6qcg"
+path="res://.godot/imported/Del_Key_Light.png-eb11d3a5a4072cfd2ab114696c9cf909.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Keyboard_And_Mouse/Light/Del_Key_Light.png"
-dest_files=["res://.godot/imported/Del_Key_Light.png-f8f166e4f75210d0149b620939f5babc.ctex"]
+source_file="res://assets/Art/Button_Icons/Keyboard_And_Mouse/Light/Del_Key_Light.png"
+dest_files=["res://.godot/imported/Del_Key_Light.png-eb11d3a5a4072cfd2ab114696c9cf909.ctex"]
 
 [params]
 

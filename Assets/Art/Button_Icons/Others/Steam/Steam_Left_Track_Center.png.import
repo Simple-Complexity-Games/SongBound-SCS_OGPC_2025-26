@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6lvopcy4v0yh"
-path="res://.godot/imported/Steam_Left_Track_Center.png-e77109cffce4890dd0a990ab68fe80d6.ctex"
+uid="uid://cfwt5v6rk00f"
+path="res://.godot/imported/Steam_Left_Track_Center.png-e3fab60d2a471a06c380f360321111a4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Others/Steam/Steam_Left_Track_Center.png"
-dest_files=["res://.godot/imported/Steam_Left_Track_Center.png-e77109cffce4890dd0a990ab68fe80d6.ctex"]
+source_file="res://assets/Art/Button_Icons/Others/Steam/Steam_Left_Track_Center.png"
+dest_files=["res://.godot/imported/Steam_Left_Track_Center.png-e3fab60d2a471a06c380f360321111a4.ctex"]
 
 [params]
 

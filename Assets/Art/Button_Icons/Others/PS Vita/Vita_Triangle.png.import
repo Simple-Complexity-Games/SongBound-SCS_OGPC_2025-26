@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdlohng3syikt"
-path="res://.godot/imported/Vita_Triangle.png-1bf589c7105821b79f53a3fbb6937f96.ctex"
+uid="uid://82toldl7o1v7"
+path="res://.godot/imported/Vita_Triangle.png-e814f74966aa379917fc4a0bf7ba6275.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Others/PS Vita/Vita_Triangle.png"
-dest_files=["res://.godot/imported/Vita_Triangle.png-1bf589c7105821b79f53a3fbb6937f96.ctex"]
+source_file="res://assets/Art/Button_Icons/Others/PS Vita/Vita_Triangle.png"
+dest_files=["res://.godot/imported/Vita_Triangle.png-e814f74966aa379917fc4a0bf7ba6275.ctex"]
 
 [params]
 

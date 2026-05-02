@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c2djbfir1p3eu"
-path="res://.godot/imported/Steam_Tilt_Yaw.png-14b1ad47106f2307099560df9e00f49d.ctex"
+uid="uid://cq4j7oispf33h"
+path="res://.godot/imported/Steam_Tilt_Yaw.png-012285e2937f9dea4390f01d68a79caa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Others/Steam/Steam_Tilt_Yaw.png"
-dest_files=["res://.godot/imported/Steam_Tilt_Yaw.png-14b1ad47106f2307099560df9e00f49d.ctex"]
+source_file="res://assets/Art/Button_Icons/Others/Steam/Steam_Tilt_Yaw.png"
+dest_files=["res://.godot/imported/Steam_Tilt_Yaw.png-012285e2937f9dea4390f01d68a79caa.ctex"]
 
 [params]
 

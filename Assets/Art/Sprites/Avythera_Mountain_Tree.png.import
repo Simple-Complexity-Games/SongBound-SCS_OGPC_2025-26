@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dsnbe33rbmfvg"
-path="res://.godot/imported/Avythera_Mountain_Tree.png-be4a554b2a7d4fcb624300f4a43fdfcc.ctex"
+uid="uid://bjo8y4rt77i15"
+path="res://.godot/imported/Avythera_Mountain_Tree.png-8b7267900872ee9b66079a9c6706de08.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Sprites/Avythera_Mountain_Tree.png"
-dest_files=["res://.godot/imported/Avythera_Mountain_Tree.png-be4a554b2a7d4fcb624300f4a43fdfcc.ctex"]
+source_file="res://assets/Art/Sprites/Avythera_Mountain_Tree.png"
+dest_files=["res://.godot/imported/Avythera_Mountain_Tree.png-8b7267900872ee9b66079a9c6706de08.ctex"]
 
 [params]
 
@@ -23,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btjj38pogllol"
-path="res://.godot/imported/PS5_Microphone.png-84ca97228276bb6b1a7adae89e1dbe26.ctex"
+uid="uid://bkhyyu6er7dpn"
+path="res://.godot/imported/PS5_Microphone.png-09a251debb0022acf02ca4f048d25d69.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/PS5/PS5_Microphone.png"
-dest_files=["res://.godot/imported/PS5_Microphone.png-84ca97228276bb6b1a7adae89e1dbe26.ctex"]
+source_file="res://assets/Art/Button_Icons/PS5/PS5_Microphone.png"
+dest_files=["res://.godot/imported/PS5_Microphone.png-09a251debb0022acf02ca4f048d25d69.ctex"]
 
 [params]
 

@@ -67,9 +67,9 @@ extends Control
 
 #region ------File Path and File Name Definitions------
 # Button icon folder
-var button_icon_folder_path = "res://Assets/Art/Button_Icons/Keyboard_And_Mouse/Dark/"
+var button_icon_folder_path = "res://assets/Art/Button_Icons/Keyboard_And_Mouse/Dark/"
 # Unrecognized keybind texture paths
-var blank_button_icon_folder_path = "res://Assets/Art/Button_Icons/Keyboard_And_Mouse/Blanks/"
+var blank_button_icon_folder_path = "res://assets/Art/Button_Icons/Keyboard_And_Mouse/Blanks/"
 var blank_key_texture_name = "Blank_Black_Normal.png"
 var blank_mouse_texture_name = "Blank_Black_Mouse.png"
 #endregion
@@ -427,6 +427,11 @@ func _process(_delta) -> void:
 		action_hold_count = 8
 	
 	if Input.is_action_just_pressed("Escape"):
+		_on_window_mode_button_item_selected(Button_To_WindowMode_Index_Dict.find_key(DisplayServer.window_get_mode()))
+		if InputMap.action_get_events("ui_up").size() > 0:
+			Apply_Config(config)
+			InputMap.action_erase_events("ui_up")
+			InputMap.action_erase_events("ui_down")
 		if Options_Menu_Container.visible == false and Main_Menu_Container.visible == false:
 			Load_Options_Menu()
 		elif Options_Menu_Container.visible == true:
@@ -956,7 +961,7 @@ func Save_Window_Position(x = null, y = null):
 func Start_Game():
 	GameManager.pos_x = 650
 	GameManager.pos_y = 22
-	get_tree().change_scene_to_file("res://Scenes/Areas/Sparrow_Sanctuary/path_one.tscn")
+	get_tree().change_scene_to_file("res://scenes/areas/sparrow_sanctuary/path_one.tscn")
 
 func Load_Main_Menu():
 	Start_Button.grab_focus()

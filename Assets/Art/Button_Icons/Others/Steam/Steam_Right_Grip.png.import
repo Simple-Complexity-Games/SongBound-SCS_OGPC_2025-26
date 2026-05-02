@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bbcpqxsr7j2rc"
-path="res://.godot/imported/Steam_Right_Grip.png-d10f31d7839d315ddc37a043aea29212.ctex"
+uid="uid://dcccq6uv7ph2t"
+path="res://.godot/imported/Steam_Right_Grip.png-b85c3244f7dfa232d62179b423a7e259.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Others/Steam/Steam_Right_Grip.png"
-dest_files=["res://.godot/imported/Steam_Right_Grip.png-d10f31d7839d315ddc37a043aea29212.ctex"]
+source_file="res://assets/Art/Button_Icons/Others/Steam/Steam_Right_Grip.png"
+dest_files=["res://.godot/imported/Steam_Right_Grip.png-b85c3244f7dfa232d62179b423a7e259.ctex"]
 
 [params]
 

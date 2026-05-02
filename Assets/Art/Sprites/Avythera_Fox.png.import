@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6reo3osx2vaa"
-path="res://.godot/imported/Avythera_Fox.png-29fe3c19b81a9ef5125857003b2d468c.ctex"
+uid="uid://2v8vks2f3ey3"
+path="res://.godot/imported/Avythera_Fox.png-9188a64dd999053345b63311e328e82f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Sprites/Avythera_Fox.png"
-dest_files=["res://.godot/imported/Avythera_Fox.png-29fe3c19b81a9ef5125857003b2d468c.ctex"]
+source_file="res://assets/Art/Sprites/Avythera_Fox.png"
+dest_files=["res://.godot/imported/Avythera_Fox.png-9188a64dd999053345b63311e328e82f.ctex"]
 
 [params]
 

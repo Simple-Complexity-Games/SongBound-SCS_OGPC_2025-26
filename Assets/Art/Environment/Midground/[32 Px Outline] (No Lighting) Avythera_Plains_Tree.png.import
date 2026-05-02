@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjwywe8jbg7p7"
-path="res://.godot/imported/[32 Px Outline] (No Lighting) Avythera_Plains_Tree.png-adb0f951ad8d88879ce3ac51693e0596.ctex"
+uid="uid://ddqe0j02ihmyu"
+path="res://.godot/imported/[32 Px Outline] (No Lighting) Avythera_Plains_Tree.png-14faa87f799eb54cef2dc8e1ff4bea4b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Environment/Midground/[32 Px Outline] (No Lighting) Avythera_Plains_Tree.png"
-dest_files=["res://.godot/imported/[32 Px Outline] (No Lighting) Avythera_Plains_Tree.png-adb0f951ad8d88879ce3ac51693e0596.ctex"]
+source_file="res://assets/Art/Environment/Midground/[32 Px Outline] (No Lighting) Avythera_Plains_Tree.png"
+dest_files=["res://.godot/imported/[32 Px Outline] (No Lighting) Avythera_Plains_Tree.png-14faa87f799eb54cef2dc8e1ff4bea4b.ctex"]
 
 [params]
 

@@ -298,7 +298,7 @@ func Handle_Perch():
 		perching = true
 		Perch_Buffer_Over()
 		perch_coordinates = self.position
-		if print_debug: print("tweens started")
+		#if print_debug: print("tweens started")
 		perch_velocity_tween = create_tween().set_ease(Tween.EASE_OUT)
 		perch_velocity_tween.parallel().tween_property(self, "velocity:y", 0, PERCH_TWEEN_TIME)
 		perch_position_tween = create_tween().set_ease(Tween.EASE_OUT)

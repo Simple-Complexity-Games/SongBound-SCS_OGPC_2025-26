@@ -1,10 +1,10 @@
 [gd_scene load_steps=24 format=3 uid="uid://bdkged5clqdnl"]
 
-[ext_resource type="Script" uid="uid://csxtgnkd7vffc" path="res://Scripts/player.gd" id="1_nqm6o"]
-[ext_resource type="Texture2D" uid="uid://bodi6dugkpmii" path="res://Assets/Art/Sprites/Player.png" id="2_svftf"]
-[ext_resource type="PackedScene" uid="uid://dcmw2s3k5ngm4" path="res://Scenes/Utility/health_manager.tscn" id="3_qbyki"]
-[ext_resource type="PackedScene" uid="uid://coxgv1rfwx4ii" path="res://Scenes/Items/polearm.tscn" id="4_svftf"]
-[ext_resource type="AudioStream" uid="uid://p2tyegy2s727" path="res://Assets/Sound/SFX/Damage Sound 5 (1).wav" id="5_a1rq5"]
+[ext_resource type="Script" uid="uid://c3chm72fuuxcd" path="res://scripts/player.gd" id="1_nqm6o"]
+[ext_resource type="Texture2D" uid="uid://bnxp7q3w8b2fd" path="res://assets/Art/Sprites/Player.png" id="2_svftf"]
+[ext_resource type="PackedScene" uid="uid://dcmw2s3k5ngm4" path="res://scenes/Utility/health_manager.tscn" id="3_qbyki"]
+[ext_resource type="PackedScene" uid="uid://coxgv1rfwx4ii" path="res://scenes/Items/polearm.tscn" id="4_svftf"]
+[ext_resource type="AudioStream" uid="uid://nms2suil2n22" path="res://assets/Sound/SFX/Damage Sound 5 (1).wav" id="5_a1rq5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_svftf"]
 atlas = ExtResource("2_svftf")

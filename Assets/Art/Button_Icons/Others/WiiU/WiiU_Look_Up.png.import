@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://k1r75lb26cre"
-path="res://.godot/imported/WiiU_Look_Up.png-e9b4c72b04931969973e91f4f2f13d9b.ctex"
+uid="uid://chqm2ti08of87"
+path="res://.godot/imported/WiiU_Look_Up.png-74460b9516c991c2c01c2b1929deb30a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Others/WiiU/WiiU_Look_Up.png"
-dest_files=["res://.godot/imported/WiiU_Look_Up.png-e9b4c72b04931969973e91f4f2f13d9b.ctex"]
+source_file="res://assets/Art/Button_Icons/Others/WiiU/WiiU_Look_Up.png"
+dest_files=["res://.godot/imported/WiiU_Look_Up.png-74460b9516c991c2c01c2b1929deb30a.ctex"]
 
 [params]
 

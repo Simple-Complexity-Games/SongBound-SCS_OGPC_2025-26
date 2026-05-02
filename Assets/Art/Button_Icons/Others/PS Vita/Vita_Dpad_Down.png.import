@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dqp5lplg522t4"
-path="res://.godot/imported/Vita_Dpad_Down.png-fb6036f5e02833cdd812f327cd6b35fa.ctex"
+uid="uid://brqy5gfc0yruj"
+path="res://.godot/imported/Vita_Dpad_Down.png-91c7084c824f0a816d6f6c4bb927018f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Others/PS Vita/Vita_Dpad_Down.png"
-dest_files=["res://.godot/imported/Vita_Dpad_Down.png-fb6036f5e02833cdd812f327cd6b35fa.ctex"]
+source_file="res://assets/Art/Button_Icons/Others/PS Vita/Vita_Dpad_Down.png"
+dest_files=["res://.godot/imported/Vita_Dpad_Down.png-91c7084c824f0a816d6f6c4bb927018f.ctex"]
 
 [params]
 

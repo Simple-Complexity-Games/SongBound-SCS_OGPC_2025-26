@@ -19,7 +19,6 @@ func _delay():
 	attack_delay = false
 
 func _physics_process(_delta: float) -> void:
-	
 	if Input.is_action_pressed("Right"):
 		if no_angle_change == false:
 			last_used = 1
@@ -38,6 +37,11 @@ func _physics_process(_delta: float) -> void:
 			rotation = (PI/2)
 	#attack right
 	if Input.is_action_pressed("Attack") and last_used == 1 and attack_delay == false:
+		if randi_range(0, 2) == 2:
+			$Attack_SFX_Player_2.playing = true
+		else:
+			$Attack_SFX_Player_1.playing = true
+		
 		attack_delay = true
 		no_angle_change = true
 		$Shaft.show()
@@ -68,6 +72,11 @@ func _physics_process(_delta: float) -> void:
 		_delay()
 	
 	if Input.is_action_pressed("Attack") and last_used == 2 and attack_delay == false:
+		if randi_range(0, 2) == 2:
+			$Attack_SFX_Player_2.playing = true
+		else:
+			$Attack_SFX_Player_1.playing = true
+		
 		attack_delay = true
 		no_angle_change = true
 		$Shaft/Blade.flip_v = -1
@@ -99,6 +108,11 @@ func _physics_process(_delta: float) -> void:
 		_delay()
 	
 	if Input.is_action_pressed("Attack") and last_used == -1 and attack_delay == false:
+		if randi_range(0, 2) == 2:
+			$Attack_SFX_Player_2.playing = true
+		else:
+			$Attack_SFX_Player_1.playing = true
+		
 		attack_delay = true
 		no_angle_change = true
 		$attack_box.position = Vector2(67.5,0)
@@ -129,6 +143,11 @@ func _physics_process(_delta: float) -> void:
 		
 	#attack down
 	if Input.is_action_pressed("Attack") and last_used == -2 and attack_delay == false:
+		if randi_range(0, 2) == 2:
+			$Attack_SFX_Player_2.playing = true
+		else:
+			$Attack_SFX_Player_1.playing = true
+		
 		attack_delay = true
 		no_angle_change = true
 		$Shaft.show()

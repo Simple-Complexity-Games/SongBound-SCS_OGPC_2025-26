@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpmtmyldo1y47"
-path="res://.godot/imported/PS4_Right_Stick_Click.png-76e5db8816e5fd022fecadbdf3eea43d.ctex"
+uid="uid://b6r1sdiwnshf6"
+path="res://.godot/imported/PS4_Right_Stick_Click.png-3704e19378a88b507cadec2f5f3166c4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Others/PS4/PS4_Right_Stick_Click.png"
-dest_files=["res://.godot/imported/PS4_Right_Stick_Click.png-76e5db8816e5fd022fecadbdf3eea43d.ctex"]
+source_file="res://assets/Art/Button_Icons/Others/PS4/PS4_Right_Stick_Click.png"
+dest_files=["res://.godot/imported/PS4_Right_Stick_Click.png-3704e19378a88b507cadec2f5f3166c4.ctex"]
 
 [params]
 

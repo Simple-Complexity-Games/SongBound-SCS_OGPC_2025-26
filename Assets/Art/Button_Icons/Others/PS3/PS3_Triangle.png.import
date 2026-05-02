@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://byn3ojjga1y8j"
-path="res://.godot/imported/PS3_Triangle.png-f2a92f32e7f0ced3a9c00cebee114d64.ctex"
+uid="uid://pcpxu6bidh1a"
+path="res://.godot/imported/PS3_Triangle.png-fd1585fd6f401b4ba52caaeb1459c858.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Others/PS3/PS3_Triangle.png"
-dest_files=["res://.godot/imported/PS3_Triangle.png-f2a92f32e7f0ced3a9c00cebee114d64.ctex"]
+source_file="res://assets/Art/Button_Icons/Others/PS3/PS3_Triangle.png"
+dest_files=["res://.godot/imported/PS3_Triangle.png-fd1585fd6f401b4ba52caaeb1459c858.ctex"]
 
 [params]
 

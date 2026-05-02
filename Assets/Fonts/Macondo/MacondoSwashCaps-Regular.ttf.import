@@ -2,19 +2,19 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://cqj32sh3raorv"
-path="res://.godot/imported/MacondoSwashCaps-Regular.ttf-1ece8b63b3f66fc2954cb510c83642ba.fontdata"
+uid="uid://yt85a5co2kia"
+path="res://.godot/imported/MacondoSwashCaps-Regular.ttf-570922b3ed8bd471c86b15ea12fbc880.fontdata"
 
 [deps]
 
-source_file="res://Assets/Fonts/Macondo/MacondoSwashCaps-Regular.ttf"
-dest_files=["res://.godot/imported/MacondoSwashCaps-Regular.ttf-1ece8b63b3f66fc2954cb510c83642ba.fontdata"]
+source_file="res://assets/Fonts/Macondo/MacondoSwashCaps-Regular.ttf"
+dest_files=["res://.godot/imported/MacondoSwashCaps-Regular.ttf-570922b3ed8bd471c86b15ea12fbc880.fontdata"]
 
 [params]
 
 Rendering=null
 antialiasing=1
-generate_mipmaps=true
+generate_mipmaps=false
 disable_embedded_bitmaps=true
 multichannel_signed_distance_field=false
 msdf_pixel_range=8

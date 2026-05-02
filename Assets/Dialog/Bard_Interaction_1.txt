@@ -1,8 +1,9 @@
 Hello! You here for a song?|
+My name's arysigano, and I'm a traveling bard. I've got many a tale from my adventures...|
 ...|
-So your village is under attack? Well I've never heard of the vultures, but it sounds you're in quite some distress!|
+Hm.* So your village is under attack? Well I've never heard of the vultures, but it sounds you're in quite some distress!|
 I only know bards for the most part, so there's little I can help you with there. But why can you not fight them yourself?|
-You seem equipped, youthful, and strong! Surely they'll be no match for you.|
+You seem equipped, youthful, and strong!* Surely they'll be no match for you.|
 ...|
-Sounds like they're quite the threat, then. It would make a good tale... Well. How about this?|
+Sounds like they're quite the threat, then. It would make a good tale...* Well.* How about this?|
 I'm a bard, and can't fight much myself. But, I could help you make some allies.* In fact, maybe the swallows down the hill could help you out!* Just head in the direction of that old sign by the mailbox.|

@@ -1,10 +1,10 @@
 [gd_scene load_steps=28 format=3 uid="uid://d32wbehu67eys"]
 
-[ext_resource type="Script" uid="uid://dljf1t0xrj8sx" path="res://Scenes/Entities/giant_fox.gd" id="1_hbkeb"]
-[ext_resource type="PackedScene" uid="uid://dcmw2s3k5ngm4" path="res://Scenes/Utility/health_manager.tscn" id="2_m661j"]
-[ext_resource type="Texture2D" uid="uid://c6reo3osx2vaa" path="res://Assets/Art/Sprites/Avythera_Fox.png" id="3_gyv3k"]
-[ext_resource type="Texture2D" uid="uid://b0m3eahyykrf5" path="res://Assets/Art/Sprites/Avythera_Fox_DEATH.png" id="4_gyv3k"]
-[ext_resource type="AudioStream" uid="uid://hn5emoytmctv" path="res://Assets/Sound/SFX/Damage Sound 5.wav" id="4_m661j"]
+[ext_resource type="Script" uid="uid://smllyt2jqgiu" path="res://scenes/entities/giant_fox.gd" id="1_hbkeb"]
+[ext_resource type="PackedScene" uid="uid://dcmw2s3k5ngm4" path="res://scenes/Utility/health_manager.tscn" id="2_m661j"]
+[ext_resource type="Texture2D" uid="uid://2v8vks2f3ey3" path="res://assets/Art/Sprites/Avythera_Fox.png" id="3_gyv3k"]
+[ext_resource type="Texture2D" uid="uid://cjm23tky2iy8p" path="res://assets/Art/Sprites/Avythera_Fox_DEATH.png" id="4_gyv3k"]
+[ext_resource type="AudioStream" uid="uid://c52wm16a05flk" path="res://assets/Sound/SFX/Damage Sound 5.wav" id="4_m661j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hc2h3"]
 size = Vector2(351.79648, 97.3684)

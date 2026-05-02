@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://by1a2isxd0y4m"
-path="res://.godot/imported/WiiU_Dpad_Up.png-8236b8b86f61e013a684ab4b397085d4.ctex"
+uid="uid://g3fhfgtlyif3"
+path="res://.godot/imported/WiiU_Dpad_Up.png-7e1003b35f37f8e03bc51a030c25f3dd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Others/WiiU/WiiU_Dpad_Up.png"
-dest_files=["res://.godot/imported/WiiU_Dpad_Up.png-8236b8b86f61e013a684ab4b397085d4.ctex"]
+source_file="res://assets/Art/Button_Icons/Others/WiiU/WiiU_Dpad_Up.png"
+dest_files=["res://.godot/imported/WiiU_Dpad_Up.png-7e1003b35f37f8e03bc51a030c25f3dd.ctex"]
 
 [params]
 

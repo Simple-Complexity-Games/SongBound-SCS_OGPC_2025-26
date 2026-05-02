@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var travel_sign = {0 : "res://Scenes/Areas/world.tscn"}
+@export var travel_sign = {0 : "res://scenes/areas/world.tscn"}
 @export var sign_text = "World"
 @export var connected_sign_pos_x = 0
 @export var connected_sign_pos_y = 0

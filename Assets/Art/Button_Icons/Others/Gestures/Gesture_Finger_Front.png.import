@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wlf6t8erv3ul"
-path="res://.godot/imported/Gesture_Finger_Front.png-9943b964dc7c71e769acf82ca2ce2775.ctex"
+uid="uid://dysjkiwcpodp4"
+path="res://.godot/imported/Gesture_Finger_Front.png-a52357900a537a86d223610817a1dc9c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Others/Gestures/Gesture_Finger_Front.png"
-dest_files=["res://.godot/imported/Gesture_Finger_Front.png-9943b964dc7c71e769acf82ca2ce2775.ctex"]
+source_file="res://assets/Art/Button_Icons/Others/Gestures/Gesture_Finger_Front.png"
+dest_files=["res://.godot/imported/Gesture_Finger_Front.png-a52357900a537a86d223610817a1dc9c.ctex"]
 
 [params]
 

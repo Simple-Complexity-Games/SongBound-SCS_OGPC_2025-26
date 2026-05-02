@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ck32afuolebh7"
-path="res://.godot/imported/Del_Key_Dark.png-ef885a3914c01ab6f79aa1a34abd9e67.ctex"
+uid="uid://dxyj86n8v7gvi"
+path="res://.godot/imported/Del_Key_Dark.png-d046b12ed5004ad4754de470dc078ce0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Keyboard_And_Mouse/Dark/Del_Key_Dark.png"
-dest_files=["res://.godot/imported/Del_Key_Dark.png-ef885a3914c01ab6f79aa1a34abd9e67.ctex"]
+source_file="res://assets/Art/Button_Icons/Keyboard_And_Mouse/Dark/Del_Key_Dark.png"
+dest_files=["res://.godot/imported/Del_Key_Dark.png-d046b12ed5004ad4754de470dc078ce0.ctex"]
 
 [params]
 

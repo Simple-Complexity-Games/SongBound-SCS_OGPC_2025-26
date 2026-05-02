@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cpohwaqunrblr"
-path="res://.godot/imported/Stadia_Dpad_Right.png-b72b0d4f291d3b3b27ee21a340a75ac1.ctex"
+uid="uid://bfyti0sflmfvy"
+path="res://.godot/imported/Stadia_Dpad_Right.png-9d26e712aad8fe983db839836f14bcae.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Others/Google Stadia/Stadia_Dpad_Right.png"
-dest_files=["res://.godot/imported/Stadia_Dpad_Right.png-b72b0d4f291d3b3b27ee21a340a75ac1.ctex"]
+source_file="res://assets/Art/Button_Icons/Others/Google Stadia/Stadia_Dpad_Right.png"
+dest_files=["res://.godot/imported/Stadia_Dpad_Right.png-9d26e712aad8fe983db839836f14bcae.ctex"]
 
 [params]
 

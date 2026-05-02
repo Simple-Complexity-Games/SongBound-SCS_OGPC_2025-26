@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cornjst30aymf"]
 
-[ext_resource type="Script" uid="uid://dltd48sm6e1bk" path="res://Scripts/camera_2d.gd" id="1_owuy3"]
+[ext_resource type="Script" uid="uid://dsmuv2lxxjoxt" path="res://scripts/camera_2d.gd" id="1_owuy3"]
 
 [node name="Camera2D" type="Camera2D"]
 light_mask = 0

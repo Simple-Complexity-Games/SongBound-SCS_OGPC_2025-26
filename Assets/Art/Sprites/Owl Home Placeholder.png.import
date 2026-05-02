@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dqfmr8oisgyhm"
-path="res://.godot/imported/Owl Home Placeholder.png-33959ae587a3377e6cb23a25e09ae91d.ctex"
+uid="uid://rm42khl5v5je"
+path="res://.godot/imported/Owl Home Placeholder.png-ad2a2262a2f495b7aefd1609e95d0e45.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Sprites/Owl Home Placeholder.png"
-dest_files=["res://.godot/imported/Owl Home Placeholder.png-33959ae587a3377e6cb23a25e09ae91d.ctex"]
+source_file="res://assets/Art/Sprites/Owl Home Placeholder.png"
+dest_files=["res://.godot/imported/Owl Home Placeholder.png-ad2a2262a2f495b7aefd1609e95d0e45.ctex"]
 
 [params]
 

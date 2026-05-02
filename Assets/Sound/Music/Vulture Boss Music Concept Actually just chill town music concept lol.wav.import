@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://c624t28jwuwvw"
-path="res://.godot/imported/Vulture Boss Music Concept Actually just chill town music concept lol.wav-292e777960b129d8e388ec3009d64135.sample"
+uid="uid://dka3e2mucjn8t"
+path="res://.godot/imported/Vulture Boss Music Concept Actually just chill town music concept lol.wav-3f7dc1bb75b1d7cb8e22c898bb5940be.sample"
 
 [deps]
 
-source_file="res://Assets/Sound/Music/Vulture Boss Music Concept Actually just chill town music concept lol.wav"
-dest_files=["res://.godot/imported/Vulture Boss Music Concept Actually just chill town music concept lol.wav-292e777960b129d8e388ec3009d64135.sample"]
+source_file="res://assets/Sound/Music/Vulture Boss Music Concept Actually just chill town music concept lol.wav"
+dest_files=["res://.godot/imported/Vulture Boss Music Concept Actually just chill town music concept lol.wav-3f7dc1bb75b1d7cb8e22c898bb5940be.sample"]
 
 [params]
 

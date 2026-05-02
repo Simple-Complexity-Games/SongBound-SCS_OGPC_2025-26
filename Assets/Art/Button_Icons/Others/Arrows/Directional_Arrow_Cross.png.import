@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5kkay5t0l6gf"
-path="res://.godot/imported/Directional_Arrow_Cross.png-ca0113ccb2def55514f4d6bb469a616a.ctex"
+uid="uid://dy8ab66vlqlod"
+path="res://.godot/imported/Directional_Arrow_Cross.png-f850b418c5d1a81755d31e6c7ae63aea.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Others/Arrows/Directional_Arrow_Cross.png"
-dest_files=["res://.godot/imported/Directional_Arrow_Cross.png-ca0113ccb2def55514f4d6bb469a616a.ctex"]
+source_file="res://assets/Art/Button_Icons/Others/Arrows/Directional_Arrow_Cross.png"
+dest_files=["res://.godot/imported/Directional_Arrow_Cross.png-f850b418c5d1a81755d31e6c7ae63aea.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://r23xb3ntlx4t"
-path="res://.godot/imported/Mouse_Middle_Key_Light.png-bb5f7e015a49f0fde9da1b5fc1b06899.ctex"
+uid="uid://bwhu5n13gcmgi"
+path="res://.godot/imported/Mouse_Middle_Key_Light.png-91cb55326933d68b832231347585b1b6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Keyboard_And_Mouse/Light/Mouse_Middle_Key_Light.png"
-dest_files=["res://.godot/imported/Mouse_Middle_Key_Light.png-bb5f7e015a49f0fde9da1b5fc1b06899.ctex"]
+source_file="res://assets/Art/Button_Icons/Keyboard_And_Mouse/Light/Mouse_Middle_Key_Light.png"
+dest_files=["res://.godot/imported/Mouse_Middle_Key_Light.png-91cb55326933d68b832231347585b1b6.ctex"]
 
 [params]
 

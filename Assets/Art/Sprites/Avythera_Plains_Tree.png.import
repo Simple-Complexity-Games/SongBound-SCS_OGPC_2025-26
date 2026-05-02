@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2ugjn6om4qs"
-path="res://.godot/imported/Avythera_Plains_Tree.png-de2da9d166d8b29c1ed27f2ea32c5301.ctex"
+uid="uid://cff240w5se8fi"
+path="res://.godot/imported/Avythera_Plains_Tree.png-b6d8a34e081a69c1ebc4d980e318886c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Sprites/Avythera_Plains_Tree.png"
-dest_files=["res://.godot/imported/Avythera_Plains_Tree.png-de2da9d166d8b29c1ed27f2ea32c5301.ctex"]
+source_file="res://assets/Art/Sprites/Avythera_Plains_Tree.png"
+dest_files=["res://.godot/imported/Avythera_Plains_Tree.png-b6d8a34e081a69c1ebc4d980e318886c.ctex"]
 
 [params]
 
@@ -23,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""

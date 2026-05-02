@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dcvxc4sg045w4"
-path="res://.godot/imported/PS4_Dpad_Right.png-0dabb2e57b11cbfd2a5087d3c7c3a2b0.ctex"
+uid="uid://f4elnf20ctg4"
+path="res://.godot/imported/PS4_Dpad_Right.png-a75bdd55df7d70da001fbfd766117895.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Others/PS4/PS4_Dpad_Right.png"
-dest_files=["res://.godot/imported/PS4_Dpad_Right.png-0dabb2e57b11cbfd2a5087d3c7c3a2b0.ctex"]
+source_file="res://assets/Art/Button_Icons/Others/PS4/PS4_Dpad_Right.png"
+dest_files=["res://.godot/imported/PS4_Dpad_Right.png-a75bdd55df7d70da001fbfd766117895.ctex"]
 
 [params]
 

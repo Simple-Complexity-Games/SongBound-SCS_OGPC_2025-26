@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b71w0lyekhnpv"
-path="res://.godot/imported/XboxOne_RT.png-dac38a0fd068fe3396ffd7125a2d3d4e.ctex"
+uid="uid://c87qmq2ii23wa"
+path="res://.godot/imported/XboxOne_RT.png-0683666b55f3111d561a3dee95f51fb2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Others/Xbox One/XboxOne_RT.png"
-dest_files=["res://.godot/imported/XboxOne_RT.png-dac38a0fd068fe3396ffd7125a2d3d4e.ctex"]
+source_file="res://assets/Art/Button_Icons/Others/Xbox One/XboxOne_RT.png"
+dest_files=["res://.godot/imported/XboxOne_RT.png-0683666b55f3111d561a3dee95f51fb2.ctex"]
 
 [params]
 

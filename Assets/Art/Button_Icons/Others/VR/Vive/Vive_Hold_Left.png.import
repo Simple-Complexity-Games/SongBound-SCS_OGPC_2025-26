@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbey0f5mo4isx"
-path="res://.godot/imported/Vive_Hold_Left.png-94a0c11f85be8d05299abfe3127cb359.ctex"
+uid="uid://c1g6kp510dpbd"
+path="res://.godot/imported/Vive_Hold_Left.png-9ac312d0199dd5f837cb1e9767278820.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Others/VR/Vive/Vive_Hold_Left.png"
-dest_files=["res://.godot/imported/Vive_Hold_Left.png-94a0c11f85be8d05299abfe3127cb359.ctex"]
+source_file="res://assets/Art/Button_Icons/Others/VR/Vive/Vive_Hold_Left.png"
+dest_files=["res://.godot/imported/Vive_Hold_Left.png-9ac312d0199dd5f837cb1e9767278820.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5r83y4k4avta"
-path="res://.godot/imported/Switch_Dpad_Up.png-a2aafec0c2b89ad4f6e5442f2f56b2ee.ctex"
+uid="uid://dkhq1e8gu8wr5"
+path="res://.godot/imported/Switch_Dpad_Up.png-60a8e0650bbed4540d2bfea78b1b1dac.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Switch/Switch_Dpad_Up.png"
-dest_files=["res://.godot/imported/Switch_Dpad_Up.png-a2aafec0c2b89ad4f6e5442f2f56b2ee.ctex"]
+source_file="res://assets/Art/Button_Icons/Switch/Switch_Dpad_Up.png"
+dest_files=["res://.godot/imported/Switch_Dpad_Up.png-60a8e0650bbed4540d2bfea78b1b1dac.ctex"]
 
 [params]
 

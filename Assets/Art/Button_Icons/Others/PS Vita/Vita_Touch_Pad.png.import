@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bwjflfpr1u1v1"
-path="res://.godot/imported/Vita_Touch_Pad.png-455d50a4c68900fa3f11744b68443141.ctex"
+uid="uid://d2yeoebigg3pj"
+path="res://.godot/imported/Vita_Touch_Pad.png-57bf39a28fe84a635752888487f3d0e0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Others/PS Vita/Vita_Touch_Pad.png"
-dest_files=["res://.godot/imported/Vita_Touch_Pad.png-455d50a4c68900fa3f11744b68443141.ctex"]
+source_file="res://assets/Art/Button_Icons/Others/PS Vita/Vita_Touch_Pad.png"
+dest_files=["res://.godot/imported/Vita_Touch_Pad.png-57bf39a28fe84a635752888487f3d0e0.ctex"]
 
 [params]
 

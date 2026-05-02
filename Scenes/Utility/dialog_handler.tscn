@@ -1,10 +1,10 @@
 [gd_scene load_steps=12 format=3 uid="uid://c8xav3q6wf8ar"]
 
-[ext_resource type="Script" uid="uid://dsn8ntkfwvr5y" path="res://Scripts/textbox.gd" id="1_1ohis"]
-[ext_resource type="FontFile" uid="uid://bvhn1qdmm6q7i" path="res://Assets/Fonts/Macondo/Macondo-Regular.ttf" id="1_igijl"]
-[ext_resource type="Texture2D" uid="uid://c6r4fv54mx5nv" path="res://Assets/Art/Sprites/icon.svg" id="2_igijl"]
-[ext_resource type="AudioStream" uid="uid://bhe7lcpnuo6q4" path="res://Assets/Sound/SFX/typing_blip.wav" id="3_34cjt"]
-[ext_resource type="Texture2D" uid="uid://dvhn8jdb8swlh" path="res://Assets/Art/Sprites/Avythera Textbox.png" id="3_sq72s"]
+[ext_resource type="Script" uid="uid://bww72usdtpqb4" path="res://scripts/textbox.gd" id="1_1ohis"]
+[ext_resource type="FontFile" uid="uid://bn0wyk6g8rciv" path="res://assets/Fonts/Macondo/Macondo-Regular.ttf" id="1_igijl"]
+[ext_resource type="Texture2D" uid="uid://fsrbc5cukqa3" path="res://assets/Art/Sprites/icon.svg" id="2_igijl"]
+[ext_resource type="AudioStream" uid="uid://fx54hhhgk6el" path="res://assets/Sound/SFX/typing_blip.wav" id="3_34cjt"]
+[ext_resource type="Texture2D" uid="uid://djt5o4rxpqx3t" path="res://assets/Art/Sprites/Avythera Textbox.png" id="3_sq72s"]
 
 [sub_resource type="Theme" id="Theme_34cjt"]
 default_font = ExtResource("1_igijl")
@@ -104,3 +104,4 @@ sprite_frames = SubResource("SpriteFrames_lvjv6")
 
 [node name="Audio_Player" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_34cjt")
+volume_db = -4.0

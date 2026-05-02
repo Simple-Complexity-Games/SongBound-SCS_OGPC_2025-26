@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0ldm4qi736xo"
-path="res://.godot/imported/Controller_Disconnected.png-8532bcd707fc3d6f4f883f01e40f2d2e.ctex"
+uid="uid://dcv7pjoy14325"
+path="res://.godot/imported/Controller_Disconnected.png-aec82c5d9c8c4aa6c4714c40ddd59d70.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Others/Controller_Disconnected.png"
-dest_files=["res://.godot/imported/Controller_Disconnected.png-8532bcd707fc3d6f4f883f01e40f2d2e.ctex"]
+source_file="res://assets/Art/Button_Icons/Others/Controller_Disconnected.png"
+dest_files=["res://.godot/imported/Controller_Disconnected.png-aec82c5d9c8c4aa6c4714c40ddd59d70.ctex"]
 
 [params]
 

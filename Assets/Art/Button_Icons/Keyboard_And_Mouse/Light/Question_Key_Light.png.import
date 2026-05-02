@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhc1542lpkqe1"
-path="res://.godot/imported/Question_Key_Light.png-7a8d072d48d752c12f070a655a041deb.ctex"
+uid="uid://cu3c46s2p3buy"
+path="res://.godot/imported/Question_Key_Light.png-9668d1340f4a408a7cee4aa7cd7ff15f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Keyboard_And_Mouse/Light/Question_Key_Light.png"
-dest_files=["res://.godot/imported/Question_Key_Light.png-7a8d072d48d752c12f070a655a041deb.ctex"]
+source_file="res://assets/Art/Button_Icons/Keyboard_And_Mouse/Light/Question_Key_Light.png"
+dest_files=["res://.godot/imported/Question_Key_Light.png-9668d1340f4a408a7cee4aa7cd7ff15f.ctex"]
 
 [params]
 

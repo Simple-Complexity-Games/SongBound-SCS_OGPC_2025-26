@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmw2sfm1qbwr1"
-path="res://.godot/imported/Ouya_R1.png-4fea4d7fbc1dbf9d712bb84d8b1fbaf1.ctex"
+uid="uid://bbvidec071f0w"
+path="res://.godot/imported/Ouya_R1.png-f065d0c4cc1f40c8828de6e554eb1e4a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Others/Ouya/Ouya_R1.png"
-dest_files=["res://.godot/imported/Ouya_R1.png-4fea4d7fbc1dbf9d712bb84d8b1fbaf1.ctex"]
+source_file="res://assets/Art/Button_Icons/Others/Ouya/Ouya_R1.png"
+dest_files=["res://.godot/imported/Ouya_R1.png-f065d0c4cc1f40c8828de6e554eb1e4a.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqdvme4gv8pyh"
-path="res://.godot/imported/PS4_R2.png-a750b17c64ee0cc8d8453667049d32ad.ctex"
+uid="uid://dhgfodhgbm2x4"
+path="res://.godot/imported/PS4_R2.png-46c2e52cf67fae052c820cce40c9f535.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Others/PS4/PS4_R2.png"
-dest_files=["res://.godot/imported/PS4_R2.png-a750b17c64ee0cc8d8453667049d32ad.ctex"]
+source_file="res://assets/Art/Button_Icons/Others/PS4/PS4_R2.png"
+dest_files=["res://.godot/imported/PS4_R2.png-46c2e52cf67fae052c820cce40c9f535.ctex"]
 
 [params]
 

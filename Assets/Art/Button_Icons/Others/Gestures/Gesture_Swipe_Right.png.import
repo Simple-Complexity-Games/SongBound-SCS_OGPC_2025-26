@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://k201ikttywh6"
-path="res://.godot/imported/Gesture_Swipe_Right.png-000bb7c2a55b72effa0f748045aac857.ctex"
+uid="uid://bums3togj0jtd"
+path="res://.godot/imported/Gesture_Swipe_Right.png-251496d9992cc76d8f58654f1502e204.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Others/Gestures/Gesture_Swipe_Right.png"
-dest_files=["res://.godot/imported/Gesture_Swipe_Right.png-000bb7c2a55b72effa0f748045aac857.ctex"]
+source_file="res://assets/Art/Button_Icons/Others/Gestures/Gesture_Swipe_Right.png"
+dest_files=["res://.godot/imported/Gesture_Swipe_Right.png-251496d9992cc76d8f58654f1502e204.ctex"]
 
 [params]
 

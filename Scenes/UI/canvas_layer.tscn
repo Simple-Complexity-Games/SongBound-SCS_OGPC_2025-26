@@ -1,8 +1,8 @@
 [gd_scene load_steps=27 format=3 uid="uid://dihy0istq3alv"]
 
-[ext_resource type="FontFile" uid="uid://bvhn1qdmm6q7i" path="res://Assets/Fonts/Macondo/Macondo-Regular.ttf" id="1_lft5s"]
-[ext_resource type="Script" uid="uid://bdhjuldhui8qa" path="res://Scripts/canvas_layer.gd" id="1_w6mh2"]
-[ext_resource type="Texture2D" uid="uid://sdg5bod2m3c2" path="res://Assets/Art/Sprites/feather sprite sheet.png" id="3_fvidj"]
+[ext_resource type="FontFile" uid="uid://bn0wyk6g8rciv" path="res://assets/Fonts/Macondo/Macondo-Regular.ttf" id="1_lft5s"]
+[ext_resource type="Script" uid="uid://bqcm8xadkouab" path="res://scripts/canvas_layer.gd" id="1_w6mh2"]
+[ext_resource type="Texture2D" uid="uid://02bgwij50kmn" path="res://assets/Art/Sprites/feather sprite sheet.png" id="3_fvidj"]
 
 [sub_resource type="FontVariation" id="FontVariation_w6mh2"]
 base_font = ExtResource("1_lft5s")

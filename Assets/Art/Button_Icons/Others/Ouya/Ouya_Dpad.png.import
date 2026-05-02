@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bj57ox10kueu8"
-path="res://.godot/imported/Ouya_Dpad.png-d31d6b553e19eb7018e46e7299e3602a.ctex"
+uid="uid://b5dv1u67jnavb"
+path="res://.godot/imported/Ouya_Dpad.png-c166c8bbf09734cb88a5fbabaa6e669d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Others/Ouya/Ouya_Dpad.png"
-dest_files=["res://.godot/imported/Ouya_Dpad.png-d31d6b553e19eb7018e46e7299e3602a.ctex"]
+source_file="res://assets/Art/Button_Icons/Others/Ouya/Ouya_Dpad.png"
+dest_files=["res://.godot/imported/Ouya_Dpad.png-c166c8bbf09734cb88a5fbabaa6e669d.ctex"]
 
 [params]
 

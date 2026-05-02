@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c70hadgutho41"
-path="res://.godot/imported/PS5_Right_Stick.png-4b8dd334178e4ef0372600b5b9e873b5.ctex"
+uid="uid://u70u0foyue8j"
+path="res://.godot/imported/PS5_Right_Stick.png-e2ad80b39dee5c6a6a27c0a9a04adde1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/PS5/PS5_Right_Stick.png"
-dest_files=["res://.godot/imported/PS5_Right_Stick.png-4b8dd334178e4ef0372600b5b9e873b5.ctex"]
+source_file="res://assets/Art/Button_Icons/PS5/PS5_Right_Stick.png"
+dest_files=["res://.godot/imported/PS5_Right_Stick.png-e2ad80b39dee5c6a6a27c0a9a04adde1.ctex"]
 
 [params]
 

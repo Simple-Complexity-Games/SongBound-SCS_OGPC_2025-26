@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bbxp1ticwx3qr"
-path="res://.godot/imported/F7_Key_Dark.png-7b5f6b4a4c9f69ffd5b93ae460873e78.ctex"
+uid="uid://qdkysx6eb87x"
+path="res://.godot/imported/F7_Key_Dark.png-1a7602c071b592a96f2d9a1cd4e14283.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Keyboard_And_Mouse/Dark/F7_Key_Dark.png"
-dest_files=["res://.godot/imported/F7_Key_Dark.png-7b5f6b4a4c9f69ffd5b93ae460873e78.ctex"]
+source_file="res://assets/Art/Button_Icons/Keyboard_And_Mouse/Dark/F7_Key_Dark.png"
+dest_files=["res://.godot/imported/F7_Key_Dark.png-1a7602c071b592a96f2d9a1cd4e14283.ctex"]
 
 [params]
 

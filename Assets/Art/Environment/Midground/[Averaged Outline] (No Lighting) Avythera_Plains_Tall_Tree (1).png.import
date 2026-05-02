@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bj7aiywx237qf"
-path="res://.godot/imported/[Averaged Outline] (No Lighting) Avythera_Plains_Tall_Tree (1).png-54611dab077e850ecce1392281f6c69f.ctex"
+uid="uid://dceeolwl1t2ug"
+path="res://.godot/imported/[Averaged Outline] (No Lighting) Avythera_Plains_Tall_Tree (1).png-19799e8b36fcccc287aac67b125a9c9d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Environment/Midground/[Averaged Outline] (No Lighting) Avythera_Plains_Tall_Tree (1).png"
-dest_files=["res://.godot/imported/[Averaged Outline] (No Lighting) Avythera_Plains_Tall_Tree (1).png-54611dab077e850ecce1392281f6c69f.ctex"]
+source_file="res://assets/Art/Environment/Midground/[Averaged Outline] (No Lighting) Avythera_Plains_Tall_Tree (1).png"
+dest_files=["res://.godot/imported/[Averaged Outline] (No Lighting) Avythera_Plains_Tall_Tree (1).png-19799e8b36fcccc287aac67b125a9c9d.ctex"]
 
 [params]
 

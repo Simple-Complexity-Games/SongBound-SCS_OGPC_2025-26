@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhx67vj5gk0lf"
-path="res://.godot/imported/Avythera_Ferret.png-b7debf08069fb2fc686f7cc792d28ed2.ctex"
+uid="uid://df1f4hnbbg1vi"
+path="res://.godot/imported/Avythera_Ferret.png-477eac35a51f6786281e294d65575c19.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Sprites/Avythera_Ferret.png"
-dest_files=["res://.godot/imported/Avythera_Ferret.png-b7debf08069fb2fc686f7cc792d28ed2.ctex"]
+source_file="res://assets/Art/Sprites/Avythera_Ferret.png"
+dest_files=["res://.godot/imported/Avythera_Ferret.png-477eac35a51f6786281e294d65575c19.ctex"]
 
 [params]
 

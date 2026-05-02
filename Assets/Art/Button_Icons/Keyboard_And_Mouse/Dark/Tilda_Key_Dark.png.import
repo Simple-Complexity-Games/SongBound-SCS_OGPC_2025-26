@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dw62ld3u7wyna"
-path="res://.godot/imported/Tilda_Key_Dark.png-50e8a341a5b29a2436e62502581deec5.ctex"
+uid="uid://6ks8mkqrd0lk"
+path="res://.godot/imported/Tilda_Key_Dark.png-c045f8cb5bd82c030ca732553800970b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Keyboard_And_Mouse/Dark/Tilda_Key_Dark.png"
-dest_files=["res://.godot/imported/Tilda_Key_Dark.png-50e8a341a5b29a2436e62502581deec5.ctex"]
+source_file="res://assets/Art/Button_Icons/Keyboard_And_Mouse/Dark/Tilda_Key_Dark.png"
+dest_files=["res://.godot/imported/Tilda_Key_Dark.png-c045f8cb5bd82c030ca732553800970b.ctex"]
 
 [params]
 

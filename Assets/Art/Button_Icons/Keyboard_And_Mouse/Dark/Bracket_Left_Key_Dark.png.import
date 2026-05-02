@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cy7owcx6dshe8"
-path="res://.godot/imported/Bracket_Left_Key_Dark.png-e6eed36d0d80b3ec9ffecad01596e54a.ctex"
+uid="uid://bcsv5cv6jqcko"
+path="res://.godot/imported/Bracket_Left_Key_Dark.png-7ba7da48134fa409f353332a00eb95ad.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Keyboard_And_Mouse/Dark/Bracket_Left_Key_Dark.png"
-dest_files=["res://.godot/imported/Bracket_Left_Key_Dark.png-e6eed36d0d80b3ec9ffecad01596e54a.ctex"]
+source_file="res://assets/Art/Button_Icons/Keyboard_And_Mouse/Dark/Bracket_Left_Key_Dark.png"
+dest_files=["res://.godot/imported/Bracket_Left_Key_Dark.png-7ba7da48134fa409f353332a00eb95ad.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdbtpfjlgh8iy"
-path="res://.godot/imported/F3_Key_Dark.png-4dddf38a50c7282a4268bea31d9aed83.ctex"
+uid="uid://bos40c0sc6mxw"
+path="res://.godot/imported/F3_Key_Dark.png-980c9b42fa298d043c1128286173d359.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Keyboard_And_Mouse/Dark/F3_Key_Dark.png"
-dest_files=["res://.godot/imported/F3_Key_Dark.png-4dddf38a50c7282a4268bea31d9aed83.ctex"]
+source_file="res://assets/Art/Button_Icons/Keyboard_And_Mouse/Dark/F3_Key_Dark.png"
+dest_files=["res://.godot/imported/F3_Key_Dark.png-980c9b42fa298d043c1128286173d359.ctex"]
 
 [params]
 

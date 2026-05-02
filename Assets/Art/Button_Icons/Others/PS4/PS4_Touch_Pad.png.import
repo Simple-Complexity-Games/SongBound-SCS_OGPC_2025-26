@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3am7q7201icm"
-path="res://.godot/imported/PS4_Touch_Pad.png-1f3431669b3dd6d71322ebae59992863.ctex"
+uid="uid://jph8mftsuyqi"
+path="res://.godot/imported/PS4_Touch_Pad.png-f82a4ffcf58f010a00c22fd7391134d8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Others/PS4/PS4_Touch_Pad.png"
-dest_files=["res://.godot/imported/PS4_Touch_Pad.png-1f3431669b3dd6d71322ebae59992863.ctex"]
+source_file="res://assets/Art/Button_Icons/Others/PS4/PS4_Touch_Pad.png"
+dest_files=["res://.godot/imported/PS4_Touch_Pad.png-f82a4ffcf58f010a00c22fd7391134d8.ctex"]
 
 [params]
 

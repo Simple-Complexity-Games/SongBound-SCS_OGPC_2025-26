@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvhn8jdb8swlh"
-path="res://.godot/imported/Avythera Textbox.png-24efad48d2e0510b49bb7b16ec4248a3.ctex"
+uid="uid://djt5o4rxpqx3t"
+path="res://.godot/imported/Avythera Textbox.png-082410036c7570b34908715ea59d8d0c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Sprites/Avythera Textbox.png"
-dest_files=["res://.godot/imported/Avythera Textbox.png-24efad48d2e0510b49bb7b16ec4248a3.ctex"]
+source_file="res://assets/Art/Sprites/Avythera Textbox.png"
+dest_files=["res://.godot/imported/Avythera Textbox.png-082410036c7570b34908715ea59d8d0c.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7vrg5j441ofg"
-path="res://.godot/imported/SteamDeck_Power.png-368aabb01c91322f17f05bca5e4cb44b.ctex"
+uid="uid://cb6f3g6of88nd"
+path="res://.godot/imported/SteamDeck_Power.png-01ee46573c804982b695207f279d985e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Steam Deck/SteamDeck_Power.png"
-dest_files=["res://.godot/imported/SteamDeck_Power.png-368aabb01c91322f17f05bca5e4cb44b.ctex"]
+source_file="res://assets/Art/Button_Icons/Steam Deck/SteamDeck_Power.png"
+dest_files=["res://.godot/imported/SteamDeck_Power.png-01ee46573c804982b695207f279d985e.ctex"]
 
 [params]
 

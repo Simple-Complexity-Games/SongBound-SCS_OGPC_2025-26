@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jnrfwtohcldd"
-path="res://.godot/imported/PSMove_RT.png-ce3b62d9c2b79f592928cc9606ed1040.ctex"
+uid="uid://df1pkw4bq5wce"
+path="res://.godot/imported/PSMove_RT.png-b577864a73a0d03a043ef75f80321f21.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Others/PS Move/PSMove_RT.png"
-dest_files=["res://.godot/imported/PSMove_RT.png-ce3b62d9c2b79f592928cc9606ed1040.ctex"]
+source_file="res://assets/Art/Button_Icons/Others/PS Move/PSMove_RT.png"
+dest_files=["res://.godot/imported/PSMove_RT.png-b577864a73a0d03a043ef75f80321f21.ctex"]
 
 [params]
 

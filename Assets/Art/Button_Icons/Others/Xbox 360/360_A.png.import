@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dk4pg2yxova2f"
-path="res://.godot/imported/360_A.png-b13496cdde9d0adbf41c65ca2641ced4.ctex"
+uid="uid://do5gg7m8468hw"
+path="res://.godot/imported/360_A.png-de97c9d9636887bf28a55698385d0dc8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Others/Xbox 360/360_A.png"
-dest_files=["res://.godot/imported/360_A.png-b13496cdde9d0adbf41c65ca2641ced4.ctex"]
+source_file="res://assets/Art/Button_Icons/Others/Xbox 360/360_A.png"
+dest_files=["res://.godot/imported/360_A.png-de97c9d9636887bf28a55698385d0dc8.ctex"]
 
 [params]
 

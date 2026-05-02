@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b221tyuu01pvq"
-path="res://.godot/imported/Smaller Vibration Melody Strings.png-0f6803b72a78ce7ae51f62e5e84b074d.ctex"
+uid="uid://cpgsret4kt6k"
+path="res://.godot/imported/Smaller Vibration Melody Strings.png-2f9e91e9fabeb751022638691f7494c4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Sprites/Song Spell System/Smaller Vibration Melody Strings.png"
-dest_files=["res://.godot/imported/Smaller Vibration Melody Strings.png-0f6803b72a78ce7ae51f62e5e84b074d.ctex"]
+source_file="res://assets/Art/Sprites/Song Spell System/Smaller Vibration Melody Strings.png"
+dest_files=["res://.godot/imported/Smaller Vibration Melody Strings.png-2f9e91e9fabeb751022638691f7494c4.ctex"]
 
 [params]
 

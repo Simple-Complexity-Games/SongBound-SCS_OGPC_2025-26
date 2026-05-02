@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dnggx21sjf6p2"
-path="res://.godot/imported/PS4_Left_Stick.png-582400f024af7b54a64fdc2174fc76e9.ctex"
+uid="uid://dm7ov4ow7gv5a"
+path="res://.godot/imported/PS4_Left_Stick.png-ba6453b36d401510686d00ec2b67aec1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Others/PS4/PS4_Left_Stick.png"
-dest_files=["res://.godot/imported/PS4_Left_Stick.png-582400f024af7b54a64fdc2174fc76e9.ctex"]
+source_file="res://assets/Art/Button_Icons/Others/PS4/PS4_Left_Stick.png"
+dest_files=["res://.godot/imported/PS4_Left_Stick.png-ba6453b36d401510686d00ec2b67aec1.ctex"]
 
 [params]
 

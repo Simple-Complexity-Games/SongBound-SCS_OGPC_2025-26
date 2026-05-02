@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0v2vrm246v55"
-path="res://.godot/imported/Positional_Prompts_Right.png-4ec33982461345bdde33a6d346f0b967.ctex"
+uid="uid://bsbe7uplrftkc"
+path="res://.godot/imported/Positional_Prompts_Right.png-57ab55cac55ffcb95c2c22da8e5957be.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Others/Positional Prompts/Positional_Prompts_Right.png"
-dest_files=["res://.godot/imported/Positional_Prompts_Right.png-4ec33982461345bdde33a6d346f0b967.ctex"]
+source_file="res://assets/Art/Button_Icons/Others/Positional Prompts/Positional_Prompts_Right.png"
+dest_files=["res://.godot/imported/Positional_Prompts_Right.png-57ab55cac55ffcb95c2c22da8e5957be.ctex"]
 
 [params]
 

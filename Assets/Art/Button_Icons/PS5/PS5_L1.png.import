@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bbov7cicpur1h"
-path="res://.godot/imported/PS5_L1.png-fa2006c7561663500b98a6b233ab05c7.ctex"
+uid="uid://bmiq3ppxk4eoc"
+path="res://.godot/imported/PS5_L1.png-f572caae459551c83c4b58f29a6d5529.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/PS5/PS5_L1.png"
-dest_files=["res://.godot/imported/PS5_L1.png-fa2006c7561663500b98a6b233ab05c7.ctex"]
+source_file="res://assets/Art/Button_Icons/PS5/PS5_L1.png"
+dest_files=["res://.godot/imported/PS5_L1.png-f572caae459551c83c4b58f29a6d5529.ctex"]
 
 [params]
 

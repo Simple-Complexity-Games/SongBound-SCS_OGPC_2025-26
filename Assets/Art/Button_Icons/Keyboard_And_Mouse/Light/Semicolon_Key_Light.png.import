@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdab7ksu8oy6"
-path="res://.godot/imported/Semicolon_Key_Light.png-889c751f0df4d2ba6f37d316ddffb476.ctex"
+uid="uid://bve501xpddie0"
+path="res://.godot/imported/Semicolon_Key_Light.png-9f3e441c6e6d34b1d6b0075f442b9b4c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Keyboard_And_Mouse/Light/Semicolon_Key_Light.png"
-dest_files=["res://.godot/imported/Semicolon_Key_Light.png-889c751f0df4d2ba6f37d316ddffb476.ctex"]
+source_file="res://assets/Art/Button_Icons/Keyboard_And_Mouse/Light/Semicolon_Key_Light.png"
+dest_files=["res://.godot/imported/Semicolon_Key_Light.png-9f3e441c6e6d34b1d6b0075f442b9b4c.ctex"]
 
 [params]
 

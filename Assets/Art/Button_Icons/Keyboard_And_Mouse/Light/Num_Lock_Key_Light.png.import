@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bo36bvjytrl6l"
-path="res://.godot/imported/Num_Lock_Key_Light.png-6ffab35c9a973eee9d0f657694181526.ctex"
+uid="uid://bdvg2iag7tqs7"
+path="res://.godot/imported/Num_Lock_Key_Light.png-c6e28f59b4ab6564f1f7bf5a395c9abf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Keyboard_And_Mouse/Light/Num_Lock_Key_Light.png"
-dest_files=["res://.godot/imported/Num_Lock_Key_Light.png-6ffab35c9a973eee9d0f657694181526.ctex"]
+source_file="res://assets/Art/Button_Icons/Keyboard_And_Mouse/Light/Num_Lock_Key_Light.png"
+dest_files=["res://.godot/imported/Num_Lock_Key_Light.png-c6e28f59b4ab6564f1f7bf5a395c9abf.ctex"]
 
 [params]
 

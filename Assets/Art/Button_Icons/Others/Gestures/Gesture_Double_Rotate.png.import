@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dnpepsbp0ouib"
-path="res://.godot/imported/Gesture_Double_Rotate.png-68b59318d229d34baaddd683778b2c2f.ctex"
+uid="uid://b75k6p47p3b45"
+path="res://.godot/imported/Gesture_Double_Rotate.png-d1837399a104aea64ada952fcfc93178.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Others/Gestures/Gesture_Double_Rotate.png"
-dest_files=["res://.godot/imported/Gesture_Double_Rotate.png-68b59318d229d34baaddd683778b2c2f.ctex"]
+source_file="res://assets/Art/Button_Icons/Others/Gestures/Gesture_Double_Rotate.png"
+dest_files=["res://.godot/imported/Gesture_Double_Rotate.png-d1837399a104aea64ada952fcfc93178.ctex"]
 
 [params]
 

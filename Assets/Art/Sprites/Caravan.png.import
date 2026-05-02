@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://8ydaoyd111dk"
-path="res://.godot/imported/Caravan.png-5fde9df644b505dc67c4f679e8db88dd.ctex"
+uid="uid://dixh8e1fmm6e4"
+path="res://.godot/imported/Caravan.png-0ae9f3d7f2535a1fa9f1cf0848dcab98.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Sprites/Caravan.png"
-dest_files=["res://.godot/imported/Caravan.png-5fde9df644b505dc67c4f679e8db88dd.ctex"]
+source_file="res://assets/Art/Sprites/Caravan.png"
+dest_files=["res://.godot/imported/Caravan.png-0ae9f3d7f2535a1fa9f1cf0848dcab98.ctex"]
 
 [params]
 

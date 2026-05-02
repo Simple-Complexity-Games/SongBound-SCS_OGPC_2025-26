@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cyo4meqtmd4an"
-path="res://.godot/imported/Vive_Controllers.png-7e268d859408e2d524af4b03427fdba5.ctex"
+uid="uid://b6f8hham0flv3"
+path="res://.godot/imported/Vive_Controllers.png-2ed2908f33fd1a979666d306cd0cee06.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Others/VR/Vive/Vive_Controllers.png"
-dest_files=["res://.godot/imported/Vive_Controllers.png-7e268d859408e2d524af4b03427fdba5.ctex"]
+source_file="res://assets/Art/Button_Icons/Others/VR/Vive/Vive_Controllers.png"
+dest_files=["res://.godot/imported/Vive_Controllers.png-2ed2908f33fd1a979666d306cd0cee06.ctex"]
 
 [params]
 

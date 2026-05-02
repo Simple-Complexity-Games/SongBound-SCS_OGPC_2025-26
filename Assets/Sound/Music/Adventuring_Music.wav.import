@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://dwjsu5tmdglmt"
-path="res://.godot/imported/Adventuring_Music.wav-dacdba97466546e1ca8cf82b4c5bf793.sample"
+uid="uid://q6bo4wi17tfh"
+path="res://.godot/imported/Adventuring_Music.wav-bbbfd152f9c396e43f22b5ed0f579c2d.sample"
 
 [deps]
 
-source_file="res://Assets/Sound/Music/Adventuring_Music.wav"
-dest_files=["res://.godot/imported/Adventuring_Music.wav-dacdba97466546e1ca8cf82b4c5bf793.sample"]
+source_file="res://assets/Sound/Music/Adventuring_Music.wav"
+dest_files=["res://.godot/imported/Adventuring_Music.wav-bbbfd152f9c396e43f22b5ed0f579c2d.sample"]
 
 [params]
 
@@ -18,7 +18,7 @@ force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
 edit/normalize=false
-edit/loop_mode=2
+edit/loop_mode=0
 edit/loop_begin=0
 edit/loop_end=-1
 compress/mode=2

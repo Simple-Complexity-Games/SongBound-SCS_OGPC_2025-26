@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqfnyjw22dij5"
-path="res://.godot/imported/Vita_Minus.png-b05e0d1c7fd5ecb58814e702f28ee39f.ctex"
+uid="uid://b1maniaix4e0q"
+path="res://.godot/imported/Vita_Minus.png-39cce2fc19e3020810ef219d7737292c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Others/PS Vita/Vita_Minus.png"
-dest_files=["res://.godot/imported/Vita_Minus.png-b05e0d1c7fd5ecb58814e702f28ee39f.ctex"]
+source_file="res://assets/Art/Button_Icons/Others/PS Vita/Vita_Minus.png"
+dest_files=["res://.godot/imported/Vita_Minus.png-39cce2fc19e3020810ef219d7737292c.ctex"]
 
 [params]
 

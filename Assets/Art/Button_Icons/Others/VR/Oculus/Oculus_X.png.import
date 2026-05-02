@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wlltblmjdkar"
-path="res://.godot/imported/Oculus_X.png-e9d6134f5c3b43a583a1977cf2061559.ctex"
+uid="uid://db05gh3uw04mm"
+path="res://.godot/imported/Oculus_X.png-a5859246f287a63e7edbdd3b6d47b534.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Others/VR/Oculus/Oculus_X.png"
-dest_files=["res://.godot/imported/Oculus_X.png-e9d6134f5c3b43a583a1977cf2061559.ctex"]
+source_file="res://assets/Art/Button_Icons/Others/VR/Oculus/Oculus_X.png"
+dest_files=["res://.godot/imported/Oculus_X.png-a5859246f287a63e7edbdd3b6d47b534.ctex"]
 
 [params]
 

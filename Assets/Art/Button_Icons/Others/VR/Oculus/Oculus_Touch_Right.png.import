@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cpalgn2ccra4m"
-path="res://.godot/imported/Oculus_Touch_Right.png-9180e50b06102721d71bf20b7eae7dfc.ctex"
+uid="uid://de8awpgdqr87g"
+path="res://.godot/imported/Oculus_Touch_Right.png-f945ed80713fdcb89eb9edbe67e27cb2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Others/VR/Oculus/Oculus_Touch_Right.png"
-dest_files=["res://.godot/imported/Oculus_Touch_Right.png-9180e50b06102721d71bf20b7eae7dfc.ctex"]
+source_file="res://assets/Art/Button_Icons/Others/VR/Oculus/Oculus_Touch_Right.png"
+dest_files=["res://.godot/imported/Oculus_Touch_Right.png-f945ed80713fdcb89eb9edbe67e27cb2.ctex"]
 
 [params]
 

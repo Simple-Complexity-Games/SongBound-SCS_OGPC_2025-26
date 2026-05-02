@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bjo82mhqvffqs"
-path="res://.godot/imported/PS3_Dpad_Right.png-81ca796d17c5d3accdd51678842ac857.ctex"
+uid="uid://662sjq3m2jal"
+path="res://.godot/imported/PS3_Dpad_Right.png-39df55f39734aa0c6b9011b539d3f74d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Others/PS3/PS3_Dpad_Right.png"
-dest_files=["res://.godot/imported/PS3_Dpad_Right.png-81ca796d17c5d3accdd51678842ac857.ctex"]
+source_file="res://assets/Art/Button_Icons/Others/PS3/PS3_Dpad_Right.png"
+dest_files=["res://.godot/imported/PS3_Dpad_Right.png-39df55f39734aa0c6b9011b539d3f74d.ctex"]
 
 [params]
 

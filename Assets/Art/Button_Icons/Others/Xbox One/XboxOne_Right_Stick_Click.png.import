@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2g038lw2amlq"
-path="res://.godot/imported/XboxOne_Right_Stick_Click.png-b415d1a6539ed19c4a4eb2c8bc2e5aa1.ctex"
+uid="uid://m81t67uxjfqc"
+path="res://.godot/imported/XboxOne_Right_Stick_Click.png-f0fc242d73e7340f21d314cea66edf37.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Others/Xbox One/XboxOne_Right_Stick_Click.png"
-dest_files=["res://.godot/imported/XboxOne_Right_Stick_Click.png-b415d1a6539ed19c4a4eb2c8bc2e5aa1.ctex"]
+source_file="res://assets/Art/Button_Icons/Others/Xbox One/XboxOne_Right_Stick_Click.png"
+dest_files=["res://.godot/imported/XboxOne_Right_Stick_Click.png-f0fc242d73e7340f21d314cea66edf37.ctex"]
 
 [params]
 

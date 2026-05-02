@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://boo760e6vw4op"
-path="res://.godot/imported/Luna_Circle.png-22290452dc8a7848018c41c9d769b74e.ctex"
+uid="uid://b4ymegjrren52"
+path="res://.godot/imported/Luna_Circle.png-3f52e67dc6cf5ae45bf187bde4f5045c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Others/Amazon Luna/Luna_Circle.png"
-dest_files=["res://.godot/imported/Luna_Circle.png-22290452dc8a7848018c41c9d769b74e.ctex"]
+source_file="res://assets/Art/Button_Icons/Others/Amazon Luna/Luna_Circle.png"
+dest_files=["res://.godot/imported/Luna_Circle.png-3f52e67dc6cf5ae45bf187bde4f5045c.ctex"]
 
 [params]
 

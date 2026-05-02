@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cubgmly0s6sxp"
-path="res://.godot/imported/Tileset (6).png-0e1767f86f642a730bbc2e9699e3f85b.ctex"
+uid="uid://b3sc717rhmqqp"
+path="res://.godot/imported/Tileset (6).png-495d314f358d0e3762bad2fff2cf04b8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Sprites/Tileset (6).png"
-dest_files=["res://.godot/imported/Tileset (6).png-0e1767f86f642a730bbc2e9699e3f85b.ctex"]
+source_file="res://assets/Art/Sprites/Tileset (6).png"
+dest_files=["res://.godot/imported/Tileset (6).png-495d314f358d0e3762bad2fff2cf04b8.ctex"]
 
 [params]
 
@@ -23,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""

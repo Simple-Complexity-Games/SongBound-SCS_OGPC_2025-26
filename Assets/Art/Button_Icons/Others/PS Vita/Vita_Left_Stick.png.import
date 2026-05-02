@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6m0rpk6e8q8k"
-path="res://.godot/imported/Vita_Left_Stick.png-1eef4aea84a1fe43295027da63ad56ca.ctex"
+uid="uid://bfnc6klchaydd"
+path="res://.godot/imported/Vita_Left_Stick.png-ccbe0c1aaf12996402f9af2218acdf55.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Others/PS Vita/Vita_Left_Stick.png"
-dest_files=["res://.godot/imported/Vita_Left_Stick.png-1eef4aea84a1fe43295027da63ad56ca.ctex"]
+source_file="res://assets/Art/Button_Icons/Others/PS Vita/Vita_Left_Stick.png"
+dest_files=["res://.godot/imported/Vita_Left_Stick.png-ccbe0c1aaf12996402f9af2218acdf55.ctex"]
 
 [params]
 

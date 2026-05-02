@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://cfxwyyfxxepaa"
-path="res://.godot/imported/Vulture Boss Music Concept With Better Orchestration _ Accompaniment.wav-999b6635046fad86c39a8fd1121c63d6.sample"
+uid="uid://oi6qe1lwf0kn"
+path="res://.godot/imported/Vulture Boss Music Concept With Better Orchestration _ Accompaniment.wav-341dc53bc702fd7a7336385107cbe8e3.sample"
 
 [deps]
 
-source_file="res://Assets/Sound/Music/Vulture Boss Music Concept With Better Orchestration _ Accompaniment.wav"
-dest_files=["res://.godot/imported/Vulture Boss Music Concept With Better Orchestration _ Accompaniment.wav-999b6635046fad86c39a8fd1121c63d6.sample"]
+source_file="res://assets/Sound/Music/Vulture Boss Music Concept With Better Orchestration _ Accompaniment.wav"
+dest_files=["res://.godot/imported/Vulture Boss Music Concept With Better Orchestration _ Accompaniment.wav-341dc53bc702fd7a7336385107cbe8e3.sample"]
 
 [params]
 

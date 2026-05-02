@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwh6jjfwcergm"
-path="res://.godot/imported/Directional_Arrow_Full_Circle.png-071a9caa6454111d9605b268028ca981.ctex"
+uid="uid://csorvjydscbl0"
+path="res://.godot/imported/Directional_Arrow_Full_Circle.png-b102be05b5d54751ddce14e2605520cd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Others/Arrows/Directional_Arrow_Full_Circle.png"
-dest_files=["res://.godot/imported/Directional_Arrow_Full_Circle.png-071a9caa6454111d9605b268028ca981.ctex"]
+source_file="res://assets/Art/Button_Icons/Others/Arrows/Directional_Arrow_Full_Circle.png"
+dest_files=["res://.godot/imported/Directional_Arrow_Full_Circle.png-b102be05b5d54751ddce14e2605520cd.ctex"]
 
 [params]
 

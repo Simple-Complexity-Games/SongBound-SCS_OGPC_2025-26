@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4bbaw05u25hl"
-path="res://.godot/imported/Mark_Right_Key_Light.png-18119e44ef1e851fd01724a3c779812b.ctex"
+uid="uid://bixgvn6cxn5j2"
+path="res://.godot/imported/Mark_Right_Key_Light.png-7a656ddd319c45929e3ebaccd5b2de55.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Keyboard_And_Mouse/Light/Mark_Right_Key_Light.png"
-dest_files=["res://.godot/imported/Mark_Right_Key_Light.png-18119e44ef1e851fd01724a3c779812b.ctex"]
+source_file="res://assets/Art/Button_Icons/Keyboard_And_Mouse/Light/Mark_Right_Key_Light.png"
+dest_files=["res://.godot/imported/Mark_Right_Key_Light.png-7a656ddd319c45929e3ebaccd5b2de55.ctex"]
 
 [params]
 

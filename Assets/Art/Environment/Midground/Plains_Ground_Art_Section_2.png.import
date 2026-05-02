@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0ycds61ce1e"
-path="res://.godot/imported/Plains_Ground_Art_Section_2.png-b1d94c55c565ec728f0be1629381753e.ctex"
+uid="uid://bupxmx4qmdwqe"
+path="res://.godot/imported/Plains_Ground_Art_Section_2.png-bb7cf784fd4e038eea99c049207c1947.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Environment/Midground/Plains_Ground_Art_Section_2.png"
-dest_files=["res://.godot/imported/Plains_Ground_Art_Section_2.png-b1d94c55c565ec728f0be1629381753e.ctex"]
+source_file="res://assets/Art/Environment/Midground/Plains_Ground_Art_Section_2.png"
+dest_files=["res://.godot/imported/Plains_Ground_Art_Section_2.png-bb7cf784fd4e038eea99c049207c1947.ctex"]
 
 [params]
 

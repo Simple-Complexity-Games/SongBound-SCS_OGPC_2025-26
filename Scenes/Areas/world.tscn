@@ -1,26 +1,26 @@
 [gd_scene load_steps=35 format=4 uid="uid://jiguml3x3dmd"]
 
-[ext_resource type="PackedScene" uid="uid://dihy0istq3alv" path="res://Scenes/UI/canvas_layer.tscn" id="1_kykf2"]
-[ext_resource type="PackedScene" uid="uid://c8xav3q6wf8ar" path="res://Scenes/Utility/dialog_handler.tscn" id="2_6kq0q"]
-[ext_resource type="PackedScene" uid="uid://bdkged5clqdnl" path="res://Scenes/Entities/player.tscn" id="2_gwl6k"]
-[ext_resource type="PackedScene" uid="uid://cornjst30aymf" path="res://Scenes/Utility/camera_2d.tscn" id="2_w7ne4"]
-[ext_resource type="Texture2D" uid="uid://b13mnu32vlol0" path="res://Assets/Art/Environment/Midground/[32 Px Outline] (No Lighting) Avythera_Mountain_Tree.png" id="5_bwcnv"]
-[ext_resource type="Texture2D" uid="uid://bj7aiywx237qf" path="res://Assets/Art/Environment/Midground/[Averaged Outline] (No Lighting) Avythera_Plains_Tall_Tree (1).png" id="6_enowb"]
-[ext_resource type="Texture2D" uid="uid://dw3eesmuvpmey" path="res://Assets/Art/Environment/Midground/[Averaged Outline] (No Lighting) Avythera_Mountain_Tall_Tree.png" id="7_kykf2"]
-[ext_resource type="Texture2D" uid="uid://ycwvph6bweep" path="res://Assets/Art/Environment/Midground/Tileset (6).png" id="8_suda1"]
-[ext_resource type="Texture2D" uid="uid://cjwywe8jbg7p7" path="res://Assets/Art/Environment/Midground/[32 Px Outline] (No Lighting) Avythera_Plains_Tree.png" id="8_x68yl"]
-[ext_resource type="Texture2D" uid="uid://8ydaoyd111dk" path="res://Assets/Art/Sprites/Caravan.png" id="9_sghl5"]
-[ext_resource type="PackedScene" uid="uid://ck25xcff0e7si" path="res://Scenes/travel_sign.tscn" id="11_wcev2"]
-[ext_resource type="Texture2D" uid="uid://i21c50pkifc4" path="res://Assets/Art/Environment/Midground/Plains_Ground_Art_Section_1.png" id="13_oofs8"]
-[ext_resource type="Texture2D" uid="uid://d0ycds61ce1e" path="res://Assets/Art/Environment/Midground/Plains_Ground_Art_Section_2.png" id="14_1iukc"]
-[ext_resource type="PackedScene" uid="uid://ch3r5mhsjvajy" path="res://Scenes/Entities/Fox.tscn" id="15_suda1"]
-[ext_resource type="AudioStream" uid="uid://dwjsu5tmdglmt" path="res://Assets/Sound/Music/Adventuring_Music.wav" id="15_w7ne4"]
-[ext_resource type="PackedScene" uid="uid://rq24inwg7cap" path="res://Scenes/Utility/player_location.tscn" id="16_6kq0q"]
-[ext_resource type="Texture2D" uid="uid://c6r4fv54mx5nv" path="res://Assets/Art/Sprites/icon.svg" id="17_x68yl"]
-[ext_resource type="Texture2D" uid="uid://bj3jav3awka52" path="res://Assets/Art/Environment/Background/SKY.png" id="18_6kq0q"]
-[ext_resource type="PackedScene" uid="uid://dlppj3l63islr" path="res://Scenes/Utility/dialog_trigger.tscn" id="18_vijum"]
-[ext_resource type="PackedScene" uid="uid://d32wbehu67eys" path="res://Scenes/Entities/Giant_Fox.tscn" id="19_x68yl"]
-[ext_resource type="Script" uid="uid://bsfykqb2jbcro" path="res://Scenes/Areas/special_dialog_handler.gd" id="20_vijum"]
+[ext_resource type="PackedScene" uid="uid://dihy0istq3alv" path="res://scenes/UI/canvas_layer.tscn" id="1_kykf2"]
+[ext_resource type="PackedScene" uid="uid://c8xav3q6wf8ar" path="res://scenes/Utility/dialog_handler.tscn" id="2_6kq0q"]
+[ext_resource type="PackedScene" uid="uid://bdkged5clqdnl" path="res://scenes/entities/player.tscn" id="2_gwl6k"]
+[ext_resource type="PackedScene" uid="uid://cornjst30aymf" path="res://scenes/Utility/camera_2d.tscn" id="2_w7ne4"]
+[ext_resource type="Texture2D" uid="uid://551hy7r6jxjv" path="res://assets/Art/Environment/Midground/[32 Px Outline] (No Lighting) Avythera_Mountain_Tree.png" id="5_bwcnv"]
+[ext_resource type="Texture2D" uid="uid://dceeolwl1t2ug" path="res://assets/Art/Environment/Midground/[Averaged Outline] (No Lighting) Avythera_Plains_Tall_Tree (1).png" id="6_enowb"]
+[ext_resource type="Texture2D" uid="uid://bxdfhvita35to" path="res://assets/Art/Environment/Midground/[Averaged Outline] (No Lighting) Avythera_Mountain_Tall_Tree.png" id="7_kykf2"]
+[ext_resource type="Texture2D" uid="uid://dmb02kdbcykxl" path="res://assets/Art/Environment/Midground/Tileset (6).png" id="8_suda1"]
+[ext_resource type="Texture2D" uid="uid://ddqe0j02ihmyu" path="res://assets/Art/Environment/Midground/[32 Px Outline] (No Lighting) Avythera_Plains_Tree.png" id="8_x68yl"]
+[ext_resource type="Texture2D" uid="uid://dixh8e1fmm6e4" path="res://assets/Art/Sprites/Caravan.png" id="9_sghl5"]
+[ext_resource type="PackedScene" uid="uid://ck25xcff0e7si" path="res://scenes/travel_sign.tscn" id="11_wcev2"]
+[ext_resource type="Texture2D" uid="uid://dg6ywomduheu8" path="res://assets/Art/Environment/Midground/Plains_Ground_Art_Section_1.png" id="13_oofs8"]
+[ext_resource type="Texture2D" uid="uid://bupxmx4qmdwqe" path="res://assets/Art/Environment/Midground/Plains_Ground_Art_Section_2.png" id="14_1iukc"]
+[ext_resource type="PackedScene" uid="uid://ch3r5mhsjvajy" path="res://scenes/entities/Fox.tscn" id="15_suda1"]
+[ext_resource type="AudioStream" uid="uid://q6bo4wi17tfh" path="res://assets/Sound/Music/Adventuring_Music.wav" id="15_w7ne4"]
+[ext_resource type="PackedScene" uid="uid://rq24inwg7cap" path="res://scenes/Utility/player_location.tscn" id="16_6kq0q"]
+[ext_resource type="Texture2D" uid="uid://bnxp7q3w8b2fd" path="res://assets/Art/Sprites/Player.png" id="17_oofs8"]
+[ext_resource type="Texture2D" uid="uid://iv1n2d1nl37f" path="res://assets/Art/Environment/Background/SKY.png" id="18_6kq0q"]
+[ext_resource type="PackedScene" uid="uid://dlppj3l63islr" path="res://scenes/Utility/dialog_trigger.tscn" id="18_vijum"]
+[ext_resource type="PackedScene" uid="uid://d32wbehu67eys" path="res://scenes/entities/Giant_Fox.tscn" id="19_x68yl"]
+[ext_resource type="Script" uid="uid://bsfykqb2jbcro" path="res://scenes/areas/special_dialog_handler.gd" id="20_vijum"]
 
 [sub_resource type="Environment" id="Environment_bwcnv"]
 tonemap_mode = 1
@@ -453,7 +453,7 @@ color = Color(0.942781, 0.939049, 0.922258, 1)
 
 [node name="The_Sun" type="PointLight2D" parent="."]
 light_mask = 0
-position = Vector2(9689, -3117.9998)
+position = Vector2(9688, -3120)
 scale = Vector2(100, 100)
 color = Color(0.977958, 0.968086, 0.763043, 1)
 range_z_min = 0
@@ -533,7 +533,7 @@ light_mask = 4
 visibility_layer = 4
 position = Vector2(28, 22)
 travel_sign = {
-0: "res://Scenes/Areas/Sparrow_sanctuary/path_one.tscn"
+0: "res://scenes/areas/sparrow_sanctuary/path_one.tscn"
 }
 sign_text = "To Sparrow Sanctuary"
 connected_sign_pos_x = 800
@@ -554,16 +554,16 @@ visibility_layer = 4
 z_index = 2
 position = Vector2(8957, 1175)
 travel_sign = {
-0: "res://Scenes/Areas/world2.tscn"
+0: "res://scenes/areas/world2.tscn"
 }
 sign_text = "To World Two not for you"
 
 [node name="travel sign3" parent="." groups=["Signs"] instance=ExtResource("11_wcev2")]
 position = Vector2(4931, 1181)
 travel_sign = {
-0: "res://Scenes/Areas/owl_home.tscn"
+0: "res://scenes/areas/owl_home.tscn"
 }
-sign_text = "Owl \"Home\""
+sign_text = "To Owl Home"
 connected_sign_pos_x = 53
 connected_sign_pos_y = 136
 
@@ -579,6 +579,15 @@ position = Vector2(-1, 6)
 
 [node name="CollisionShape2D" parent="travel sign3/Area2D" index="0"]
 position = Vector2(4.00073, -0.0774536)
+
+[node name="Notification" parent="travel sign3" index="2"]
+visible = true
+offset_left = 45.011253
+offset_top = -44.261063
+offset_right = 864.0112
+offset_bottom = 196.73894
+text = "Press \"Up\"
+to Enter"
 
 [node name="Ground_Collision_Shape" type="StaticBody2D" parent="."]
 z_index = 12
@@ -645,31 +654,19 @@ texture = SubResource("CompressedTexture2D_enowb")
 
 [node name="Music_Player" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_w7ne4")
-volume_db = 3.081
+volume_db = 1.0
 autoplay = true
 bus = &"Music"
 
-[node name="Bard Placeholder" type="Sprite2D" parent="."]
-self_modulate = Color(1, 1, 1, 0.933333)
-z_index = 1
-position = Vector2(8703, 1189.06)
-scale = Vector2(0.125, 0.188476)
-texture = ExtResource("17_x68yl")
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Bard Placeholder"]
-offset_left = -64.0
-offset_top = -95.858
-offset_right = 192.0
-offset_bottom = -22.715
-scale = Vector2(0.5, 0.5)
-theme_override_font_sizes/normal_font_size = 52
-text = "    vorvo
-"
-metadata/_edit_use_anchors_ = true
-
-[node name="Dialog_Trigger_Swallow" parent="." groups=["Dialog_Triggers"] instance=ExtResource("18_vijum")]
-position = Vector2(8703, 1188)
-dialog_file_name = "Swallow_Dialogue_1.txt"
+[node name="Swallow" type="Sprite2D" parent="."]
+modulate = Color(0.98240405, 0.6897313, 0.4858656, 1)
+z_index = 2
+position = Vector2(8702.211, 1189.0931)
+scale = Vector2(0.024037203, 0.021365957)
+texture = ExtResource("17_oofs8")
+hframes = 4
+vframes = 4
+frame = 8
 
 [node name="Giant_Fox" parent="." instance=ExtResource("19_x68yl")]
 position = Vector2(4536, 100)
@@ -678,11 +675,13 @@ position = Vector2(4536, 100)
 position = Vector2(8703, 1188)
 dialog_file_name = "Swallow_Dialogue_1.txt"
 is_special = true
+metadata/_edit_lock_ = true
 
 [node name="Dialog_Trigger_Swallow_2" parent="." groups=["Dialog_Triggers"] instance=ExtResource("18_vijum")]
 position = Vector2(8704, 1184)
 dialog_file_name = "Swallow_Dialogue_2.txt"
 is_special = true
+metadata/_edit_lock_ = true
 
 [node name="Special_Dialog_Handler" type="Node2D" parent="."]
 script = ExtResource("20_vijum")

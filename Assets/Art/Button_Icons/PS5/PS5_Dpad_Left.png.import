@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0llc64gtt0gq"
-path="res://.godot/imported/PS5_Dpad_Left.png-55cb1c8d8c2aa1d45199b147daeb6f01.ctex"
+uid="uid://c8yoxd1437spk"
+path="res://.godot/imported/PS5_Dpad_Left.png-53a91ef654db749f9b2120c47339bf85.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/PS5/PS5_Dpad_Left.png"
-dest_files=["res://.godot/imported/PS5_Dpad_Left.png-55cb1c8d8c2aa1d45199b147daeb6f01.ctex"]
+source_file="res://assets/Art/Button_Icons/PS5/PS5_Dpad_Left.png"
+dest_files=["res://.godot/imported/PS5_Dpad_Left.png-53a91ef654db749f9b2120c47339bf85.ctex"]
 
 [params]
 

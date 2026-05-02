@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ba72xwwpapvm0"
-path="res://.godot/imported/Switch_Controllers_Separate.png-c9ded9fc2a1903d40b18cb5958f1b4e6.ctex"
+uid="uid://cnu2jpm0qmlr0"
+path="res://.godot/imported/Switch_Controllers_Separate.png-f5b00cc60ff6f1608c2094e50c98d74a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Switch/Switch_Controllers_Separate.png"
-dest_files=["res://.godot/imported/Switch_Controllers_Separate.png-c9ded9fc2a1903d40b18cb5958f1b4e6.ctex"]
+source_file="res://assets/Art/Button_Icons/Switch/Switch_Controllers_Separate.png"
+dest_files=["res://.godot/imported/Switch_Controllers_Separate.png-f5b00cc60ff6f1608c2094e50c98d74a.ctex"]
 
 [params]
 

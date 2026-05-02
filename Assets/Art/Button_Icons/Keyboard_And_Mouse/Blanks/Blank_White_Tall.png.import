@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b64k4j3tot8ac"
-path="res://.godot/imported/Blank_White_Tall.png-086536ccfa241da4370f2875f8616c6b.ctex"
+uid="uid://chsrcl6kcyw2c"
+path="res://.godot/imported/Blank_White_Tall.png-6441e7a72ab7c67311fb58a1d22ab577.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Keyboard_And_Mouse/Blanks/Blank_White_Tall.png"
-dest_files=["res://.godot/imported/Blank_White_Tall.png-086536ccfa241da4370f2875f8616c6b.ctex"]
+source_file="res://assets/Art/Button_Icons/Keyboard_And_Mouse/Blanks/Blank_White_Tall.png"
+dest_files=["res://.godot/imported/Blank_White_Tall.png-6441e7a72ab7c67311fb58a1d22ab577.ctex"]
 
 [params]
 

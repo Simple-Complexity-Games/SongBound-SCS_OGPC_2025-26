@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dpa3nvbe5osqt"
-path="res://.godot/imported/Vive_TriggerBlank.png-659a052ecbf784dc092346090650b790.ctex"
+uid="uid://dd11bhavo28ya"
+path="res://.godot/imported/Vive_TriggerBlank.png-0773d6ded36b8a91c8ae4f81a9f4919d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Others/VR/Vive/Vive_TriggerBlank.png"
-dest_files=["res://.godot/imported/Vive_TriggerBlank.png-659a052ecbf784dc092346090650b790.ctex"]
+source_file="res://assets/Art/Button_Icons/Others/VR/Vive/Vive_TriggerBlank.png"
+dest_files=["res://.godot/imported/Vive_TriggerBlank.png-0773d6ded36b8a91c8ae4f81a9f4919d.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bsgjp680bnl3m"
-path="res://.godot/imported/XboxSeriesX_Right_Stick.png-d5d261b54c08a2bc3f2769b4c852ab90.ctex"
+uid="uid://bp3ndrlr2pdx5"
+path="res://.godot/imported/XboxSeriesX_Right_Stick.png-28b6407073e44d8bd4bc2f7731fa076f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Xbox Series/XboxSeriesX_Right_Stick.png"
-dest_files=["res://.godot/imported/XboxSeriesX_Right_Stick.png-d5d261b54c08a2bc3f2769b4c852ab90.ctex"]
+source_file="res://assets/Art/Button_Icons/Xbox Series/XboxSeriesX_Right_Stick.png"
+dest_files=["res://.godot/imported/XboxSeriesX_Right_Stick.png-28b6407073e44d8bd4bc2f7731fa076f.ctex"]
 
 [params]
 

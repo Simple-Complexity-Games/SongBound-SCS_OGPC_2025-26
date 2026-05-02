@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d1hmecsmb601d"
-path="res://.godot/imported/Ouya_Menu.png-b964c9ec34477df7b46523ea2ed30c49.ctex"
+uid="uid://cu12rrwolsudp"
+path="res://.godot/imported/Ouya_Menu.png-44312c550ca4733558e21f3eb01713d2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Others/Ouya/Ouya_Menu.png"
-dest_files=["res://.godot/imported/Ouya_Menu.png-b964c9ec34477df7b46523ea2ed30c49.ctex"]
+source_file="res://assets/Art/Button_Icons/Others/Ouya/Ouya_Menu.png"
+dest_files=["res://.godot/imported/Ouya_Menu.png-44312c550ca4733558e21f3eb01713d2.ctex"]
 
 [params]
 

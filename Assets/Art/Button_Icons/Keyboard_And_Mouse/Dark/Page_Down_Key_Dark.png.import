@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dqv0v86ckwnc8"
-path="res://.godot/imported/Page_Down_Key_Dark.png-d30bbfbc9d07a3e7aabfc01359c88415.ctex"
+uid="uid://bep2easo1srno"
+path="res://.godot/imported/Page_Down_Key_Dark.png-07597a108f0f010f391aefcca0922018.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Keyboard_And_Mouse/Dark/Page_Down_Key_Dark.png"
-dest_files=["res://.godot/imported/Page_Down_Key_Dark.png-d30bbfbc9d07a3e7aabfc01359c88415.ctex"]
+source_file="res://assets/Art/Button_Icons/Keyboard_And_Mouse/Dark/Page_Down_Key_Dark.png"
+dest_files=["res://.godot/imported/Page_Down_Key_Dark.png-07597a108f0f010f391aefcca0922018.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b072sc34vg6kw"
-path="res://.godot/imported/Vita_Bumpter_Left.png-46476594db1b01d37af3fb0247eae543.ctex"
+uid="uid://6w347waal4ca"
+path="res://.godot/imported/Vita_Bumpter_Left.png-e34f11912741c2f1bc20fcc647230d5f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Others/PS Vita/Vita_Bumpter_Left.png"
-dest_files=["res://.godot/imported/Vita_Bumpter_Left.png-46476594db1b01d37af3fb0247eae543.ctex"]
+source_file="res://assets/Art/Button_Icons/Others/PS Vita/Vita_Bumpter_Left.png"
+dest_files=["res://.godot/imported/Vita_Bumpter_Left.png-e34f11912741c2f1bc20fcc647230d5f.ctex"]
 
 [params]
 

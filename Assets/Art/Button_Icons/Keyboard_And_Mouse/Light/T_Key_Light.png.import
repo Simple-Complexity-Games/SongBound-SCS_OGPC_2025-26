@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bytad86sciows"
-path="res://.godot/imported/T_Key_Light.png-7eb04761581bf216e57146e8fc36ae28.ctex"
+uid="uid://dnn8ml308q2sy"
+path="res://.godot/imported/T_Key_Light.png-3c4b4ed6c6313d329842c010396a454e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Keyboard_And_Mouse/Light/T_Key_Light.png"
-dest_files=["res://.godot/imported/T_Key_Light.png-7eb04761581bf216e57146e8fc36ae28.ctex"]
+source_file="res://assets/Art/Button_Icons/Keyboard_And_Mouse/Light/T_Key_Light.png"
+dest_files=["res://.godot/imported/T_Key_Light.png-3c4b4ed6c6313d329842c010396a454e.ctex"]
 
 [params]
 

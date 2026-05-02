@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbsd6f6t3p2v8"
-path="res://.godot/imported/Melody Strings.png-36ec4f44d836e15097e4535c80951fa3.ctex"
+uid="uid://cdy8c8p2ctlyr"
+path="res://.godot/imported/Melody Strings.png-fc775c2a67b3bf0b5f7165bc3ab830c9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Sprites/Song Spell System/Melody Strings.png"
-dest_files=["res://.godot/imported/Melody Strings.png-36ec4f44d836e15097e4535c80951fa3.ctex"]
+source_file="res://assets/Art/Sprites/Song Spell System/Melody Strings.png"
+dest_files=["res://.godot/imported/Melody Strings.png-fc775c2a67b3bf0b5f7165bc3ab830c9.ctex"]
 
 [params]
 

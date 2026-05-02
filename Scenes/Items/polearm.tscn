@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://coxgv1rfwx4ii"]
+[gd_scene load_steps=6 format=3 uid="uid://coxgv1rfwx4ii"]
 
-[ext_resource type="Script" uid="uid://cyn4fi70iwm2r" path="res://Scripts/Weapon.gd" id="1_6xh5y"]
-[ext_resource type="Texture2D" uid="uid://bpfke4343kxrh" path="res://Assets/Art/Sprites/Untitled drawing.png" id="2_nbgrp"]
+[ext_resource type="Script" uid="uid://bdix33px10i8x" path="res://scripts/Weapon.gd" id="1_6xh5y"]
+[ext_resource type="Texture2D" uid="uid://bat4j8s8d8omc" path="res://assets/Art/Sprites/Untitled drawing.png" id="2_nbgrp"]
+[ext_resource type="AudioStream" uid="uid://b8tb2w1cy8f6o" path="res://assets/Sound/SFX/Attack_SFX_1.wav" id="3_27lx6"]
+[ext_resource type="AudioStream" uid="uid://b3dcihp873vxw" path="res://assets/Sound/SFX/Attack_SFX_2.wav" id="4_5xe3i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nbgrp"]
 size = Vector2(25, 6)
@@ -49,5 +51,13 @@ visibility_layer = 3
 position = Vector2(-6, 4.5)
 shape = SubResource("RectangleShape2D_nbgrp")
 disabled = true
+
+[node name="Attack_SFX_Player_1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_27lx6")
+volume_db = 3.0
+
+[node name="Attack_SFX_Player_2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_5xe3i")
+volume_db = 2.0
 
 [connection signal="body_exited" from="attack_box" to="." method="_on_attack_box_body_exited"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cn7o5q2wcoa81"
-path="res://.godot/imported/End_Key_Light.png-f82974301d9c6cf23c35b3628082bd39.ctex"
+uid="uid://c1yu4qpw25bsl"
+path="res://.godot/imported/End_Key_Light.png-a026c7cddf694e1d316e3e6c8c469117.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Keyboard_And_Mouse/Light/End_Key_Light.png"
-dest_files=["res://.godot/imported/End_Key_Light.png-f82974301d9c6cf23c35b3628082bd39.ctex"]
+source_file="res://assets/Art/Button_Icons/Keyboard_And_Mouse/Light/End_Key_Light.png"
+dest_files=["res://.godot/imported/End_Key_Light.png-a026c7cddf694e1d316e3e6c8c469117.ctex"]
 
 [params]
 

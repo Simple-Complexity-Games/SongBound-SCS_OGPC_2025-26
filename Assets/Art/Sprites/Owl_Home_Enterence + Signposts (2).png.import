@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://de33hyrlfe23u"
-path="res://.godot/imported/Owl_Home_Enterence + Signposts (2).png-8523d9317b17329f6a19e9be0d3908b9.ctex"
+uid="uid://c84g6neo8xg6o"
+path="res://.godot/imported/Owl_Home_Enterence + Signposts (2).png-a5b406daee93c907e1d28479b2b6477a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Sprites/Owl_Home_Enterence + Signposts (2).png"
-dest_files=["res://.godot/imported/Owl_Home_Enterence + Signposts (2).png-8523d9317b17329f6a19e9be0d3908b9.ctex"]
+source_file="res://assets/Art/Sprites/Owl_Home_Enterence + Signposts (2).png"
+dest_files=["res://.godot/imported/Owl_Home_Enterence + Signposts (2).png-a5b406daee93c907e1d28479b2b6477a.ctex"]
 
 [params]
 

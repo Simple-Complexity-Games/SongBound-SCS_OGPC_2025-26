@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4yi2cfq10kuf"
-path="res://.godot/imported/mine Tile Design Template (1).png-a3b9e91709aac869cfa45eac690a7212.ctex"
+uid="uid://cdbq81815tj8a"
+path="res://.godot/imported/mine Tile Design Template (1).png-bc2d936ca9b658d470f0150d83025c12.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Sprites/mine Tile Design Template (1).png"
-dest_files=["res://.godot/imported/mine Tile Design Template (1).png-a3b9e91709aac869cfa45eac690a7212.ctex"]
+source_file="res://assets/Art/Sprites/mine Tile Design Template (1).png"
+dest_files=["res://.godot/imported/mine Tile Design Template (1).png-bc2d936ca9b658d470f0150d83025c12.ctex"]
 
 [params]
 
@@ -23,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""

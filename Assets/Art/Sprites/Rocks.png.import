@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dyohkm8nigj0b"
-path="res://.godot/imported/Rocks.png-a980c455c80a591eb52d82e2acf7ebb6.ctex"
+uid="uid://6gnep4qkxsj6"
+path="res://.godot/imported/Rocks.png-443280e77f890dab2b187bf7f521485b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Sprites/Rocks.png"
-dest_files=["res://.godot/imported/Rocks.png-a980c455c80a591eb52d82e2acf7ebb6.ctex"]
+source_file="res://assets/Art/Sprites/Rocks.png"
+dest_files=["res://.godot/imported/Rocks.png-443280e77f890dab2b187bf7f521485b.ctex"]
 
 [params]
 
@@ -23,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""

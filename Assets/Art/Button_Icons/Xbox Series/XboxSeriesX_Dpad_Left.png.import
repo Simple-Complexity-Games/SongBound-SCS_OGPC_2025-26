@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ba2fhvfqa4hk6"
-path="res://.godot/imported/XboxSeriesX_Dpad_Left.png-3c7d038782e3a6c4f2a24f7f30931c27.ctex"
+uid="uid://bnfyy31okb1u4"
+path="res://.godot/imported/XboxSeriesX_Dpad_Left.png-c87fadf192d01dd8dac8a523b7d9157c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Xbox Series/XboxSeriesX_Dpad_Left.png"
-dest_files=["res://.godot/imported/XboxSeriesX_Dpad_Left.png-3c7d038782e3a6c4f2a24f7f30931c27.ctex"]
+source_file="res://assets/Art/Button_Icons/Xbox Series/XboxSeriesX_Dpad_Left.png"
+dest_files=["res://.godot/imported/XboxSeriesX_Dpad_Left.png-c87fadf192d01dd8dac8a523b7d9157c.ctex"]
 
 [params]
 

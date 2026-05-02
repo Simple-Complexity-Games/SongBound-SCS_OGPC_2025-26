@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bq2gd0s6m552y"
-path="res://.godot/imported/Vita_Select.png-bbb15e9e2e359a45d49a659eebc173b5.ctex"
+uid="uid://cpgxdirg5cwmy"
+path="res://.godot/imported/Vita_Select.png-b0a5812aeb7a70b9220087a253c94159.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Others/PS Vita/Vita_Select.png"
-dest_files=["res://.godot/imported/Vita_Select.png-bbb15e9e2e359a45d49a659eebc173b5.ctex"]
+source_file="res://assets/Art/Button_Icons/Others/PS Vita/Vita_Select.png"
+dest_files=["res://.godot/imported/Vita_Select.png-b0a5812aeb7a70b9220087a253c94159.ctex"]
 
 [params]
 

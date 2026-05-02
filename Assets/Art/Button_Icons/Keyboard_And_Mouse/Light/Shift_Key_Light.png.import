@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0kvoysjyq527"
-path="res://.godot/imported/Shift_Key_Light.png-26ac033a03c9baebd266ded1dde0f106.ctex"
+uid="uid://crwcrerl6v8m3"
+path="res://.godot/imported/Shift_Key_Light.png-d6bac4ed3f4f53ca18cb39045cd1694d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Keyboard_And_Mouse/Light/Shift_Key_Light.png"
-dest_files=["res://.godot/imported/Shift_Key_Light.png-26ac033a03c9baebd266ded1dde0f106.ctex"]
+source_file="res://assets/Art/Button_Icons/Keyboard_And_Mouse/Light/Shift_Key_Light.png"
+dest_files=["res://.godot/imported/Shift_Key_Light.png-d6bac4ed3f4f53ca18cb39045cd1694d.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0qacgvenxb3s"
-path="res://.godot/imported/Vive_Grip_Right.png-b279b1b80b79a021e34cf09cc67abaea.ctex"
+uid="uid://bep5xk58gyxl7"
+path="res://.godot/imported/Vive_Grip_Right.png-a8306345e1c322b8db699fe0cb73a83d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Others/VR/Vive/Vive_Grip_Right.png"
-dest_files=["res://.godot/imported/Vive_Grip_Right.png-b279b1b80b79a021e34cf09cc67abaea.ctex"]
+source_file="res://assets/Art/Button_Icons/Others/VR/Vive/Vive_Grip_Right.png"
+dest_files=["res://.godot/imported/Vive_Grip_Right.png-a8306345e1c322b8db699fe0cb73a83d.ctex"]
 
 [params]
 

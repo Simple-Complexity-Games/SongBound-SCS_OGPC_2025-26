@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://hdfkca5k0rg8"
-path="res://.godot/imported/PSMove_Circle.png-74f0efa501da0b1339d6a82f52ad1eaf.ctex"
+uid="uid://ckkjncutnx1cb"
+path="res://.godot/imported/PSMove_Circle.png-0cc452961e18f2404ffe8cf96e8ce664.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Others/PS Move/PSMove_Circle.png"
-dest_files=["res://.godot/imported/PSMove_Circle.png-74f0efa501da0b1339d6a82f52ad1eaf.ctex"]
+source_file="res://assets/Art/Button_Icons/Others/PS Move/PSMove_Circle.png"
+dest_files=["res://.godot/imported/PSMove_Circle.png-0cc452961e18f2404ffe8cf96e8ce664.ctex"]
 
 [params]
 

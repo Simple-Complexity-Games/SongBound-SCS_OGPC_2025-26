@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://n65vps84ich4"
-path="res://.godot/imported/Asterisk_Key_Light.png-48955627f46545b19bd8a8eba9dd8176.ctex"
+uid="uid://dlsky7vbpnl1h"
+path="res://.godot/imported/Asterisk_Key_Light.png-da77b2c1aea47e876cf19eda292400fb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Keyboard_And_Mouse/Light/Asterisk_Key_Light.png"
-dest_files=["res://.godot/imported/Asterisk_Key_Light.png-48955627f46545b19bd8a8eba9dd8176.ctex"]
+source_file="res://assets/Art/Button_Icons/Keyboard_And_Mouse/Light/Asterisk_Key_Light.png"
+dest_files=["res://.godot/imported/Asterisk_Key_Light.png-da77b2c1aea47e876cf19eda292400fb.ctex"]
 
 [params]
 

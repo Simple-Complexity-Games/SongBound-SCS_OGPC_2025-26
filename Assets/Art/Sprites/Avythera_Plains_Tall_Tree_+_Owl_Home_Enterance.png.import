@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ctjyv2iy2jhk5"
-path="res://.godot/imported/Avythera_Plains_Tall_Tree_+_Owl_Home_Enterance.png-35fb5f39a85d0f92766985eb6307c1d0.ctex"
+uid="uid://8yx37r01numy"
+path="res://.godot/imported/Avythera_Plains_Tall_Tree_+_Owl_Home_Enterance.png-042954220529821dfdf129ce8929b2cd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Sprites/Avythera_Plains_Tall_Tree_+_Owl_Home_Enterance.png"
-dest_files=["res://.godot/imported/Avythera_Plains_Tall_Tree_+_Owl_Home_Enterance.png-35fb5f39a85d0f92766985eb6307c1d0.ctex"]
+source_file="res://assets/Art/Sprites/Avythera_Plains_Tall_Tree_+_Owl_Home_Enterance.png"
+dest_files=["res://.godot/imported/Avythera_Plains_Tall_Tree_+_Owl_Home_Enterance.png-042954220529821dfdf129ce8929b2cd.ctex"]
 
 [params]
 
@@ -23,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bcu2bk20vi2yk"
-path="res://.godot/imported/End_Key_Dark.png-028fdb3d095489984899cc36a51a783a.ctex"
+uid="uid://7l1bvpk2thmo"
+path="res://.godot/imported/End_Key_Dark.png-bab1266c77ecc12d17e2c394286d641a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Keyboard_And_Mouse/Dark/End_Key_Dark.png"
-dest_files=["res://.godot/imported/End_Key_Dark.png-028fdb3d095489984899cc36a51a783a.ctex"]
+source_file="res://assets/Art/Button_Icons/Keyboard_And_Mouse/Dark/End_Key_Dark.png"
+dest_files=["res://.godot/imported/End_Key_Dark.png-bab1266c77ecc12d17e2c394286d641a.ctex"]
 
 [params]
 

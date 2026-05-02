@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bctgsfiexm4ov"
-path="res://.godot/imported/Oculus_Left_Grab.png-ecdb8f547e7cd1b5de15d0c56d5a98f0.ctex"
+uid="uid://cphmgpa8r78ut"
+path="res://.godot/imported/Oculus_Left_Grab.png-2110d82d2b05cc463eeff5cfb0abe064.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Others/VR/Oculus/Oculus_Left_Grab.png"
-dest_files=["res://.godot/imported/Oculus_Left_Grab.png-ecdb8f547e7cd1b5de15d0c56d5a98f0.ctex"]
+source_file="res://assets/Art/Button_Icons/Others/VR/Oculus/Oculus_Left_Grab.png"
+dest_files=["res://.godot/imported/Oculus_Left_Grab.png-2110d82d2b05cc463eeff5cfb0abe064.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bv1cd2gs5ubfm"
-path="res://.godot/imported/Mark_Left_Key_Dark.png-064c0ba13e1eadffe77a817fb65352ac.ctex"
+uid="uid://cnhdnqtdf35ur"
+path="res://.godot/imported/Mark_Left_Key_Dark.png-b116744cab1def321a45fd0548fd96c6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Keyboard_And_Mouse/Dark/Mark_Left_Key_Dark.png"
-dest_files=["res://.godot/imported/Mark_Left_Key_Dark.png-064c0ba13e1eadffe77a817fb65352ac.ctex"]
+source_file="res://assets/Art/Button_Icons/Keyboard_And_Mouse/Dark/Mark_Left_Key_Dark.png"
+dest_files=["res://.godot/imported/Mark_Left_Key_Dark.png-b116744cab1def321a45fd0548fd96c6.ctex"]
 
 [params]
 

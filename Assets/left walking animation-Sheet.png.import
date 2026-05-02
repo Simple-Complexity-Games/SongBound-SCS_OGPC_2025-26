@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1blok8624qhv"
-path="res://.godot/imported/left walking animation-Sheet.png-12a291408d8f3c14a7263590892aab86.ctex"
+uid="uid://lclfjt058eqd"
+path="res://.godot/imported/left walking animation-Sheet.png-ad64e752c9dd51fd9a8b23e78499cd9e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/left walking animation-Sheet.png"
-dest_files=["res://.godot/imported/left walking animation-Sheet.png-12a291408d8f3c14a7263590892aab86.ctex"]
+source_file="res://assets/left walking animation-Sheet.png"
+dest_files=["res://.godot/imported/left walking animation-Sheet.png-ad64e752c9dd51fd9a8b23e78499cd9e.ctex"]
 
 [params]
 
@@ -23,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""

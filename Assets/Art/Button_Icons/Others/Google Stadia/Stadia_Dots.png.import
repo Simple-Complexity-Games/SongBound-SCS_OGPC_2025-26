@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ducu0doodtq4a"
-path="res://.godot/imported/Stadia_Dots.png-15ce92ace076556818195feb8d38dc7b.ctex"
+uid="uid://cms7cwlt77mno"
+path="res://.godot/imported/Stadia_Dots.png-584ea52ea5d96d9ff1bead0495ed2960.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Others/Google Stadia/Stadia_Dots.png"
-dest_files=["res://.godot/imported/Stadia_Dots.png-15ce92ace076556818195feb8d38dc7b.ctex"]
+source_file="res://assets/Art/Button_Icons/Others/Google Stadia/Stadia_Dots.png"
+dest_files=["res://.godot/imported/Stadia_Dots.png-584ea52ea5d96d9ff1bead0495ed2960.ctex"]
 
 [params]
 

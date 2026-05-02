@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bsj4vqgfxbyg2"
-path="res://.godot/imported/SteamDeck_Left_Stick.png-9a02cd8c665c63bfe1a172be6f8cf81d.ctex"
+uid="uid://b2b7extcvuola"
+path="res://.godot/imported/SteamDeck_Left_Stick.png-0f2974f58e592e05a8c8e43c583576fb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Steam Deck/SteamDeck_Left_Stick.png"
-dest_files=["res://.godot/imported/SteamDeck_Left_Stick.png-9a02cd8c665c63bfe1a172be6f8cf81d.ctex"]
+source_file="res://assets/Art/Button_Icons/Steam Deck/SteamDeck_Left_Stick.png"
+dest_files=["res://.godot/imported/SteamDeck_Left_Stick.png-0f2974f58e592e05a8c8e43c583576fb.ctex"]
 
 [params]
 

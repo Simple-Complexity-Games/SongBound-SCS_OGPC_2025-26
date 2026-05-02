@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhgsdwmg2j1x7"
-path="res://.godot/imported/Avythera_Sparrow_Sanctuary (3) (1).png-2d8508186403c784a5905742f329774e.ctex"
+uid="uid://cepvftkv0gxq2"
+path="res://.godot/imported/Avythera_Sparrow_Sanctuary (3) (1).png-930c270ff1d2095ebdd536ad23cfe504.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Sprites/Avythera_Sparrow_Sanctuary (3) (1).png"
-dest_files=["res://.godot/imported/Avythera_Sparrow_Sanctuary (3) (1).png-2d8508186403c784a5905742f329774e.ctex"]
+source_file="res://assets/Art/Sprites/Avythera_Sparrow_Sanctuary (3) (1).png"
+dest_files=["res://.godot/imported/Avythera_Sparrow_Sanctuary (3) (1).png-930c270ff1d2095ebdd536ad23cfe504.ctex"]
 
 [params]
 

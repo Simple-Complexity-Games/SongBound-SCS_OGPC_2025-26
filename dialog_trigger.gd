@@ -19,8 +19,8 @@ signal dialog_finished
 
 func _ready():
 	var file_text = ""
-	if FileAccess.file_exists(dialog_folder_path + dialog_file_name):
-		file_text = FileAccess.get_file_as_string(dialog_folder_path + dialog_file_name)
+	if FileAccess.file_exists(dialog_folder_path + dialog_file_name + ".remap") or FileAccess.file_exists(dialog_folder_path + dialog_file_name):
+		file_text = FileAccess.get_file_as_string(dialog_folder_path + dialog_file_name.trim_suffix(".remap"))
 		file_loaded = true
 	else:
 		print("ERROR: Dialog file '", dialog_file_name, "'does not exist")

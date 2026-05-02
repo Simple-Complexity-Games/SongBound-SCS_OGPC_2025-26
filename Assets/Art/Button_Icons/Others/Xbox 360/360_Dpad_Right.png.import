@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dal2h342ffibd"
-path="res://.godot/imported/360_Dpad_Right.png-2089803e884eaa2c055d6b96061cf5df.ctex"
+uid="uid://5qk7sbh6ma45"
+path="res://.godot/imported/360_Dpad_Right.png-fe2f9f66d184890fc8b42e2c6b3d7564.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Others/Xbox 360/360_Dpad_Right.png"
-dest_files=["res://.godot/imported/360_Dpad_Right.png-2089803e884eaa2c055d6b96061cf5df.ctex"]
+source_file="res://assets/Art/Button_Icons/Others/Xbox 360/360_Dpad_Right.png"
+dest_files=["res://.godot/imported/360_Dpad_Right.png-fe2f9f66d184890fc8b42e2c6b3d7564.ctex"]
 
 [params]
 

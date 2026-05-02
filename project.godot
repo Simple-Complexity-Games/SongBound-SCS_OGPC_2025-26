@@ -20,7 +20,7 @@ boot_splash/minimum_display_time=1000
 
 [autoload]
 
-GameManager="*res://Scripts/game manager.gd"
+GameManager="*res://scripts/game manager.gd"
 
 [display]
 
@@ -41,6 +41,10 @@ project/assembly_name="Adventures in Avythera"
 
 Signs="for the game manager global script to be able to easily locate sign nodes"
 Dialog_Triggers=""
+
+[gui]
+
+common/snap_controls_to_pixels=false
 
 [input]
 
@@ -197,5 +201,4 @@ textures/default_filters/texture_mipmap_bias=1.0
 anti_aliasing/quality/screen_space_aa=1
 anti_aliasing/quality/use_taa=true
 anti_aliasing/quality/use_debanding=true
-2d/snap/snap_2d_vertices_to_pixel=true
 2d/canvas_textures/default_texture_filter=4

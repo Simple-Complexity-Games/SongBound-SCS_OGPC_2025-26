@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bovvt5660mn0q"
-path="res://.godot/imported/Steam_Tilt_Roll.png-3840048aaed81ccce500baae702ccd06.ctex"
+uid="uid://d11tkjkpxhct2"
+path="res://.godot/imported/Steam_Tilt_Roll.png-ec0c9b6142c56cbfb104e641a9206dea.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Button_Icons/Others/Steam/Steam_Tilt_Roll.png"
-dest_files=["res://.godot/imported/Steam_Tilt_Roll.png-3840048aaed81ccce500baae702ccd06.ctex"]
+source_file="res://assets/Art/Button_Icons/Others/Steam/Steam_Tilt_Roll.png"
+dest_files=["res://.godot/imported/Steam_Tilt_Roll.png-ec0c9b6142c56cbfb104e641a9206dea.ctex"]
 
 [params]
 

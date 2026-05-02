@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ctcpgiopmolp8"
-path="res://.godot/imported/Bard_Tavern_Concept_Art_Cropped.png-fcefc497988d4f2fbb4d6dfc457c2387.ctex"
+uid="uid://c4y1jx222fx3w"
+path="res://.godot/imported/Bard_Tavern_Concept_Art_Cropped.png-df744b4c44f70577394cd29fb05b5a03.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Concept Art/Bard_Tavern_Concept_Art_Cropped.png"
-dest_files=["res://.godot/imported/Bard_Tavern_Concept_Art_Cropped.png-fcefc497988d4f2fbb4d6dfc457c2387.ctex"]
+source_file="res://assets/Art/Concept Art/Bard_Tavern_Concept_Art_Cropped.png"
+dest_files=["res://.godot/imported/Bard_Tavern_Concept_Art_Cropped.png-df744b4c44f70577394cd29fb05b5a03.ctex"]
 
 [params]
 
@@ -23,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
