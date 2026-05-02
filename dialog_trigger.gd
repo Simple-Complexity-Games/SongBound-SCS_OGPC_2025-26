@@ -7,7 +7,7 @@ extends Node2D
 @export var dialog_file_name = ""
 @export var is_special = false
 
-var dialog_folder_path = "res://Assets/Dialog/"
+var dialog_folder_path = "res://assets/Dialog/"
 var file_loaded = false
 var line_list = []
 var next_line = 0

@@ -16,7 +16,7 @@ var Retreat = false
 var RetreatBackward #How much they move backward from Retreat ability
 var Health = 500
 
-var death_animation_node = preload("res://Scenes/Entities/Spawnable_Objects/giant_fox_death_animation.tscn")
+var death_animation_node = preload("res://scenes/entities/Spawnable_Objects/giant_fox_death_animation.tscn")
 
 @onready var Animated_Sprite: AnimatedSprite2D = $Sprite2D
 

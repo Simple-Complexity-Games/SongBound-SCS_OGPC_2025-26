@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=2 format=3 uid="uid://dvrk404vsmxjc"]
 
-[ext_resource type="FontFile" uid="uid://bn0wyk6g8rciv" path="res://Assets/Fonts/Macondo/Macondo-Regular.ttf" id="1_ud6f1"]
+[ext_resource type="FontFile" uid="uid://bn0wyk6g8rciv" path="res://assets/Fonts/Macondo/Macondo-Regular.ttf" id="1_ud6f1"]
 
 [resource]
 default_font = ExtResource("1_ud6f1")

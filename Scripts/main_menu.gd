@@ -1,6 +1,8 @@
 extends Control
 
 #region ------@onready Node Definitions------
+var GameManager = load("res://scripts/game manager.gd")
+
 # General scene nodes
 @onready var Music_Player = get_node("Music_Player")
 @onready var Hover_SFX_Player = get_node("Hover_SFX_Player")
@@ -959,8 +961,8 @@ func Save_Window_Position(x = null, y = null):
 
 #region ------Navigation Functions------
 func Start_Game():
-	GameManager.pos_x = 650
-	GameManager.pos_y = 22
+	GameManager.set("pos_x", 650)
+	GameManager.set("pos_x", 22)
 	get_tree().change_scene_to_file("res://scenes/areas/sparrow_sanctuary/path_one.tscn")
 
 func Load_Main_Menu():

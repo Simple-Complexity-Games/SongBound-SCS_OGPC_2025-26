@@ -20,7 +20,7 @@ boot_splash/minimum_display_time=1000
 
 [autoload]
 
-GameManager="*res://scripts/game manager.gd"
+GameManager="*res://scripts/game_manager.gd"
 
 [display]
 

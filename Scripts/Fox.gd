@@ -15,7 +15,7 @@ var Retreat = false
 var RetreatBackward #How much they move backward from Retreat ability
 var Health = 180
 
-var death_animation_node = preload("res://Scenes/Entities/Spawnable_Objects/fox_death_animation.tscn")
+var death_animation_node = preload("res://scenes/entities/Spawnable_Objects/fox_death_animation.tscn")
 
 @onready var ray_right: RayCast2D = $RayRight #Both Rays used for idle state
 @onready var ray_left: RayCast2D = $RayLeft

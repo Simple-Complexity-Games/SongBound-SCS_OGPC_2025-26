@@ -37,7 +37,7 @@ func _on_dialog_trigger_swallow_2_dialog_finished() -> void:
 	var dir_access = DirAccess.open("user://")
 	if FileAccess.file_exists("user://fox_killed.txt"):
 		dir_access.remove("user://fox_killed.txt")
-	get_tree().change_scene_to_file("res://Scenes/UI/main_menu.tscn")
+	get_tree().change_scene_to_file("res://scenes/UI/main_menu.tscn")
 
 func _on_giant_fox_slain() -> void:
 	var dir_access = DirAccess.open("user://")

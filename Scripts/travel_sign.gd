@@ -9,14 +9,14 @@ var is_in_area = false
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("Up") and is_in_area == true:
-		GameManager.pos_x = connected_sign_pos_x
-		GameManager.pos_y = connected_sign_pos_y
+		GameManager.set("pos_x", connected_sign_pos_x)
+		GameManager.set("pos_y", connected_sign_pos_y)
 		get_tree().change_scene_to_file(travel_sign.get(0))
 
 func _on_area_2d_body_entered(_body: Node2D) -> void:
 	is_in_area = true
-	GameManager.pos_x = connected_sign_pos_x
-	GameManager.pos_y = connected_sign_pos_y
+	GameManager.set("pos_x", connected_sign_pos_x)
+	GameManager.set("pos_y", connected_sign_pos_y)
 	get_parent().get_node("CanvasLayer").Show_Text(sign_text)
 	$Notification.show()
 
@@ -25,5 +25,5 @@ func _on_area_2d_body_exited(_body: Node2D) -> void:
 	$Notification.hide()
 	get_parent().get_node("CanvasLayer").Hide_Text()
 	await get_tree().create_timer(.002).timeout
-	GameManager.pos_x = position.x
-	GameManager.pos_y = position.y
+	GameManager.set("pos_x", position.x)
+	GameManager.set("pos_y", position.y)
