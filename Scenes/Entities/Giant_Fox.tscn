@@ -7,7 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://hn5emoytmctv" path="res://Assets/Sound/SFX/Damage Sound 5.wav" id="4_m661j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hc2h3"]
-size = Vector2(366.76642, 97.3684)
+size = Vector2(351.79648, 97.3684)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m661j"]
 radius = 3.880345
@@ -176,7 +176,7 @@ collision_layer = 8
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageBox"]
-position = Vector2(-72.604774, 1.97369)
+position = Vector2(-71.10777, 1.97369)
 scale = Vector2(0.19999997, 0.5)
 shape = SubResource("RectangleShape2D_hc2h3")
 
