@@ -195,6 +195,13 @@ sign_text = "To Forbidden"
 connected_sign_pos_x = 39
 connected_sign_pos_y = 30
 
+[node name="Notification" parent="travel sign" index="2"]
+visible = true
+offset_left = -42.76069
+offset_top = -76.51914
+offset_right = 776.2393
+offset_bottom = 164.48087
+
 [node name="travel sign2" parent="." groups=["Signs"] instance=ExtResource("10_oqhsa")]
 position = Vector2(895, 21)
 sign_text = "world"
@@ -333,3 +340,4 @@ texture = ExtResource("15_b5tfy")
 [connection signal="done_printing" from="CanvasLayer/Dialog_Handler/Dialog_Box/Main_Textbox" to="Dialog_Trigger2" method="_on_main_textbox_done_printing"]
 
 [editable path="CanvasLayer/Dialog_Handler"]
+[editable path="travel sign"]

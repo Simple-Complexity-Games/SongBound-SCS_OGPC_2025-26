@@ -539,6 +539,13 @@ sign_text = "To Sparrow Sanctuary"
 connected_sign_pos_x = 800
 connected_sign_pos_y = 29
 
+[node name="Notification" parent="travel sign" index="2"]
+visible = true
+offset_left = 3.0007477
+offset_top = -28.507133
+offset_right = 822.00073
+offset_bottom = 212.49286
+
 [node name="travel sign2" parent="." groups=["Signs"] instance=ExtResource("11_wcev2")]
 process_mode = 4
 visible = false
@@ -699,4 +706,5 @@ position = Vector2(7016, 1233)
 [connection signal="dialog_finished" from="Dialog_Trigger_Swallow_2" to="Special_Dialog_Handler" method="_on_dialog_trigger_swallow_2_dialog_finished"]
 
 [editable path="CanvasLayer/Dialog_Handler"]
+[editable path="travel sign"]
 [editable path="travel sign3"]

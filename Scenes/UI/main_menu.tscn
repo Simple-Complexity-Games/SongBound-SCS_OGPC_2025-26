@@ -138,6 +138,24 @@ theme_override_styles/hover_pressed = ExtResource("7_jewm6")
 theme_override_styles/hover_pressed_mirrored = ExtResource("7_jewm6")
 text = "Quit"
 
+[node name="Separator_1" type="ColorRect" parent="Main_Menu_Container"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+color = Color(1, 1, 1, 0)
+
+[node name="Reset_Demo_Button" type="Button" parent="Main_Menu_Container" groups=["Hoverable"]]
+modulate = Color(0.8850137, 0.3250406, 0.1641798, 1)
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+focus_neighbor_top = NodePath("../Options_Button")
+focus_next = NodePath("../Start_Button")
+focus_previous = NodePath("../Options_Button")
+theme_override_styles/hover = ExtResource("7_jewm6")
+theme_override_styles/hover_mirrored = ExtResource("7_jewm6")
+theme_override_styles/hover_pressed = ExtResource("7_jewm6")
+theme_override_styles/hover_pressed_mirrored = ExtResource("7_jewm6")
+text = "Reset Demo"
+
 [node name="Options_Menu_Label" type="RichTextLabel" parent="." groups=["Hoverable"]]
 visible = false
 layout_mode = 0
@@ -1218,6 +1236,8 @@ environment = SubResource("Environment_yhxw7")
 [connection signal="mouse_entered" from="Main_Menu_Container/Options_Button" to="." method="_on_options_button_mouse_entered"]
 [connection signal="button_down" from="Main_Menu_Container/Quit_Button" to="." method="_on_quit_button_button_down"]
 [connection signal="mouse_entered" from="Main_Menu_Container/Quit_Button" to="." method="_on_quit_button_mouse_entered"]
+[connection signal="button_down" from="Main_Menu_Container/Reset_Demo_Button" to="." method="_on_reset_demo_button_button_down"]
+[connection signal="mouse_entered" from="Main_Menu_Container/Reset_Demo_Button" to="." method="_on_reset_demo_button_mouse_entered"]
 [connection signal="button_down" from="Options_Menu_Container/Controls_Button" to="." method="_on_controls_button_button_down"]
 [connection signal="mouse_entered" from="Options_Menu_Container/Controls_Button" to="." method="_on_controls_button_mouse_entered"]
 [connection signal="button_down" from="Options_Menu_Container/Audio_Button" to="." method="_on_audio_button_button_down"]

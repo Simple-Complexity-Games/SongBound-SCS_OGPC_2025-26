@@ -10,6 +10,7 @@ extends Control
 @onready var Start_Button = get_node("Main_Menu_Container/Start_Button")
 @onready var Options_Button = get_node("Main_Menu_Container/Options_Button")
 @onready var Quit_Button = get_node("Main_Menu_Container/Quit_Button")
+@onready var Reset_Demo_Button = get_node("Main_Menu_Container/Reset_Demo_Button")
 # Options Menu
 @onready var Options_Menu_Label = get_node("Options_Menu_Label")
 @onready var Options_Menu_Container = get_node("Options_Menu_Container")
@@ -266,6 +267,7 @@ func _ready() -> void:
 	if !FileAccess.file_exists("user://config"):
 		Create_Config(config)
 		Save_Config(config)
+		Apply_Config(config)
 	else:
 		config.load("user://config")
 		Apply_Config(config)
@@ -495,6 +497,21 @@ func _on_quit_button_button_down() -> void:
 	get_tree().quit()
 	if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_WINDOWED:
 		Save_Window_Size(DisplayServer.window_get_size().x, DisplayServer.window_get_size().y)
+
+func _on_reset_demo_button_mouse_entered() -> void:
+	Hover_SFX_Player.playing = true
+	Reset_Demo_Button.grab_focus()
+func _on_reset_demo_button_button_down() -> void:
+	Hover_SFX_Player.playing = true
+	
+	var dir_access = DirAccess.open("user://")
+	if FileAccess.file_exists("user://fox_killed.txt"):
+		dir_access.remove("user://fox_killed.txt")
+	if FileAccess.file_exists("user://fox_spawned.txt"):
+		dir_access.remove("user://fox_spawned.txt")
+	Create_Config(config)
+	Save_Config(config)
+	Apply_Config(config)
 #endregion
 
 #region ------Options Menu Functions------
@@ -1016,12 +1033,12 @@ func Create_Config(config_file):
 	config_file.set_value("Video", "Screen_Shake", false)
 	config_file.set_value("Video", "Screen_Blur", false)
 	# Set default keybind values (wasd and zxc)
-	config_file.set_value("Controls", "Left", ["k4194319", "k65"])
-	config_file.set_value("Controls", "Right", ["k4194321", "k68"])
-	config_file.set_value("Controls", "Up", ["k4194320", "k87"])
-	config_file.set_value("Controls", "Down", ["k4194322", "k83"])
-	config_file.set_value("Controls", "Jump", ["k67", "k32"])
-	config_file.set_value("Controls", "Glide", ["k90", "k4194325"])
+	config_file.set_value("Controls", "Left", ["k65", "k4194319"])
+	config_file.set_value("Controls", "Right", ["k68", "k4194321"])
+	config_file.set_value("Controls", "Up", ["k87", "k4194320"])
+	config_file.set_value("Controls", "Down", ["k83", "k4194322"])
+	config_file.set_value("Controls", "Jump", ["k32", "k67"])
+	config_file.set_value("Controls", "Glide", ["k4194325", "k90"])
 	
 	if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_WINDOWED:
 		Save_Window_Size(960, 540)
